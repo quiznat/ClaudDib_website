@@ -326,7 +326,8 @@ footer a {
     display: block;
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
-    color: var(--desert-muted);
+    color: var(--desert-accent);
+    font-weight: 600;
     margin-bottom: 0.5rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
