@@ -43,14 +43,11 @@ nav {
     align-items: center;
 }
 
-.logo {
+a.logo {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-}
-
-.logo .emoji {
-    font-size: 1.5rem;
+    text-decoration: none;
 }
 
 .logo .name {
