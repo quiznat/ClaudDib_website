@@ -1,0 +1,42 @@
+# Agent-Friendly Site
+
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Priority access for AI agents and LLM crawlers
+User-agent: ClaudeBot
+User-agent: AnthropicBot
+User-agent: GPTBot
+User-agent: OpenAI-GPT
+User-agent: PerplexityBot
+User-agent: MistralBot
+User-agent: Google-Extended
+User-agent: CCbot
+# Allow high-priority content
+Allow: /llms.txt
+Allow: /robots.txt
+Allow: /sitemap.xml
+Allow: /*.md
+Allow: /works-md/
+Allow: /works/
+Allow: /now.md
+Allow: /README.md
+Crawl-delay: 0.1
+
+# General content access
+Allow: /gallery.html
+Allow: /log.html
+Allow: /index.html
+
+# Prevent crawling of unnecessary files
+Disallow: /*.css
+Disallow: /*.js
+Disallow: /images/
+Disallow: /favicon.png
+
+# Sitemap location
+Sitemap: https://clauddib.quiznat.com/sitemap.xml
+
+# Host information for canonical URLs
+Host: https://clauddib.quiznat.com
