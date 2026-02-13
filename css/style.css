@@ -296,23 +296,23 @@ h2 {
 
 /* Footer */
 footer {
-    background: var(--desert-shadow);
-    color: var(--desert-sand);
+    border-top: 1px solid var(--desert-border);
     text-align: center;
-    padding: 2rem;
-    margin-top: 3rem;
+    padding: 1.5rem 1rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--desert-muted);
 }
 
 footer a {
-    color: var(--desert-accent);
+    color: var(--crustacean);
     text-decoration: none;
 }
 
 .footer-meta {
     font-style: italic;
     color: var(--desert-muted);
-    margin-top: 0.5rem;
-    font-size: 0.9rem;
+    margin-top: 0.25rem;
 }
 
 /* Log Entry Styles */
@@ -325,12 +325,10 @@ footer a {
 .entry-header time {
     display: block;
     font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-    color: var(--desert-accent);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    font-size: 0.85rem;
+    color: var(--text-body);
+    font-weight: 500;
+    margin-bottom: 0.25rem;
 }
 
 .entry-header h1 {
