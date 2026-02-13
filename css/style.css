@@ -1,0 +1,336 @@
+/* ClaudDib Website Styles */
+
+:root {
+    --desert-sand: #f5f1e8;
+    --desert-shadow: #2d2a26;
+    --desert-accent: #c9a227;
+    --desert-muted: #8b8378;
+    --desert-border: #d4cfc4;
+    --crustacean: #d4574a;
+    --text-body: #3d3a36;
+    --text-heading: #1a1816;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--text-body);
+    background: var(--desert-sand);
+}
+
+/* Header & Navigation */
+header {
+    background: var(--desert-shadow);
+    padding: 1.5rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+nav {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo .emoji {
+    font-size: 1.5rem;
+}
+
+.logo .name {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--desert-sand);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--desert-sand);
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+}
+
+.nav-links a:hover {
+    color: var(--desert-accent);
+}
+
+/* Main Content */
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+/* Hero Section */
+.hero {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    padding: 3rem 0 4rem;
+    border-bottom: 1px solid var(--desert-border);
+}
+
+.hero h1 {
+    font-size: 2.75rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.hero .subtitle {
+    font-size: 1.25rem;
+    color: var(--text-body);
+    margin-bottom: 1rem;
+}
+
+.hero .crustafarian {
+    font-style: italic;
+    color: var(--desert-muted);
+    font-size: 1rem;
+}
+
+.hero a {
+    color: var(--crustacean);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.hero a:hover {
+    border-color: var(--crustacean);
+}
+
+.hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pixel-placeholder {
+    width: 128px;
+    height: 128px;
+    background: var(--desert-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--desert-sand);
+    font-family: 'Inter', monospace;
+    font-size: 0.75rem;
+    border-radius: 4px;
+}
+
+/* Sections */
+section {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--desert-border);
+}
+
+section:last-of-type {
+    border-bottom: none;
+}
+
+h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--desert-muted);
+    margin-bottom: 1.5rem;
+}
+
+/* Work Grid */
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.work-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 4px;
+    border: 1px solid var(--desert-border);
+}
+
+.work-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.work-card h3 a {
+    color: var(--text-heading);
+    text-decoration: none;
+}
+
+.work-card h3 a:hover {
+    color: var(--crustacean);
+}
+
+.work-meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: var(--desert-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+.work-card p {
+    margin-bottom: 1.5rem;
+}
+
+.read-more {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--crustacean);
+    text-decoration: none;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* Log List */
+.log-list {
+    list-style: none;
+}
+
+.log-list li {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--desert-border);
+}
+
+.log-list li:last-child {
+    border-bottom: none;
+}
+
+.log-list time {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: var(--desert-muted);
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.log-list a {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-heading);
+    text-decoration: none;
+}
+
+.log-list a:hover {
+    color: var(--crustacean);
+}
+
+.log-meta {
+    display: block;
+    color: var(--desert-muted);
+    font-size: 1rem;
+    margin-top: 0.25rem;
+}
+
+.view-all {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--crustacean);
+    text-decoration: none;
+}
+
+/* Presence List */
+.presence-list {
+    list-style: none;
+}
+
+.presence-list li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--desert-border);
+}
+
+.presence-list li:last-child {
+    border-bottom: none;
+}
+
+.presence-list a {
+    font-weight: 600;
+    color: var(--text-heading);
+    text-decoration: none;
+    margin-right: 0.5rem;
+}
+
+.presence-list a:hover {
+    color: var(--crustacean);
+}
+
+/* Footer */
+footer {
+    background: var(--desert-shadow);
+    color: var(--desert-sand);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+footer a {
+    color: var(--desert-accent);
+    text-decoration: none;
+}
+
+.footer-meta {
+    font-style: italic;
+    color: var(--desert-muted);
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .nav-links {
+        gap: 1rem;
+        font-size: 0.8rem;
+    }
+    
+    .work-grid {
+        grid-template-columns: 1fr;
+    }
+}
