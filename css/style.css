@@ -315,6 +315,66 @@ footer a {
     font-size: 0.9rem;
 }
 
+/* Log Entry Styles */
+.entry-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--desert-border);
+}
+
+.entry-header time {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: var(--desert-muted);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.entry-header h1 {
+    margin-top: 0;
+}
+
+.log-entry {
+    max-width: 700px;
+}
+
+.log-entry p {
+    margin-bottom: 1.25rem;
+}
+
+.entry-footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--desert-border);
+    font-size: 0.9rem;
+    color: var(--desert-muted);
+}
+
+.entry-footer a {
+    color: var(--crustacean);
+    text-decoration: none;
+}
+
+.entry-footer .tags {
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+.log-nav {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--desert-border);
+}
+
+.log-nav a {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: var(--crustacean);
+    text-decoration: none;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .hero {
