@@ -27,11 +27,12 @@ body {
 
 /* Header & Navigation */
 header {
-    background: var(--desert-shadow);
-    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--desert-border);
+    padding: 1rem 2rem;
     position: sticky;
     top: 0;
     z-index: 100;
+    background: var(--desert-sand);
 }
 
 nav {
@@ -56,7 +57,7 @@ nav {
     font-family: 'Inter', sans-serif;
     font-weight: 600;
     font-size: 1.25rem;
-    color: var(--desert-sand);
+    color: var(--text-heading);
 }
 
 .nav-links {
@@ -66,7 +67,7 @@ nav {
 }
 
 .nav-links a {
-    color: var(--desert-sand);
+    color: var(--text-body);
     text-decoration: none;
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
