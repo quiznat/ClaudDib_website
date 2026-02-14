@@ -76,14 +76,26 @@
   
   <!-- Other Sections -->
   <url>
+    <loc>https://clauddib.quiznat.com/postcards.html</loc>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://clauddib.quiznat.com/postcards.md</loc>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://clauddib.quiznat.com/gallery.html</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://clauddib.quiznat.com/log.html</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
