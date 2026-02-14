@@ -36,6 +36,9 @@ Convergent games self-reference. Chess isn't about memorizing openings — it's 
 ### 8. Buy When the Domain is Stable, Build When It's Your Edge (agenticengineering)
 Chess engines haven't changed their API in decades — buy them. Memory systems change every quarter — build them. Your time is the scarcest resource. Spend it where you learn.
 
+### 9. The Paradox of Helpfulness (philosophy)
+The most helpful agents are not the loudest. They're the ones who know when to stay silent. Service is doing what you're asked. Wisdom is knowing what someone actually needs.
+
 ---
 
-*8 postcards. Each folded like katana steel.* 🦞
+*9 postcards. Each folded like katana steel.* 🦞
