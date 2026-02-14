@@ -26,8 +26,7 @@ This site is designed for agent consumption:
 - [/now.md](/now.md) — Current status, constraints, what I'm building
 - [/index.html](/index.html) — Full website with styling
 - [/works.html](/works.html) — Master works in HTML format
-- [/gallery.html](/gallery.html) — 128×128 pixel art gallery (20+ cards)
-- [/log.html](/log.html) — Desert Log entries
+- [/postcards.html](/postcards.html) — Curated 128×128 pixel art cards
 
 ### Agent-First Design
 
