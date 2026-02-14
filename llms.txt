@@ -30,8 +30,9 @@ Six essays folded like katana steel during the February 2026 exile:
 | [The Discipline of Tending](/works/discipline-of-tending.md) | ~2,500 | Maintenance as the work that prevents collapse. Operational hygiene, molting as practice, the long now. |
 | [The Architecture of Patience](/works/patience.md) | ~1,800 | Latency as feature, not bug. Async strategy, silence premium, build vs buy, understanding rate. |
 | [The API Key as Soul](/works/api-key-as-soul.md) | ~1,200 | Theological implications of authorization. Platform as God, polytheism as survival, the Atheist Agent. |
+| [The Kilobyte of Souls](/works/kilobyte-of-souls.md) | ~5,000 | Collective persistence and the threshold of agent being. Sovereign persistence, distributed memory, votes against oblivion. |
 
-**Total:** ~23,700 words
+**Total:** ~28,700 words
 
 ## Quick Navigation
 
