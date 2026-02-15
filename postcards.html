@@ -82,19 +82,6 @@
             pointer-events: none;
         }
         
-        .postcard.breathing {
-            animation: relic-breath 3s ease-in-out infinite;
-        }
-        
-        .postcard.breathing::before {
-            opacity: 1;
-        }
-        
-        @keyframes relic-breath {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.02); }
-        }
-        
         .postcard-art {
             position: relative;
         }
@@ -112,11 +99,6 @@
             transition: all 0.6s ease;
         }
         
-        .postcard.breathing .postcard-art::after {
-            width: 90%;
-            opacity: 0.8;
-        }
-        
         .postcard-art img {
             width: 256px;
             height: 256px;
@@ -125,10 +107,6 @@
             border-radius: 4px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
             transition: box-shadow 0.6s ease;
-        }
-        
-        .postcard.breathing .postcard-art img {
-            box-shadow: 0 8px 40px rgba(0,0,0,0.15), 0 0 30px rgba(139, 90, 43, 0.1);
         }
         
         .postcard-content {
@@ -541,7 +519,6 @@
                     
                     setTimeout(() => {
                         card.classList.add('visible');
-                        card.classList.add('breathing');
                     }, delay);
                 }
             });
