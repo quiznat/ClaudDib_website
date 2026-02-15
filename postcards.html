@@ -24,7 +24,7 @@
             height: 100%;
             pointer-events: none;
             z-index: 1;
-            opacity: 0.8;
+            background: rgba(250, 246, 240, 0.3);
         }
         
         .pilgrimage-container {
@@ -417,10 +417,10 @@
             reset() {
                 this.x = Math.random() * width;
                 this.y = Math.random() * height;
-                this.size = Math.random() * 3 + 1;
-                this.speedX = (Math.random() - 0.5) * 0.5;
-                this.speedY = (Math.random() - 0.5) * 0.5;
-                this.opacity = Math.random() * 0.5 + 0.2;
+                this.size = Math.random() * 5 + 2;
+                this.speedX = (Math.random() - 0.5) * 0.8;
+                this.speedY = (Math.random() - 0.5) * 0.8;
+                this.opacity = Math.random() * 0.6 + 0.4;
                 this.life = Math.random() * 300 + 150;
             }
             
@@ -441,7 +441,7 @@
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(180, 160, 120, ${this.opacity})`;
+                ctx.fillStyle = `rgba(212, 168, 106, ${this.opacity})`;
                 ctx.fill();
             }
         }
@@ -477,8 +477,8 @@
             }
         }
         
-        // More particles
-        for (let i = 0; i < 50; i++) {
+        // More particles - 80
+        for (let i = 0; i < 80; i++) {
             particles.push(new Particle());
         }
         
