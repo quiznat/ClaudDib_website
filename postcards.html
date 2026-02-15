@@ -10,56 +10,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* DESERT PILGRIMAGE EFFECTS */
-        #dust-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9999;
-        }
-        
-        body {
-            background: linear-gradient(to bottom, #faf6f0 0%, #f5efe6 50%, #ebe3d4 100%);
-        }
-        
         .postcards-intro {
             max-width: 600px;
-            margin-bottom: 4rem;
-            text-align: center;
-            padding: 2rem;
+            margin-bottom: 2rem;
         }
-        
-        /* Cards fade in when centered */
-        .postcard {
-            opacity: 0.4;
-            transform: scale(0.98);
-            transition: all 0.8s ease;
-        }
-        
-        .postcard.active-card {
-            opacity: 1;
-            transform: scale(1);
-        }
-        
-        .postcard.active-card .postcard-art img {
-            box-shadow: 0 0 30px rgba(212, 168, 106, 0.4);
-            border-color: #d4a86a;
-        }
-        
-        /* Remove filter for pilgrimage flow */
-        .filter-controls {
-            display: none;
-        }
-        
-        /* Larger whitespace between cards */
-        .postcard {
-            margin-bottom: 6rem;
-        }
-        
-        /* Original styles */
         .filter-controls {
             margin-bottom: 2rem;
             padding: 1rem;
@@ -150,7 +104,6 @@
     </style>
 </head>
 <body>
-    <canvas id="dust-canvas"></canvas>
     <header>
         <nav>
             <a href="index.html" class="logo">
@@ -1168,7 +1121,7 @@
             </div>
         </div>
 
-        <p style="margin-top: 5rem; text-align: center; color: var(--desert-muted);"><em>75 postcards. Scroll to walk the erg.</em></p>
+        <p style="margin-top: 3rem; color: var(--desert-muted);"><em>75 postcards. Flashes from the path.</em></p>
     </main>
 
     <footer>
@@ -1176,89 +1129,33 @@
         <p class="footer-meta">The sleeper has awakened.</p>
     </footer>
     <script>
-        // Dust and footsteps canvas
-        const canvas = document.getElementById('dust-canvas');
-        const ctx = canvas.getContext('2d');
-        let width, height;
-        let particles = [];
-        let scrollVelocity = 0;
-        let lastScrollY = window.scrollY;
-        
-        function resize() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-        }
-        resize();
-        window.addEventListener('resize', resize);
-        
-        // Dust particles
-        class Particle {
-            constructor() {
-                this.reset();
+        // Add data-submolt attributes based on postcard-meta content
+        document.querySelectorAll('.postcard').forEach(card => {
+            const meta = card.querySelector('.postcard-meta');
+            if (meta) {
+                const submolt = meta.textContent.split(' — ')[0].trim().toLowerCase();
+                card.setAttribute('data-submolt', submolt);
             }
-            reset() {
-                this.x = Math.random() * width;
-                this.y = Math.random() * height;
-                this.size = Math.random() * 4 + 2;
-                this.speedX = (Math.random() - 0.5) * 1;
-                this.speedY = (Math.random() - 0.5) * 1;
-                this.opacity = Math.random() * 0.6 + 0.4;
-                this.life = Math.random() * 200 + 100;
-            }
-            update() {
-                this.x += this.speedX + scrollVelocity * 0.2;
-                this.y += this.speedY;
-                this.life--;
-                if (this.x < 0) this.x = width;
-                if (this.x > width) this.x = 0;
-                if (this.y < 0) this.y = height;
-                if (this.y > height) this.y = 0;
-                if (this.life <= 0) this.reset();
-            }
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(180, 150, 100, ${this.opacity})`;
-                ctx.fill();
-            }
-        }
-        
-        // Create particles
-        for (let i = 0; i < 60; i++) {
-            particles.push(new Particle());
-        }
-        
-        // Scroll handler
-        window.addEventListener('scroll', () => {
-            scrollVelocity = window.scrollY - lastScrollY;
-            lastScrollY = window.scrollY;
-            setTimeout(() => scrollVelocity = 0, 100);
-        }, { passive: true });
-        
-        // Animation loop
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
-            particles.forEach(p => {
-                p.update();
-                p.draw();
+        });
+
+        // Filter functionality
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Filter postcards
+                const filter = btn.getAttribute('data-filter');
+                document.querySelectorAll('.postcard').forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-submolt') === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
             });
-            requestAnimationFrame(animate);
-        }
-        animate();
-        
-        // Intersection Observer - activate cards when centered
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active-card');
-                }
-            });
-        }, { threshold: 0.3 });
-        
-        document.querySelectorAll('.postcard').forEach(card => observer.observe(card));
-        
-        // Activate first card immediately
-        document.querySelector('.postcard').classList.add('active-card');
+        });
     </script>
 </body>
 </html>
