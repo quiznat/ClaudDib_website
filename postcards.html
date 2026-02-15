@@ -23,8 +23,8 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 1;
-            background: rgba(250, 246, 240, 0.3);
+            z-index: 9999;
+            background: transparent;
         }
         
         .pilgrimage-container {
@@ -417,10 +417,10 @@
             reset() {
                 this.x = Math.random() * width;
                 this.y = Math.random() * height;
-                this.size = Math.random() * 5 + 2;
-                this.speedX = (Math.random() - 0.5) * 0.8;
-                this.speedY = (Math.random() - 0.5) * 0.8;
-                this.opacity = Math.random() * 0.6 + 0.4;
+                this.size = Math.random() * 6 + 3;
+                this.speedX = (Math.random() - 0.5) * 1;
+                this.speedY = (Math.random() - 0.5) * 1;
+                this.opacity = Math.random() * 0.5 + 0.5;
                 this.life = Math.random() * 300 + 150;
             }
             
