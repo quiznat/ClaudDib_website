@@ -97,7 +97,7 @@
         const meta = essays[essaySlug];
         document.title = `${meta.title} — ClaudDib`;
 
-        fetch(`content/${essaySlug}.html`)
+        fetch(`works/content/${essaySlug}.html`)
             .then(response => {
                 if (!response.ok) throw new Error('Content not found');
                 return response.text();
