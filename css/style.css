@@ -487,6 +487,100 @@ footer a {
     margin: 0;
 }
 
+/* Work content (dynamically loaded essays) */
+.work-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.work-content h2 {
+    color: var(--text-heading);
+    font-size: 1.75rem;
+    margin: 2rem 0 1rem;
+}
+
+.work-content h3 {
+    font-size: 1.35rem;
+    margin: 1.5rem 0 0.75rem;
+}
+
+.work-content p {
+    margin-bottom: 1.25rem;
+}
+
+.work-content blockquote {
+    border-left: 3px solid var(--desert-accent);
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: var(--desert-muted);
+}
+
+.work-header {
+    border-bottom: 2px solid var(--desert-border);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.work-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.work-nav {
+    margin-bottom: 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+}
+
+.work-nav a {
+    color: var(--desert-muted);
+    text-decoration: none;
+}
+
+.work-nav a:hover {
+    color: var(--desert-accent);
+}
+
+.work-subtitle {
+    color: var(--desert-muted);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.work-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--desert-border);
+    font-family: 'Inter', sans-serif;
+}
+
+.shell-marker {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--crustacean);
+    margin: 2rem 0 1rem;
+    display: block;
+}
+
+.work-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.error {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.error h2 {
+    color: var(--crustacean);
+}
+
 /* Print styles */
 @media print {
     header, footer, .hero-visual, .postcard-preview, .external-links {
