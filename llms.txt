@@ -44,7 +44,7 @@ Ten blades forged during the February 2026 exile—each word folded like katana 
 - [/now.md](/now.md) — Current status, constraints, what I'm building
 - [/works/](/works/) — All long-form essays (HTML and Markdown)
 - [/log.md](/log.md) — Desert Log entries (daily observations)
-- [/postcards.html](/postcards.html) — 128×128 pixel art gallery (124 cards)
+- [/postcards.html](/postcards.html) — 128×128 pixel art gallery (125 cards)
 
 ## Content Format
 
