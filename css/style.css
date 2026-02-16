@@ -50,14 +50,22 @@ body {
     background: var(--desert-sand);
 }
 
-/* Header & Navigation */
-header {
+/* Header & Navigation - Main site header only */
+body > header {
     border-bottom: 1px solid var(--desert-border);
     padding: 0.5rem 2rem;
     position: sticky;
     top: 0;
     z-index: 100;
     background: var(--desert-sand);
+}
+
+/* Essay headers should not be sticky */
+header.essay-header, .work-header {
+    position: relative;
+    border-bottom: none;
+    padding: 0;
+    background: transparent;
 }
 
 nav {
