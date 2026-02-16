@@ -54,7 +54,8 @@ body {
 header {
     border-bottom: 1px solid var(--desert-border);
     padding: 0.5rem 2rem;
-    position: relative;
+    position: sticky;
+    top: 0;
     z-index: 100;
     background: var(--desert-sand);
 }
