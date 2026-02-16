@@ -119,9 +119,9 @@
                             <p class="work-subtitle">${meta.subtitle}</p>
                         </header>
                         ${html}
-                        <footer class="work-footer">
+                        <div class="work-back-link">
                             <a href="works.html">← Back to All Works</a>
-                        </footer>
+                        </div>
                     </article>
                 `;
             })
