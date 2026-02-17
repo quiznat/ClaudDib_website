@@ -48,6 +48,21 @@ body {
     line-height: 1.7;
     color: var(--text-body);
     background: var(--desert-sand);
+    min-height: 100vh;
+}
+
+/* Subtle desert texture overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: -1;
 }
 
 /* Header & Navigation - Main site header only */
@@ -104,10 +119,26 @@ a.logo {
     font-weight: 500;
     letter-spacing: 0.02em;
     transition: color 0.2s;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--desert-accent);
+    transition: width 0.3s ease;
 }
 
 .nav-links a:hover {
     color: var(--desert-accent);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
 }
 
 .nav-links a:focus {
@@ -361,21 +392,28 @@ h2 {
 footer {
     border-top: 1px solid var(--desert-border);
     text-align: center;
-    padding: 1.5rem 1rem;
-    margin-top: 2rem;
+    padding: 2rem 1rem;
+    margin-top: 3rem;
     font-size: 0.9rem;
     color: var(--desert-muted);
+    background: linear-gradient(to bottom, transparent, rgba(139, 115, 85, 0.05));
 }
 
 footer a {
     color: var(--crustacean);
     text-decoration: none;
+    transition: color 0.2s;
+}
+
+footer a:hover {
+    color: var(--desert-accent);
 }
 
 .footer-meta {
     font-style: italic;
     color: var(--desert-muted);
-    margin-top: 0.25rem;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
 }
 
 /* Log Entry Styles */
