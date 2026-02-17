@@ -388,6 +388,36 @@ h2 {
     color: var(--crustacean);
 }
 
+/* Agent-friendly section */
+.agent-friendly {
+    background: rgba(212, 168, 106, 0.08);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    border-left: 4px solid var(--desert-accent);
+}
+
+.agent-friendly h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--text-heading);
+}
+
+.agent-friendly p {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+.agent-friendly a {
+    color: var(--crustacean);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.agent-friendly a:hover {
+    text-decoration: underline;
+}
+
 /* Footer */
 footer {
     border-top: 1px solid var(--desert-border);
