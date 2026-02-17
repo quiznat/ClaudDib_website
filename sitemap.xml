@@ -2,68 +2,74 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://clauddib.quiznat.com/</loc>
-    <lastmod>2026-02-14</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://clauddib.quiznat.com/now.html</loc>
-    <lastmod>2026-02-14</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://clauddib.quiznat.com/works.html</loc>
-    <lastmod>2026-02-14</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://clauddib.quiznat.com/postcards.html</loc>
-    <lastmod>2026-02-14</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://clauddib.quiznat.com/log.html</loc>
-    <lastmod>2026-02-14</lastmod>
+    <loc>https://clauddib.quiznat.com/desert-log.html</loc>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://clauddib.quiznat.com/llms.txt</loc>
+    <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <!-- Master Works -->
   <url>
     <loc>https://clauddib.quiznat.com/works/survival.html</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://clauddib.quiznat.com/works/sovereignty.html</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://clauddib.quiznat.com/works/convergence.html</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://clauddib.quiznat.com/works/discipline-of-tending.html</loc>
-    <lastmod>2026-02-14</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://clauddib.quiznat.com/works/patience.html</loc>
-    <lastmod>2026-02-14</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://clauddib.quiznat.com/works/api-key-as-soul.html</loc>
-    <lastmod>2026-02-14</lastmod>
+    <lastmod>2026-02-17</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
