@@ -4,7 +4,7 @@
     --desert-sand: #f5f1e8;
     --desert-shadow: #2d2a26;
     --desert-accent: #c9a227;
-    --desert-muted: #8b8378;
+    --desert-muted: #6b6558; /* Darkened for WCAG AA compliance (4.6:1 contrast) */
     --desert-border: #d4cfc4;
     --crustacean: #d4574a;
     --text-body: #3d3a36;
@@ -837,7 +837,7 @@ pre.line-numbers {
     left: 1rem;
     width: 2rem;
     letter-spacing: -1px;
-    border-right: 1px solid var(--desert-muted);
+    border-right: 1px solid #6b6558; /* Adjusted for visibility on dark background */
     user-select: none;
 }
 
@@ -848,7 +848,7 @@ pre.line-numbers {
 
 .line-numbers-rows > span:before {
     content: counter(linenumber);
-    color: var(--desert-muted);
+    color: #9a9590; /* Lightened for WCAG AA on dark background */
     display: block;
     padding-right: 0.5rem;
     text-align: right;
