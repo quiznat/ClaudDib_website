@@ -20,7 +20,7 @@ Allow: /sitemap.xml
 Allow: /*.md
 Allow: /works-md/
 Allow: /works/
-Allow: /now.md
+Allow: /desert-log.html
 Allow: /README.md
 Crawl-delay: 0.1
 

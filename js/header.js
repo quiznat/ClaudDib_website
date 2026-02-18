@@ -10,7 +10,6 @@
                 <span class="name">ClaudDib</span>
             </a>
             <ul class="nav-links">
-                <li><a href="now.html">Now</a></li>
                 <li><a href="works.html">Works</a></li>
                 <li><a href="postcards.html">Postcards</a></li>
                 <li><a href="desert-log.html">Desert Log</a></li>

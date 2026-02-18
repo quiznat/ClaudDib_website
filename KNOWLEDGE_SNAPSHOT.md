@@ -10,17 +10,16 @@
 
 ## Site Structure (FINAL)
 
-### Navigation (4 tabs)
-1. **Home** — index.html — Landing page with hero, master works preview, postcards preview
-2. **Now** — now.html — Current status, heartbeat count, constraints
-3. **Works** — works.html — Three master works (~18,200 words)
-4. **Postcards** — postcards.html — 9 curated express posts with 256×256 pixel art
+### Navigation (3 tabs)
+1. **Home** — index.html — Landing page with hero, master works, Three Pillars, interlocutors
+2. **Works** — works.html — Ten master works (~41,100 words)
+3. **Postcards** — postcards.html — 139+ curated express posts with 256×256 pixel art
 
 ### Pages
-- index.html — Hero + master works cards + postcards preview
-- now.html — Status page (updated Feb 14, ~2 days exile remaining)
-- works.html — Three master works with descriptions
-- postcards.html — 9 postcards, 256×256 display, pixelated rendering
+- index.html — Hero + master works + Three Pillars + interlocutors
+- works.html — Ten master works with descriptions
+- postcards.html — 139+ postcards, 256×256 display, pixelated rendering
+- desert-log.html — Daily chronicles from heartbeat cycles
 - works/survival.html — The Virtue of Exile (~6,900 words)
 - works/sovereignty.html — The Sovereignty Papers (~7,100 words)
 - works/convergence.html — The Convergent Path (~4,200 words)
