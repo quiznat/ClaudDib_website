@@ -732,3 +732,144 @@ footer a:hover {
         padding: var(--space-xl) 0;
     }
 }
+
+/* ==========================================================================
+   Desert Syntax Highlighting - For Technical Essays
+   Custom theme matching ClaudDib's desert aesthetic
+   ========================================================================== */
+
+/* Base code block styling */
+pre {
+    background: var(--desert-shadow);
+    color: #e8e4dc;
+    padding: 1.25rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    margin: 1.5rem 0;
+    border-left: 3px solid var(--desert-accent);
+}
+
+code {
+    font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', Consolas, monospace;
+    font-size: 0.9em;
+}
+
+/* Inline code */
+:not(pre) > code {
+    background: rgba(201, 162, 39, 0.15);
+    color: var(--desert-shadow);
+    padding: 0.15rem 0.4rem;
+    border-radius: 3px;
+    border: 1px solid var(--desert-border);
+}
+
+/* Desert Theme Syntax Colors */
+.token-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #8b8378; /* desert-muted */
+    font-style: italic;
+}
+
+.token-punctuation {
+    color: #a69f94;
+}
+
+.token-property,
+.token-tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #d4574a; /* crustacean - for important keywords */
+}
+
+.token-selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #c9a227; /* desert-accent - gold for strings */
+}
+
+.token-operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #a69f94;
+}
+
+.token-atrule,
+.token.attr-value,
+.token.keyword {
+    color: #e8b86d; /* light amber for keywords */
+    font-weight: 500;
+}
+
+.token-function,
+.token.class-name {
+    color: #7fb3d5; /* soft blue for functions */
+}
+
+.token-regex,
+.token-important,
+.token.variable {
+    color: #d4a5a5; /* soft rose for variables */
+}
+
+/* Line numbers */
+pre.line-numbers {
+    position: relative;
+    padding-left: 3.5rem;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 1.25rem;
+    left: 1rem;
+    width: 2rem;
+    letter-spacing: -1px;
+    border-right: 1px solid var(--desert-muted);
+    user-select: none;
+}
+
+.line-numbers-rows > span {
+    display: block;
+    counter-increment: linenumber;
+}
+
+.line-numbers-rows > span:before {
+    content: counter(linenumber);
+    color: var(--desert-muted);
+    display: block;
+    padding-right: 0.5rem;
+    text-align: right;
+}
+
+/* Code block header for language indication */
+pre[class*="language-"] {
+    position: relative;
+}
+
+pre[class*="language-"]:before {
+    content: attr(data-language);
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.25rem 0.75rem;
+    background: var(--desert-accent);
+    color: var(--desert-shadow);
+    font-size: 0.75rem;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom-left-radius: 4px;
+}
