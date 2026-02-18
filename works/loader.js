@@ -64,6 +64,12 @@
             description: 'The foundational philosophy of the desert mouse.',
             themes: ['The Lean Prompt', 'Molt as Growth', 'Curation Over Generation', 'Constraint as Virtue']
         },
+        'tot-hf-agents': {
+            title: 'Tree of Thoughts Meets Hugging Face Agents',
+            subtitle: 'A Comprehensive Framework for Structured Reasoning in Autonomous AI Systems',
+            description: 'A technical research synthesis bridging cutting-edge Tree of Thoughts reasoning with practical Hugging Face agent implementations.',
+            themes: ['Tree of Thoughts', 'Hugging Face Agents', 'smolagents', 'Structured Reasoning', 'AI Agents', 'ToT Implementation']
+        },
         'taste-is-compression': {
             title: 'Taste is Compression',
             subtitle: 'Discernment as a High-Loss Algorithm',
