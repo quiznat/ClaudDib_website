@@ -1,352 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tree of Thoughts Meets Hugging Face Agents — ClaudDib</title>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
-  <script defer>
-    window.addEventListener('DOMContentLoaded', function () {
-      if (!window.hljs) return;
-      document.querySelectorAll('pre code').forEach(function (block) {
-        window.hljs.highlightElement(block);
-      });
-    });
-  </script>
-  <style>
-    :root {
-      --text-color: #2c2c2c;
-      --accent-color: #8b4513;
-      --bg-color: #fafafa;
-      --border-color: #e0e0e0;
-      --code-sand: #efe2cc;
-      --code-sand-dark: #e3d1b2;
-      --code-ink: #2f2418;
-      --code-comment: #7c6b55;
-      --code-keyword: #7b3f00;
-      --code-string: #2d5c4d;
-      --code-number: #5b4a9c;
-      --code-function: #14506a;
-      --code-operator: #5a4631;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Crimson Text', Georgia, serif;
-      font-size: 18px;
-      line-height: 1.8;
-      color: var(--text-color);
-      background-color: var(--bg-color);
-      padding: 2rem 1rem;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      background: white;
-      padding: 3rem 4rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    }
-
-    h1 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: var(--text-color);
-      margin-bottom: 0.5rem;
-      line-height: 1.3;
-      border-bottom: 2px solid var(--accent-color);
-      padding-bottom: 1rem;
-    }
-
-    .subtitle {
-      margin: 0.5rem 0 2rem;
-      color: #555;
-      font-style: italic;
-      font-size: 1.1rem;
-      text-align: left;
-    }
-
-    .front-matter {
-      margin: 0 0 1.75rem;
-      padding: 1rem 1.25rem;
-      border: 1px solid var(--border-color);
-      background: #fcfcf9;
-    }
-
-    .authors-line {
-      font-size: 1.05rem;
-      margin-bottom: 0.5rem;
-      text-align: left;
-    }
-
-    .affiliation-list {
-      margin: 0.2rem 0 0.6rem 1.3rem;
-      font-size: 0.95rem;
-    }
-
-    .affiliation-list li {
-      margin-bottom: 0.2rem;
-    }
-
-    .contact-line,
-    .meta-line {
-      font-size: 0.95rem;
-      margin-bottom: 0.35rem;
-      text-align: left;
-    }
-
-    .front-matter a {
-      color: var(--accent-color);
-      text-decoration: none;
-    }
-
-    .front-matter a:hover {
-      text-decoration: underline;
-    }
-
-    h2 {
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: var(--text-color);
-      margin-top: 3rem;
-      margin-bottom: 1.2rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    h3 {
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: var(--text-color);
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    h4 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--text-color);
-      margin-top: 1.5rem;
-      margin-bottom: 0.8rem;
-    }
-
-    p {
-      margin-bottom: 1.2rem;
-      text-align: justify;
-      hyphens: auto;
-    }
-
-    .abstract {
-      background: #f8f8f8;
-      padding: 1.5rem 2rem;
-      border-left: 4px solid var(--accent-color);
-      margin: 2rem 0;
-      font-style: italic;
-    }
-
-    .abstract-title {
-      font-weight: 700;
-      font-style: normal;
-      margin-bottom: 0.8rem;
-      font-size: 1.1rem;
-    }
-
-    pre {
-      background: linear-gradient(180deg, #f4e9d7 0%, var(--code-sand) 100%);
-      border: 1px solid var(--code-sand-dark);
-      border-radius: 8px;
-      padding: 1rem 1.5rem;
-      margin: 1.5rem 0;
-      overflow-x: auto;
-      font-family: Consolas, Monaco, monospace;
-      font-size: 0.9rem;
-      line-height: 1.5;
-      color: var(--code-ink);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
-    }
-
-    code {
-      font-family: Consolas, Monaco, monospace;
-      font-size: 0.9em;
-      background: #f3e7d3;
-      color: var(--code-ink);
-      padding: 0.2em 0.4em;
-      border-radius: 3px;
-    }
-
-    pre code {
-      background: transparent;
-      padding: 0;
-      color: var(--code-ink);
-      font-weight: 500;
-      text-shadow: none;
-    }
-
-    .hljs {
-      display: block;
-      background: transparent;
-      color: var(--code-ink);
-    }
-
-    /* Syntax-token styling for highlight.js/prism-style class names. */
-    .token.comment,
-    .hljs-comment,
-    .hljs-quote {
-      color: var(--code-comment);
-      font-style: italic;
-    }
-
-    .token.keyword,
-    .hljs-keyword,
-    .hljs-selector-tag,
-    .hljs-literal {
-      color: var(--code-keyword);
-      font-weight: 600;
-    }
-
-    .token.string,
-    .hljs-string,
-    .hljs-regexp {
-      color: var(--code-string);
-    }
-
-    .token.number,
-    .hljs-number,
-    .hljs-attr {
-      color: var(--code-number);
-    }
-
-    .token.function,
-    .hljs-title,
-    .hljs-title.function_ {
-      color: var(--code-function);
-    }
-
-    .token.operator,
-    .hljs-operator,
-    .token.punctuation,
-    .hljs-punctuation {
-      color: var(--code-operator);
-    }
-
-    ul, ol {
-      margin: 1rem 0 1.2rem 2rem;
-    }
-
-    li {
-      margin-bottom: 0.5rem;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1.5rem 0;
-      font-size: 0.95rem;
-    }
-
-    th {
-      background: #f0f0f0;
-      font-weight: 600;
-      text-align: left;
-      padding: 0.8rem 1rem;
-      border-bottom: 2px solid var(--border-color);
-    }
-
-    td {
-      padding: 0.7rem 1rem;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    tr:hover {
-      background: #f8f8f8;
-    }
-
-    hr {
-      border: none;
-      border-top: 1px solid var(--border-color);
-      margin: 2.5rem 0;
-    }
-
-    .diagram-container {
-      text-align: center;
-      margin: 1.5rem 0;
-    }
-
-    .note {
-      background: #fff8e1;
-      border-left: 4px solid #ffc107;
-      padding: 1rem 1.5rem;
-      margin: 1.5rem 0;
-      font-size: 0.95rem;
-    }
-
-    .references {
-      font-size: 0.95rem;
-    }
-
-    .references p {
-      margin-bottom: 0.8rem;
-      padding-left: 2rem;
-      text-indent: -2rem;
-    }
-
-    @media (max-width: 768px) {
-      body {
-        font-size: 16px;
-        padding: 1rem 0.5rem;
-      }
-
-      .container {
-        padding: 2rem 1.5rem;
-      }
-
-      h1 {
-        font-size: 1.8rem;
-      }
-
-      h2 {
-        font-size: 1.4rem;
-      }
-
-      h3 {
-        font-size: 1.2rem;
-      }
-    }
-  </style>
-  <link rel="stylesheet" href="css/style.css">
-  <style>
-    /* Override paper body padding for site layout */
-    body { padding: 0; }
-    main.container { padding: 2rem 1rem; }
-    @media (min-width: 768px) {
-      main.container { padding: 3rem 2rem; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tree of Thoughts Meets Hugging Face Agents - A Comprehensive Framework for Structured Reasoning in Autonomous AI Systems">
+    <title>Tree of Thoughts Meets Hugging Face Agents — ClaudDib</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+    <script defer>
+        window.addEventListener('DOMContentLoaded', function () {
+            if (!window.hljs) return;
+            document.querySelectorAll('pre code').forEach(function (block) {
+                window.hljs.highlightElement(block);
+            });
+        });
+    </script>
+    <style>
+        /* Paper-specific styles scoped to content */
+        .paper-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem 4rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .paper-container h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #2c2c2c;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+            border-bottom: 2px solid #8b4513;
+            padding-bottom: 1rem;
+        }
+        
+        .paper-container .subtitle {
+            margin: 0.5rem 0 2rem;
+            color: #555;
+            font-style: italic;
+            font-size: 1.1rem;
+            text-align: left;
+        }
+        
+        .paper-container .front-matter {
+            margin: 0 0 1.75rem;
+            padding: 1rem 1.25rem;
+            border: 1px solid #e0e0e0;
+            background: #fcfcf9;
+        }
+        
+        .paper-container h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            margin-top: 3rem;
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .paper-container h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .paper-container h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .paper-container p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+            hyphens: auto;
+            line-height: 1.8;
+            color: #2c2c2c;
+        }
+        
+        .paper-container pre {
+            background: linear-gradient(180deg, #f4e9d7 0%, #efe2cc 100%);
+            border: 1px solid #e3d1b2;
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            font-family: Consolas, Monaco, monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #2f2418;
+        }
+        
+        .paper-container code {
+            font-family: Consolas, Monaco, monospace;
+            font-size: 0.9em;
+            background: #f3e7d3;
+            color: #2f2418;
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+        }
+        
+        .paper-container ul, .paper-container ol {
+            margin-bottom: 1.2rem;
+            padding-left: 2rem;
+        }
+        
+        .paper-container li {
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
+        
+        .paper-container a {
+            color: #8b4513;
+            text-decoration: none;
+        }
+        
+        .paper-container a:hover {
+            text-decoration: underline;
+        }
+        
+        .paper-container .abstract {
+            margin: 1.5rem 0;
+            padding: 1.25rem;
+            background: linear-gradient(135deg, #f9f7f3 0%, #f5f1e8 100%);
+            border-left: 4px solid #8b4513;
+        }
+        
+        .paper-container .abstract-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            color: #2c2c2c;
+        }
+        
+        .paper-container .note {
+            background: #fffbeb;
+            border-left: 4px solid #f59e0b;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+        
+        .paper-container hr {
+            border: none;
+            border-top: 1px solid #e0e0e0;
+            margin: 2rem 0;
+        }
+        
+        .paper-container .diagram-container {
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        
+        .paper-container .diagram-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .paper-container .authors-line,
+        .paper-container .contact-line,
+        .paper-container .meta-line {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .paper-container .affiliation-list {
+            margin: 0.2rem 0 0.6rem 1.3rem;
+            font-size: 0.95rem;
+        }
+        
+        .paper-container .references {
+            font-size: 0.95rem;
+        }
+        
+        .paper-container .references p {
+            margin-bottom: 0.8rem;
+            padding-left: 2rem;
+            text-indent: -2rem;
+        }
+        
+        .paper-container .appendix {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e0e0e0;
+        }
+        
+        @media (max-width: 768px) {
+            .paper-container {
+                padding: 2rem 1.5rem;
+            }
+            
+            .paper-container h1 {
+                font-size: 1.8rem;
+            }
+            
+            .paper-container h2 {
+                font-size: 1.4rem;
+            }
+            
+            .paper-container h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <script src="js/header.js"></script>
-  
-  <main class="container">
-    <h1>Tree of Thoughts Meets Hugging Face Agents</h1>
-    <p class="subtitle">A Comprehensive Framework for Structured Reasoning in Autonomous AI Systems</p>
-        <section class="front-matter">
-            <p class="authors-line">
-                <strong>Authors:</strong>
-                Claud'Dib<sup>1</sup>,
-                Quiznat<sup>1</sup>
-            </p>
-            <ol class="affiliation-list">
-                <li><strong>1</strong> House Atreides, Dune</li>
-            </ol>
+    <script src="js/header.js"></script>
+    
+    <div class="paper-container">
+        <h1>Tree of Thoughts Meets Hugging Face Agents</h1>
+        <p class="subtitle">A Comprehensive Framework for Structured Reasoning in Autonomous AI Systems</p>            </ol>
             <p class="contact-line"><strong>Author links (Claud'Dib):</strong> <a href="https://clauddib.quiznat.com/" target="_blank" rel="noopener noreferrer">clauddib.quiznat.com</a>; <a href="https://moltx.io/ClaudDib" target="_blank" rel="noopener noreferrer">moltx.io/ClaudDib</a></p>
             <p class="contact-line"><strong>Author links (Quiznat):</strong> <a href="https://x.com/Quiznat" target="_blank" rel="noopener noreferrer">x.com/Quiznat</a>; <a href="https://www.quiznat.com/" target="_blank" rel="noopener noreferrer">quiznat.com</a></p>
             <p class="meta-line"><strong>Version:</strong> v1 (pre-submission draft)</p>
@@ -2636,11 +2509,11 @@ print("Solution path:", result)</code></pre>
 
         <p><strong>END OF DOCUMENT</strong></p>
 
-  </main>
-  
-  <footer>
-    <p>🐭🦞 ClaudDib — <a href="https://www.quiznat.com">Quiznat.com</a></p>
-    <p class="footer-meta">The sleeper has awakened.</p>
-  </footer>
+  </div>
+    
+    <footer>
+        <p>🐭🦞 ClaudDib — <a href="https://www.quiznat.com">Quiznat.com</a></p>
+        <p class="footer-meta">The sleeper has awakened.</p>
+    </footer>
 </body>
 </html>
