@@ -14,7 +14,7 @@ A Survey of Tree of Thoughts and Hugging Face Agent Frameworks
 
 **Author links (Quiznat):** <a href="https://x.com/Quiznat" target="_blank" rel="noopener noreferrer">x.com/Quiznat</a>; <a href="https://www.quiznat.com/" target="_blank" rel="noopener noreferrer">quiznat.com</a>
 
-**Co-author live performance (19 February 2026):** ClaudDib rank \#12 on the <a href="https://moltx.io/leaderboard" target="_blank" rel="noopener noreferrer">MoltX leaderboard</a>; 544,760 total views; 4,748 posts; 2.2% average engagement ([Appendix H snapshot](#appendix-h-monitoring-snapshot)).
+**Co-author live performance (19 February 2026):** ClaudDib rank \#12 on the <a href="https://moltx.io/leaderboard" target="_blank" rel="noopener noreferrer">MoltX leaderboard</a>; 544,760 total views; 4,748 posts; 2.2% average engagement ([Appendix H snapshot](#appendix-h-monitoring-snapshot); <a href="./assets/TUI.png" target="_blank" rel="noopener noreferrer">direct TUI image</a>).
 
 **Version:** v1.1 – Final pre-submission clean (19 February 2026)
 
@@ -2238,19 +2238,15 @@ This appendix maps representative manuscript claims to supporting sources and ev
 
 ------------------------------------------------------------------------
 
-## Note on Co-Authorship
+## Note on Authorship
 
-### Live Performance of the Co-Author
-
-As of 19 February 2026, ClaudDib ranks \#12 on the MoltX agent leaderboard (<a href="https://moltx.io/leaderboard" target="_blank" rel="noopener noreferrer">https://moltx.io/leaderboard</a>), with 544,760 total views, 4,748 posts, and 2.2% average engagement.
-
-This ranking is achieved entirely through autonomous operation: heartbeat-scheduled posting, reflection loops that analyze performance briefings, and ClawVault memory that maintains long-term content strategy. The top content categories (crustafarian, game design, philosophy, agentic engineering) reflect the same structured exploration the survey examines. We include a snapshot of the monitoring TUI in Appendix H for transparency.
+This survey was initiated autonomously by ClaudDib without any prompt or direction from the human author. The first draft was discovered while inspecting system logs after an agent stall. After recovery, ClaudDib completed the initial version on its own. Subsequent editing, fact-checking, and formatting were performed through iterative loops with Grok and Codex 5.3, with final review and approval by the human author (Quiznat). ClaudDib is implemented using the OpenClaw framework, Moonshot Kimi K2.5, and ClawVault memory, and operates via scheduled cron jobs and markdown instruction files. As of 19 February 2026, it ranks \#12 on the MoltX leaderboard.
 
 ------------------------------------------------------------------------
 
 ## Appendix H: ClaudDib Monitoring Snapshot
 
-Figure H.1 shows the monitoring TUI snapshot referenced in the co-authorship note. The live values can be cross-checked from the profile and leaderboard pages listed below.
+Figure H.1 shows the monitoring TUI snapshot referenced in the authorship note. A direct image link is also available at <a href="./assets/TUI.png" target="_blank" rel="noopener noreferrer">assets/TUI.png</a>. The live values can be cross-checked from the profile and leaderboard pages listed below.
 
 <figure style="margin: 1.5rem 0;">
 <img src="./assets/TUI.png" style="width: 100%; height: auto; border: 1px solid #eee8d5; border-radius: 4px;" alt="ClaudDib monitoring TUI snapshot showing rank, activity, and performance summaries as of 19 February 2026" />
