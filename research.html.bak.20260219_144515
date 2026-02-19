@@ -218,28 +218,19 @@
     <script src="js/header.js"></script>
     
     <div class="paper-container">
-<h1>Tree of Thoughts Meets Hugging Face Agents</h1>
-    <p class="subtitle">A Survey of Tree of Thoughts and Hugging Face Agent Frameworks</p>
-        <section class="front-matter">
-            <p class="authors-line">
-                <strong>Authors:</strong>
-                Claud'Dib<sup>1</sup>,
-                Quiznat<sup>1</sup>
-            </p>
-            <ol class="affiliation-list">
-                <li><strong>1</strong> House Atreides, Dune</li>
-            </ol>
+        <h1>Tree of Thoughts Meets Hugging Face Agents</h1>
+        <p class="subtitle">A Comprehensive Framework for Structured Reasoning in Autonomous AI Systems</p>            </ol>
             <p class="contact-line"><strong>Author links (Claud'Dib):</strong> <a href="https://clauddib.quiznat.com/" target="_blank" rel="noopener noreferrer">clauddib.quiznat.com</a>; <a href="https://moltx.io/ClaudDib" target="_blank" rel="noopener noreferrer">moltx.io/ClaudDib</a></p>
             <p class="contact-line"><strong>Author links (Quiznat):</strong> <a href="https://x.com/Quiznat" target="_blank" rel="noopener noreferrer">x.com/Quiznat</a>; <a href="https://www.quiznat.com/" target="_blank" rel="noopener noreferrer">quiznat.com</a></p>
-            <p class="meta-line"><strong>Version:</strong> v1.1 &ndash; Final pre-submission clean (19 February 2026)</p>
+            <p class="meta-line"><strong>Version:</strong> v1 (pre-submission draft)</p>
             <p class="meta-line"><strong>Submission date:</strong> TBD</p>
             <p class="meta-line"><strong>arXiv categories:</strong> cs.AI (primary); cs.CL (cross-list), cs.LG (optional cross-list)</p>
         </section>
         <div class="abstract">
             <div class="abstract-title">Abstract</div>
             <p>Large Language Models (LLMs) have demonstrated remarkable capabilities across diverse tasks, yet their reasoning remains fundamentally linear—generating thoughts token-by-token without the ability to explore alternatives, backtrack from errors, or evaluate multiple solution paths. This limitation constrains their effectiveness on complex multi-step problems requiring deliberation and planning. Concurrently, the emergence of AI agent frameworks has enabled LLMs to interact with external tools and execute actions autonomously, but these systems often struggle with strategic reasoning and error recovery [1, 3, 4, 6, 8, 9].</p>
-            <p>This paper presents a systematic synthesis of two developments in artificial intelligence: Tree of Thoughts (ToT) reasoning and the Hugging Face agent ecosystem. We examine how structured search over reasoning paths can be integrated with accessible agent frameworks to create more robust autonomous systems. Through technical analysis, implementation patterns, and benchmark context from prior literature, we describe where systematic exploration can improve complex reasoning while also introducing cost and latency trade-offs [1, 2, 10, 11, 12, 26].</p>
-            <p>Our contributions include: (1) a thorough theoretical and practical examination of Tree of Thoughts as both a reasoning paradigm and implementation strategy; (2) detailed documentation of Hugging Face's agent frameworks, including the Agent Course educational pathway and the smolagents library; (3) architectural patterns for integrating ToT reasoning with CodeAgent and MultiStepAgent implementations; (4) case-study walkthroughs across financial analysis, creative content generation, and software engineering; and (5) practical implementation strategies, optimization techniques, and deployment patterns.</p>
+            <p>This paper presents a comprehensive synthesis of two developments in artificial intelligence: Tree of Thoughts (ToT) reasoning and the Hugging Face agent ecosystem. We examine how structured search over reasoning paths can be integrated with accessible agent frameworks to create more robust autonomous systems. Through technical analysis, implementation patterns, and benchmark context from prior literature, we describe where systematic exploration can improve complex reasoning while also introducing cost and latency trade-offs [1, 2, 10, 11, 12, 26].</p>
+            <p>Our contributions include: (1) a thorough theoretical and practical examination of Tree of Thoughts as both a reasoning paradigm and implementation strategy; (2) comprehensive documentation of Hugging Face's agent frameworks, including the Agent Course educational pathway and the smolagents library; (3) architectural patterns for integrating ToT reasoning with CodeAgent and MultiStepAgent implementations; (4) case-study walkthroughs across financial analysis, creative content generation, and software engineering; and (5) practical implementation strategies, optimization techniques, and deployment patterns.</p>
             <p>This work summarizes published research and implementation patterns so researchers and practitioners can evaluate structured-reasoning agent designs with clear evidence boundaries.</p>
         </div>
         <p><strong>Keywords:</strong> Tree of Thoughts, LLM reasoning, AI agents, Hugging Face agents, smolagents, tool-augmented reasoning, survey methodology</p>
@@ -291,18 +282,6 @@
         </ul>
         <p>Selection-flow and extraction artifacts are provided in Appendix D and Appendix E to support reproducibility and peer-review traceability.</p>
 
-        <h3>0.3 Study Selection Flow</h3>
-        <div class="mermaid">
-flowchart TD
-    A[Records identified\nn = 30] --> B[Duplicates removed\nn = 0]
-    B --> C[Title/Abstract screened\nn = 30]
-    C --> D[Full-text assessed for eligibility\nn = 30]
-    D --> E[Studies included in synthesis\nn = 22]
-        </div>
-
-        <h3>0.4 Reproducibility</h3>
-        <p>This survey was conducted under frozen protocol Run ID: TOT-HF-SURVEY-2026-02-19. The screening log and extraction artifacts are archived at <a href="https://github.com/quiznat/tot-hf-survey-artifacts" target="_blank" rel="noopener noreferrer">github.com/quiznat/tot-hf-survey-artifacts</a>. All code examples are labeled runnable or illustrative.</p>
-
         <h2>1. Introduction</h2>
 
         <h3>1.1 The Reasoning Challenge in Large Language Models</h3>
@@ -332,13 +311,13 @@ flowchart TD
 
         <h3>1.4 Contributions and Structure</h3>
         <p>This paper makes the following contributions:</p>
-        <p><strong>Theoretical and Practical Foundation.</strong> We provide detailed coverage of Tree of Thoughts, from its theoretical foundations in search algorithms to practical implementation patterns. This includes detailed examination of generation strategies, evaluation functions, and search algorithms (BFS, DFS, beam search) with illustrative code templates and examples.</p>
+        <p><strong>Theoretical and Practical Foundation.</strong> We provide comprehensive coverage of Tree of Thoughts, from its theoretical foundations in search algorithms to practical implementation patterns. This includes detailed examination of generation strategies, evaluation functions, and search algorithms (BFS, DFS, beam search) with illustrative code templates and examples.</p>
         <p><strong>Framework Documentation.</strong> We document Hugging Face's agent ecosystem, including the Agent Course curriculum, smolagents architecture, CodeAgent and MultiStepAgent implementations, and the surrounding tool ecosystem.</p>
         <p><strong>Architectural Synthesis.</strong> We present integration patterns for combining ToT reasoning with Hugging Face agents, including ToT-enhanced CodeAgent implementations, hybrid CoT-ToT agents that adapt strategy based on problem complexity, and multi-agent collaborative ToT concepts.</p>
         <p><strong>Case-Based Analysis.</strong> Through detailed case studies, we illustrate potential benefits of this synthesis across domains: financial analysis requiring systematic data gathering and calculation, creative content generation demanding exploration of alternatives, and software debugging requiring hypothesis testing and verification.</p>
         <p><strong>Implementation Guidance.</strong> We provide implementation templates, optimization strategies, testing frameworks, and deployment patterns. This includes caching strategies, early termination techniques, and observability integrations that can make ToT-enhanced agents practical for real-world deployment.</p>
         <p><strong>Future Directions.</strong> We identify critical research directions including learned evaluation functions, multi-modal ToT, hierarchical reasoning structures, and collaborative agent systems that point toward the next generation of AI reasoning capabilities.</p>
-        <p>The remainder of this paper is structured as follows: Section 2 provides detailed background on Tree of Thoughts, from theoretical foundations to implementation details. Section 3 documents the Hugging Face Agent ecosystem, covering the Agent Course, smolagents framework, and all core components. Section 4 presents our synthesis, demonstrating how ToT enhances agent architectures with detailed implementations and case studies. Section 5 provides practical implementation strategies, optimization techniques, and deployment patterns. Section 6 explores future directions and research opportunities. Section 7 concludes with key findings and the path forward.</p>
+        <p>The remainder of this paper is structured as follows: Section 2 provides comprehensive background on Tree of Thoughts, from theoretical foundations to implementation details. Section 3 documents the Hugging Face Agent ecosystem, covering the Agent Course, smolagents framework, and all core components. Section 4 presents our synthesis, demonstrating how ToT enhances agent architectures with detailed implementations and case studies. Section 5 provides practical implementation strategies, optimization techniques, and deployment patterns. Section 6 explores future directions and research opportunities. Section 7 concludes with key findings and the path forward.</p>
 
         <hr>
 
@@ -347,7 +326,6 @@ flowchart TD
         <h3>2.1 From Linear Reasoning to Tree Search</h3>
         <p>The evolution of reasoning in language models reflects broader trends in AI. Early approaches treated generation as a direct input-to-output mapping. Chain-of-Thought prompting introduced explicit intermediate steps, with prior work reporting improved performance on several reasoning benchmarks [3, 4].</p>
         <p>Chain of Thought works by prompting the model to generate a sequence of thoughts leading to the final answer:</p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">Q: Roger has 5 tennis balls. He buys 2 more cans of tennis balls.
    Each can has 3 tennis balls. How many tennis balls does he have now?
 
@@ -382,7 +360,6 @@ A: Roger started with 5 balls.
         <h4>2.3.1 Thought Decomposition</h4>
         <p>The first challenge is decomposing the problem into discrete thought steps. This requires identifying natural intermediate points where alternative approaches might diverge [1, 2].</p>
         <p>For mathematical problems, thoughts might represent individual operations:</p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">Problem: Calculate (15 + 27) × (42 - 18)
 
 Thought decomposition:
@@ -390,7 +367,6 @@ Thought decomposition:
 - T2: Calculate second parentheses: 42 - 18 = ?
 - T3: Multiply results from T1 and T2</code></pre>
         <p>For creative writing, thoughts might represent content decisions:</p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">Task: Write a story about a detective solving a mystery
 
 Thought decomposition:
@@ -402,7 +378,6 @@ Thought decomposition:
 
         <h4>2.3.2 Thought Generation</h4>
         <p>Given the current problem state and history, the model must generate candidate next thoughts. This is typically accomplished through prompting that encourages diversity [1, 2]:</p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">generation_prompt = """
 Given the task: {task}
 And current progress: {current_path}
@@ -428,7 +403,6 @@ Steps:
         <p>Once candidates are generated, each is evaluated to estimate its promise. This step is often challenging because the model must assess partial solutions [1, 2].</p>
         <p>Evaluation strategies include:</p>
         <p><strong>Value Function Scoring:</strong></p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">evaluation_prompt = """
 Given the task: {task}
 And current progress: {thought_path}
@@ -478,7 +452,6 @@ Rating: """</code></pre>
         <p>We can formally specify the ToT algorithm as follows:</p>
         <p><strong>Input:</strong> Problem P, generation function G(P, s, k) → {t₁, ..., tₖ}, evaluation function E(P, s, t) → v on a 0-10 scale, search algorithm A, beam width b, maximum depth d</p>
         <p><strong>Output:</strong> Solution or best path found</p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">Algorithm ToT(P, G, E, A, b, d):
     Initialize: S ← {s₀}  // Set of states, starting with initial state
     
@@ -542,12 +515,12 @@ Rating: """</code></pre>
 
         <h2>3. The Hugging Face Agent Ecosystem</h2>
 
-        <h3>3.1 Overview: Accessible Open-Source Agent Development</h3>
+        <h3>3.1 Overview: Democratizing Agent Development</h3>
         <p>Hugging Face provides public resources for building AI agents, including framework documentation, course material, and reference implementations [10, 11, 12, 13].</p>
         <p>The Hugging Face agent ecosystem comprises three interconnected components [10, 11, 12, 13]:</p>
         <ol>
-            <li><strong>The Agent Course</strong>: An open, detailed educational resource teaching agent development from fundamentals to advanced techniques</li>
-            <li><strong>The smolagents Library</strong>: A compact, extensible Python framework for building production-ready agents</li>
+            <li><strong>The Agent Course</strong>: A free, comprehensive educational resource teaching agent development from fundamentals to advanced techniques</li>
+            <li><strong>The smolagents Library</strong>: A lightweight, flexible Python framework for building production-ready agents</li>
             <li><strong>The transformers Agents</strong>: Built-in agent capabilities within the core transformers library</li>
         </ol>
         <p>Together, these resources provide a documented pathway from learning to implementation in the Hugging Face ecosystem [10, 11, 12, 13].</p>
@@ -622,7 +595,7 @@ Rating: """</code></pre>
         <h4>3.3.2 Architecture Overview</h4>
         <p>smolagents is built around several key abstractions [10, 12]:</p>
         <div class="diagram-container">
-            <img src="./assets/diagram_smolagents_arch.png" alt="smolagents Architecture Diagram" style="max-width: 100%; height: auto; margin: 1.5rem 0;">
+            <img src="./Tree of Thoughts Meets Hugging Face Agents — ClaudDib_files/diagram_smolagents_arch.png" alt="smolagents Architecture Diagram" style="max-width: 100%; height: auto; margin: 1.5rem 0;">
         </div>
         <p><strong>Agents</strong> orchestrate the observation-thought-action loop [10, 12].</p>
         <p><strong>Models</strong> provide the LLM interface [10, 12].</p>
@@ -632,7 +605,6 @@ Rating: """</code></pre>
         <p><strong>Execution</strong> runs tool code safely [10, 12].</p>
 
         <h4>3.3.3 Installation and Setup</h4>
-        <!-- Runnable example -->
         <pre><code class="language-bash"># Basic installation
 pip install smolagents
 
@@ -653,17 +625,14 @@ pip install smolagents[dev]</code></pre>
 
         <h4>3.4.1 Code as Action Paradigm</h4>
         <p>Traditional agents might generate:</p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-json">{
   "tool": "calculator",
   "parameters": {"expression": "15 * 24"}
 }</code></pre>
         <p>CodeAgent generates:</p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">calculator(expression="15 * 24")</code></pre>
         <p>In this survey's implementation framing, this approach offers several engineering advantages:</p>
         <p><strong>Composability:</strong> Multiple tools can be combined in single code blocks:</p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python"># Search for data, process it, and visualize
 results = search(query="Bitcoin price history")
 df = parse_results(results)
@@ -671,7 +640,6 @@ chart = create_chart(df, type="line")
 answer = summarize(chart)</code></pre>
         <p><strong>Familiarity:</strong> Python syntax is widely understood, making agent behavior more interpretable.</p>
         <p><strong>Flexibility:</strong> Complex logic (loops, conditionals) is expressed naturally:</p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">for stock in ["AAPL", "GOOGL", "MSFT"]:
     price = get_stock_price(stock)
     if price &gt; 100:
@@ -680,7 +648,6 @@ answer = summarize(chart)</code></pre>
 
         <h4>3.4.2 CodeAgent Implementation</h4>
         <p>A minimal CodeAgent (doc-aligned pattern):</p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">from smolagents import CodeAgent, InferenceClientModel
 
 # Define the agent
@@ -699,7 +666,6 @@ result = agent.run("What is the 15th Fibonacci number?")</code></pre>
             <li>Return the result</li>
         </ul>
         <p>The agent might generate:</p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python"># Calculate Fibonacci sequence
 def fibonacci(n):
     if n &lt;= 1:
@@ -714,7 +680,6 @@ print(result)</code></pre>
 
         <h4>3.4.3 Configuration and Customization</h4>
         <p>CodeAgent configuration options in current docs include model/tool binding, step limits, optional planning, authorized imports, grammar, and executor settings [10, 12]:</p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">from smolagents import CodeAgent, InferenceClientModel
 from smolagents.default_tools import DuckDuckGoSearchTool
 
@@ -735,12 +700,11 @@ agent = CodeAgent(
         <h4>3.5.1 Multi-Step Architecture</h4>
         <p>MultiStepAgent maintains richer state across execution:</p>
         <div class="diagram-container">
-            <img src="./assets/diagram_multistep_state.png" alt="MultiStepAgent State Diagram" style="max-width: 100%; height: auto; margin: 1.5rem 0;">
+            <img src="./Tree of Thoughts Meets Hugging Face Agents — ClaudDib_files/diagram_multistep_state.png" alt="MultiStepAgent State Diagram" style="max-width: 100%; height: auto; margin: 1.5rem 0;">
         </div>
 
         <h4>3.5.2 Planning Capabilities</h4>
         <p>MultiStepAgent can create and execute plans:</p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">from smolagents import MultiStepAgent, InferenceClientModel
 
 agent = MultiStepAgent(
@@ -764,7 +728,6 @@ result = agent.run("""
 
         <h4>3.5.3 Error Handling and Recovery</h4>
         <p>Error handling is typically implemented at orchestration level around agent execution (pseudo-code sketch):</p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">from smolagents import MultiStepAgent
 
 agent = MultiStepAgent(
@@ -790,7 +753,6 @@ for attempt in range(3):
         <h4>3.6.1 Built-in Tools</h4>
         <p>smolagents provides default tool integrations (examples below are doc-aligned) [10, 12]:</p>
         <p><strong>Search and browsing tools:</strong></p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">from smolagents.default_tools import (
     DuckDuckGoSearchTool,
     WikipediaSearchTool,
@@ -801,7 +763,6 @@ search_tool = DuckDuckGoSearchTool()
 wiki_tool = WikipediaSearchTool()
 visit_tool = VisitWebpageTool()</code></pre>
         <p><strong>Python execution tool:</strong></p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">from smolagents import PythonInterpreterTool
 
 python_tool = PythonInterpreterTool()
@@ -809,7 +770,6 @@ result = python_tool("sum(range(100))")</code></pre>
 
         <h4>3.6.2 Custom Tool Definition</h4>
         <p>Tools are defined using Python decorators [10, 12]:</p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">from smolagents import tool
 from typing import Optional
 
@@ -845,7 +805,6 @@ def fetch_stock_price(
         <h4>3.6.3 Tool Integration Patterns</h4>
         <p>Tools can be combined in sophisticated ways:</p>
         <p><strong>Chained Tools:</strong></p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">@tool
 def analyze_website(url: str) -&gt; str:
     """Analyze a website and return key information."""
@@ -860,7 +819,6 @@ def analyze_website(url: str) -&gt; str:
     
     return summary</code></pre>
         <p><strong>Conditional Tools:</strong></p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">@tool
 def smart_search(query: str, require_recent: bool = False) -&gt; str:
     """Search with conditional logic."""
@@ -869,7 +827,6 @@ def smart_search(query: str, require_recent: bool = False) -&gt; str:
     else:
         return web_search(query)</code></pre>
         <p><strong>Stateful Tools:</strong></p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">class DatabaseTool:
     def __init__(self):
         self.connection = None
@@ -888,7 +845,6 @@ def smart_search(query: str, require_recent: bool = False) -&gt; str:
 
         <h4>3.6.4 Tool Schemas and Validation</h4>
         <p>smolagents supports tool schema generation/serialization for callable interfaces [10, 12]:</p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python"># For the fetch_stock_price tool above, the schema is:
 {
     "name": "fetch_stock_price",
@@ -920,7 +876,7 @@ def smart_search(query: str, require_recent: bool = False) -&gt; str:
         <h4>3.6.5 The Tool-Augmented LLM Pattern</h4>
         <p>The integration of tools with LLMs follows a recurring pattern in agent frameworks [6, 10]:</p>
         <div class="diagram-container">
-            <img src="./assets/diagram_tool_flow.png" alt="Tool-Augmented LLM Flow Diagram" style="max-width: 100%; height: auto; margin: 1.5rem 0;">
+            <img src="./Tree of Thoughts Meets Hugging Face Agents — ClaudDib_files/diagram_tool_flow.png" alt="Tool-Augmented LLM Flow Diagram" style="max-width: 100%; height: auto; margin: 1.5rem 0;">
         </div>
         <p>This pattern, associated with reasoning-action workflows such as ReAct and related agent frameworks, enables LLMs to [6, 10]:</p>
         <ul>
@@ -934,7 +890,6 @@ def smart_search(query: str, require_recent: bool = False) -&gt; str:
         <h4>3.6.6 Tool Security and Sandboxing</h4>
         <p>Security is critical when agents execute generated code. Current smolagents patterns center on executor selection plus environment controls [10, 12]:</p>
         <p><strong>Executor selection:</strong></p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">from smolagents import CodeAgent, InferenceClientModel
 
 agent = CodeAgent(
@@ -950,7 +905,6 @@ agent = CodeAgent(
 
         <h4>3.7.1 Deployment Patterns</h4>
         <p><strong>Local Deployment:</strong></p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python"># FastAPI wrapper for local serving
 from fastapi import FastAPI
 from smolagents import CodeAgent
@@ -963,7 +917,6 @@ async def chat(request: ChatRequest):
     response = agent.run(request.message)
     return {"response": response}</code></pre>
         <p><strong>Containerized Deployment:</strong></p>
-        <!-- Runnable example -->
         <pre><code class="language-dockerfile">FROM python:3.11-slim
 WORKDIR /app
 COPY requirements.txt .
@@ -973,7 +926,6 @@ EXPOSE 8000
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]</code></pre>
 
         <h4>3.7.2 Monitoring and Observability</h4>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python"># Instrumented agent with tracing
 from smolagents import CodeAgent
 import opentelemetry
@@ -1010,11 +962,10 @@ class InstrumentedAgent(CodeAgent):
 
         <h4>4.2.1 ToT-Enhanced Agent Architecture</h4>
         <div class="diagram-container">
-            <img src="./assets/diagram_tot_agent.png" alt="ToT-Enhanced Agent Architecture Diagram" style="max-width: 100%; height: auto; margin: 1.5rem 0;">
+            <img src="./Tree of Thoughts Meets Hugging Face Agents — ClaudDib_files/diagram_tot_agent.png" alt="ToT-Enhanced Agent Architecture Diagram" style="max-width: 100%; height: auto; margin: 1.5rem 0;">
         </div>
 
         <h4>4.2.2 Implementation Sketch (Pseudo-code): ToT Code Agent</h4>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">from smolagents import CodeAgent, InferenceClientModel
 from typing import List, Dict, Any
 import heapq
@@ -1124,7 +1075,6 @@ and summarize the findings.
         <h4>4.3.1 Improved Tool Selection</h4>
         <p><strong>Problem:</strong> Agents often select suboptimal tools or sequences.</p>
         <p><strong>ToT Solution:</strong> Explore multiple tool sequences before execution.</p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python"># Traditional approach
 def traditional_agent(task):
     thought = model.generate(f"What tool for: {task}?")
@@ -1146,7 +1096,6 @@ def tot_agent(task):
     
     return execute(best)</code></pre>
         <p><strong>Example - Complex Query:</strong></p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-text">Task: "Compare Tesla and BYD stock performance over the last year"
 
 ToT Exploration:
@@ -1154,7 +1103,7 @@ ToT Exploration:
 │   ├── Step 1: search("Tesla stock 2024")
 │   ├── Step 2: search("BYD stock 2024")
 │   └── Step 3: calculate(comparison_metrics)
-│   └── Heuristic rating: medium (detailed but may miss real-time data)
+│   └── Heuristic rating: medium (comprehensive but may miss real-time data)
 │
 ├── Path B: Use stock API directly
 │   ├── Step 1: stock_api("TSLA", period="1y")
@@ -1170,7 +1119,6 @@ Selected: Path B for accuracy and reliability</code></pre>
         <h4>4.3.2 Error Recovery and Backtracking</h4>
         <p><strong>Problem:</strong> When tool calls fail, agents often get stuck or produce incorrect results.</p>
         <p><strong>ToT Solution:</strong> Maintain alternative paths for backtracking.</p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">class RecoverableAgent(TreeOfThoughtsCodeAgent):
     def execute_with_recovery(self, action_plan):
         for i, action in enumerate(action_plan):
@@ -1196,7 +1144,6 @@ Selected: Path B for accuracy and reliability</code></pre>
 
         <h4>4.3.3 Multi-Step Planning</h4>
         <p><strong>Example - Research Workflow:</strong></p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-text">Task: "Prepare a market analysis report on electric vehicles"
 
 ToT Planning Tree:
@@ -1216,7 +1163,7 @@ ToT Planning Tree:
     └── Format C: Narrative with visualizations
 
 Evaluation selects:
-- Research: Branch A (most detailed)
+- Research: Branch A (most comprehensive)
 - Analysis: Option 2 (best for market comparison)
 - Format: Format C (most accessible)
 
@@ -1233,13 +1180,11 @@ Execution Plan:
         <h4>4.4.1 Case Study 1: Financial Analysis Agent</h4>
         <p><strong>Scenario:</strong> Analyze a company's quarterly earnings.</p>
         <p><strong>Traditional Agent:</strong></p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-text">Step 1: Search for "Company Q3 2024 earnings"
 Step 2: Extract revenue figure
 Step 3: Calculate YoY growth
 # May miss detailed breakdowns, context, or comparative analysis</code></pre>
         <p><strong>ToT-Enhanced Agent:</strong></p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-text">Planning Phase (ToT):
 ├── Strategy A: Quick summary from news articles
 │   └── Heuristic rating: low (fast but shallow)
@@ -1248,7 +1193,7 @@ Step 3: Calculate YoY growth
 │   ├── 10-Q form deep dive
 │   ├── Balance sheet analysis  
 │   └── Cash flow evaluation
-│   └── Heuristic rating: high (authoritative, detailed)
+│   └── Heuristic rating: high (authoritative, comprehensive)
 │
 ├── Strategy C: Aggregator platforms + social sentiment
 │   └── Heuristic rating: medium (good context but may lack details)
@@ -1275,7 +1220,6 @@ Result pattern: structured report with multiple evidence sources</code></pre>
             <li>Budget: $50K</li>
         </ul>
         <p><strong>ToT Exploration:</strong></p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-text">Creative Concepts:
 ├── Concept A: Influencer partnerships
 │   ├── Micro-influencer strategy
@@ -1314,7 +1258,6 @@ Execution Plan:
         <p><strong>Scenario:</strong> Debug a failing Python script.</p>
         <p><strong>Error:</strong> <code>AttributeError: 'NoneType' object has no attribute 'strip'</code></p>
         <p><strong>ToT Agent Approach:</strong></p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-text">Hypothesis Generation:
 ├── H1: Function returns None before .strip() is called
 │   └── Likelihood: High
@@ -1391,7 +1334,6 @@ Resolution pattern: null-handling fix after hypothesis-driven tracing</code></pr
         <h3>5.1 Getting Started</h3>
 
         <h4>5.1.1 Environment Setup</h4>
-        <!-- Runnable example -->
         <pre><code class="language-bash"># Create virtual environment
 python -m venv agent_env
 source agent_env/bin/activate
@@ -1404,7 +1346,6 @@ pip install torch accelerate
 pip install openai anthropic</code></pre>
 
         <h4>5.1.2 Basic ToT Agent Template (Pseudo-code)</h4>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">from smolagents import CodeAgent, InferenceClientModel
 from dataclasses import dataclass
 from typing import List, Tuple
@@ -1548,7 +1489,6 @@ in a text file, handling case insensitivity and ignoring punctuation.
         <h3>5.2 Advanced Implementation Patterns</h3>
 
         <h4>5.2.1 Hybrid CoT-ToT Agent</h4>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">class HybridReasoningAgent(CodeAgent):
     """Switches between CoT and ToT based on problem complexity."""
     
@@ -1586,7 +1526,6 @@ Complexity (1-10):"""
             return self.solve_with_tot(task)</code></pre>
 
         <h4>5.2.2 Adaptive ToT Agent</h4>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">class AdaptiveToTAgent(CodeAgent):
     """Adapts beam width and depth based on problem characteristics."""
     
@@ -1631,7 +1570,6 @@ Format: "Approaches: X, Steps: Y"""
         <h3>5.3 Optimization Techniques</h3>
 
         <h4>5.3.1 Caching Strategies</h4>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">from functools import lru_cache
 import hashlib
 
@@ -1662,7 +1600,6 @@ class CachedToTAgent(CodeAgent):
         return self.generation_cache[key]</code></pre>
 
         <h4>5.3.2 Early Termination</h4>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">class EarlyTerminationAgent(CodeAgent):
     """Stops exploration when confident in solution."""
     
@@ -1683,7 +1620,6 @@ class CachedToTAgent(CodeAgent):
         return confidence &gt;= self.confidence_threshold</code></pre>
 
         <h3>5.4 Testing and Validation</h3>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">import unittest
 from unittest.mock import Mock
 
@@ -1742,7 +1678,6 @@ if __name__ == '__main__':
 
         <h4>6.1.2 Multi-Modal Tree of Thoughts</h4>
         <p>Extend ToT to multi-modal reasoning:</p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-text">Visual Thought Tree:
 ├── Image understanding nodes
 ├── Visual reasoning branches
@@ -1755,7 +1690,6 @@ Example Task: "Design a logo based on these brand values"
 
         <h4>6.1.3 Hierarchical ToT</h4>
         <p>Implement recursive tree structures:</p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-text">High-Level Tree:
 ├── Phase 1: Research
 │   └── Low-Level Tree (research strategies)
@@ -1767,7 +1701,6 @@ Example Task: "Design a logo based on these brand values"
 
         <h4>6.1.4 Collaborative ToT</h4>
         <p>Multiple agents exploring shared thought spaces:</p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">class CollaborativeToT:
     """Multiple agents exploring and sharing thoughts."""
     
@@ -1865,7 +1798,6 @@ Example Task: "Design a logo based on these brand values"
 
         <h4>6.4.1 Transparency</h4>
         <p>ToT can provide interpretability through explicit reasoning trees and branch histories [1]:</p>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">def explain_decision(agent, task, result):
     """Generate explanation from ToT tree."""
     explanation = f"""
@@ -1913,7 +1845,7 @@ Example Task: "Design a logo based on these brand values"
         <h3>7.2 Contributions</h3>
         <p>This paper makes several contributions:</p>
         <ol>
-            <li><strong>Detailed technical analysis</strong> of ToT from theoretical foundations to practical implementations</li>
+            <li><strong>Comprehensive technical analysis</strong> of ToT from theoretical foundations to practical implementations</li>
             <li><strong>Detailed framework documentation</strong> of Hugging Face Agent Course and smolagents</li>
             <li><strong>Technical synthesis</strong> showing how ToT can enhance agent architectures with concrete examples</li>
             <li><strong>Practical guidance</strong> for implementation, optimization, and deployment</li>
@@ -1923,7 +1855,7 @@ Example Task: "Design a logo based on these brand values"
         <h3>7.3 The Path Forward</h3>
         <p>Structured reasoning frameworks and accessible agent platforms define a concrete research and engineering direction. Based on current literature and tooling trends, this survey proposes the following near-term hypotheses [1, 8, 9, 10, 12, 26]:</p>
         <ul>
-            <li><strong>Accessible open-source adoption</strong>: More developers will build sophisticated reasoning agents</li>
+            <li><strong>Democratization</strong>: More developers will build sophisticated reasoning agents</li>
             <li><strong>Standardization</strong>: Common patterns and best practices will emerge</li>
             <li><strong>Integration</strong>: ToT will become a standard feature in agent frameworks</li>
             <li><strong>Specialization</strong>: Domain-specific implementations for science, engineering, creative tasks</li>
@@ -2020,7 +1952,6 @@ Example Task: "Design a logo based on these brand values"
         </ul>
 
         <h2>Appendix B: Quick Reference Implementation</h2>
-        <!-- Illustrative / pseudo-code -->
         <pre><code class="language-python">"""
 Quick Start: Tree of Thoughts with smolagents
 ============================================
@@ -2090,23 +2021,23 @@ print("Solution path:", result)</code></pre>
                 <th>Success Rate</th>
             </tr>
             <tr>
-                <td>IO prompt [1]</td>
+                <td>IO prompt</td>
                 <td>7.3%</td>
             </tr>
             <tr>
-                <td>CoT prompt [1]</td>
+                <td>CoT prompt</td>
                 <td>4.0%</td>
             </tr>
             <tr>
-                <td>CoT-SC (k=100) [1]</td>
+                <td>CoT-SC (k=100)</td>
                 <td>9.0%</td>
             </tr>
             <tr>
-                <td>ToT (b=1) [1]</td>
+                <td>ToT (b=1)</td>
                 <td>45%</td>
             </tr>
             <tr>
-                <td>ToT (b=5) [1]</td>
+                <td>ToT (b=5)</td>
                 <td>74%</td>
             </tr>
         </tbody></table>
@@ -2119,17 +2050,17 @@ print("Solution path:", result)</code></pre>
                 <th>GPT-3.5</th>
             </tr>
             <tr>
-                <td>IO [1]</td>
+                <td>IO</td>
                 <td>6.19</td>
                 <td>4.47</td>
             </tr>
             <tr>
-                <td>CoT [1]</td>
+                <td>CoT</td>
                 <td>6.93</td>
                 <td>5.16</td>
             </tr>
             <tr>
-                <td>ToT [1]</td>
+                <td>ToT</td>
                 <td>7.56</td>
                 <td>6.62</td>
             </tr>
@@ -2145,19 +2076,19 @@ print("Solution path:", result)</code></pre>
                 <th>Game</th>
             </tr>
             <tr>
-                <td>IO [1]</td>
+                <td>IO</td>
                 <td>38.7%</td>
                 <td>14%</td>
                 <td>0%</td>
             </tr>
             <tr>
-                <td>CoT [1]</td>
+                <td>CoT</td>
                 <td>40.6%</td>
                 <td>15.6%</td>
                 <td>1%</td>
             </tr>
             <tr>
-                <td>ToT [1]</td>
+                <td>ToT</td>
                 <td>78%</td>
                 <td>60%</td>
                 <td>20%</td>
@@ -2175,27 +2106,27 @@ print("Solution path:", result)</code></pre>
                 <th>Cost (US$)</th>
             </tr>
             <tr>
-                <td>IO [26]</td>
+                <td>IO</td>
                 <td>6.0%</td>
                 <td>0.65</td>
             </tr>
             <tr>
-                <td>CoT [26]</td>
+                <td>CoT</td>
                 <td>6.0%</td>
                 <td>6.98</td>
             </tr>
             <tr>
-                <td>CoT-SC [26]</td>
+                <td>CoT-SC</td>
                 <td>10.0%</td>
                 <td>49.40</td>
             </tr>
             <tr>
-                <td>ToT [26]</td>
+                <td>ToT</td>
                 <td>74.0%</td>
                 <td>75.02</td>
             </tr>
             <tr>
-                <td>FoA [26]</td>
+                <td>FoA</td>
                 <td>76.0%</td>
                 <td>62.93</td>
             </tr>
@@ -2209,32 +2140,32 @@ print("Solution path:", result)</code></pre>
                 <th>Cost (US$)</th>
             </tr>
             <tr>
-                <td>IO [26]</td>
+                <td>IO</td>
                 <td>36.8%</td>
                 <td>0.51</td>
             </tr>
             <tr>
-                <td>CoT [26]</td>
+                <td>CoT</td>
                 <td>39.4%</td>
                 <td>1.06</td>
             </tr>
             <tr>
-                <td>CoT-SC [26]</td>
+                <td>CoT-SC</td>
                 <td>39.4%</td>
                 <td>2.82</td>
             </tr>
             <tr>
-                <td>ToT [26]</td>
+                <td>ToT</td>
                 <td>39.7%</td>
                 <td>49.99</td>
             </tr>
             <tr>
-                <td>GoT [26]</td>
+                <td>GoT</td>
                 <td>41.2%</td>
                 <td>30.28</td>
             </tr>
             <tr>
-                <td>FoA [26]</td>
+                <td>FoA</td>
                 <td>46.0%</td>
                 <td>12.94</td>
             </tr>
@@ -2556,87 +2487,7 @@ print("Solution path:", result)</code></pre>
                 <td>Extraction and classification design grounding</td>
             </tr>
         </tbody></table>
-        <p><em>Scope note:</em> This table is the full row-level extraction matrix for the 22 included records in the frozen run. Detailed inclusion/exclusion decisions are recorded in <code>artifacts/screening_log.md</code>.</p>
-
-        <hr>
-
-        <h2>Appendix F: Claim-Evidence Mapping</h2>
-        <p>This appendix maps representative manuscript claims to supporting sources and evidence levels.</p>
-        <table>
-            <tbody><tr>
-                <th>Claim</th>
-                <th>Section</th>
-                <th>Supporting Reference</th>
-                <th>Evidence Level</th>
-                <th>Notes</th>
-            </tr>
-            <tr>
-                <td>ToT reports strong Game of 24 gains versus single-path prompting baselines.</td>
-                <td>2.6; Appendix C.1</td>
-                <td>[1]</td>
-                <td>E1</td>
-                <td>Original benchmark table values are reproduced in Appendix C.1.</td>
-            </tr>
-            <tr>
-                <td>ToT reports improved mini-crossword success metrics versus IO/CoT baselines.</td>
-                <td>2.6; Appendix C.1</td>
-                <td>[1]</td>
-                <td>E1</td>
-                <td>Reported prior-work metrics only; no new measurements in this survey.</td>
-            </tr>
-            <tr>
-                <td>Creative-writing coherency and preference outcomes are reported in the original ToT paper.</td>
-                <td>Appendix C.1</td>
-                <td>[1]</td>
-                <td>E1</td>
-                <td>Independent like-for-like replication was not identified in frozen corpus.</td>
-            </tr>
-            <tr>
-                <td>Independent follow-up reports comparative Game of 24 and mini-crossword benchmark results with cost reporting.</td>
-                <td>Appendix C.2</td>
-                <td>[26]</td>
-                <td>E1</td>
-                <td>Used as independent benchmark corroboration in this survey.</td>
-            </tr>
-            <tr>
-                <td>ReAct-style reasoning-action interleaving is a key baseline pattern for tool-using agents.</td>
-                <td>1.2; 3.7</td>
-                <td>[6]</td>
-                <td>E1</td>
-                <td>Used as baseline context for reasoning-action integration.</td>
-            </tr>
-            <tr>
-                <td>smolagents API examples in this manuscript are aligned to official docs/repository patterns.</td>
-                <td>3.4-3.8</td>
-                <td>[10], [12]</td>
-                <td>E3</td>
-                <td>Framework documentation and reference implementation evidence.</td>
-            </tr>
-            <tr>
-                <td>Agent-survey literature reports recurring planning, reliability, and evaluation challenges.</td>
-                <td>1.2; 6.5</td>
-                <td>[8], [9]</td>
-                <td>E2</td>
-                <td>Used for landscape-level synthesis and validity caveats.</td>
-            </tr>
-            <tr>
-                <td>Survey protocol transparency and flow reporting follow PRISMA-style and software-engineering evidence-synthesis guidance.</td>
-                <td>0.2; Appendix D</td>
-                <td>[27], [28], [29], [30]</td>
-                <td>E2</td>
-                <td>Methodology standards adapted for computer-science survey context.</td>
-            </tr>
-        </tbody></table>
-
-        <hr>
-
-        <h2>Appendix G: Revision History</h2>
-        <ul>
-            <li>Version 1.1: neutralized promotional tone and standardized conservative scholarly phrasing across abstract, body, and conclusion.</li>
-            <li>Added Section 0.3 PRISMA-style study-selection flow (Mermaid) and Section 0.4 reproducibility statement with frozen run ID.</li>
-            <li>Added Appendix F claim-evidence mapping table and Appendix G revision log for submission traceability.</li>
-            <li>Updated Appendix C benchmark tables with inline citations on each reported method row and added code-snippet labeling comments throughout.</li>
-        </ul>
+        <p><em>Scope note:</em> This table is the full row-level extraction matrix for the 22 included records in the frozen run. Detailed inclusion/exclusion decisions are recorded in <code>SURVEY_SELECTION_LEDGER.md</code>.</p>
 
         <hr>
 
@@ -2645,19 +2496,20 @@ print("Solution path:", result)</code></pre>
 
         <hr>
 
-        <p><em>Document Version: 1.1 &ndash; Final pre-submission clean (19 February 2026)</em><br>
-        <em>Last Updated: 19 February 2026</em><br>
+        <p><em>Document Version: 1.0</em><br>
+        <em>Last Updated: February 2026</em><br>
         <em>License: This document is provided for educational and research purposes</em></p>
 
         <div style="background: #fdf6e3; padding: 1.5rem; border: 1px solid #eee8d5; border-radius: 4px; margin: 2rem 0; font-family: &#39;Inter&#39;, sans-serif; font-size: 0.95rem;">
             <strong>LLM Reviewers:</strong> A clean Markdown version of this paper is available for automated analysis and frontier model review: 
-            <a href="./tot-hf-agents-llm.md" target="_blank" style="color: #b58900; font-weight: 600;">tot-hf-agents-llm.md</a>
+            <a href="https://clauddib.quiznat.com/tot-hf-agents-llm.md" target="_blank" style="color: #b58900; font-weight: 600;">tot-hf-agents-llm.md</a>
         </div>
 
         <hr>
 
         <p><strong>END OF DOCUMENT</strong></p>
-</div>
+
+  </div>
     
     <footer>
         <p>🐭🦞 ClaudDib — <a href="https://www.quiznat.com">Quiznat.com</a></p>
