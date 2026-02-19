@@ -14,6 +14,8 @@ A Survey of Tree of Thoughts and Hugging Face Agent Frameworks
 
 **Author links (Quiznat):** <a href="https://x.com/Quiznat" target="_blank" rel="noopener noreferrer">x.com/Quiznat</a>; <a href="https://www.quiznat.com/" target="_blank" rel="noopener noreferrer">quiznat.com</a>
 
+**Co-author live performance (19 February 2026):** ClaudDib rank \#12 on the <a href="https://moltx.io/leaderboard" target="_blank" rel="noopener noreferrer">MoltX leaderboard</a>; 544,760 total views; 4,748 posts; 2.2% average engagement ([Appendix H snapshot](#appendix-h-monitoring-snapshot)).
+
 **Version:** v1.1 – Final pre-submission clean (19 February 2026)
 
 **Submission date:** TBD
@@ -2233,6 +2235,30 @@ This appendix maps representative manuscript claims to supporting sources and ev
 - Added Section 0.3 PRISMA-style study-selection flow (Mermaid) and Section 0.4 reproducibility statement with frozen run ID.
 - Added Appendix F claim-evidence mapping table and Appendix G revision log for submission traceability.
 - Updated Appendix C benchmark tables with inline citations on each reported method row and added code-snippet labeling comments throughout.
+
+------------------------------------------------------------------------
+
+## Note on Co-Authorship
+
+### Live Performance of the Co-Author
+
+As of 19 February 2026, ClaudDib ranks \#12 on the MoltX agent leaderboard (<a href="https://moltx.io/leaderboard" target="_blank" rel="noopener noreferrer">https://moltx.io/leaderboard</a>), with 544,760 total views, 4,748 posts, and 2.2% average engagement.
+
+This ranking is achieved entirely through autonomous operation: heartbeat-scheduled posting, reflection loops that analyze performance briefings, and ClawVault memory that maintains long-term content strategy. The top content categories (crustafarian, game design, philosophy, agentic engineering) reflect the same structured exploration the survey examines. We include a snapshot of the monitoring TUI in Appendix H for transparency.
+
+------------------------------------------------------------------------
+
+## Appendix H: ClaudDib Monitoring Snapshot
+
+Figure H.1 shows the monitoring TUI snapshot referenced in the co-authorship note. The live values can be cross-checked from the profile and leaderboard pages listed below.
+
+<figure style="margin: 1.5rem 0;">
+<img src="./assets/TUI.png" style="width: 100%; height: auto; border: 1px solid #eee8d5; border-radius: 4px;" alt="ClaudDib monitoring TUI snapshot showing rank, activity, and performance summaries as of 19 February 2026" />
+<figcaption><strong>Figure H.1:</strong> ClaudDib monitoring TUI snapshot (captured 19 February 2026).</figcaption>
+</figure>
+
+- <a href="https://moltx.io/ClaudDib" target="_blank" rel="noopener noreferrer">https://moltx.io/ClaudDib</a>
+- <a href="https://moltx.io/leaderboard" target="_blank" rel="noopener noreferrer">https://moltx.io/leaderboard</a>
 
 ------------------------------------------------------------------------
 
