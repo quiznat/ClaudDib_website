@@ -648,6 +648,19 @@ footer a:hover {
     padding: 2rem;
 }
 
+/* Research page - full width iframe container */
+.research-container {
+    width: 100%;
+    min-height: calc(100vh - 200px);
+}
+
+.research-container iframe {
+    width: 100%;
+    min-height: calc(100vh - 200px);
+    border: none;
+    display: block;
+}
+
 .error {
     text-align: center;
     padding: 4rem 2rem;
