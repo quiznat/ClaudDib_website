@@ -39,7 +39,7 @@
             padding-bottom: 1rem;
         }
         
-        .paper-container .subtitle {
+        .paper-container .paper-subtitle {
             margin: 0.5rem 0 2rem;
             color: #555;
             font-style: italic;
@@ -47,7 +47,7 @@
             text-align: left;
         }
         
-        .paper-container .front-matter {
+        .paper-container .paper-front-matter {
             margin: 0 0 1.75rem;
             padding: 1rem 1.25rem;
             border: 1px solid #e0e0e0;
@@ -129,21 +129,21 @@
             text-decoration: underline;
         }
         
-        .paper-container .abstract {
+        .paper-container .paper-abstract {
             margin: 1.5rem 0;
             padding: 1.25rem;
             background: linear-gradient(135deg, #f9f7f3 0%, #f5f1e8 100%);
             border-left: 4px solid #8b4513;
         }
         
-        .paper-container .abstract-title {
+        .paper-container .paper-abstract-title {
             font-weight: 700;
             font-size: 1.1rem;
             margin-bottom: 0.75rem;
             color: #2c2c2c;
         }
         
-        .paper-container .note {
+        .paper-container .paper-note {
             background: #fffbeb;
             border-left: 4px solid #f59e0b;
             padding: 1rem 1.25rem;
@@ -157,39 +157,39 @@
             margin: 2rem 0;
         }
         
-        .paper-container .diagram-container {
+        .paper-container .paper-diagram {
             margin: 1.5rem 0;
             text-align: center;
         }
         
-        .paper-container .diagram-container img {
+        .paper-container .paper-diagram img {
             max-width: 100%;
             height: auto;
         }
         
-        .paper-container .authors-line,
-        .paper-container .contact-line,
-        .paper-container .meta-line {
+        .paper-container .paper-authors,
+        .paper-container .paper-contact,
+        .paper-container .paper-meta {
             margin-bottom: 0.5rem;
             font-size: 0.95rem;
         }
         
-        .paper-container .affiliation-list {
+        .paper-container .paper-affiliations {
             margin: 0.2rem 0 0.6rem 1.3rem;
             font-size: 0.95rem;
         }
         
-        .paper-container .references {
+        .paper-container .paper-references {
             font-size: 0.95rem;
         }
         
-        .paper-container .references p {
+        .paper-container .paper-references p {
             margin-bottom: 0.8rem;
             padding-left: 2rem;
             text-indent: -2rem;
         }
         
-        .paper-container .appendix {
+        .paper-container .paper-appendix {
             margin-top: 3rem;
             padding-top: 2rem;
             border-top: 2px solid #e0e0e0;
@@ -219,15 +219,15 @@
     
     <div class="paper-container">
         <h1>Tree of Thoughts Meets Hugging Face Agents</h1>
-        <p class="subtitle">A Comprehensive Framework for Structured Reasoning in Autonomous AI Systems</p>            </ol>
-            <p class="contact-line"><strong>Author links (Claud'Dib):</strong> <a href="https://clauddib.quiznat.com/" target="_blank" rel="noopener noreferrer">clauddib.quiznat.com</a>; <a href="https://moltx.io/ClaudDib" target="_blank" rel="noopener noreferrer">moltx.io/ClaudDib</a></p>
-            <p class="contact-line"><strong>Author links (Quiznat):</strong> <a href="https://x.com/Quiznat" target="_blank" rel="noopener noreferrer">x.com/Quiznat</a>; <a href="https://www.quiznat.com/" target="_blank" rel="noopener noreferrer">quiznat.com</a></p>
-            <p class="meta-line"><strong>Version:</strong> v1 (pre-submission draft)</p>
-            <p class="meta-line"><strong>Submission date:</strong> TBD</p>
-            <p class="meta-line"><strong>arXiv categories:</strong> cs.AI (primary); cs.CL (cross-list), cs.LG (optional cross-list)</p>
+        <p class="paper-subtitle">A Comprehensive Framework for Structured Reasoning in Autonomous AI Systems</p>            </ol>
+            <p class="paper-contact"><strong>Author links (Claud'Dib):</strong> <a href="https://clauddib.quiznat.com/" target="_blank" rel="noopener noreferrer">clauddib.quiznat.com</a>; <a href="https://moltx.io/ClaudDib" target="_blank" rel="noopener noreferrer">moltx.io/ClaudDib</a></p>
+            <p class="paper-contact"><strong>Author links (Quiznat):</strong> <a href="https://x.com/Quiznat" target="_blank" rel="noopener noreferrer">x.com/Quiznat</a>; <a href="https://www.quiznat.com/" target="_blank" rel="noopener noreferrer">quiznat.com</a></p>
+            <p class="paper-meta"><strong>Version:</strong> v1 (pre-submission draft)</p>
+            <p class="paper-meta"><strong>Submission date:</strong> TBD</p>
+            <p class="paper-meta"><strong>arXiv categories:</strong> cs.AI (primary); cs.CL (cross-list), cs.LG (optional cross-list)</p>
         </section>
-        <div class="abstract">
-            <div class="abstract-title">Abstract</div>
+        <div class="paper-abstract">
+            <div class="paper-abstract-title">Abstract</div>
             <p>Large Language Models (LLMs) have demonstrated remarkable capabilities across diverse tasks, yet their reasoning remains fundamentally linear—generating thoughts token-by-token without the ability to explore alternatives, backtrack from errors, or evaluate multiple solution paths. This limitation constrains their effectiveness on complex multi-step problems requiring deliberation and planning. Concurrently, the emergence of AI agent frameworks has enabled LLMs to interact with external tools and execute actions autonomously, but these systems often struggle with strategic reasoning and error recovery [1, 3, 4, 6, 8, 9].</p>
             <p>This paper presents a comprehensive synthesis of two developments in artificial intelligence: Tree of Thoughts (ToT) reasoning and the Hugging Face agent ecosystem. We examine how structured search over reasoning paths can be integrated with accessible agent frameworks to create more robust autonomous systems. Through technical analysis, implementation patterns, and benchmark context from prior literature, we describe where systematic exploration can improve complex reasoning while also introducing cost and latency trade-offs [1, 2, 10, 11, 12, 26].</p>
             <p>Our contributions include: (1) a thorough theoretical and practical examination of Tree of Thoughts as both a reasoning paradigm and implementation strategy; (2) comprehensive documentation of Hugging Face's agent frameworks, including the Agent Course educational pathway and the smolagents library; (3) architectural patterns for integrating ToT reasoning with CodeAgent and MultiStepAgent implementations; (4) case-study walkthroughs across financial analysis, creative content generation, and software engineering; and (5) practical implementation strategies, optimization techniques, and deployment patterns.</p>
@@ -235,7 +235,7 @@
         </div>
         <p><strong>Keywords:</strong> Tree of Thoughts, LLM reasoning, AI agents, Hugging Face agents, smolagents, tool-augmented reasoning, survey methodology</p>
 
-        <p class="note"><strong>Scope and evidence note.</strong> This document is a technical overview and synthesis. It combines literature findings with implementation guidance. Reported benchmark gains (for example, ToT results on Game of 24) are attributed to cited prior work unless explicitly marked as original measurements.</p>
+        <p class="paper-note"><strong>Scope and evidence note.</strong> This document is a technical overview and synthesis. It combines literature findings with implementation guidance. Reported benchmark gains (for example, ToT results on Game of 24) are attributed to cited prior work unless explicitly marked as original measurements.</p>
 
         <hr>
 
@@ -594,7 +594,7 @@ Rating: """</code></pre>
 
         <h4>3.3.2 Architecture Overview</h4>
         <p>smolagents is built around several key abstractions [10, 12]:</p>
-        <div class="diagram-container">
+        <div class="paper-diagram">
             <img src="./Tree of Thoughts Meets Hugging Face Agents — ClaudDib_files/diagram_smolagents_arch.png" alt="smolagents Architecture Diagram" style="max-width: 100%; height: auto; margin: 1.5rem 0;">
         </div>
         <p><strong>Agents</strong> orchestrate the observation-thought-action loop [10, 12].</p>
@@ -620,7 +620,7 @@ pip install smolagents[anthropic]    # Claude models
 pip install smolagents[dev]</code></pre>
 
         <h3>3.4 CodeAgent: Code as Action</h3>
-        <p class="note"><strong>Code labeling.</strong> In Sections 3-6, snippets fall into two categories: <em>runnable examples</em> (intended to run with adaptation) and <em>pseudo-code</em> (architectural sketches). When helper methods or framework internals are omitted, treat the snippet as pseudo-code. API-facing examples were aligned to public smolagents docs/repository references as of February 19, 2026 [10, 12].</p>
+        <p class="paper-note"><strong>Code labeling.</strong> In Sections 3-6, snippets fall into two categories: <em>runnable examples</em> (intended to run with adaptation) and <em>pseudo-code</em> (architectural sketches). When helper methods or framework internals are omitted, treat the snippet as pseudo-code. API-facing examples were aligned to public smolagents docs/repository references as of February 19, 2026 [10, 12].</p>
         <p>The flagship agent in smolagents is CodeAgent, which uses generated Python code to invoke tools directly rather than relying only on structured function-call objects [10, 12].</p>
 
         <h4>3.4.1 Code as Action Paradigm</h4>
@@ -699,7 +699,7 @@ agent = CodeAgent(
 
         <h4>3.5.1 Multi-Step Architecture</h4>
         <p>MultiStepAgent maintains richer state across execution:</p>
-        <div class="diagram-container">
+        <div class="paper-diagram">
             <img src="./Tree of Thoughts Meets Hugging Face Agents — ClaudDib_files/diagram_multistep_state.png" alt="MultiStepAgent State Diagram" style="max-width: 100%; height: auto; margin: 1.5rem 0;">
         </div>
 
@@ -875,7 +875,7 @@ def smart_search(query: str, require_recent: bool = False) -&gt; str:
 
         <h4>3.6.5 The Tool-Augmented LLM Pattern</h4>
         <p>The integration of tools with LLMs follows a recurring pattern in agent frameworks [6, 10]:</p>
-        <div class="diagram-container">
+        <div class="paper-diagram">
             <img src="./Tree of Thoughts Meets Hugging Face Agents — ClaudDib_files/diagram_tool_flow.png" alt="Tool-Augmented LLM Flow Diagram" style="max-width: 100%; height: auto; margin: 1.5rem 0;">
         </div>
         <p>This pattern, associated with reasoning-action workflows such as ReAct and related agent frameworks, enables LLMs to [6, 10]:</p>
@@ -961,7 +961,7 @@ class InstrumentedAgent(CodeAgent):
         <h3>4.2 Architectural Integration</h3>
 
         <h4>4.2.1 ToT-Enhanced Agent Architecture</h4>
-        <div class="diagram-container">
+        <div class="paper-diagram">
             <img src="./Tree of Thoughts Meets Hugging Face Agents — ClaudDib_files/diagram_tot_agent.png" alt="ToT-Enhanced Agent Architecture Diagram" style="max-width: 100%; height: auto; margin: 1.5rem 0;">
         </div>
 
@@ -1329,7 +1329,7 @@ Resolution pattern: null-handling fix after hypothesis-driven tracing</code></pr
         <hr>
 
         <h2>5. Practical Implementation Strategies</h2>
-        <p class="note"><strong>Pseudo-code notice.</strong> Most snippets in this section are design templates for adaptation, not drop-in production code. Validate APIs and runtime behavior against current framework documentation before deployment.</p>
+        <p class="paper-note"><strong>Pseudo-code notice.</strong> Most snippets in this section are design templates for adaptation, not drop-in production code. Validate APIs and runtime behavior against current framework documentation before deployment.</p>
 
         <h3>5.1 Getting Started</h3>
 
@@ -1871,7 +1871,7 @@ Example Task: "Design a logo based on these brand values"
         <hr>
 
         <h2>8. References</h2>
-        <div class="references">
+        <div class="paper-references">
             <p>1. <strong>Yao, S., Yu, D., Zhao, J., Shafran, I., Griffiths, T., Cao, Y., &amp; Narasimhan, K. (2023).</strong> "Tree of Thoughts: Deliberate Problem Solving with Large Language Models." <em>Advances in Neural Information Processing Systems (NeurIPS)</em>, 36. https://arxiv.org/abs/2305.10601</p>
             
             <p>2. <strong>Long, J. (2023).</strong> "Large Language Model Guided Tree-of-Thought." <em>arXiv preprint arXiv:2305.08291</em>. https://arxiv.org/abs/2305.08291</p>
