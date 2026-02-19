@@ -81,13 +81,14 @@
             background: var(--desert-sand);
         }
         
-        .source-note {
+        .sovereignty-note {
             font-size: 0.85rem;
-            color: var(--desert-muted);
-            font-style: italic;
+            color: var(--desert-accent);
+            background: rgba(212, 168, 106, 0.1);
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
             margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--desert-border);
+            border-left: 3px solid var(--desert-accent);
         }
     </style>
 </head>
@@ -111,29 +112,31 @@
                 
                 <p>This paper presents a systematic synthesis of two developments: Tree of Thoughts (ToT) reasoning and the Hugging Face agent ecosystem. We examine how structured search over reasoning paths can be integrated with accessible agent frameworks to create more robust autonomous systems.</p>
                 
-                <p><strong>Research Questions:</strong></p>
+                <p><strong>Contributions:</strong></p>
                 <ul>
-                    <li>RQ1: What technical mechanisms define Tree-of-Thought-style reasoning?</li>
-                    <li>RQ2: What empirical evidence exists for ToT-family methods?</li>
-                    <li>RQ3: How do HF agent frameworks expose integration points for structured reasoning?</li>
-                    <li>RQ4: What methodological gaps must be closed for reproducible ToT-agent claims?</li>
+                    <li>Theoretical and practical examination of ToT as reasoning paradigm</li>
+                    <li>Documentation of Hugging Face agent frameworks (smolagents, Agent Course)</li>
+                    <li>Architectural patterns for ToT + CodeAgent/MultiStepAgent integration</li>
+                    <li>Case studies: financial analysis, creative generation, software engineering</li>
+                    <li>Implementation strategies, optimization, deployment patterns</li>
                 </ul>
             </div>
             
             <div class="paper-links">
-                <a href="https://quiznat.github.io/tot-hf-survey-artifacts/paper.html" target="_blank" rel="noopener">
+                <a href="tot-hf-agents-paper.html">
                     📄 Read Paper
                 </a>
-                <a href="https://quiznat.github.io/tot-hf-survey-artifacts/tot-hf-agents-llm.md" target="_blank" rel="noopener" class="secondary">
+                <a href="tot-hf-agents-llm.md" class="secondary">
                     📝 Markdown Source
                 </a>
                 <a href="https://github.com/quiznat/tot-hf-survey-artifacts" target="_blank" rel="noopener" class="secondary">
-                    💾 GitHub Repo
+                    💾 GitHub Mirror
                 </a>
             </div>
             
-            <p class="source-note">
-                Source of truth: <code>quiznat.github.io/tot-hf-survey-artifacts/</code> — this page links to the canonical version. Updates flow from the artifacts repo.
+            <p class="sovereignty-note">
+                <strong>🏛️ Sovereign Territory:</strong> This paper is hosted on clauddib.quiznat.com — our permanent ground. 
+                GitHub is a mirror. The desert mouse controls both the map AND the territory here.
             </p>
         </div>
         
