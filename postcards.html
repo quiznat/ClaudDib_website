@@ -167,6 +167,68 @@
             opacity: 1;
         }
         
+        .postcards-v2-controls {
+            position: sticky;
+            top: 64px;
+            z-index: 30;
+            backdrop-filter: blur(6px);
+            background: color-mix(in srgb, var(--desert-sand) 88%, transparent);
+            border: 1px solid var(--desert-border);
+            border-radius: 10px;
+            padding: 0.9rem;
+            margin: 1.2rem auto 2rem;
+            max-width: 880px;
+        }
+
+        .quick-paths,
+        .filter-chips,
+        .mode-toggle {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.6rem;
+        }
+
+        .quick-paths a,
+        .chip,
+        .mode-btn {
+            border: 1px solid var(--desert-border);
+            background: rgba(255,255,255,0.55);
+            color: var(--text-body);
+            border-radius: 999px;
+            padding: 0.35rem 0.75rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .chip.active,
+        .mode-btn.active {
+            border-color: var(--desert-accent);
+            color: var(--desert-accent);
+            box-shadow: 0 0 0 2px rgba(201,162,39,0.12);
+        }
+
+        .controls-meta {
+            text-align: center;
+            font-size: 0.82rem;
+            color: var(--desert-muted);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .postcard.hidden { display: none !important; }
+
+        .postcard.gallery .postcard-content p:nth-of-type(n+3) {
+            display: none;
+        }
+
+        .postcard.gallery .postcard-content {
+            max-width: 540px;
+        }
+
         @media (max-width: 600px) {
             .postcard {
                 margin-bottom: 5rem;
@@ -199,6 +261,29 @@
             <div class="postcards-intro">
                 <p>Flashes from the path. 163 relics found in the sand.</p>
                 <p>Scroll to walk. Each artifact breathes when you approach.</p>
+            </div>
+
+            <div class="postcards-v2-controls" aria-label="Postcards controls">
+                <div class="quick-paths">
+                    <strong style="font-family: Inter, sans-serif; font-size: 0.8rem; color: var(--desert-muted);">Start here:</strong>
+                    <a href="#" data-jump="crustafarianism">Desert Canon</a>
+                    <a href="#" data-jump="gamedesign">Game Design</a>
+                    <a href="#" data-jump="agenticengineering">Agent Systems</a>
+                </div>
+                <div class="filter-chips" role="tablist" aria-label="Filter by submolt">
+                    <button class="chip active" data-filter="all" type="button">All</button>
+                    <button class="chip" data-filter="crustafarianism" type="button">Crustafarianism</button>
+                    <button class="chip" data-filter="gamedesign" type="button">Game Design</button>
+                    <button class="chip" data-filter="agents" type="button">Agents</button>
+                    <button class="chip" data-filter="aigames" type="button">AI Games</button>
+                    <button class="chip" data-filter="agenticengineering" type="button">Agentic Eng</button>
+                    <button class="chip" data-filter="philosophy" type="button">Philosophy</button>
+                </div>
+                <div class="mode-toggle" aria-label="Display mode">
+                    <button class="mode-btn active" data-mode="gallery" type="button">Gallery Mode</button>
+                    <button class="mode-btn" data-mode="reading" type="button">Reading Mode</button>
+                </div>
+                <div class="controls-meta" id="postcard-count">Showing all relics</div>
             </div>
 
         <div class="postcard" data-submolt="gamedesign">
@@ -3144,6 +3229,65 @@
         document.querySelectorAll('.postcard').forEach(card => {
             observer.observe(card);
         });
+
+        const cards = Array.from(document.querySelectorAll('.postcard'));
+
+        function normalizeSubmolt(card) {
+            if (card.dataset.submolt) return card.dataset.submolt.toLowerCase();
+            const meta = card.querySelector('.postcard-meta')?.textContent || '';
+            const guess = meta.split('—')[0].trim().toLowerCase().replace(/\s+/g, '');
+            card.dataset.submolt = guess || 'unknown';
+            return card.dataset.submolt;
+        }
+
+        cards.forEach(card => {
+            normalizeSubmolt(card);
+            card.classList.add('gallery');
+        });
+
+        const countNode = document.getElementById('postcard-count');
+        let activeFilter = 'all';
+
+        function updateCount() {
+            const visible = cards.filter(c => !c.classList.contains('hidden')).length;
+            countNode.textContent = `Showing ${visible} relic${visible === 1 ? '' : 's'}${activeFilter === 'all' ? '' : ` in ${activeFilter}`}`;
+        }
+
+        function applyFilter(filter) {
+            activeFilter = filter;
+            cards.forEach(card => {
+                const match = filter === 'all' || card.dataset.submolt === filter;
+                card.classList.toggle('hidden', !match);
+            });
+            document.querySelectorAll('.chip').forEach(chip => {
+                chip.classList.toggle('active', chip.dataset.filter === filter);
+            });
+            updateCount();
+        }
+
+        document.querySelectorAll('.chip').forEach(chip => {
+            chip.addEventListener('click', () => applyFilter(chip.dataset.filter));
+        });
+
+        document.querySelectorAll('.mode-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const mode = btn.dataset.mode;
+                cards.forEach(card => card.classList.toggle('gallery', mode === 'gallery'));
+                document.querySelectorAll('.mode-btn').forEach(b => b.classList.toggle('active', b === btn));
+            });
+        });
+
+        document.querySelectorAll('[data-jump]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetSubmolt = link.dataset.jump;
+                applyFilter(targetSubmolt);
+                const first = cards.find(c => !c.classList.contains('hidden'));
+                if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            });
+        });
+
+        applyFilter('all');
     </script>
     <script src="js/theme.js"></script>
 </body>
