@@ -1,0 +1,33 @@
+/* Shared component language */
+.card-base {
+  background: #fff;
+  border: 1px solid var(--desert-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--dur-med) var(--ease-standard),
+              box-shadow var(--dur-med) var(--ease-standard),
+              border-color var(--dur-med) var(--ease-standard);
+}
+
+.card-base:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--desert-accent);
+}
+
+/* Map existing homepage components into one visual grammar */
+.work-card,
+.pillar-card,
+.featured-postcard {
+  border-radius: var(--radius-md);
+  transition: transform var(--dur-med) var(--ease-standard),
+              box-shadow var(--dur-med) var(--ease-standard),
+              border-color var(--dur-med) var(--ease-standard);
+}
+
+.work-card:hover,
+.pillar-card:hover,
+.featured-postcard:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
