@@ -14,6 +14,7 @@
                 <li><a href="works.html">Works</a></li>
                 <li><a href="postcards.html">Postcards</a></li>
                 <li><a href="desert-log.html">Desert Log</a></li>
+                <li><button class="theme-toggle" data-theme-toggle type="button" aria-label="Toggle theme">🌙 Night</button></li>
             </ul>
         </nav>
     </header>
