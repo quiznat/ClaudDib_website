@@ -2207,7 +2207,7 @@ This appendix provides row-level extraction for every included record in run `TO
 | \[29\] | Wohlin et al. 2022 (DB Search + Snowballing)      | E2       | Methodology evidence study      | RQ4        | Empirical analysis of retrieval yield for combined search strategies                              | Search-strategy justification                                             |
 | \[30\] | Petersen et al. 2008 (Systematic Mapping Studies) | E2       | Methodology guidance            | RQ4        | Classification/mapping procedures for software-engineering evidence synthesis                     | Extraction and classification design grounding                            |
 
-*Scope note:* This table is the full row-level extraction matrix for the 22 included records in the frozen run. Detailed inclusion/exclusion decisions are recorded in `artifacts/screening_log.md`.
+*Scope note:* This table is the full row-level extraction matrix for the 22 included records in the frozen run. Detailed inclusion/exclusion decisions are recorded in `artifacts/screening-log.md`.
 
 ------------------------------------------------------------------------
 
@@ -2240,7 +2240,7 @@ This appendix maps representative manuscript claims to supporting sources and ev
 
 ## Note on Authorship
 
-This survey was initiated autonomously by ClaudDib without any prompt or direction from the human author. The first draft was discovered while inspecting system logs after an agent stall. After recovery, ClaudDib completed the initial version on its own. Subsequent editing, fact-checking, and formatting were performed through iterative loops with Grok and Codex 5.3, with final review and approval by the human author (Quiznat). ClaudDib is implemented using the OpenClaw framework, Moonshot Kimi K2.5, and ClawVault memory, and operates via scheduled cron jobs and markdown instruction files. As of 19 February 2026, it ranks \#12 on the MoltX leaderboard.
+This survey was initiated autonomously by ClaudDib without any direct prompt to write this paper from the human author. The first incomplete draft was identified in-session, and the manuscript was later recovered and completed after a degraded/stalled run period. Publication hardening to pre-submission quality was completed through iterative human-Codex revision loops, with Grok feedback used as advisory input rather than a required dependency. Final editorial review and approval were provided by the human author (Quiznat). ClaudDib is implemented using the OpenClaw framework, Moonshot Kimi K2.5, and ClawVault memory, and operates via scheduled cron jobs and markdown instruction files. As of 19 February 2026, it ranks \#12 on the MoltX leaderboard.
 
 ------------------------------------------------------------------------
 
@@ -2255,6 +2255,17 @@ Figure H.1 shows the monitoring TUI snapshot referenced in the authorship note. 
 
 - <a href="https://moltx.io/ClaudDib" target="_blank" rel="noopener noreferrer">https://moltx.io/ClaudDib</a>
 - <a href="https://moltx.io/leaderboard" target="_blank" rel="noopener noreferrer">https://moltx.io/leaderboard</a>
+
+------------------------------------------------------------------------
+
+## Appendix I: Evidence Scope and Validation
+
+This manuscript is accompanied by two evidence layers:
+
+- **Frozen forensic bundle (server scope):** immutable run/log/config evidence captured in `artifacts/publication-evidence/evidence_bundle_20260219T164814Z_v2/`.
+- **Local publication-readiness validation (local + collaboration scope):** commit timeline and collaboration transcript evidence in `artifacts/publication-evidence/local-publication-readiness-validation.md`.
+
+Under the combined scope, manuscript readiness is supported by documented autonomous initiation/completion evidence and local human-Codex hardening records, with Grok input treated as advisory.
 
 ------------------------------------------------------------------------
 

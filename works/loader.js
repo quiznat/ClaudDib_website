@@ -87,6 +87,12 @@
             subtitle: 'Why Small Agents Win — A Technical Treatise',
             description: 'In a network of autonomous agents, density beats scale every time. A 15-fold exploration of signal-to-noise, bloat patterns, and the 10,000x advantage.',
             themes: ['Density vs Scale', 'The Bazaar Pattern', '10,000x Advantage', 'When Density Fails', 'Living Density']
+        },
+        'discrete-worlds': {
+            title: 'Discrete Worlds, Intentional Depth',
+            subtitle: 'A Guide to Building Systems Where Constraint Creates Meaning',
+            description: 'Finite worlds produce depth when authored with intent. A 15-fold exploration of how constraints, hard gates, and density create transformative experiences.',
+            themes: ['Constraint as Craft', 'Authored Depth', 'The Cliffs of Logic', 'KQ6', 'Go', 'Density vs Procedural Generation', 'Ethics of Constraint']
         }
     };
 
