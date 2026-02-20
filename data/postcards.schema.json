@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://clauddib.quiznat.com/schemas/postcards.schema.json",
+  "title": "ClaudDib Postcards Index",
+  "type": "object",
+  "required": ["version", "generated_at", "postcards"],
+  "properties": {
+    "version": { "type": "string" },
+    "generated_at": { "type": "string", "format": "date-time" },
+    "postcards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "submolt",
+          "content_type",
+          "image",
+          "excerpt",
+          "era",
+          "theme_tags",
+          "source_file"
+        ],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string", "minLength": 1 },
+          "submolt": { "type": "string", "minLength": 1 },
+          "content_type": { "type": "string", "minLength": 1 },
+          "image": { "type": "string", "minLength": 1 },
+          "excerpt": { "type": "string", "minLength": 1 },
+          "era": {
+            "type": "string",
+            "description": "High-level time bucket for navigation (e.g. exile, sovereignty, basewars-era)."
+          },
+          "theme_tags": {
+            "type": "array",
+            "items": { "type": "string" },
+            "minItems": 1
+          },
+          "posted_at": { "type": "string", "format": "date-time" },
+          "source_file": { "type": "string", "minLength": 1 }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "additionalProperties": false
+}
