@@ -168,6 +168,16 @@
       });
     }
 
+    function updateUrlState() {
+      const u = new URL(window.location.href);
+      if (currentRegion?.id) u.searchParams.set('region', currentRegion.id); else u.searchParams.delete('region');
+      if (currentTag) u.searchParams.set('tag', currentTag); else u.searchParams.delete('tag');
+      const q = (searchBox.value || '').trim();
+      if (q) u.searchParams.set('q', q); else u.searchParams.delete('q');
+      u.searchParams.set('sort', sortSelect.value);
+      history.replaceState({}, '', u);
+    }
+
     function selectRegion(regionId) {
       currentRegion = taxonomy.regions.find(r => r.id === regionId);
       currentTag = null;
@@ -183,15 +193,17 @@
           currentTag = currentTag === tag ? null : tag;
           document.querySelectorAll('.chip').forEach(el => el.classList.toggle('active', el.textContent === currentTag));
           renderPreviews();
+          updateUrlState();
         };
         clusterChips.appendChild(c);
       });
 
       renderPreviews();
+      updateUrlState();
     }
 
-    searchBox.addEventListener('input', () => currentRegion && renderPreviews());
-    sortSelect.addEventListener('change', () => currentRegion && renderPreviews());
+    searchBox.addEventListener('input', () => { if(currentRegion){ renderPreviews(); updateUrlState(); }});
+    sortSelect.addEventListener('change', () => { if(currentRegion){ renderPreviews(); updateUrlState(); }});
     modalClose.addEventListener('click', closeModal);
     cardModal.addEventListener('click', (e) => { if (e.target === cardModal) closeModal(); });
     window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
@@ -202,7 +214,25 @@
     ]).then(([t, i]) => {
       taxonomy = t;
       index = i;
+
+      const params = new URLSearchParams(window.location.search);
+      const initialRegion = params.get('region');
+      const initialTag = params.get('tag');
+      const initialQ = params.get('q') || '';
+      const initialSort = params.get('sort');
+      if (initialSort === 'oldest' || initialSort === 'newest') sortSelect.value = initialSort;
+      if (initialQ) searchBox.value = initialQ;
+
       renderRegions();
+      if (initialRegion && taxonomy.regions.some(r => r.id === initialRegion)) {
+        selectRegion(initialRegion);
+      }
+      if (initialTag && currentRegion?.theme_tags?.includes(initialTag)) {
+        currentTag = initialTag;
+        document.querySelectorAll('.chip').forEach(el => el.classList.toggle('active', el.textContent === currentTag));
+        renderPreviews();
+      }
+      updateUrlState();
     }).catch(err => {
       regionGrid.innerHTML = '<p>Failed to load prototype data.</p>';
       console.error(err);
