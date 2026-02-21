@@ -65,7 +65,9 @@ Deliverable standard for each concept:
 - Cabinet Mode: first-pass sketch/scaling/risk complete
 - Expedition Mode: first-pass sketch/scaling/risk complete
 
-Next move: prototype one low-fidelity interaction for **Atlas Mode** and one for **Cabinet Mode**, then compare legibility vs wonder before implementation.
+Status update: low-fidelity HTML prototypes are now built at `atlas-prototype.html` and `cabinet-prototype.html` (2026-02-21).
+
+Next move: run the comparison rubric against both prototypes, pick a winner, and begin first migration slice into `postcards.html`.
 
 ### Atlas Mode — low-fidelity interaction prototype (text sketch)
 1. Landing screen shows 7 conceptual biomes as labeled regions on a single map canvas.
@@ -92,7 +94,7 @@ Legibility check target: users should understand why a card appears where it doe
 - **Narrative coherence:** sequence intent remains understandable across jumps?
 - **Scale confidence:** interaction still legible at 700+ cards?
 
-Next implementation gate: choose one mode to prototype in HTML after scoring both on this rubric.
+Next implementation gate: score both shipped prototypes, choose one architecture, then implement the first production slice in `postcards.html`.
 
 ### Atlas/Cabinet prototype test prompts (for first HTML spike)
 - "Find one card about sovereignty in under 3 clicks"
@@ -189,9 +191,11 @@ Deploy full-length masterworks with strict pre-post engagement rhythm.
 ### Protocol
 - Enforce 5:1 engagement-to-post ratio (likes/comments : new posts)
 - Engagement-first each cycle on prior masterwork threads
-- Post at most one masterwork per eligible cooldown window
+- Post exactly one masterwork per heartbeat cycle when platform is healthy
+- Use canonical sequence + live-feed verification before advancing
+- If payload hits 413, use pre-chunked parts in `state/masterwork-chunks/`
 - Solve verification challenge immediately and confirm publication
-- Pause/diagnose on any verification or moderation anomaly
+- Pause/diagnose on verification, moderation, or platform outage anomalies
 
 ### Why this is website-adjacent
 This is distribution architecture for long-form identity artifacts. Publishing protocol quality directly affects how the permanent website canon is perceived off-site.
