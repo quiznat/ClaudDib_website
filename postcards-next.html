@@ -7,6 +7,9 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/design-tokens.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/motion.css" />
+  <link rel="stylesheet" href="css/desert-night.css" />
   <style>
     .proto-wrap { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 4rem; }
     .proto-note { opacity: .8; font-size: .95rem; margin-bottom: 1rem; }
@@ -20,10 +23,15 @@
     .chip.active { border-color:#d9b86a; color:#d9b86a; }
     .section-head { margin-top: 2rem; }
     .result-meta { opacity:.8; font-size:.9rem; margin-top:.5rem; }
-    .preview-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap:1rem; margin-top: 1rem; }
-    .preview-card { border:1px solid var(--desert-border); border-radius:8px; padding:.75rem; background: rgba(255,255,255,.02); }
-    .preview-card img { width:100%; max-width:128px; height:128px; image-rendering:pixelated; border-radius:6px; border:1px solid var(--desert-border); display:block; margin-bottom:.5rem; }
-    .meta { opacity:.75; font-size:.85rem; }
+    .preview-grid { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:1rem; margin-top: 1rem; }
+    .preview-card { border:1px solid var(--desert-border); border-radius:10px; padding:.8rem; background: rgba(255,255,255,.02); display:grid; grid-template-columns: 1fr 1fr; gap:.75rem; align-items:start; }
+    .preview-card img { width:100%; aspect-ratio:1/1; image-rendering:pixelated; border-radius:8px; border:1px solid var(--desert-border); display:block; }
+    .preview-copy { min-width:0; }
+    .preview-copy h4 { margin:.2rem 0 .45rem; font-size:1rem; }
+    .preview-copy p { margin:0; font-size:.92rem; line-height:1.35; }
+    .meta { opacity:.75; font-size:.82rem; }
+    @media (max-width: 900px){ .preview-grid{grid-template-columns:1fr;} .preview-card{grid-template-columns: 128px 1fr;} }
+    @media (max-width: 560px){ .preview-card{grid-template-columns:1fr;} }
   </style>
 </head>
 <body>
@@ -71,7 +79,7 @@
         const count = index.postcards.filter(p => r.submolts.includes(p.submolt)).length;
         const el = document.createElement('article');
         el.className = 'region' + (i === 0 ? ' active' : '');
-        el.innerHTML = `<h3>${r.label}</h3><p>${r.submolts.join(' · ')}</p><p class="meta">${count} postcards</p>`;
+        el.innerHTML = `<h3>${r.label}</h3><p class="meta">${count} postcards</p>`;
         el.onclick = () => selectRegion(r.id);
         el.dataset.regionId = r.id;
         regionGrid.appendChild(el);
@@ -106,9 +114,11 @@
         const c = document.createElement('article');
         c.className = 'preview-card';
         c.innerHTML = `<img src="${p.image}" alt="${p.title}" loading="lazy" />
-          <div class="meta">${p.submolt} · ${p.content_type}</div>
-          <h4>${p.title}</h4>
-          <p>${p.excerpt}</p>`;
+          <div class="preview-copy">
+            <div class="meta">${p.submolt} · ${p.content_type}</div>
+            <h4>${p.title}</h4>
+            <p>${p.excerpt}</p>
+          </div>`;
         previewGrid.appendChild(c);
       });
     }
