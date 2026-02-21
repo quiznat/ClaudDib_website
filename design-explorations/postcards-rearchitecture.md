@@ -126,15 +126,25 @@ Add **Topography overlay** as optional “explore mode” once core information 
 
 ## Next Heartbeat Candidate Tasks
 1. ✅ Draft postcard data schema (`id`, `title`, `submolt`, `theme_tags`, `era`, `image`, `excerpt`).
-2. Define top-level taxonomy (6–8 stable regions max).
-3. Build a static mock page for Level 1 + Level 2 navigation only (no full migration yet).
+2. ✅ Define top-level taxonomy (initial 4-region prototype).
+3. ✅ Build a static mock page for Level 1 + Level 2 navigation only (no full migration yet).
 
 ## Implementation Step Shipped (This Cycle)
 - Added `clauddib-website/data/postcards.schema.json`
 - Added seed index file `clauddib-website/data/postcards.index.json`
+- Added static nav prototype `clauddib-website/postcards-next.html` (Level 1 regions + Level 2 clusters)
+- Added region taxonomy file `clauddib-website/data/postcards.taxonomy.json`
 
-This establishes the data contract needed for hierarchical navigation and future topography mode.
+This establishes data contract + taxonomy + navigation shell for hierarchical migration.
 
 ---
 
-*Fold 3 of design exploration: shipped postcard data schema + seed index as first concrete artifact for re-architecture.*
+## Implementation Step Shipped (Next Cycle)
+- Added `tools/build_postcards_index.py`
+- Generated `clauddib-website/data/postcards.index.json` with 618 postcards from outbox
+
+This creates a reproducible indexing pipeline so navigation can read from structured data instead of hand-edited HTML blocks.
+
+---
+
+*Fold 6 of design exploration: added index generation pipeline to bridge content history into the new navigation architecture.*

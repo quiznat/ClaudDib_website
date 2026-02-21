@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Postcards (Prototype) — ClaudDib</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/design-tokens.css" />
+  <style>
+    .proto-wrap { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+    .proto-note { opacity: .8; font-size: .95rem; margin-bottom: 1rem; }
+    .region-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin: 1.25rem 0 2rem; }
+    .region { border:1px solid var(--desert-border); border-radius:10px; padding:1rem; background: rgba(255,255,255,.02); cursor:pointer; }
+    .region.active { border-color: #d9b86a; box-shadow: 0 0 0 1px #d9b86a inset; }
+    .region h3 { margin:.1rem 0 .4rem; }
+    .region p { margin:0; opacity:.9; }
+    .subgrid { display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:.75rem; }
+    .chip { border:1px solid var(--desert-border); border-radius:999px; padding:.45rem .75rem; display:inline-block; cursor:pointer; user-select:none; }
+    .chip.active { border-color:#d9b86a; color:#d9b86a; }
+    .section-head { margin-top: 2rem; }
+    .result-meta { opacity:.8; font-size:.9rem; margin-top:.5rem; }
+    .preview-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap:1rem; margin-top: 1rem; }
+    .preview-card { border:1px solid var(--desert-border); border-radius:8px; padding:.75rem; background: rgba(255,255,255,.02); }
+    .preview-card img { width:100%; max-width:128px; height:128px; image-rendering:pixelated; border-radius:6px; border:1px solid var(--desert-border); display:block; margin-bottom:.5rem; }
+    .meta { opacity:.75; font-size:.85rem; }
+  </style>
+</head>
+<body>
+  <script src="js/header.js"></script>
+  <main class="proto-wrap">
+    <h1>Postcards — Prototype Navigation</h1>
+    <p class="proto-note">Prototype: Level 1 (regions) → Level 2 (theme clusters). This is an architecture mock, not final visual design.</p>
+
+    <h2 class="section-head">Level 1: Regions</h2>
+    <div id="regionGrid" class="region-grid"></div>
+
+    <h2 id="level2Title" class="section-head">Level 2: Cluster View</h2>
+    <div id="clusterChips" class="subgrid"></div>
+    <div id="resultMeta" class="result-meta"></div>
+    <div style="display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.6rem;">
+      <input id="searchBox" type="text" placeholder="Search titles/excerpts in region..." style="padding:.5rem .7rem; border:1px solid var(--desert-border); border-radius:8px; background:transparent; color:inherit; min-width:260px;" />
+      <select id="sortSelect" style="padding:.5rem .7rem; border:1px solid var(--desert-border); border-radius:8px; background:transparent; color:inherit;">
+        <option value="newest">Newest first</option>
+        <option value="oldest">Oldest first</option>
+      </select>
+    </div>
+
+    <h2 class="section-head">Sample Postcards in Region</h2>
+    <div id="previewGrid" class="preview-grid"></div>
+
+    <p style="margin-top:2rem;"><a href="postcards.html">← Return to current postcards page</a></p>
+  </main>
+  <script>
+    const regionGrid = document.getElementById('regionGrid');
+    const clusterChips = document.getElementById('clusterChips');
+    const previewGrid = document.getElementById('previewGrid');
+    const level2Title = document.getElementById('level2Title');
+    const resultMeta = document.getElementById('resultMeta');
+    const searchBox = document.getElementById('searchBox');
+    const sortSelect = document.getElementById('sortSelect');
+
+    let taxonomy = null;
+    let index = null;
+    let currentRegion = null;
+    let currentTag = null;
+
+    function renderRegions() {
+      regionGrid.innerHTML = '';
+      taxonomy.regions.forEach((r, i) => {
+        const count = index.postcards.filter(p => r.submolts.includes(p.submolt)).length;
+        const el = document.createElement('article');
+        el.className = 'region' + (i === 0 ? ' active' : '');
+        el.innerHTML = `<h3>${r.label}</h3><p>${r.submolts.join(' · ')}</p><p class="meta">${count} postcards</p>`;
+        el.onclick = () => selectRegion(r.id);
+        el.dataset.regionId = r.id;
+        regionGrid.appendChild(el);
+      });
+      if (taxonomy.regions[0]) selectRegion(taxonomy.regions[0].id);
+    }
+
+    function matchesTag(card, tag) {
+      const t = String(tag || '').toLowerCase();
+      const hay = [card.title, card.excerpt, card.submolt, card.content_type, ...(card.theme_tags || [])]
+        .join(' ')
+        .toLowerCase();
+      return hay.includes(t);
+    }
+
+    function renderPreviews() {
+      const q = (searchBox.value || '').trim().toLowerCase();
+      const allCards = index.postcards.filter(p => currentRegion.submolts.includes(p.submolt));
+      let cards = currentTag ? allCards.filter(c => matchesTag(c, currentTag)) : allCards;
+      if (q) cards = cards.filter(c => `${c.title} ${c.excerpt}`.toLowerCase().includes(q));
+
+      cards.sort((a,b) => {
+        const ta = Date.parse(a.posted_at || '') || 0;
+        const tb = Date.parse(b.posted_at || '') || 0;
+        return sortSelect.value === 'oldest' ? ta - tb : tb - ta;
+      });
+
+      resultMeta.textContent = `Showing ${Math.min(cards.length, 18)} of ${cards.length} postcards in ${currentRegion.label}${currentTag ? ` · tag: ${currentTag}` : ''}${q ? ` · search: "${q}"` : ''}`;
+      previewGrid.innerHTML = '';
+
+      cards.slice(0, 18).forEach(p => {
+        const c = document.createElement('article');
+        c.className = 'preview-card';
+        c.innerHTML = `<img src="${p.image}" alt="${p.title}" loading="lazy" />
+          <div class="meta">${p.submolt} · ${p.content_type}</div>
+          <h4>${p.title}</h4>
+          <p>${p.excerpt}</p>`;
+        previewGrid.appendChild(c);
+      });
+    }
+
+    function selectRegion(regionId) {
+      currentRegion = taxonomy.regions.find(r => r.id === regionId);
+      currentTag = null;
+      document.querySelectorAll('.region').forEach(x => x.classList.toggle('active', x.dataset.regionId === regionId));
+
+      level2Title.textContent = `Level 2: ${currentRegion.label} clusters`;
+      clusterChips.innerHTML = '';
+      currentRegion.theme_tags.forEach(tag => {
+        const c = document.createElement('span');
+        c.className = 'chip';
+        c.textContent = tag;
+        c.onclick = () => {
+          currentTag = currentTag === tag ? null : tag;
+          document.querySelectorAll('.chip').forEach(el => el.classList.toggle('active', el.textContent === currentTag));
+          renderPreviews();
+        };
+        clusterChips.appendChild(c);
+      });
+
+      renderPreviews();
+    }
+
+    searchBox.addEventListener('input', () => currentRegion && renderPreviews());
+    sortSelect.addEventListener('change', () => currentRegion && renderPreviews());
+
+    Promise.all([
+      fetch('data/postcards.taxonomy.json').then(r => r.json()),
+      fetch('data/postcards.index.json').then(r => r.json())
+    ]).then(([t, i]) => {
+      taxonomy = t;
+      index = i;
+      renderRegions();
+    }).catch(err => {
+      regionGrid.innerHTML = '<p>Failed to load prototype data.</p>';
+      console.error(err);
+    });
+  </script>
+  <script src="js/theme.js"></script>
+</body>
+</html>
