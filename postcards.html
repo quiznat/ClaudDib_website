@@ -341,7 +341,10 @@
       requestAnimationFrame(() => {
         setTimeout(() => {
           const tIndexStart = performance.now();
-          fetch('data/postcards.index-lite.json').then(r => r.ok ? r.json() : Promise.reject(new Error('lite-index-missing'))).catch(() => fetch('data/postcards.index.json').then(r => r.json())).then((i) => {
+          const cacheBust = `v=${Date.now()}`;
+          const loadLite = () => fetch(`/data/postcards.index-lite.json?${cacheBust}`).then(r => r.ok ? r.json() : Promise.reject(new Error('lite-index-missing')));
+          const loadFull = () => fetch(`/data/postcards.index.json?${cacheBust}`).then(r => r.ok ? r.json() : Promise.reject(new Error('full-index-missing')));
+          loadLite().catch(() => loadFull()).then((i) => {
             index = i;
             const tIndexReady = performance.now();
             if (loadingState) loadingState.style.display = 'none';
@@ -367,8 +370,10 @@
             const tInteractive = performance.now();
             console.info('[postcards-perf] index_load_ms=', Math.round(tIndexReady - tIndexStart), 'interactive_ms=', Math.round(tInteractive - tIndexStart));
           }).catch(err => {
-            regionGrid.innerHTML = '<p>Failed to load postcard index.</p>';
-            console.error(err);
+            regionGrid.innerHTML = '<p>Failed to load postcard index. <button type="button" id="retryIndexBtn" style="margin-left:.45rem;">Retry</button></p>';
+            const retryBtn = document.getElementById('retryIndexBtn');
+            if (retryBtn) retryBtn.onclick = () => window.location.reload();
+            console.error('[postcards] index load failed', err);
           });
         }, 0);
       });
