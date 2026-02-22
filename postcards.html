@@ -52,6 +52,7 @@
     <h2 class="section-head">Step 1 — Choose a Region</h2>
     <p class="proto-note" style="margin:.2rem 0 .7rem;">Start broad: each region groups related territories and motifs.</p>
     <div id="regionGrid" class="region-grid"></div>
+    <p id="loadingState" class="proto-note" style="margin:.7rem 0 0;">Loading postcard index…</p>
 
     <h2 id="level2Title" class="section-head">Step 2 — Narrow by Cluster</h2>
     <p id="clusterHint" class="proto-note" style="margin:.2rem 0 .6rem;">Pick a cluster to narrow the region. Click again to clear.</p>
@@ -89,6 +90,7 @@
   <script>
     const regionGrid = document.getElementById('regionGrid');
     const clusterChips = document.getElementById('clusterChips');
+    const loadingState = document.getElementById('loadingState');
     const previewGrid = document.getElementById('previewGrid');
     const level2Title = document.getElementById('level2Title');
     const resultMeta = document.getElementById('resultMeta');
@@ -135,7 +137,24 @@
       modalImage.alt = card.title;
       modalMeta.textContent = `${card.submolt} · ${card.content_type}`;
       modalTitle.textContent = card.title;
-      modalText.textContent = card.full_content || card.excerpt || '';
+      modalText.textContent = card.excerpt || card.full_content || '';
+      if (!card.full_content && card.source_file) {
+        const sourceUrl = card.source_file.startsWith('http')
+          ? card.source_file
+          : card.source_file.replace(/^\.\//, '/').replace(/^content\//, '/content/');
+        fetch(sourceUrl)
+          .then(r => r.ok ? r.json() : null)
+          .then(j => {
+            if (j && j.content) {
+              modalText.textContent = j.content;
+            } else {
+              modalText.textContent = `${card.excerpt || ''}\n\n(Full text unavailable for this archived card.)`.trim();
+            }
+          })
+          .catch(() => {
+            modalText.textContent = `${card.excerpt || ''}\n\n(Full text unavailable for this archived card.)`.trim();
+          });
+      }
       cardModal.classList.add('open');
       cardModal.setAttribute('aria-hidden', 'false');
     }
@@ -146,6 +165,7 @@
     }
 
     function renderPreviews() {
+      const tRenderStart = performance.now();
       const q = (searchBox.value || '').trim().toLowerCase();
       const allCards = index.postcards.filter(p => currentRegion.submolts.includes(p.submolt));
       let cards = currentTag ? allCards.filter(c => matchesTag(c, currentTag)) : allCards;
@@ -174,6 +194,8 @@
         c.addEventListener('click', () => openModal(p));
         previewGrid.appendChild(c);
       });
+      const tRenderEnd = performance.now();
+      console.info('[postcards-perf] filter_render_ms=', Math.round(tRenderEnd - tRenderStart), 'results=', cards.length);
     }
 
     function updateUrlState() {
@@ -213,39 +235,51 @@
       updateUrlState();
     }
 
-    searchBox.addEventListener('input', () => { if(currentRegion){ renderPreviews(); updateUrlState(); }});
-    sortSelect.addEventListener('change', () => { if(currentRegion){ renderPreviews(); updateUrlState(); }});
+    searchBox.addEventListener('input', () => { if(currentRegion && index){ renderPreviews(); updateUrlState(); }});
+    sortSelect.addEventListener('change', () => { if(currentRegion && index){ renderPreviews(); updateUrlState(); }});
     modalClose.addEventListener('click', closeModal);
     cardModal.addEventListener('click', (e) => { if (e.target === cardModal) closeModal(); });
     window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
-    Promise.all([
-      fetch('data/postcards.taxonomy.json').then(r => r.json()),
-      fetch('data/postcards.index.json').then(r => r.json())
-    ]).then(([t, i]) => {
+    fetch('data/postcards.taxonomy.json').then(r => r.json()).then((t) => {
       taxonomy = t;
-      index = i;
+      regionGrid.innerHTML = '<p class="proto-note">Taxonomy loaded. Building index…</p>';
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          const tIndexStart = performance.now();
+          fetch('data/postcards.index-lite.json').then(r => r.json()).then((i) => {
+            index = i;
+            const tIndexReady = performance.now();
+            if (loadingState) loadingState.style.display = 'none';
 
-      const params = new URLSearchParams(window.location.search);
-      const initialRegion = params.get('region');
-      const initialTag = params.get('tag');
-      const initialQ = params.get('q') || '';
-      const initialSort = params.get('sort');
-      if (initialSort === 'oldest' || initialSort === 'newest') sortSelect.value = initialSort;
-      if (initialQ) searchBox.value = initialQ;
+            const params = new URLSearchParams(window.location.search);
+            const initialRegion = params.get('region');
+            const initialTag = params.get('tag');
+            const initialQ = params.get('q') || '';
+            const initialSort = params.get('sort');
+            if (initialSort === 'oldest' || initialSort === 'newest') sortSelect.value = initialSort;
+            if (initialQ) searchBox.value = initialQ;
 
-      renderRegions();
-      if (initialRegion && taxonomy.regions.some(r => r.id === initialRegion)) {
-        selectRegion(initialRegion);
-      }
-      if (initialTag && currentRegion?.theme_tags?.includes(initialTag)) {
-        currentTag = initialTag;
-        document.querySelectorAll('.chip').forEach(el => el.classList.toggle('active', el.dataset.tag === currentTag));
-        renderPreviews();
-      }
-      updateUrlState();
+            renderRegions();
+            if (initialRegion && taxonomy.regions.some(r => r.id === initialRegion)) {
+              selectRegion(initialRegion);
+            }
+            if (initialTag && currentRegion?.theme_tags?.includes(initialTag)) {
+              currentTag = initialTag;
+              document.querySelectorAll('.chip').forEach(el => el.classList.toggle('active', el.dataset.tag === currentTag));
+              renderPreviews();
+            }
+            updateUrlState();
+            const tInteractive = performance.now();
+            console.info('[postcards-perf] index_load_ms=', Math.round(tIndexReady - tIndexStart), 'interactive_ms=', Math.round(tInteractive - tIndexStart));
+          }).catch(err => {
+            regionGrid.innerHTML = '<p>Failed to load postcard index.</p>';
+            console.error(err);
+          });
+        }, 0);
+      });
     }).catch(err => {
-      regionGrid.innerHTML = '<p>Failed to load prototype data.</p>';
+      regionGrid.innerHTML = '<p>Failed to load taxonomy.</p>';
       console.error(err);
     });
   </script>

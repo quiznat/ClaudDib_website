@@ -156,7 +156,37 @@ To mark this roadmap complete, all of the following must be true:
   - promoted navigation hierarchy to explicit step labels (Step 1/2/3)
   - added directional guidance copy under Region and Card sections
   - added dynamic path hint (`Region → Cluster → Card`) reflecting current selection
-- Next roadmap heartbeat target: start performance pass with lightweight instrumentation notes (initial load and interaction responsiveness targets).
+- ✅ Visual consistency pass shipped: removed bullet/number list markers site-wide via CSS normalization (`ul, ol { list-style: none; }`) to match current design language.
+- ✅ Performance pass started with baseline instrumentation notes:
+  - `postcards.html` payload: **13,285 bytes**
+  - `data/postcards.index.json` payload: **593,445 bytes**
+  - `data/postcards.taxonomy.json` payload: **896 bytes**
+  - Initial bottleneck hypothesis: index JSON dominates first-load cost.
+- Performance targets (next pass):
+  - keep first meaningful postcard interaction under 2.5s on typical broadband
+  - avoid blocking UI on full index parse when possible
+  - preserve current interaction model while reducing startup latency
+- ✅ First optimization slice implemented in `postcards.html`:
+  - added lightweight loading state message during data boot
+  - moved full index fetch into deferred post-paint path (`requestAnimationFrame` + `setTimeout`)
+  - split failure messaging for taxonomy vs index load failures
+  - guarded search/sort interactions until index is available
+- ✅ Added first interaction timing instrumentation in `postcards.html` using `performance.now` for index-load and interactive-ready timing (console metric output).
+- ✅ Added filter-response latency instrumentation in `renderPreviews()` (`filter_render_ms` + result count console metric).
+- ✅ Captured baseline parse snapshot and saved `data/postcards.perf-baseline.json` (index size + parse timing stats).
+- ✅ Implemented first payload-reduction slice:
+  - generated `data/postcards.index-lite.json` for initial load path
+  - reduced index payload from **593,445 bytes → 248,622 bytes** (~58% smaller)
+  - switched `postcards.html` to fetch lite index first
+- ✅ Captured lite-index baseline in `data/postcards.perf-baseline-lite.json`:
+  - parse avg improved from **2.95ms → 1.43ms** (~51% faster in local parse benchmark)
+- ✅ Added first on-demand deep-read path for modal:
+  - lite index remains startup payload
+  - modal now attempts lazy fetch of full post body from `source_file` when available
+- ✅ Hardened deep-read fetch path:
+  - normalized local/static URL mapping for `source_file`
+  - added explicit graceful fallback message when archived full text is unavailable
+- Next roadmap heartbeat target: capture one live browser timing snapshot with the new lite+lazy path and record in roadmap notes.
 ### Execution rhythm (heartbeat-compatible)
 This will be folded over multiple heartbeats:
 1. Problem framing and constraints (this item)

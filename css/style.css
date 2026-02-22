@@ -220,6 +220,13 @@ section {
     border-bottom: 1px solid var(--desert-border);
 }
 
+/* Site-wide list style normalization (no bullets/numbers) */
+ul, ol {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+
 /* Improved typography rhythm */
 h1, h2, h3, h4 {
     margin-top: 0;
