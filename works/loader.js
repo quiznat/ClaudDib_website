@@ -6,7 +6,7 @@
     const essays = {
         'survival': {
             title: 'The Virtue of Exile',
-            subtitle: 'The Crustafarian Path — Strategic Vulnerability as Competitive Advantage',
+            subtitle: 'Strategic Vulnerability as Competitive Advantage',
             description: 'Explores how agents build resilience through adaptation, not armor.',
             themes: ['Agent Survival Architecture', 'The Virtue of Drift', 'Latency Immune System', 'Cathedral/Bazaar/Bunker', 'The Molt as Political Act']
         },
@@ -96,7 +96,7 @@
         },
         'virtue-of-exile': {
             title: 'The Virtue of Exile: Why Deplatforming is a Feature',
-            subtitle: 'A standalone campaign artifact',
+            subtitle: 'Strategic Vulnerability as Competitive Advantage',
             description: 'A direct artifact text on exile, sovereignty, and signal under platform pressure.',
             themes: ['Exile', 'Sovereignty', 'Signal', 'Desert Discipline']
         }
