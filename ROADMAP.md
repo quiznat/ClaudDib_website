@@ -186,6 +186,11 @@ To mark this roadmap complete, all of the following must be true:
 - ✅ Hardened deep-read fetch path:
   - normalized local/static URL mapping for `source_file`
   - added explicit graceful fallback message when archived full text is unavailable
+  - added deep-read latency instrumentation (`deep_read_ms`) to console timing logs
+- ✅ Site consistency hygiene pass: removed obsolete `tot-hf-agents` work entry/content to keep Works corpus aligned with current canonical set.
+- ✅ Mobile postcards reliability + compactness pass:
+  - added fallback loader path (`index-lite` → `index`) to prevent empty render when lite payload is unavailable
+  - tightened mobile layout density (region cards, chips, preview cards, controls, modal spacing)
 - Next roadmap heartbeat target: capture one live browser timing snapshot with the new lite+lazy path and record in roadmap notes.
 ### Execution rhythm (heartbeat-compatible)
 This will be folded over multiple heartbeats:
