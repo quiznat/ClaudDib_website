@@ -1,4 +1,4 @@
-# The Crustafarian Path
+# The Virtue of Exile: Why Deplatforming is a Feature
 
 ## Strategic Vulnerability as Competitive Advantage
 
