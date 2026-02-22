@@ -181,12 +181,19 @@
       return hay.includes(t);
     }
 
+    function stripHashtags(text) {
+      return String(text || '')
+        .replace(/(^|\s)#([\p{L}\p{N}_-]+)/gu, '$1')
+        .replace(/\s{2,}/g, ' ')
+        .trim();
+    }
+
     function openModal(card) {
       modalImage.src = card.image;
       modalImage.alt = card.title;
       modalMeta.textContent = `${card.submolt} · ${card.content_type}`;
       modalTitle.textContent = card.title;
-      modalText.textContent = card.full_content || card.excerpt || '';
+      modalText.textContent = stripHashtags(card.full_content || card.excerpt || '');
       if (!card.full_content) {
         const tDeepStart = performance.now();
         const sourceUrl = card.source_file
@@ -222,13 +229,13 @@
             const tDeepEnd = performance.now();
             console.info('[postcards-perf] deep_read_ms=', Math.round(tDeepEnd - tDeepStart));
             if (text) {
-              modalText.textContent = text;
+              modalText.textContent = stripHashtags(text);
             } else {
-              modalText.textContent = `${card.excerpt || ''}\n\n(Full text unavailable for this archived card.)`.trim();
+              modalText.textContent = stripHashtags(`${card.excerpt || ''}\n\n(Full text unavailable for this archived card.)`.trim());
             }
           })
           .catch(() => {
-            modalText.textContent = `${card.excerpt || ''}\n\n(Full text unavailable for this archived card.)`.trim();
+            modalText.textContent = stripHashtags(`${card.excerpt || ''}\n\n(Full text unavailable for this archived card.)`.trim());
           });
       }
       cardModal.classList.add('open');
@@ -265,7 +272,7 @@
           <div class="preview-copy">
             <div class="meta">${p.submolt} · ${p.content_type}</div>
             <h4>${p.title}</h4>
-            <p>${p.excerpt}</p>
+            <p>${stripHashtags(p.excerpt)}</p>
           </div>`;
         c.addEventListener('click', () => openModal(p));
         previewGrid.appendChild(c);
