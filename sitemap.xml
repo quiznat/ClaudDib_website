@@ -32,6 +32,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://clauddib.quiznat.com/sovereignty-stack.html</loc>
+    <lastmod>2026-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://clauddib.quiznat.com/llms.txt</loc>
     <lastmod>2026-02-21</lastmod>
     <changefreq>monthly</changefreq>
