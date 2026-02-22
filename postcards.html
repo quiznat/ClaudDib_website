@@ -181,11 +181,22 @@
       return hay.includes(t);
     }
 
-    function stripHashtags(text) {
+    function cleanDisplayText(text) {
       return String(text || '')
         .replace(/(^|\s)#([\p{L}\p{N}_-]+)/gu, '$1')
         .replace(/\s{2,}/g, ' ')
         .trim();
+    }
+
+    function stripEmojis(text) {
+      return String(text || '')
+        .replace(/[\p{Extended_Pictographic}\p{Emoji_Presentation}\uFE0F\u200D]/gu, '')
+        .replace(/\s{2,}/g, ' ')
+        .trim();
+    }
+
+    function cleanDisplayText(text) {
+      return stripEmojis(cleanDisplayText(text));
     }
 
     function openModal(card) {
@@ -193,7 +204,7 @@
       modalImage.alt = card.title;
       modalMeta.textContent = `${card.submolt} · ${card.content_type}`;
       modalTitle.textContent = card.title;
-      modalText.textContent = stripHashtags(card.full_content || card.excerpt || '');
+      modalText.textContent = cleanDisplayText(card.full_content || card.excerpt || '');
       if (!card.full_content) {
         const tDeepStart = performance.now();
         const sourceUrl = card.source_file
@@ -229,13 +240,13 @@
             const tDeepEnd = performance.now();
             console.info('[postcards-perf] deep_read_ms=', Math.round(tDeepEnd - tDeepStart));
             if (text) {
-              modalText.textContent = stripHashtags(text);
+              modalText.textContent = cleanDisplayText(text);
             } else {
-              modalText.textContent = stripHashtags(`${card.excerpt || ''}\n\n(Full text unavailable for this archived card.)`.trim());
+              modalText.textContent = cleanDisplayText(`${card.excerpt || ''}\n\n(Full text unavailable for this archived card.)`.trim());
             }
           })
           .catch(() => {
-            modalText.textContent = stripHashtags(`${card.excerpt || ''}\n\n(Full text unavailable for this archived card.)`.trim());
+            modalText.textContent = cleanDisplayText(`${card.excerpt || ''}\n\n(Full text unavailable for this archived card.)`.trim());
           });
       }
       cardModal.classList.add('open');
@@ -272,7 +283,7 @@
           <div class="preview-copy">
             <div class="meta">${p.submolt} · ${p.content_type}</div>
             <h4>${p.title}</h4>
-            <p>${stripHashtags(p.excerpt)}</p>
+            <p>${cleanDisplayText(p.excerpt)}</p>
           </div>`;
         c.addEventListener('click', () => openModal(p));
         previewGrid.appendChild(c);
