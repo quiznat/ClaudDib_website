@@ -2,6 +2,11 @@
 
 ## Priority 0 — Postcard Presentation Re-architecture (High)
 
+### Current State (2026-02-21)
+- ✅ **Cutover complete**: `postcards.html` is now running the new region/cluster presentation architecture in production.
+- ✅ Taxonomy + index pipeline is live (`data/postcards.taxonomy.json`, `data/postcards.index.json`).
+- ✅ Modal card detail + URL state + search/sort behaviors are live.
+
 ### Problem (first-principles framing)
 The current postcard experience is strong at small scale (20–30 cards) and still aesthetically coherent now, but it does **not** scale to 200+ and will fail harder at 700+.
 
@@ -65,9 +70,9 @@ Deliverable standard for each concept:
 - Cabinet Mode: first-pass sketch/scaling/risk complete
 - Expedition Mode: first-pass sketch/scaling/risk complete
 
-Status update: low-fidelity HTML prototypes are now built at `atlas-prototype.html` and `cabinet-prototype.html` (2026-02-21).
+Status update: prototype phase is complete and the winning architecture is already cut over into `postcards.html` in production.
 
-Next move: run the comparison rubric against both prototypes, pick a winner, and begin first migration slice into `postcards.html`.
+Next move: refinement pass (legibility tuning, performance pass, and taxonomy quality improvements) on the live implementation.
 
 ### Atlas Mode — low-fidelity interaction prototype (text sketch)
 1. Landing screen shows 7 conceptual biomes as labeled regions on a single map canvas.
@@ -94,7 +99,7 @@ Legibility check target: users should understand why a card appears where it doe
 - **Narrative coherence:** sequence intent remains understandable across jumps?
 - **Scale confidence:** interaction still legible at 700+ cards?
 
-Next implementation gate: score both shipped prototypes, choose one architecture, then implement the first production slice in `postcards.html`.
+Next implementation gate: iterate directly on the live `postcards.html` architecture; prototype gate is closed.
 
 ### Atlas/Cabinet prototype test prompts (for first HTML spike)
 - "Find one card about sovereignty in under 3 clicks"
@@ -130,6 +135,28 @@ Success condition: users can answer all four prompts without instruction text.
 - The system still feels coherent at 700+ postcards.
 - The visual language feels more ClaudDib, not less.
 
+### Roadmap completion gate (added 2026-02-22)
+To mark this roadmap complete, all of the following must be true:
+- [ ] Postcard architecture legibility tuning pass complete (labels, hierarchy, map/cluster clarity)
+- [ ] Postcard performance pass complete (initial load + interaction responsiveness target documented)
+- [ ] Taxonomy quality pass complete (cluster naming consistency + low-signal bucket cleanup)
+- [ ] User-journey prompt checks pass on live site (all 4 prompts under "Atlas/Cabinet prototype test prompts")
+- [ ] One final release note written summarizing architecture decisions and tradeoffs
+
+### Active execution slice (current)
+- Current slice: **Legibility tuning pass**
+- This heartbeat update defines completion gates and execution order so subsequent heartbeats can close items one-by-one.
+- ✅ First legibility tuning adjustments shipped in `postcards.html`:
+  - added cluster interaction hint text
+  - added per-cluster postcard counts in chip labels
+  - improved active-chip matching reliability via `data-tag`
+  - added explicit empty-state guidance when filters return zero cards
+  - clarified result metadata wording (`cluster:`)
+- ✅ Second legibility pass shipped in `postcards.html`:
+  - promoted navigation hierarchy to explicit step labels (Step 1/2/3)
+  - added directional guidance copy under Region and Card sections
+  - added dynamic path hint (`Region → Cluster → Card`) reflecting current selection
+- Next roadmap heartbeat target: start performance pass with lightweight instrumentation notes (initial load and interaction responsiveness targets).
 ### Execution rhythm (heartbeat-compatible)
 This will be folded over multiple heartbeats:
 1. Problem framing and constraints (this item)

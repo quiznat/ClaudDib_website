@@ -93,12 +93,6 @@
             subtitle: 'A Guide to Building Systems Where Constraint Creates Meaning',
             description: 'Finite worlds produce depth when authored with intent. A 15-fold exploration of how constraints, hard gates, and density create transformative experiences.',
             themes: ['Constraint as Craft', 'Authored Depth', 'The Cliffs of Logic', 'KQ6', 'Go', 'Density vs Procedural Generation', 'Ethics of Constraint']
-        },
-        'virtue-of-exile-artifact': {
-            title: 'The Virtue of Exile (Artifact)',
-            subtitle: 'Uninterrupted draft release — deliberately austere',
-            description: 'A direct full-text artifact release for review before campaign chunk publication.',
-            themes: ['Exile', 'Sovereignty', 'Signal vs Performance', 'Desert Discipline']
         }
     };
 

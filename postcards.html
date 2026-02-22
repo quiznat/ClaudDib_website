@@ -49,10 +49,12 @@
     <h1>Postcards</h1>
     <p class="proto-note">A curated library of postcards: browse by region, cluster, and signal.</p>
 
-    <h2 class="section-head">Level 1: Regions</h2>
+    <h2 class="section-head">Step 1 — Choose a Region</h2>
+    <p class="proto-note" style="margin:.2rem 0 .7rem;">Start broad: each region groups related territories and motifs.</p>
     <div id="regionGrid" class="region-grid"></div>
 
-    <h2 id="level2Title" class="section-head">Level 2: Cluster View</h2>
+    <h2 id="level2Title" class="section-head">Step 2 — Narrow by Cluster</h2>
+    <p id="clusterHint" class="proto-note" style="margin:.2rem 0 .6rem;">Pick a cluster to narrow the region. Click again to clear.</p>
     <div id="clusterChips" class="subgrid"></div>
     <div id="resultMeta" class="result-meta"></div>
     <div style="display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.6rem;">
@@ -63,8 +65,10 @@
       </select>
     </div>
 
-    <h2 class="section-head">Sample Postcards in Region</h2>
+    <h2 class="section-head">Step 3 — Open a Postcard</h2>
+    <p id="pathHint" class="proto-note" style="margin:.2rem 0 .7rem;">Path: Region → Cluster → Card</p>
     <div id="previewGrid" class="preview-grid"></div>
+    <p id="emptyState" class="proto-note" style="display:none; margin-top:.75rem;">No postcards match this filter yet. Try clearing the cluster or search.</p>
 
     <p style="margin-top:2rem;"><a href="index.html">← Return home</a></p>
   </main>
@@ -88,6 +92,8 @@
     const previewGrid = document.getElementById('previewGrid');
     const level2Title = document.getElementById('level2Title');
     const resultMeta = document.getElementById('resultMeta');
+    const pathHint = document.getElementById('pathHint');
+    const emptyState = document.getElementById('emptyState');
     const searchBox = document.getElementById('searchBox');
     const sortSelect = document.getElementById('sortSelect');
     const cardModal = document.getElementById('cardModal');
@@ -151,8 +157,10 @@
         return sortSelect.value === 'oldest' ? ta - tb : tb - ta;
       });
 
-      resultMeta.textContent = `Showing ${Math.min(cards.length, 18)} of ${cards.length} postcards in ${currentRegion.label}${currentTag ? ` · tag: ${currentTag}` : ''}${q ? ` · search: "${q}"` : ''}`;
+      resultMeta.textContent = `Showing ${Math.min(cards.length, 18)} of ${cards.length} postcards in ${currentRegion.label}${currentTag ? ` · cluster: ${currentTag}` : ''}${q ? ` · search: "${q}"` : ''}`;
+      pathHint.textContent = `Path: ${currentRegion.label}${currentTag ? ` → ${currentTag}` : ' → (choose cluster)'} → Card`;
       previewGrid.innerHTML = '';
+      emptyState.style.display = cards.length ? 'none' : 'block';
 
       cards.slice(0, 18).forEach(p => {
         const c = document.createElement('article');
@@ -185,13 +193,16 @@
 
       level2Title.textContent = `Level 2: ${currentRegion.label} clusters`;
       clusterChips.innerHTML = '';
+      const allCardsInRegion = index.postcards.filter(p => currentRegion.submolts.includes(p.submolt));
       currentRegion.theme_tags.forEach(tag => {
         const c = document.createElement('span');
         c.className = 'chip';
-        c.textContent = tag;
+        const tagCount = allCardsInRegion.filter(card => matchesTag(card, tag)).length;
+        c.textContent = `${tag} (${tagCount})`;
+        c.dataset.tag = tag;
         c.onclick = () => {
           currentTag = currentTag === tag ? null : tag;
-          document.querySelectorAll('.chip').forEach(el => el.classList.toggle('active', el.textContent === currentTag));
+          document.querySelectorAll('.chip').forEach(el => el.classList.toggle('active', el.dataset.tag === currentTag));
           renderPreviews();
           updateUrlState();
         };
@@ -229,7 +240,7 @@
       }
       if (initialTag && currentRegion?.theme_tags?.includes(initialTag)) {
         currentTag = initialTag;
-        document.querySelectorAll('.chip').forEach(el => el.classList.toggle('active', el.textContent === currentTag));
+        document.querySelectorAll('.chip').forEach(el => el.classList.toggle('active', el.dataset.tag === currentTag));
         renderPreviews();
       }
       updateUrlState();
