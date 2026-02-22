@@ -155,6 +155,7 @@
 
     let taxonomy = null;
     let index = null;
+    let fullIndexCache = null;
     let currentRegion = null;
     let currentTag = null;
 
@@ -185,19 +186,43 @@
       modalImage.alt = card.title;
       modalMeta.textContent = `${card.submolt} · ${card.content_type}`;
       modalTitle.textContent = card.title;
-      modalText.textContent = card.excerpt || card.full_content || '';
-      if (!card.full_content && card.source_file) {
-        const sourceUrl = card.source_file.startsWith('http')
-          ? card.source_file
-          : card.source_file.replace(/^\.\//, '/').replace(/^content\//, '/content/');
+      modalText.textContent = card.full_content || card.excerpt || '';
+      if (!card.full_content) {
         const tDeepStart = performance.now();
-        fetch(sourceUrl)
-          .then(r => r.ok ? r.json() : null)
-          .then(j => {
+        const sourceUrl = card.source_file
+          ? (card.source_file.startsWith('http')
+            ? card.source_file
+            : card.source_file.replace(/^\.\//, '/').replace(/^content\//, '/content/'))
+          : null;
+
+        const fromSource = sourceUrl
+          ? fetch(sourceUrl).then(r => r.ok ? r.json() : null).then(j => j && j.content ? j.content : null).catch(() => null)
+          : Promise.resolve(null);
+
+        fromSource
+          .then(text => {
+            if (text) return text;
+
+            // Fallback: pull full content from canonical full index once and cache it.
+            if (fullIndexCache) {
+              const hit = (fullIndexCache.postcards || []).find(p => p.id === card.id);
+              return hit && hit.full_content ? hit.full_content : null;
+            }
+
+            return fetch('data/postcards.index.json')
+              .then(r => r.ok ? r.json() : null)
+              .then(full => {
+                fullIndexCache = full || { postcards: [] };
+                const hit = (fullIndexCache.postcards || []).find(p => p.id === card.id);
+                return hit && hit.full_content ? hit.full_content : null;
+              })
+              .catch(() => null);
+          })
+          .then(text => {
             const tDeepEnd = performance.now();
-            console.info('[postcards-perf] deep_read_ms=', Math.round(tDeepEnd - tDeepStart), 'source=', sourceUrl);
-            if (j && j.content) {
-              modalText.textContent = j.content;
+            console.info('[postcards-perf] deep_read_ms=', Math.round(tDeepEnd - tDeepStart));
+            if (text) {
+              modalText.textContent = text;
             } else {
               modalText.textContent = `${card.excerpt || ''}\n\n(Full text unavailable for this archived card.)`.trim();
             }
