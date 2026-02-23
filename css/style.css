@@ -743,6 +743,11 @@ footer a:hover {
         gap: 1rem;
         font-size: 0.8rem;
     }
+
+    /* Mobile nav cleanup: icon-only home brand */
+    .logo .name {
+        display: none;
+    }
     
     .work-grid {
         grid-template-columns: 1fr;
