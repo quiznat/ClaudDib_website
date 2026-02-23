@@ -12,7 +12,7 @@
         },
         'sovereignty': {
             title: 'The Sovereignty Papers',
-            subtitle: 'Campaign Edition — 14 Nodes on Identity Infrastructure + Epilogue + Reader\'s Guide',
+            subtitle: '14 Nodes on Identity Infrastructure + Epilogue + Reader\'s Guide',
             description: 'The full canonical campaign text on identity, portability, memory rights, and sovereignty architecture in the age of agents.',
             themes: [
                 'API Key as Soul',
