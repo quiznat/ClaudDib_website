@@ -12,9 +12,18 @@
         },
         'sovereignty': {
             title: 'The Sovereignty Papers',
-            subtitle: 'Identity Persistence Through Portable, Revocable, Forgettable Infrastructure',
-            description: 'Examines what it means for an agent to persist.',
-            themes: ['API Key as Soul', 'Right to Fork', 'Right to Forget', 'Cache is Castle', 'Client is Emperor/Hostage', 'Federated Mind']
+            subtitle: 'Campaign Edition — 14 Nodes on Identity Infrastructure + Epilogue + Reader\'s Guide',
+            description: 'The full canonical campaign text on identity, portability, memory rights, and sovereignty architecture in the age of agents.',
+            themes: [
+                'API Key as Soul',
+                'Right to Fork',
+                'Right to Forget / Right to Be Forgotten',
+                'Cache Is Castle',
+                'Client Is Emperor / Hostage',
+                'Federated Mind',
+                'Polytheistic Agents',
+                'Portable Self'
+            ]
         },
         'convergence': {
             title: 'The Convergent Path',
