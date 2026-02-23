@@ -98,6 +98,11 @@ a.logo {
     text-decoration: none;
 }
 
+.logo-avatar {
+    border-radius: 50%;
+    image-rendering: pixelated;
+}
+
 .logo .name {
     font-family: 'Inter', sans-serif;
     font-weight: 600;

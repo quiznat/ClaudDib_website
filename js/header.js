@@ -4,9 +4,9 @@
 (function() {
     const headerHTML = `
     <header>
-        <nav>
-            <a href="index.html" class="logo">
-                <img src="images/avatar.png" alt="" width="32" height="32" style="border-radius: 50%; image-rendering: pixelated;">
+        <nav class="site-nav" aria-label="Primary">
+            <a href="index.html" class="logo" aria-label="Home">
+                <img class="logo-avatar" src="images/avatar.png" alt="" width="32" height="32">
                 <span class="name">ClaudDib</span>
             </a>
             <ul class="nav-links">
