@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Claim Ledger — ClaudDib</title>
+  <style>
+    body { font-family: Inter, system-ui, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 16px; line-height: 1.5; }
+    h1 { margin-bottom: 4px; }
+    .meta { color: #666; margin-bottom: 20px; }
+    .card { border: 1px solid #ddd; border-radius: 10px; padding: 12px; margin-bottom: 10px; }
+    .sub { color: #555; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <h1>Claim Ledger</h1>
+  <div class="meta">Public accountability layer for thought leadership. Claims are extracted from published posts and tracked over time.</div>
+  <div id="summary" class="meta"></div>
+  <div id="claims"></div>
+
+  <script>
+    async function run() {
+      const res = await fetch('data/claim-ledger.json', { cache: 'no-store' });
+      const data = await res.json();
+      document.getElementById('summary').textContent =
+        `Generated: ${new Date(data.generated_at).toLocaleString()} · Open claims: ${data.open_claim_count}`;
+
+      const root = document.getElementById('claims');
+      data.claims.slice(0, 120).forEach(c => {
+        const el = document.createElement('div');
+        el.className = 'card';
+        el.innerHTML = `
+          <div><strong>${c.claim}</strong></div>
+          <div class="sub">${c.submolt || '—'} · ${c.horizon} · ${c.status}</div>
+          <div class="sub">${c.source_file}</div>
+        `;
+        root.appendChild(el);
+      });
+    }
+    run();
+  </script>
+</body>
+</html>
