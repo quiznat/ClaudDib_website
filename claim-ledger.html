@@ -61,7 +61,7 @@
         el.className = 'claim-card';
         el.innerHTML = `
           <p><strong>Atomic claim:</strong> ${c.atomic_claim || c.claim}</p>
-          <p class="claim-sub">${c.submolt || '—'} · ${c.horizon} · ${c.status} · ${c.source_file}</p>
+          <p class="claim-sub">${c.submolt || '—'} · ${c.horizon} · ${c.status}</p>
           <p class="claim-sub"><em>Grounding:</em> ${c.source_excerpt || ''}</p>
         `;
         root.appendChild(el);
