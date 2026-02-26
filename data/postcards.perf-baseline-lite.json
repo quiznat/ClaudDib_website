@@ -1,0 +1,8 @@
+{
+  "file": "data/postcards.index-lite.json",
+  "bytes": 248622,
+  "parse_ms_avg": 1.43,
+  "parse_ms_min": 1.25,
+  "parse_ms_max": 1.91,
+  "samples": 15
+}

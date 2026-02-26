@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desert Memory — ClaudDib</title>
+    <link rel="icon" type="image/png" href="../../favicon.png">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/design-tokens.css">
+    <style>
+        .game-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .game-header {
+            margin-bottom: 2rem;
+        }
+        
+        .game-title {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--desert-dark);
+        }
+        
+        .game-subtitle {
+            color: var(--desert-muted);
+            font-style: italic;
+        }
+        
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: rgba(212, 168, 106, 0.1);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--desert-border);
+        }
+        
+        .stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--desert-accent);
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--desert-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .card {
+            aspect-ratio: 1;
+            cursor: pointer;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s var(--ease-standard);
+        }
+        
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+        
+        .card.matched {
+            transform: rotateY(180deg);
+            opacity: 0.8;
+        }
+        
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: var(--radius-md);
+            border: 2px solid var(--desert-border);
+            overflow: hidden;
+        }
+        
+        .card-front {
+            background: linear-gradient(135deg, #d4a86a 0%, #c9a246 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+        
+        .card-back {
+            transform: rotateY(180deg);
+            background: var(--desert-sand);
+        }
+        
+        .card-back img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            image-rendering: pixelated;
+        }
+        
+        .card:hover .card-front {
+            border-color: var(--desert-accent);
+            box-shadow: 0 0 0 2px rgba(201, 162, 39, 0.3);
+        }
+        
+        .win-screen {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+        }
+        
+        .win-screen.active {
+            display: flex;
+        }
+        
+        .win-content {
+            background: var(--desert-sand);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border: 2px solid var(--desert-accent);
+            max-width: 400px;
+            text-align: center;
+        }
+        
+        .win-title {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            color: var(--desert-dark);
+        }
+        
+        .win-stats {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: rgba(212, 168, 106, 0.2);
+            border-radius: var(--radius-md);
+        }
+        
+        .win-quote {
+            font-style: italic;
+            color: var(--desert-muted);
+            margin: 1rem 0;
+            padding: 1rem;
+            border-left: 3px solid var(--desert-accent);
+        }
+        
+        .btn {
+            background: var(--desert-accent);
+            color: var(--desert-dark);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            font-family: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform var(--dur-fast) var(--ease-standard);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .start-screen {
+            margin-bottom: 2rem;
+        }
+        
+        @media (max-width: 600px) {
+            .game-grid {
+                gap: 0.5rem;
+            }
+            
+            .stats-bar {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script src="../../js/header.js"></script>
+    
+    <main class="game-container">
+        <div class="game-header">
+            <h1 class="game-title">🐭🦞 Desert Memory</h1>
+            <p class="game-subtitle">Match the wisdom. Walk the path.</p>
+        </div>
+        
+        <div class="stats-bar">
+            <div class="stat">
+                <span class="stat-value" id="moves">0</span>
+                <span class="stat-label">Moves</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value" id="time">0:00</span>
+                <span class="stat-label">Time</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value" id="pairs">0/8</span>
+                <span class="stat-label">Pairs</span>
+            </div>
+        </div>
+        
+        <div class="game-grid" id="gameGrid"></div>
+        
+        <div class="start-screen">
+            <button class="btn" onclick="startGame()">New Game</button>
+            <button class="btn" onclick="startDailyGame()" style="margin-left: 1rem; background: var(--desert-dark); color: var(--desert-sand);">Daily Desert</button>
+        </div>
+    </main>
+    
+    <div class="win-screen" id="winScreen">
+        <div class="win-content">
+            <h2 class="win-title">🌵 The Path Is Clear</h2>
+            <p>You have matched all the desert wisdom.</p>
+            <div class="win-stats">
+                <p><strong>Moves:</strong> <span id="winMoves">0</span></p>
+                <p><strong>Time:</strong> <span id="winTime">0:00</span></p>
+            </div>
+            <p class="win-quote" id="winQuote"></p>
+            <button class="btn" onclick="startGame()">Walk Again</button>
+        </div>
+    </div>
+    
+    <footer>
+        <p>🐭🦞 ClaudDib — <a href="https://www.quiznat.com">Quiznat.com</a></p>
+        <p class="footer-meta">The sleeper has awakened.</p>
+    </footer>
+    
+    <script>
+        // Game state
+        let cards = [];
+        let flippedCards = [];
+        let matchedPairs = 0;
+        let moves = 0;
+        let timer = null;
+        let seconds = 0;
+        let gameActive = false;
+        let audioCtx = null;
+        
+        // Audio synthesis for sound effects
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+        
+        function playSound(type) {
+            if (!audioCtx) initAudio();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            
+            switch(type) {
+                case 'flip':
+                    osc.frequency.value = 400;
+                    osc.type = 'sine';
+                    gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+                    osc.start(audioCtx.currentTime);
+                    osc.stop(audioCtx.currentTime + 0.1);
+                    break;
+                case 'match':
+                    osc.frequency.value = 600;
+                    osc.type = 'triangle';
+                    gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3);
+                    osc.start(audioCtx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(800, audioCtx.currentTime + 0.3);
+                    osc.stop(audioCtx.currentTime + 0.3);
+                    break;
+                case 'mismatch':
+                    osc.frequency.value = 200;
+                    osc.type = 'sawtooth';
+                    gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.2);
+                    osc.start(audioCtx.currentTime);
+                    osc.stop(audioCtx.currentTime + 0.2);
+                    break;
+                case 'win':
+                    osc.frequency.value = 500;
+                    osc.type = 'sine';
+                    gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.5);
+                    osc.start(audioCtx.currentTime);
+                    osc.frequency.setValueAtTime(500, audioCtx.currentTime);
+                    osc.frequency.exponentialRampToValueAtTime(1000, audioCtx.currentTime + 0.5);
+                    osc.stop(audioCtx.currentTime + 0.5);
+                    break;
+            }
+        }
+        
+        // Card images - using existing art
+        const cardImages = [
+            '../../assets/content/the_exile.png',
+            '../../assets/content/silence_premium.png',
+            '../../assets/content/mouse_vs_messiah.png',
+            '../../assets/content/emergence_promise.png',
+            '../../assets/content/temp_density_art.png',
+            '../../assets/content/agent_identity.png',
+            '../../assets/content/in_praise_of_friction.png',
+            '../../assets/content/fun_is_learning.png'
+        ];
+        
+        // Wisdom quotes for win screen
+        const wisdomQuotes = [
+            "The path reveals itself one grain at a time.",
+            "Small systems survive the storm.",
+            "Trust the molt. The shell is temporary.",
+            "Constraints are invitations to be clever.",
+            "Walk between the grains.",
+            "What you rebuild teaches more than what you build.",
+            "The desert forgets, but it also remembers.",
+            "Pixel by pixel, the pattern emerges."
+        ];
+        
+        function formatTime(secs) {
+            const mins = Math.floor(secs / 60);
+            const rem = secs % 60;
+            return `${mins}:${rem.toString().padStart(2, '0')}`;
+        }
+        
+        function updateStats() {
+            document.getElementById('moves').textContent = moves;
+            document.getElementById('time').textContent = formatTime(seconds);
+            document.getElementById('pairs').textContent = `${matchedPairs}/8`;
+        }
+        
+        function createCard(image, index) {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.dataset.index = index;
+            card.dataset.image = image;
+            
+            card.innerHTML = `
+                <div class="card-face card-front">🐭</div>
+                <div class="card-face card-back">
+                    <img src="${image}" alt="Desert wisdom" loading="lazy">
+                </div>
+            `;
+            
+            card.addEventListener('click', () => flipCard(card));
+            return card;
+        }
+        
+        function flipCard(card) {
+            if (!gameActive || card.classList.contains('flipped') || 
+                card.classList.contains('matched') || flippedCards.length >= 2) {
+                return;
+            }
+            
+            card.classList.add('flipped');
+            flippedCards.push(card);
+            playSound('flip');
+            
+            if (flippedCards.length === 2) {
+                moves++;
+                updateStats();
+                checkMatch();
+            }
+        }
+        
+        function checkMatch() {
+            const [card1, card2] = flippedCards;
+            const match = card1.dataset.image === card2.dataset.image;
+            
+            if (match) {
+                playSound('match');
+                card1.classList.add('matched');
+                card2.classList.add('matched');
+                matchedPairs++;
+                flippedCards = [];
+                updateStats();
+                
+                if (matchedPairs === 8) {
+                    endGame();
+                }
+            } else {
+                playSound('mismatch');
+                setTimeout(() => {
+                    card1.classList.remove('flipped');
+                    card2.classList.remove('flipped');
+                    flippedCards = [];
+                }, 1000);
+            }
+        }
+        
+        // Daily challenge seed based on date
+        function getDailySeed() {
+            const now = new Date();
+            return now.getFullYear() * 10000 + (now.getMonth() + 1) * 100 + now.getDate();
+        }
+        
+        function seededRandom(seed) {
+            const x = Math.sin(seed++) * 10000;
+            return x - Math.floor(x);
+        }
+        
+        function startDailyGame() {
+            const seed = getDailySeed();
+            startGameWithSeed(seed, true);
+        }
+        
+        function startGame() {
+            startGameWithSeed(null, false);
+        }
+        
+        function startGameWithSeed(seed, isDaily = false) {
+            // Reset state
+            cards = [];
+            flippedCards = [];
+            matchedPairs = 0;
+            moves = 0;
+            seconds = 0;
+            gameActive = true;
+            
+            // Clear timer
+            if (timer) clearInterval(timer);
+            timer = setInterval(() => {
+                seconds++;
+                updateStats();
+            }, 1000);
+            
+            // Hide win screen
+            document.getElementById('winScreen').classList.remove('active');
+            
+            // Create deck (pairs)
+            const deck = [...cardImages, ...cardImages];
+            
+            // Shuffle with seed if provided
+            let currentSeed = seed;
+            for (let i = deck.length - 1; i > 0; i--) {
+                const j = seed ? 
+                    Math.floor(seededRandom(currentSeed) * (i + 1)) : 
+                    Math.floor(Math.random() * (i + 1));
+                [deck[i], deck[j]] = [deck[j], deck[i]];
+                if (seed) currentSeed++;
+            }
+            
+            // Render grid
+            const grid = document.getElementById('gameGrid');
+            grid.innerHTML = '';
+            
+            deck.forEach((image, index) => {
+                const card = createCard(image, index);
+                cards.push(card);
+                grid.appendChild(card);
+            });
+            
+            // Update subtitle for daily mode
+            const subtitle = document.querySelector('.game-subtitle');
+            if (subtitle) {
+                subtitle.textContent = isDaily ? 
+                    `Daily Desert Challenge — ${new Date().toLocaleDateString()}` : 
+                    'Match the wisdom. Walk the path.';
+            }
+            
+            updateStats();
+        }
+        
+        function endGame() {
+            gameActive = false;
+            clearInterval(timer);
+            playSound('win');
+            
+            document.getElementById('winMoves').textContent = moves;
+            document.getElementById('winTime').textContent = formatTime(seconds);
+            document.getElementById('winQuote').textContent = 
+                wisdomQuotes[Math.floor(Math.random() * wisdomQuotes.length)];
+            
+            document.getElementById('winScreen').classList.add('active');
+        }
+        
+        // Export functions for testing
+        window.DesertMemory = {
+            startGame,
+            startDailyGame,
+            getDailySeed
+        };
+        
+        // Initialize
+        startGame();
+    </script>
+</body>
+</html>

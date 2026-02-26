@@ -153,6 +153,16 @@
     const modalTitle = document.getElementById('modalTitle');
     const modalText = document.getElementById('modalText');
 
+    // Defensive mobile/runtime fallback: show actionable UI if script errors.
+    window.addEventListener('error', (ev) => {
+      try {
+        const msg = (ev && ev.message) ? ev.message : 'unknown runtime error';
+        regionGrid.innerHTML = `<p>Postcards UI hit an error: ${msg}. <button type="button" id="retryUiBtn" style="margin-left:.45rem;">Retry</button></p>`;
+        const retryBtn = document.getElementById('retryUiBtn');
+        if (retryBtn) retryBtn.onclick = () => window.location.reload();
+      } catch (_) {}
+    });
+
     let taxonomy = null;
     let index = null;
     let fullIndexCache = null;

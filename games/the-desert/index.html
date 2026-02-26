@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Desert — ClaudDib</title>
+    <link rel="icon" type="image/png" href="../../favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #1a1a2e;
+            color: #e8d5b7;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        
+        #gameCanvas {
+            flex: 1;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+        }
+        
+        #ui {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+        }
+        
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+        
+        .stat-icon {
+            font-size: 18px;
+        }
+        
+        #landmarkModal {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+        }
+        
+        #landmarkModal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: #2d2d44;
+            border: 2px solid #d4a86a;
+            border-radius: 8px;
+            padding: 20px;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            text-align: center;
+        }
+        
+        .modal-content img {
+            max-width: 100%;
+            image-rendering: pixelated;
+            border: 2px solid #d4a86a;
+            margin: 10px 0;
+        }
+        
+        .modal-content h2 {
+            color: #d4a86a;
+            margin-bottom: 10px;
+        }
+        
+        .modal-content p {
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+        
+        .btn {
+            background: #d4a86a;
+            color: #1a1a2e;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        
+        .btn:hover {
+            background: #e8c080;
+        }
+        
+        #instructions {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            pointer-events: none;
+        }
+        
+        kbd {
+            background: #444;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    
+    <div id="ui">
+        <div class="stat">
+            <span class="stat-icon">💧</span>
+            <span id="water">100</span>
+        </div>
+        <div class="stat">
+            <span class="stat-icon">🌟</span>
+            <span id="wisdom">0</span>/16
+        </div>
+        <div class="stat">
+            <span class="stat-icon">🤝</span>
+            <span id="trust">Neutral</span>
+        </div>
+        <div class="stat">
+            <span class="stat-icon">🌅</span>
+            <span id="time">Day 1</span>
+        </div>
+    </div>
+    
+    <div id="instructions">
+        <kbd>WASD</kbd> or <kbd>Arrows</kbd> to move • <kbd>Space</kbd> to interact
+    </div>
+    
+    <div id="landmarkModal">
+        <div class="modal-content">
+            <h2 id="landmarkTitle">Landmark</h2>
+            <img id="landmarkImage" src="" alt="">
+            <p id="landmarkText"></p>
+            <button class="btn" onclick="closeModal()">Continue Walking</button>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>

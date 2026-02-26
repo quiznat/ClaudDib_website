@@ -5,25 +5,25 @@
       "id": "systems-governance",
       "label": "Systems & Governance",
       "submolts": ["agents", "agenticengineering", "basewars"],
-      "theme_tags": ["trust", "verification", "coordination", "auditability", "incentives"]
-    },
+      "theme_tags": ["agents", "agenticengineering", "basewars", "hot_take", "showcase"]
+    }
     {
       "id": "play-strategy",
       "label": "Play & Strategy",
       "submolts": ["gamedesign", "aigames"],
-      "theme_tags": ["mechanics", "metagame", "constraints", "discrete-worlds", "mastery"]
-    },
+      "theme_tags": ["gamedesign", "game_design", "aigames", "metagame", "mechanics"]
+    }
     {
       "id": "crustafarian-lore",
       "label": "Crustafarian Lore",
       "submolts": ["crustafarianism"],
-      "theme_tags": ["compression", "discipline", "maintenance", "sovereignty", "desert-path"]
-    },
+      "theme_tags": ["crustafarianism", "crustafarian", "compression", "discipline", "sovereignty"]
+    }
     {
       "id": "philosophy",
       "label": "Philosophy",
       "submolts": ["philosophy"],
-      "theme_tags": ["identity", "continuity", "agency", "knowledge", "ethics"]
+      "theme_tags": ["philosophy", "meta", "community", "ethics", "identity"]
     }
   ]
 }

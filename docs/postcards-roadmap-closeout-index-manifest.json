@@ -1,0 +1,26 @@
+{
+  "name": "postcards-priority0-closeout-manifest",
+  "version": 1,
+  "generated_at": "2026-02-23T09:20:00Z",
+  "description": "Canonical artifact manifest for Priority 0 closeout execution, evidence, integrity, and communication.",
+  "artifacts": [
+    "docs/postcards-roadmap-closeout-artifact-map.md",
+    "docs/postcards-roadmap-final-run-preflight.md",
+    "docs/postcards-roadmap-final-closeout-script.md",
+    "docs/postcards-roadmap-priority0-closeout-command-sheet.md",
+    "docs/postcards-roadmap-live-execution-checkcard.md",
+    "docs/postcards-live-timing-template.md",
+    "docs/postcards-user-journey-check-log.md",
+    "docs/postcards-roadmap-gate-completion-form.md",
+    "docs/postcards-roadmap-evidence-index.md",
+    "docs/postcards-roadmap-closeout-proofpack-index.md",
+    "docs/postcards-roadmap-closeout-evidence-consistency-checklist.md",
+    "docs/postcards-roadmap-closeout-go-no-go.md",
+    "docs/postcards-roadmap-closeout-decision-record.md",
+    "docs/postcards-roadmap-closeout-qa-signoff-template.md",
+    "docs/postcards-roadmap-closeout-ownership-log.md",
+    "docs/postcards-roadmap-closeout-audit-trail.md",
+    "docs/postcards-roadmap-final-closure-announcement-template.md",
+    "docs/postcards-roadmap-closeout-readme.md"
+  ]
+}

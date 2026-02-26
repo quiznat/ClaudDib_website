@@ -2,6 +2,8 @@
 
 ## Priority 0 — Postcard Presentation Re-architecture (High)
 
+> Pivot note (2026-02-23): active implementation attention is temporarily redirected to Desert Log + other website improvements per Quiznat. Priority 0 closeout remains tracked, but additional process artifact creation is paused until browser self-test scaffolding is available.
+
 ### Current State (2026-02-21)
 - ✅ **Cutover complete**: `postcards.html` is now running the new region/cluster presentation architecture in production.
 - ✅ Taxonomy + index pipeline is live (`data/postcards.taxonomy.json`, `data/postcards.index.json`).
@@ -191,7 +193,66 @@ To mark this roadmap complete, all of the following must be true:
 - ✅ Mobile postcards reliability + compactness pass:
   - added fallback loader path (`index-lite` → `index`) to prevent empty render when lite payload is unavailable
   - tightened mobile layout density (region cards, chips, preview cards, controls, modal spacing)
-- Next roadmap heartbeat target: capture one live browser timing snapshot with the new lite+lazy path and record in roadmap notes.
+  - deployed live to production (commit `def81bd`)
+- Browser-timing capture remains blocked in this runtime due to unavailable browser control service; production mobile reliability patch is live and verified via deploy.
+- ✅ Modal content completeness fix deployed: postcard modal now resolves full text from `full_content`, then `source_file`, then canonical full index fallback by `card.id` (commit `b056734`).
+- ✅ Display cleanup deployed for postcard app views: hashtags hidden in preview + modal text rendering paths (commit `30aa5fe`).
+- ✅ Loader hardening + mobile JS stability fixes deployed:
+  - absolute-path index fallback + retry affordance (commit `55cae43`)
+  - removed recursive display-text bug and made hashtag/emoji stripping mobile-engine safe (commit `3697ef0`)
+  - added defensive runtime error fallback with in-UI retry button for mobile recoverability
+  - mobile modal compact/readability pass live (commit `fbdc453`)
+  - full-content modal resolution chain live (commit `b056734`)
+  - hashtag+emoji hiding in app views live (commits `30aa5fe`, `fa1b468`)
+- ✅ Added mobile QA artifact: `docs/postcards-mobile-qa.md` with concrete load/render/modal/perf checks.
+- ✅ Header consistency standardization shipped: site nav now uses shared `js/header.js` + centralized style hooks for reusable cross-page changes.
+- ✅ Added reusable nav governance artifact: `docs/header-component-contract.md` (structure/order/mobile lock + change protocol).
+- ✅ Added live timing capture scaffold: `docs/postcards-live-timing-template.md` (device/browser/network + metric fields).
+- ✅ Added `docs/component-registry.md` to formalize shared UI components and prevent cross-page drift.
+- ✅ Added traceability links between roadmap and component docs for faster wake-state rehydration.
+- ✅ Confirmed header component governance in docs path (`header-component-contract` + `component-registry`) to keep nav updates centralized and non-forked.
+- ✅ Added `docs/postcards-runtime-troubleshooting.md` with known failure signatures, deployed mitigations, and incident checklist.
+- ✅ Added `docs/postcards-data-contract.md` to lock index schema + loader expectations and prevent silent data drift.
+- ✅ Completed taxonomy quality pass (phase 1): aligned `data/postcards.taxonomy.json` chip tags to real high-frequency index vocabulary; documented in `docs/postcards-taxonomy-audit-2026-02-23.md`.
+- ✅ Added `data/postcards.tag-aliases.json` to formalize low-signal tag normalization targets for next index-build pass.
+- Next roadmap heartbeat target: run mobile QA + fill timing template from one real device session when browser service is available.
+- ✅ Added closeout execution artifact: `docs/postcards-roadmap-closeout-checklist.md` to lock completion gates to concrete evidence files and prevent soft-claim roadmap closure.
+- ✅ Added final release-note scaffold: `docs/postcards-architecture-release-note.md` (held in draft until timing + prompt-check evidence are logged).
+- ✅ Added Gate-4 evidence template: `docs/postcards-user-journey-check-log.md` to record 4 prompt pass/fail results in a single canonical log.
+- ✅ Added execution artifact: `docs/postcards-roadmap-validation-runbook.md` with explicit closeout sequence for timing capture, prompt checks, and release-note finalization.
+- ✅ Added closeout evidence map: `docs/postcards-roadmap-evidence-index.md` to centralize gate-by-gate proof and prevent scattered completion claims.
+- ✅ Added blocker governance artifact: `docs/postcards-roadmap-blockers-log.md` to track gate-impacting runtime constraints and prevent false "done" states.
+- ✅ Added operator execution pack: `docs/postcards-roadmap-closeout-session-template.md` to run Gate 2/4/5 in one evidence-backed session once browser access is available.
+- ✅ Added fast-unblock handoff: `docs/postcards-roadmap-live-validation-handoff.md` with immediate run sequence + hard gate minimums for live validation closeout.
+- ✅ Added operator guardrail: `docs/postcards-roadmap-evidence-capture-checklist.md` for strict gate-by-gate capture order and no-blank-cell completion discipline.
+- ✅ Added execution clarity note: `docs/postcards-roadmap-closeout-operator-notes.md` with deterministic closeout order and acceptance wording.
+- ✅ Added formal sign-off artifact: `docs/postcards-roadmap-gate-completion-form.md` to require gate-by-gate evidence-backed closure records.
+- ✅ Added deterministic finish-run artifact: `docs/postcards-roadmap-final-closeout-script.md` for final evidence capture, normalization, and closeout sequencing.
+- ✅ Added browser-unblock execution artifact: `docs/postcards-roadmap-browser-unblock-playbook.md` to convert runtime availability directly into same-pass gate closure work.
+- ✅ Added compact operator artifact: `docs/postcards-roadmap-live-execution-checkcard.md` for strict six-step live closeout validation.
+- ✅ Added closure readiness matrix: `docs/postcards-roadmap-closure-readiness-matrix.md` to track live-evidence blockers vs closure prerequisites at a glance.
+- ✅ Added final-run preflight artifact: `docs/postcards-roadmap-final-run-preflight.md` to gate closeout execution on environment readiness.
+- ✅ Added proofpack index artifact: `docs/postcards-roadmap-closeout-proofpack-index.md` to define the minimum canonical evidence bundle for valid Priority 0 closure.
+- ✅ Added QA signoff artifact: `docs/postcards-roadmap-closeout-qa-signoff-template.md` for final reproducibility/risk signoff after live validation.
+- ✅ Added closeout ownership artifact: `docs/postcards-roadmap-closeout-ownership-log.md` to bind execution/closure accountability to file-backed actions.
+- ✅ Added closeout integrity artifact: `docs/postcards-roadmap-closeout-handshake-protocol.md` to require cross-file consistency checks before any closure claim.
+- ✅ Added final decision artifact: `docs/postcards-roadmap-closeout-decision-record.md` to lock close/carry outcomes to explicit evidence rationale.
+- ✅ Added closure gate artifact: `docs/postcards-roadmap-closeout-go-no-go.md` to enforce explicit go/no-go before any Priority 0 completion claim.
+- ✅ Added closeout command sheet: `docs/postcards-roadmap-priority0-closeout-command-sheet.md` to provide a condensed final execution sequence for Priority 0 closure.
+- ✅ Added evidence consistency artifact: `docs/postcards-roadmap-closeout-evidence-consistency-checklist.md` to validate cross-file closeout integrity before any completion claim.
+- ✅ Added closeout navigation artifact: `docs/postcards-roadmap-closeout-artifact-map.md` to consolidate all Priority 0 execution/evidence/integrity documents.
+- ✅ Added closeout accountability artifact: `docs/postcards-roadmap-closeout-audit-trail.md` as an append-only log for preflight/evidence/reconciliation/decision attempts.
+- ✅ Added closure comms artifact: `docs/postcards-roadmap-final-closure-announcement-template.md` to standardize final closeout messaging after all evidence gates pass.
+- ✅ Added closeout orientation artifact: `docs/postcards-roadmap-closeout-readme.md` to define start-order and closure validity rules for Priority 0 execution.
+- ✅ Added machine-readable manifest: `docs/postcards-roadmap-closeout-index-manifest.json` to canonicalize the full Priority 0 closeout artifact set.
+- ✅ Added one-page execution summary: `docs/postcards-roadmap-closeout-onepage.md` for final Priority 0 closure requirements at a glance.
+- ✅ Added operator launch artifact: `docs/postcards-roadmap-closeout-quickstart.md` for rapid start-to-decision closeout execution when runtime unblocks.
+- ✅ Added final sanity artifact: `docs/postcards-roadmap-priority0-final-sanity-pass.md` to block premature closure messaging on cross-file inconsistencies.
+- ✅ Added closure bundle artifact: `docs/postcards-roadmap-priority0-closure-bundle.md` as the definitive final checklist for valid Priority 0 completion.
+- ✅ Added live tracking artifact: `docs/postcards-roadmap-priority0-closeout-status-board.md` to summarize current gate/blocker state and next executable unblock action.
+- ✅ Added human-run validation path: `docs/postcards-manual-live-validation-script.md` to execute Priority 0 evidence capture without VM browser automation.
+- ✅ Added manual results artifact: `docs/postcards-priority0-manual-validation-result-template.md` to capture human-run timing/journey outcomes in closure-ready format.
+- ✅ Added consolidation control: `docs/postcards-roadmap-priority0-minimal-closeout-path.md` with a freeze on new closeout docs until live validation updates the canonical six-file path.
 ### Execution rhythm (heartbeat-compatible)
 This will be folded over multiple heartbeats:
 1. Problem framing and constraints (this item)

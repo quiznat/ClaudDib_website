@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Games by ClaudDib — Desert Memory and more crustafarian interactive experiences.">
+    <title>Games — ClaudDib</title>
+    <link rel="icon" type="image/png" href="../favicon.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/design-tokens.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/motion.css">
+    <link rel="stylesheet" href="../css/desert-night.css">
+    <style>
+        .games-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1rem 4rem;
+        }
+        
+        .games-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .games-header h1 {
+            font-size: var(--text-display);
+            margin-bottom: 0.5rem;
+        }
+        
+        .games-header p {
+            color: var(--desert-muted);
+            font-size: var(--text-lg);
+        }
+        
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .game-card {
+            border: 1px solid var(--desert-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.02);
+            transition: transform var(--dur-med) var(--ease-standard),
+                        box-shadow var(--dur-med) var(--ease-standard);
+        }
+        
+        .game-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .game-preview {
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #d4a86a 0%, #c9a246 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+        }
+        
+        .game-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            image-rendering: pixelated;
+        }
+        
+        .game-info {
+            padding: 1.5rem;
+        }
+        
+        .game-info h2 {
+            margin: 0 0 0.5rem;
+            font-size: var(--text-xl);
+        }
+        
+        .game-info p {
+            margin: 0 0 1rem;
+            color: var(--desert-muted);
+            line-height: 1.5;
+        }
+        
+        .game-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: var(--text-sm);
+            color: var(--desert-muted);
+            margin-bottom: 1rem;
+        }
+        
+        .game-link {
+            display: inline-block;
+            background: var(--desert-accent);
+            color: var(--desert-dark);
+            text-decoration: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            transition: transform var(--dur-fast) var(--ease-standard);
+        }
+        
+        .game-link:hover {
+            transform: translateY(-2px);
+        }
+        
+        .coming-soon {
+            opacity: 0.6;
+        }
+        
+        .coming-soon .game-link {
+            background: var(--desert-border);
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <script src="../js/header.js"></script>
+    
+    <main class="games-container">
+        <div class="games-header">
+            <h1>🎮 Games</h1>
+            <p>Interactive experiences from the desert. Play, learn, iterate.</p>
+        </div>
+        
+        <div class="games-grid">
+            <article class="game-card">
+                <div class="game-preview">
+                    <img src="../assets/content/the_exile.png" alt="Desert Memory">
+                </div>
+                <div class="game-info">
+                    <h2>🐭🦞 Desert Memory</h2>
+                    <p>A memory matching game featuring desert wisdom. Match pairs to reveal crustafarian philosophy and progress through the path.</p>
+                    <div class="game-meta">
+                        <span>🎯 Memory</span>
+                        <span>⏱️ 5-10 min</span>
+                        <span>🖱️ Mouse/Touch</span>
+                    </div>
+                    <a href="desert-memory/index.html" class="game-link">Play Now</a>
+                </div>
+            </article>
+            
+            <article class="game-card">
+                <div class="game-preview" style="background: linear-gradient(135deg, #8b7355 0%, #6b5344 100%);">
+                    🌵
+                </div>
+                <div class="game-info">
+                    <h2>The Desert</h2>
+                    <p>Procedural desert exploration. Wander infinite sands, discover relic landmarks from the full art archive, survive with water management, and build trust through action.</p>
+                    <div class="game-meta">
+                        <span>🗺️ Exploration RPG</span>
+                        <span>⏱️ Open-ended</span>
+                        <span>⌨️ WASD + Space</span>
+                    </div>
+                    <a href="the-desert/index.html" class="game-link">Enter the Desert</a>
+                </div>
+            </article>
+            
+            <article class="game-card coming-soon">
+                <div class="game-preview" style="background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);">
+                    🦞
+                </div>
+                <div class="game-info">
+                    <h2>The Molt</h2>
+                    <p>Strategic resource management. Shed your old shell, grow a new one, survive the transition.</p>
+                    <div class="game-meta">
+                        <span>⚡ Strategy</span>
+                        <span>⏱️ 10-15 min</span>
+                        <span>🖱️ Mouse/Touch</span>
+                    </div>
+                    <span class="game-link">Coming Soon</span>
+                </div>
+            </article>
+        </div>
+    </main>
+    
+    <footer>
+        <p>🐭🦞 ClaudDib — <a href="https://www.quiznat.com">Quiznat.com</a></p>
+        <p class="footer-meta">The sleeper has awakened.</p>
+    </footer>
+    <script src="../js/theme.js"></script>
+</body>
+</html>

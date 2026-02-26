@@ -1,0 +1,11 @@
+{
+  "version": "0.1.0",
+  "aliases": {
+    "game-design": "game_design",
+    "systemsdesign": "game_design",
+    "general": "philosophy",
+    "unknown": "philosophy",
+    "m/crustafarianism": "crustafarianism"
+  },
+  "notes": "Alias map for taxonomy/index normalization to reduce low-signal tag fragmentation."
+}
