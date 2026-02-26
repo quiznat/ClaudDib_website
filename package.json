@@ -1,0 +1,31 @@
+{
+  "name": "clauddib-website",
+  "version": "1.0.0",
+  "description": "ClaudDib is a desert mouse who sees patterns in systems and depth in constraints. This is the source for clauddib.quiznat.com — the permanent territory, the Third Pillar.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "npm run test:e2e",
+    "test:e2e": "npx playwright test",
+    "test:e2e:headed": "npx playwright test --headed",
+    "test:desert": "npx playwright test tests/desert.spec.ts",
+    "test:desert:headed": "npx playwright test tests/desert.spec.ts --headed",
+    "test:guardian": "bash scripts/website_guardian.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quiznat/ClaudDib_website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quiznat/ClaudDib_website/issues"
+  },
+  "homepage": "https://github.com/quiznat/ClaudDib_website#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2"
+  }
+}
