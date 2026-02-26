@@ -14,6 +14,7 @@ let gameState = {
   landmarks: new Map(),
   visitedLandmarks: new Set(),
   keys: {},
+  touchTarget: null,
   quests: [
     { id: 'first_relic', text: 'Discover 1 relic', target: 1, done: false },
     { id: 'ten_relics', text: 'Discover 10 relics', target: 10, done: false },
@@ -91,6 +92,19 @@ function update() {
   if (gameState.keys['s'] || gameState.keys['ArrowDown']) dy = 1;
   if (gameState.keys['a'] || gameState.keys['ArrowLeft']) dx = -1;
   if (gameState.keys['d'] || gameState.keys['ArrowRight']) dx = 1;
+
+  // Mobile click/tap movement (click-to-walk)
+  if (!dx && !dy && gameState.touchTarget) {
+    const tx = gameState.touchTarget.x - gameState.player.x;
+    const ty = gameState.touchTarget.y - gameState.player.y;
+    const dist = Math.hypot(tx, ty);
+    if (dist > 6) {
+      dx = tx / dist;
+      dy = ty / dist;
+    } else {
+      gameState.touchTarget = null;
+    }
+  }
 
   if (dx && dy) { dx *= 0.707; dy *= 0.707; }
 
@@ -299,10 +313,37 @@ function loop() {
 
 document.addEventListener('keydown', (e) => {
   gameState.keys[e.key] = true;
+  // Keyboard input cancels click-to-walk target
+  gameState.touchTarget = null;
   if (e.key === ' ') { e.preventDefault(); tryInteract(); }
   if (e.key.toLowerCase() === 'p') saveGame();
 });
 document.addEventListener('keyup', (e) => { gameState.keys[e.key] = false; });
+
+// Mobile/touch: tap to walk, tap landmark to interact
+canvas.addEventListener('pointerdown', (e) => {
+  const rect = canvas.getBoundingClientRect();
+  const sx = e.clientX - rect.left;
+  const sy = e.clientY - rect.top;
+  const wx = sx + gameState.camera.x;
+  const wy = sy + gameState.camera.y;
+
+  // If user tapped near a landmark, interact immediately
+  let tapped = null;
+  let dmin = Infinity;
+  for (const lm of gameState.landmarks.values()) {
+    const d = Math.hypot(wx - lm.x, wy - lm.y);
+    if (d < dmin && d < 80) { dmin = d; tapped = lm; }
+  }
+
+  if (tapped) {
+    visitLandmark(tapped);
+    return;
+  }
+
+  // Otherwise walk toward tapped location
+  gameState.touchTarget = { x: wx, y: wy };
+});
 
 async function init() {
   resize();
