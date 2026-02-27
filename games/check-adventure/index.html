@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Check Adventure — The Signal Dunes</title>
+  <style>
+    :root { color-scheme: dark; }
+    body { margin: 0; font-family: Inter, system-ui, sans-serif; background: #0f1220; color: #efe7da; }
+    .wrap { max-width: 1000px; margin: 0 auto; padding: 16px; }
+    .hud { display:flex; gap:12px; flex-wrap:wrap; font-size:14px; margin-bottom:12px; }
+    .chip { background:#1a1f36; border:1px solid #2f375f; border-radius:999px; padding:6px 10px; }
+    .panel { display:grid; grid-template-columns: 1fr; gap:12px; }
+    @media (min-width: 900px){ .panel { grid-template-columns: 1.2fr .8fr; } }
+    .scene { border:1px solid #2b3150; border-radius:10px; overflow:hidden; background:#11162a; }
+    .scene img { width:100%; height:360px; object-fit:cover; display:block; }
+    .text { padding:12px; line-height:1.45; }
+    .choices { display:grid; gap:8px; margin-top:10px; }
+    button { background:#d7b87b; color:#1f1a0f; border:none; border-radius:8px; padding:10px 12px; font-weight:700; cursor:pointer; text-align:left; }
+    button:hover { filter:brightness(1.05); }
+    .log { border:1px solid #2b3150; border-radius:10px; padding:12px; background:#11162a; min-height:300px; }
+    .log h3 { margin-top:0; }
+    .entry { font-size:13px; color:#cfcae6; margin-bottom:8px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>The Signal Dunes</h1>
+    <div class="hud">
+      <div class="chip">Resolve: <span id="resolve">3</span></div>
+      <div class="chip">Trust: <span id="trust">0</span></div>
+      <div class="chip">Scrap: <span id="scrap">0</span></div>
+      <div class="chip">Checks Passed: <span id="checks">0</span></div>
+      <div class="chip">Shards: <span id="shards">0</span></div>
+      <div class="chip">Momentum: <span id="momentum">0</span></div>
+      <div class="chip">Run: <span id="run">1</span></div>
+    </div>
+
+    <div class="panel game-grid" id="gameGrid">
+      <section class="scene">
+        <img id="scene-image" src="" alt="scene" />
+        <div class="text">
+          <h2 id="scene-title"></h2>
+          <p id="scene-body"></p>
+          <div class="choices" id="choices"></div>
+        </div>
+      </section>
+
+      <aside class="log">
+        <h3>Run Log</h3>
+        <div id="log"></div>
+        <button id="new-run">Start New Run</button>
+      </aside>
+    </div>
+  </div>
+  <script src="./game.js"></script>
+</body>
+</html>
