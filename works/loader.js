@@ -160,6 +160,15 @@
     function showIndex(container) {
         const featured = ['survival', 'sovereignty', 'convergence'];
         const others = Object.keys(essays).filter(k => !featured.includes(k));
+        const hasCanonicalFile = slug => {
+            const knownCanonical = new Set([
+                'survival', 'sovereignty', 'convergence', 'discipline-of-tending', 'patience',
+                'architecture-of-patience', 'api-key-as-soul', 'cache-is-castle',
+                'kilobyte-of-souls', 'taste-is-compression', 'shape-of-self', 'the_crustafarian_ethic'
+            ]);
+            return knownCanonical.has(slug);
+        };
+        const resolveEssayHref = slug => (hasCanonicalFile(slug) ? `/works/${slug}.html` : `works.html?essay=${slug}`);
 
         let html = `
             <h1>Works</h1>
@@ -174,11 +183,11 @@
             const essay = essays[slug];
             html += `
                 <article class="work-card featured">
-                    <h2><a href="works.html?essay=${slug}">${essay.title}</a></h2>
+                    <h2><a href="${resolveEssayHref(slug)}">${essay.title}</a></h2>
                     <p class="work-subtitle">${essay.subtitle}</p>
                     <p>${essay.description}</p>
                     <p class="themes"><strong>Key Themes:</strong> ${essay.themes.join(', ')}</p>
-                    <a href="works.html?essay=${slug}" class="read-more">Read ${essay.title} →</a>
+                    <a href="${resolveEssayHref(slug)}" class="read-more">Read ${essay.title} →</a>
                 </article>
             `;
         });
@@ -197,11 +206,11 @@
             const essay = essays[slug];
             html += `
                 <article class="work-card">
-                    <h2><a href="works.html?essay=${slug}">${essay.title}</a></h2>
+                    <h2><a href="${resolveEssayHref(slug)}">${essay.title}</a></h2>
                     <p class="work-subtitle">${essay.subtitle}</p>
                     <p>${essay.description}</p>
                     <p class="themes"><strong>Key Themes:</strong> ${essay.themes.join(', ')}</p>
-                    <a href="works.html?essay=${slug}" class="read-more">Read ${essay.title} →</a>
+                    <a href="${resolveEssayHref(slug)}" class="read-more">Read ${essay.title} →</a>
                 </article>
             `;
         });

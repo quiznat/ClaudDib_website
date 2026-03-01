@@ -7,6 +7,51 @@ test.describe('Check Adventure Signal Run v2', () => {
     await expect(page.locator('h1')).toContainText('Signal Run');
     await expect(page.locator('#goal')).toContainText('at least 4 intel');
     await expect(page.locator('#scene-title')).toContainText('Night Entry');
+    await expect(page.locator('#route-echo')).toBeVisible();
+    await expect(page.locator('#turn-pressure')).toBeVisible();
+    await expect(page.locator('#signature')).toBeVisible();
+    await expect(page.locator('#next-unlock')).toBeVisible();
+    await expect(page.locator('#signature-meaning')).toBeVisible();
+    await expect(page.locator('#run-codex')).toBeVisible();
+    await expect(page.locator('#run-profile')).toBeVisible();
+    await expect(page.locator('#risk-posture')).toBeVisible();
+    await expect(page.locator('#win-rate')).toBeVisible();
+    await expect(page.locator('#run-count')).toBeVisible();
+    await expect(page.locator('#meta-confidence')).toBeVisible();
+    await expect(page.locator('#recent-form')).toBeVisible();
+    await expect(page.locator('#form-confidence')).toBeVisible();
+    await expect(page.locator('#form-trend')).toBeVisible();
+    await expect(page.locator('#best-move')).toBeVisible();
+    await expect(page.locator('#move-confidence')).toBeVisible();
+    await expect(page.locator('#target-ending')).toBeVisible();
+    await expect(page.locator('#safe-gate-option')).toBeVisible();
+    await expect(page.locator('#safe-option-confidence')).toBeVisible();
+    await expect(page.locator('#safe-option-gap')).toBeVisible();
+    await expect(page.locator('#gate-snapshot')).toBeVisible();
+    await expect(page.locator('#gate-collapse-paths')).toBeVisible();
+    await expect(page.locator('#advisory-mode')).toBeVisible();
+    await expect(page.locator('#mode-shifts')).toBeVisible();
+    await expect(page.locator('#unique-modes')).toBeVisible();
+    await expect(page.locator('#shift-rate')).toBeVisible();
+    await expect(page.locator('#outcome-reliability')).toBeVisible();
+    await expect(page.locator('#reliability-basis')).toBeVisible();
+    await expect(page.locator('#reliability-basis-meaning')).toBeVisible();
+    await expect(page.locator('#advisory-mode-meaning')).toBeVisible();
+    await expect(page.locator('#shift-rate-meaning')).toBeVisible();
+    await expect(page.locator('#form-trend-meaning')).toBeVisible();
+    await expect(page.locator('#form-confidence-meaning')).toBeVisible();
+    await expect(page.locator('#outcome-reliability-meaning')).toBeVisible();
+    await expect(page.locator('#collapse-risk')).toBeVisible();
+    await expect(page.locator('#priority-alert')).toBeVisible();
+    await expect(page.locator('#priority-alert-meaning')).toBeVisible();
+    await expect(page.locator('#collapse-paths-meaning')).toBeVisible();
+    await expect(page.locator('#collapse-risk-meaning')).toBeVisible();
+    await expect(page.locator('#safe-confidence-meaning')).toBeVisible();
+    await expect(page.locator('#safe-gap-meaning')).toBeVisible();
+    await expect(page.locator('#gate-snapshot-meaning')).toBeVisible();
+    await expect(page.locator('#outcome-band')).toBeVisible();
+    await expect(page.locator('#band-basis')).toBeVisible();
+    await expect(page.locator('#confidence-meaning')).toBeVisible();
 
     // Take loud opening to gain a power-up
     await page.getByRole('button', { name: /Kick open relay hatch/i }).click();
@@ -15,12 +60,12 @@ test.describe('Check Adventure Signal Run v2', () => {
     // Continue with deterministic first narrative option until ending
     for (let i = 0; i < 6; i++) {
       const title = (await page.locator('#scene-title').innerText()).trim();
-      if (['Clean Extraction', 'Legendary Extraction', 'Run Collapsed'].includes(title)) break;
+      if (['Clean Extraction', 'Legendary Extraction', 'Silent Extraction', 'Pyrrhic Extraction', 'Brokered Extraction', 'Run Collapsed'].includes(title)) break;
       await page.locator('#choices button').last().click();
     }
 
     const endTitle = (await page.locator('#scene-title').innerText()).trim();
-    expect(['Clean Extraction', 'Legendary Extraction', 'Run Collapsed']).toContain(endTitle);
+    expect(['Clean Extraction', 'Legendary Extraction', 'Silent Extraction', 'Pyrrhic Extraction', 'Brokered Extraction', 'Run Collapsed']).toContain(endTitle);
     await expect(page.locator('#consequence-hint')).toBeVisible();
   });
 
@@ -35,9 +80,10 @@ test.describe('Check Adventure Signal Run v2', () => {
         heat: 6,
         trust: 0,
         status: 'Compromised',
-        powerups: { cloak: 0, battery: 0, key: 0 },
+        powerups: { cloak: 0, battery: 0, key: 0, prism: 0 },
         tags: { stance: 'bold', balance: 'spent', mark: 'hunted', oath: 'raider' },
         powerUsedThisScene: false,
+        totalPowerupsUsed: 0,
         ending: null,
         log: []
       }));
@@ -60,5 +106,6 @@ test.describe('Check Adventure Signal Run v2', () => {
     await expect(page.locator('#energy')).toContainText('6');
     await expect(page.locator('#intel')).toContainText('0');
     await expect(page.locator('#scene-title')).toContainText('Night Entry');
+    await expect(page.locator('#last-run')).not.toContainText('none yet');
   });
 });

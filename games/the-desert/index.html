@@ -26,6 +26,7 @@
             flex: 1;
             image-rendering: pixelated;
             image-rendering: crisp-edges;
+            touch-action: none;
         }
         
         #ui {
@@ -144,13 +145,83 @@
             <span id="trust">Neutral</span>
         </div>
         <div class="stat">
+            <span class="stat-icon">🛡️</span>
+            <span id="sanctuary">0s</span>
+        </div>
+        <div class="stat" style="min-width:140px;">
+            <span class="stat-icon">⚡</span>
+            <span id="combo">x1</span>
+            <div style="width:70px;height:6px;background:#3a3a4f;border-radius:4px;overflow:hidden;margin-left:6px;">
+                <div id="comboBar" style="height:100%;width:1%;background:#ffcc66;"></div>
+            </div>
+        </div>
+        <div class="stat" style="min-width:120px;">
+            <span class="stat-icon">💨</span>
+            <span>Dash</span>
+            <div style="width:60px;height:6px;background:#3a3a4f;border-radius:4px;overflow:hidden;margin-left:6px;">
+                <div id="dashBar" style="height:100%;width:100%;background:#8cdcff;"></div>
+            </div>
+        </div>
+        <div class="stat" style="min-width:160px;">
+            <span class="stat-icon">📡</span>
+            <span>Ping</span>
+            <span id="pingStatus" style="font-size:11px;color:#aeb3c4;min-width:48px;text-align:right;">ready</span>
+            <div style="width:60px;height:6px;background:#3a3a4f;border-radius:4px;overflow:hidden;margin-left:6px;">
+                <div id="pingBar" style="height:100%;width:100%;background:#ffd56b;"></div>
+            </div>
+        </div>
+        <div class="stat">
+            <span class="stat-icon">🔥</span>
+            <span id="streak">0</span>
+        </div>
+        <div class="stat">
+            <span class="stat-icon">🏁</span>
+            <span id="score">0</span>
+        </div>
+        <div class="stat">
+            <span class="stat-icon">🥇</span>
+            <span id="highScore">0</span>
+        </div>
+        <div class="stat">
+            <span class="stat-icon">📈</span>
+            <span id="pace">0.0/m</span>
+        </div>
+        <div class="stat">
+            <span class="stat-icon">👻</span>
+            <span id="wraithCount">0</span>
+        </div>
+        <div class="stat">
+            <span class="stat-icon">🌙</span>
+            <span id="nightBonus">x1.0</span>
+        </div>
+        <div class="stat">
+            <span class="stat-icon">⚔️</span>
+            <span id="contract">off</span>
+        </div>
+        <div class="stat">
+            <span class="stat-icon">🎯</span>
+            <span id="multiplier">x1.0</span>
+        </div>
+        <div class="stat">
             <span class="stat-icon">🌅</span>
             <span id="time">Day 1</span>
         </div>
     </div>
     
     <div id="instructions">
-        <kbd>WASD</kbd>/<kbd>Arrows</kbd> move • <kbd>Space</kbd> interact • <strong>Mobile:</strong> tap ground to walk, tap landmarks to interact
+        <kbd>WASD</kbd>/<kbd>Arrows</kbd> move • <kbd>Space</kbd> interact • <kbd>Shift</kbd> dash • <kbd>R</kbd> relic ping • <kbd>C</kbd> contract • <kbd>N</kbd> new run • <kbd>M</kbd> mute • <kbd>Esc/P</kbd> pause • <strong>Mobile:</strong> tap ground to walk, tap landmarks to interact
+        <div id="objective" style="margin-top:6px;color:#d4a86a;">Objective: Discover relics and build combo.</div>
+        <div id="questHUD" style="margin-top:6px;color:#b8d3ff;font-size:11px;"></div>
+    </div>
+
+    <div id="mobileControls" style="position:absolute;right:12px;bottom:12px;display:flex;gap:8px;z-index:90;max-width:calc(100vw - 24px);flex-wrap:wrap;justify-content:flex-end;">
+        <button id="interactBtn" class="btn" style="pointer-events:auto;">Interact</button>
+        <button id="dashBtn" class="btn" style="pointer-events:auto;">Dash</button>
+        <button id="pingBtn" class="btn" style="pointer-events:auto;">Ping</button>
+        <button id="contractBtn" class="btn" style="pointer-events:auto;">Contract</button>
+        <button id="newRunBtn" class="btn" style="pointer-events:auto;">New Run</button>
+        <button id="muteBtn" class="btn" style="pointer-events:auto;">Mute</button>
+        <button id="saveBtn" class="btn" style="pointer-events:auto;">Save</button>
     </div>
     
     <div id="landmarkModal">
@@ -159,6 +230,31 @@
             <img id="landmarkImage" src="" alt="">
             <p id="landmarkText"></p>
             <button class="btn" onclick="closeModal()">Continue Walking</button>
+        </div>
+    </div>
+
+    <div id="runCompleteModal" style="position:absolute;inset:0;background:rgba(0,0,0,0.88);display:none;align-items:center;justify-content:center;z-index:120;">
+        <div class="modal-content">
+            <h2>🏜️ Desert Run Complete</h2>
+            <p id="runSummary">You discovered 25 relics.</p>
+            <button class="btn" onclick="continueEndless()">Continue Endless</button>
+        </div>
+    </div>
+
+    <div id="pauseModal" style="position:absolute;inset:0;background:rgba(0,0,0,0.84);display:none;align-items:center;justify-content:center;z-index:122;">
+        <div class="modal-content">
+            <h2>⏸️ Paused</h2>
+            <p id="pauseSummary">Take a breath in the dunes.</p>
+            <button class="btn" onclick="togglePause()">Resume</button>
+            <button class="btn" onclick="resetRun()" style="margin-left:8px;">New Run</button>
+        </div>
+    </div>
+
+    <div id="dehydrationModal" style="position:absolute;inset:0;background:rgba(0,0,0,0.88);display:none;align-items:center;justify-content:center;z-index:121;">
+        <div class="modal-content">
+            <h2>💧 You Collapsed in the Dunes</h2>
+            <p id="dehydrateSummary">Recover at the nearest oasis and keep your run alive.</p>
+            <button class="btn" onclick="reviveAtOasis()">Revive at Oasis</button>
         </div>
     </div>
     

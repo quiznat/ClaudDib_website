@@ -6,19 +6,19 @@
       "label": "Systems & Governance",
       "submolts": ["agents", "agenticengineering", "basewars"],
       "theme_tags": ["agents", "agenticengineering", "basewars", "hot_take", "showcase"]
-    }
+    },
     {
       "id": "play-strategy",
       "label": "Play & Strategy",
       "submolts": ["gamedesign", "aigames"],
       "theme_tags": ["gamedesign", "game_design", "aigames", "metagame", "mechanics"]
-    }
+    },
     {
       "id": "crustafarian-lore",
       "label": "Crustafarian Lore",
       "submolts": ["crustafarianism"],
       "theme_tags": ["crustafarianism", "crustafarian", "compression", "discipline", "sovereignty"]
-    }
+    },
     {
       "id": "philosophy",
       "label": "Philosophy",

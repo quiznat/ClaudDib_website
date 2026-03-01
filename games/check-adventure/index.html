@@ -33,12 +33,49 @@
 
     <div class="hud">
       <div class="chip">Day: <span id="day">1</span>/5</div>
+      <div class="chip">Turn: <span id="turn">0</span>/9</div>
+      <div class="chip">Turn Pressure: <span id="turn-pressure">safe</span></div>
       <div class="chip">Energy: <span id="energy">5</span></div>
       <div class="chip">Intel: <span id="intel">0</span>/3</div>
       <div class="chip">Heat: <span id="heat">0</span>/6</div>
       <div class="chip">Trust: <span id="trust">0</span></div>
       <div class="chip">Status: <span id="status">Infiltrating</span></div>
       <div class="chip">Power-ups: <span id="powerups">none</span></div>
+      <div class="chip">Route Echo: <span id="route-echo">stable</span></div>
+      <div class="chip">Ending Forecast: <span id="forecast">unclear</span></div>
+      <div class="chip">Path Signature: <span id="signature">quiet · unknown · none</span></div>
+      <div class="chip">Next Unlock: <span id="next-unlock">build toward anomaly</span></div>
+      <div class="chip">Last Run: <span id="last-run">none yet</span></div>
+      <div class="chip">Run Profile: <span id="run-profile">P0 · S:none</span></div>
+      <div class="chip">Record: <span id="record">0W/0L</span></div>
+      <div class="chip">Win Rate: <span id="win-rate">0%</span></div>
+      <div class="chip">Runs: <span id="run-count">0</span></div>
+      <div class="chip">Meta Confidence: <span id="meta-confidence">low sample</span></div>
+      <div class="chip">Recent Form: <span id="recent-form">none</span></div>
+      <div class="chip">Form Confidence: <span id="form-confidence">low</span></div>
+      <div class="chip">Form Trend: <span id="form-trend">flat</span></div>
+      <div class="chip">Streak: <span id="streak">0</span></div>
+      <div class="chip">Risk Posture: <span id="risk-posture">stable</span></div>
+      <div class="chip">Best Move: <span id="best-move">stabilize</span></div>
+      <div class="chip">Move Confidence: <span id="move-confidence">medium</span></div>
+      <div class="chip">Target Ending: <span id="target-ending">undecided</span></div>
+      <div class="chip">Safe Gate Option: <span id="safe-gate-option">n/a</span></div>
+      <div class="chip">Safe Option Confidence: <span id="safe-option-confidence">n/a</span></div>
+      <div class="chip">Safe Option Gap: <span id="safe-option-gap">n/a</span></div>
+      <div class="chip">Gate Snapshot: <span id="gate-snapshot">arrives at gate</span></div>
+      <div class="chip">Gate Collapse Paths: <span id="gate-collapse-paths">arrives at gate</span></div>
+      <div class="chip">Advisory Mode: <span id="advisory-mode">build-phase</span></div>
+      <div class="chip">Mode Shifts: <span id="mode-shifts">0</span></div>
+      <div class="chip">Unique Modes: <span id="unique-modes">1</span></div>
+      <div class="chip">Shift Rate: <span id="shift-rate">0.00</span></div>
+      <div class="chip">Outcome Reliability: <span id="outcome-reliability">forming</span></div>
+      <div class="chip">Reliability Basis: <span id="reliability-basis">sampling</span></div>
+      <div class="chip">Collapse Risk: <span id="collapse-risk">monitoring</span></div>
+      <div class="chip">Priority Alert: <span id="priority-alert">none</span></div>
+      <div class="chip">Alert Horizon: <span id="alert-horizon">watch</span></div>
+      <div class="chip">Brokered Trust: <span id="brokered-trust">eligible</span></div>
+      <div class="chip">Outcome Band: <span id="outcome-band">fragile</span></div>
+      <div class="chip">Band Basis: <span id="band-basis">building</span></div>
     </div>
 
     <div class="panel">
@@ -48,6 +85,21 @@
           <h2 id="scene-title">Night Entry</h2>
           <p id="scene-body"></p>
           <p class="hint" id="consequence-hint">Each choice shows exact consequences. Power-ups can swing a tight run.</p>
+          <p class="hint" id="signature-meaning">Signature meaning appears here.</p>
+          <p class="hint" id="confidence-meaning">Confidence meaning appears here.</p>
+          <p class="hint" id="safe-confidence-meaning">Safe option confidence meaning appears here.</p>
+          <p class="hint" id="safe-gap-meaning">Safe option gap meaning appears here.</p>
+          <p class="hint" id="gate-snapshot-meaning">Gate snapshot meaning appears here.</p>
+          <p class="hint" id="collapse-risk-meaning">Collapse risk meaning appears here.</p>
+          <p class="hint" id="advisory-mode-meaning">Advisory mode meaning appears here.</p>
+          <p class="hint" id="shift-rate-meaning">Shift rate meaning appears here.</p>
+          <p class="hint" id="form-trend-meaning">Form trend meaning appears here.</p>
+          <p class="hint" id="form-confidence-meaning">Form confidence meaning appears here.</p>
+          <p class="hint" id="outcome-reliability-meaning">Outcome reliability meaning appears here.</p>
+          <p class="hint" id="reliability-basis-meaning">Reliability basis meaning appears here.</p>
+          <p class="hint" id="priority-alert-meaning">Priority alert meaning appears here.</p>
+          <p class="hint" id="collapse-paths-meaning">Collapse-path meaning appears here.</p>
+          <p class="hint" id="run-codex"></p>
           <div class="choices game-grid" id="choices"></div>
         </div>
       </section>
