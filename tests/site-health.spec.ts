@@ -10,7 +10,6 @@ const ROOT_SEEDS = [
   '/claim-ledger.html',
   '/sovereignty-stack.html',
   '/research.html',
-  '/games/index.html',
 ];
 
 function unique(paths: string[]): string[] {
@@ -104,40 +103,8 @@ test.describe('Website health', () => {
       await page.close();
     }
 
-    expect(visited.size).toBeGreaterThanOrEqual(12);
-    expect(discovered.has('/games/index.html')).toBeTruthy();
+    expect(visited.size).toBeGreaterThanOrEqual(10);
     expect(discovered.has('/works.html')).toBeTruthy();
-  });
-
-  test('all linked game pages load and expose a playable surface', async ({ browser, baseURL }) => {
-    const origin = new URL(baseURL ?? 'http://127.0.0.1:4173').origin;
-
-    const directoryPage = await browser.newPage();
-    const directoryErrors = await expectPageHealthy(directoryPage, '/games/index.html', origin);
-    expect(directoryErrors, `Console/runtime errors on /games/index.html:\n${directoryErrors.join('\n')}`).toEqual([]);
-
-    const allGameLinks = await collectInternalLinks(directoryPage, origin);
-    await directoryPage.close();
-
-    const gameRoutes = unique(
-      allGameLinks.filter(
-        link => link.startsWith('/games/') && link.endsWith('/index.html') && link !== '/games/index.html',
-      ),
-    );
-
-    expect(gameRoutes.length).toBeGreaterThanOrEqual(2);
-
-    for (const route of gameRoutes) {
-      const page = await browser.newPage();
-      const errors = await expectPageHealthy(page, route, origin);
-
-      await expect(
-        page.locator('canvas, #gameCanvas, #gameGrid, .game-grid').first(),
-        `${route} did not render an expected game surface`,
-      ).toBeVisible();
-
-      expect(errors, `Console/runtime errors on ${route}:\n${errors.join('\n')}`).toEqual([]);
-      await page.close();
-    }
+    expect(discovered.has('/postcards.html')).toBeTruthy();
   });
 });

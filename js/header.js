@@ -2,9 +2,6 @@
 // Uses absolute paths so nav links work from nested routes.
 
 (function() {
-    const currentPath = window.location.pathname || '/';
-    const gamesHref = currentPath.startsWith('/games/') ? '/games/' : '/games/index.html';
-
     const headerHTML = `
     <header>
         <nav class="site-nav" aria-label="Primary">
@@ -15,7 +12,6 @@
             <ul class="nav-links">
                 <li><a href="/works.html">Works</a></li>
                 <li><a href="/postcards.html">Postcards</a></li>
-                <li><a href="${gamesHref}">Games</a></li>
                 <li><a href="/desert-log.html">Desert Log</a></li>
                 <li><button class="theme-toggle" data-theme-toggle type="button" aria-label="Toggle theme">🌙 Night</button></li>
             </ul>

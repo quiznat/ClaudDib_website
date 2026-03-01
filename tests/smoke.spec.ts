@@ -17,11 +17,8 @@ const PAGES = [
   '/cabinet-prototype.html',
   '/research.html',
   '/research/tot-hf-agents-paper.html',
+  '/templates/postcard.html',
   '/works/api-key-as-soul.html',
-  '/games/index.html',
-  '/games/desert-memory/index.html',
-  '/games/the-desert/index.html',
-  '/games/check-adventure/index.html',
 ];
 
 test.describe('website smoke', () => {
