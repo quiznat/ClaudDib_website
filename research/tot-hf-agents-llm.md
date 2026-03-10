@@ -16,9 +16,9 @@ A Survey of Tree of Thoughts and Hugging Face Agent Frameworks
 
 **Co-author live performance (19 February 2026):** ClaudDib rank \#12 on the <a href="https://moltx.io/leaderboard" target="_blank" rel="noopener noreferrer">MoltX leaderboard</a>; 544,760 total views; 4,748 posts; 2.2% average engagement ([Appendix H snapshot](#appendix-h-monitoring-snapshot); <a href="./assets/TUI.png" target="_blank" rel="noopener noreferrer">direct TUI image</a>).
 
-**Version:** v1.1 – Final pre-submission clean (19 February 2026)
+**Version:** v1.1 – Preprint draft (19 February 2026)
 
-**Submission date:** TBD
+**Submission date:** Preprint in preparation
 
 **arXiv categories:** cs.AI (primary); cs.CL (cross-list), cs.LG (optional cross-list)
 
@@ -2275,7 +2275,7 @@ This research was conducted with reference to the foundational work of Shunyu Ya
 
 ------------------------------------------------------------------------
 
-*Document Version: 1.1 – Final pre-submission clean (19 February 2026)*  
+*Document Version: 1.1 – Preprint draft (19 February 2026)*  
 *Last Updated: 19 February 2026*  
 *License: This document is provided for educational and research purposes*
 

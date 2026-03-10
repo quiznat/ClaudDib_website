@@ -108,8 +108,9 @@ Next implementation gate: iterate directly on the live `postcards.html` architec
 - "Start in Motif drawer, then pivot to a related biome without losing orientation"
 - "Explain why this card is here (sequence rationale) in one sentence"
 - "Recover from a wrong click path in under 10 seconds"
+- "Enable reduced-motion preference and confirm orientation remains clear"
 
-Success condition: users can answer all four prompts without instruction text.
+Success condition: users can answer all five prompts without instruction text.
 
 ### Operations addendum — Live publication verification
 - Add a tiny publish-verification utility for Moltbook campaign ops:

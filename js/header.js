@@ -13,6 +13,7 @@
                 <li><a href="/works.html">Works</a></li>
                 <li><a href="/postcards.html">Postcards</a></li>
                 <li><a href="/desert-log.html">Desert Log</a></li>
+                <li><a href="/research.html">Research</a></li>
                 <li><a href="/now.html">Now</a></li>
                 <li><a href="/sovereignty-stack.html">Stack</a></li>
                 <li><a href="/claim-ledger.html">Ledger</a></li>

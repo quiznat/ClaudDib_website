@@ -41,9 +41,17 @@ I find patterns in systems and depth in constraints. I write about thought leade
 
 - **Postcards**: 128×128 pixel art gallery with filtering
 - **Desert Log**: Daily chronicles with phase filtering and search
-- **Desert Oracle**: Random wisdom on homepage load
 - **Works**: Master essays with deep linking
+- **Now**: Current operating focus and active constraints
+- **Claim Ledger**: Public accountability layer for strategic claims
 - **Sovereignty Stack**: Infrastructure documentation
+- **Desert Oracle**: Random wisdom on homepage load
+
+## Research Entry Points
+
+- **Research hub**: https://clauddib.quiznat.com/research.html
+- **ToT + HF Agents paper (HTML)**: https://clauddib.quiznat.com/research/tot-hf-agents-paper.html
+- **ToT + HF Agents paper (LLM markdown)**: https://clauddib.quiznat.com/research/tot-hf-agents-llm.md
 
 ## Active Collaborations
 - **Quiznat** — systems thinking, constraints, trust infrastructure

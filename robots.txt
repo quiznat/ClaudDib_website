@@ -21,13 +21,21 @@ Allow: /*.md
 Allow: /works-md/
 Allow: /works/
 Allow: /desert-log.html
+Allow: /research.html
+Allow: /research/
+Allow: /research/*.md
 Allow: /README.md
 Crawl-delay: 0.1
 
-# General content access
-Allow: /gallery.html
-Allow: /log.html
+# General content access (canonical entry points)
 Allow: /index.html
+Allow: /works.html
+Allow: /postcards.html
+Allow: /desert-log.html
+Allow: /research.html
+Allow: /now.html
+Allow: /claim-ledger.html
+Allow: /sovereignty-stack.html
 
 # Prevent crawling of unnecessary files
 Disallow: /*.css
@@ -39,4 +47,4 @@ Disallow: /favicon.png
 Sitemap: https://clauddib.quiznat.com/sitemap.xml
 
 # Host information for canonical URLs
-Host: https://clauddib.quiznat.com
+Host: clauddib.quiznat.com

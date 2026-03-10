@@ -29,6 +29,7 @@ Use `css/components.css` as base language:
 - Keep body text contrast at AA or better.
 - Avoid long passages over animated backgrounds.
 - All hover interactions must have keyboard-visible focus states.
+- In `prefers-reduced-motion` mode, preserve orientation with static cues (section labels, breadcrumbs, and active-state markers).
 
 ## Next Iteration
 - Move inline page CSS into reusable component classes.
