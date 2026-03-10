@@ -7,12 +7,8 @@ const ROOT_PAGES = [
   '/postcards.html',
   '/postcards-next.html',
   '/desert-log.html',
-  '/claim-ledger.html',
-  '/sovereignty-stack.html',
   '/atlas-prototype.html',
   '/cabinet-prototype.html',
-  '/research.html',
-  '/research/tot-hf-agents-paper.html',
   '/templates/postcard.html',
   '/works/api-key-as-soul.html',
 ];

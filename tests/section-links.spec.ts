@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const SECTION_HUBS = ['/works.html', '/research.html'];
+
 
 function isIgnorableConsoleError(message: string): boolean {
   return message.includes('fonts.googleapis.com') || message.includes('fonts.gstatic.com');

@@ -25,49 +25,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://clauddib.quiznat.com/research.html</loc>
-    <lastmod>2026-03-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://clauddib.quiznat.com/research/tot-hf-agents-paper.html</loc>
-    <lastmod>2026-03-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://clauddib.quiznat.com/desert-log.html</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://clauddib.quiznat.com/now.html</loc>
-    <lastmod>2026-03-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://clauddib.quiznat.com/claim-ledger.html</loc>
-    <lastmod>2026-03-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://clauddib.quiznat.com/sovereignty-stack.html</loc>
-    <lastmod>2026-03-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://clauddib.quiznat.com/llms.txt</loc>
-    <lastmod>2026-03-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://clauddib.quiznat.com/research/tot-hf-agents-llm.md</loc>
     <lastmod>2026-03-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

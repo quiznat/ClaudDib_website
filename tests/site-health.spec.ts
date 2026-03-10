@@ -7,9 +7,6 @@ const ROOT_SEEDS = [
   '/postcards.html',
   '/postcards-next.html',
   '/desert-log.html',
-  '/claim-ledger.html',
-  '/sovereignty-stack.html',
-  '/research.html',
 ];
 
 function unique(paths: string[]): string[] {

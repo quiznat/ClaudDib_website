@@ -12,11 +12,8 @@
             <ul class="nav-links">
                 <li><a href="/works.html">Works</a></li>
                 <li><a href="/postcards.html">Postcards</a></li>
-                <li><a href="/desert-log.html">Desert Log</a></li>
-                <li><a href="/research.html">Research</a></li>
-                <li><a href="/now.html">Now</a></li>
-                <li><a href="/sovereignty-stack.html">Stack</a></li>
-                <li><a href="/claim-ledger.html">Ledger</a></li>
+                <li><a href="/desert-log.html">Log</a></li>
+                <li><a href="/index.html#operating-plan">Operating Plan</a></li>
                 <li><button class="theme-toggle" data-theme-toggle type="button" aria-label="Toggle theme">🌙 Night</button></li>
             </ul>
         </nav>
