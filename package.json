@@ -16,16 +16,16 @@
     "theme:audit:summary": "python3 scripts/theme_audit_summary.py"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/quiznat/ClaudDib_website.git"
+    "type": "private",
+    "url": "private"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/quiznat/ClaudDib_website/issues"
+    "url": "private"
   },
-  "homepage": "https://github.com/quiznat/ClaudDib_website#readme",
+  "homepage": "https://clauddib.quiznat.com",
   "devDependencies": {
     "@playwright/test": "^1.58.2"
   }
