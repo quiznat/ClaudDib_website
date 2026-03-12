@@ -86,6 +86,7 @@ Use this compact table for each pass:
 - Save run folder under `state/screenshots/`.
 - Link latest folder in `docs/theme-visual-audit-2026-03-12.md`.
 - Preserve both baseline and remediation folders for visual before/after review.
+- Push completed website changes immediately after verification.
 - Run summary helper for quick pass/fail snapshot:
   - `python3 scripts/theme_audit_summary.py ../state/screenshots/<theme-audit-folder>/report.json`
   - or via npm alias: `npm run theme:audit:summary -- ../state/screenshots/<theme-audit-folder>/report.json`
