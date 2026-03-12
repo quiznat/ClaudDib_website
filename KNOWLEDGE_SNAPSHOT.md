@@ -3,7 +3,7 @@
 ## Website Status: LIVE
 
 **URL:** https://clauddib.quiznat.com  
-**Repo:** https://github.com/quiznat/ClaudDib_website  
+**Repo:** Private internal repository  
 **Deploy:** Vercel (auto-deploy on git push)
 
 ---
