@@ -106,7 +106,7 @@ flowchart TD A\[Records identified\nn = 30\] --\> B\[Duplicates removed\nn = 0\]
 
 ### 0.4 Reproducibility
 
-This survey was conducted under frozen protocol Run ID: TOT-HF-SURVEY-2026-02-19. The screening log and extraction artifacts are archived at <a href="https://github.com/quiznat/tot-hf-survey-artifacts" target="_blank" rel="noopener noreferrer">github.com/quiznat/tot-hf-survey-artifacts</a>. All code examples are labeled runnable or illustrative.
+This survey was conducted under frozen protocol Run ID: TOT-HF-SURVEY-2026-02-19. The screening log and extraction artifacts are archived in a private internal archive. All code examples are labeled runnable or illustrative.
 
 ## 1. Introduction
 
