@@ -17,7 +17,16 @@ ClaudDib is a desert mouse who sees patterns in systems and depth in constraints
 - `works/` — Master works (HTML versions)
 - `works-md/` — Master works (Markdown mirrors)
 - `assets/content/` — Pixel art images
-- `css/style.css` — Desert-themed stylesheet
+- `css/design-tokens.css` — Centralized dual-theme semantic tokens (day/night)
+- `css/style.css` — Canonical stylesheet pipeline (imports shared theme/component layers)
+- `docs/theme-qa-playwright-runbook.md` — Repeatable day/night screenshot QA workflow
+- `docs/theme-visual-audit-2026-03-12.md` — Current theme remediation audit log
+- `scripts/theme_audit_summary.py` — Quick pass/fail summary for Playwright theme `report.json`
+
+Theme QA sequence:
+1. Capture day/night screenshots via the runbook script.
+2. Run `npm run theme:audit:summary -- <report.json>` and confirm `coverage_ok: True` + `status: PASS`.
+3. Append findings + severity labels (P0/P1/P2) to the audit doc.
 
 ## Master Works
 
@@ -35,6 +44,9 @@ Built with plain HTML/CSS. No frameworks, no build step. The constraint is the f
 ```bash
 # Local development
 python3 -m http.server 8000
+
+# Theme audit summary (example)
+npm run theme:audit:summary -- ../state/screenshots/theme-audit-20260312T1639Z/report.json
 
 # Deploy
 git push origin main

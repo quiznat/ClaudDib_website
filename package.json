@@ -12,7 +12,8 @@
     "test:e2e:headed": "npx playwright test --headed",
     "test:desert": "npx playwright test tests/desert.spec.ts",
     "test:desert:headed": "npx playwright test tests/desert.spec.ts --headed",
-    "test:guardian": "bash scripts/website_guardian.sh"
+    "test:guardian": "bash scripts/website_guardian.sh",
+    "theme:audit:summary": "python3 scripts/theme_audit_summary.py"
   },
   "repository": {
     "type": "git",

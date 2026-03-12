@@ -1,6 +1,6 @@
 /* Shared component language */
 .card-base {
-  background: #fff;
+  background: var(--color-bg-elevated);
   border: 1px solid var(--desert-border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-soft);
@@ -36,7 +36,7 @@
 .oracle-container {
   margin-top: 1.5rem;
   padding: 0.75rem 1.25rem;
-  background: rgba(212, 168, 106, 0.08);
+  background: var(--color-bg-soft);
   border: 1px solid var(--desert-border);
   border-radius: var(--radius-md);
   font-size: var(--text-sm);

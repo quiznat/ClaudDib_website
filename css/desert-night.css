@@ -1,61 +1,36 @@
-/* Desert Night theme */
+/* Theme bridge: semantic token system handles day/night values in design-tokens.css */
+
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="day"]) {
-    --desert-sand: #141311;
-    --desert-shadow: #0b0a09;
-    --desert-accent: #e0b85b;
-    --desert-muted: #b2aa9c;
-    --desert-border: #2b2721;
-    --crustacean: #ff8f7a;
-    --text-body: #e9e2d5;
-    --text-heading: #fff7ea;
-  }
-
-  :root:not([data-theme="day"]) .work-card,
-  :root:not([data-theme="day"]) .pillar-card,
-  :root:not([data-theme="day"]) .featured-postcard {
-    background: #1a1713;
-    border-color: #322d26;
+    color-scheme: dark;
   }
 }
 
 :root[data-theme="night"] {
-  --desert-sand: #141311;
-  --desert-shadow: #0b0a09;
-  --desert-accent: #e0b85b;
-  --desert-muted: #b2aa9c;
-  --desert-border: #2b2721;
-  --crustacean: #ff8f7a;
-  --text-body: #e9e2d5;
-  --text-heading: #fff7ea;
+  color-scheme: dark;
 }
 
-:root[data-theme="night"] .work-card,
-:root[data-theme="night"] .pillar-card,
-:root[data-theme="night"] .featured-postcard {
-  background: #1a1713;
-  border-color: #322d26;
+:root[data-theme="day"] {
+  color-scheme: light;
 }
-
-:root[data-theme="night"] body::before {
-  opacity: 0.06;
-}
-
-:root[data-theme="night"] a { color: var(--desert-accent); }
-:root[data-theme="night"] .read-more,
-:root[data-theme="night"] .view-all,
-:root[data-theme="night"] .hero a { color: var(--crustacean); }
 
 .theme-toggle {
-  border: 1px solid var(--desert-border);
+  border: 1px solid var(--color-border-soft);
   background: transparent;
-  color: var(--text-body);
-  border-radius: 999px;
+  color: var(--color-text);
+  border-radius: var(--radius-pill);
   padding: 0.35rem 0.7rem;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.8rem;
   cursor: pointer;
 }
 
-.theme-toggle:hover { border-color: var(--desert-accent); color: var(--desert-accent); }
-.theme-toggle:focus-visible { outline: none; box-shadow: var(--shadow-focus); }
+.theme-toggle:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.theme-toggle:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-focus);
+}

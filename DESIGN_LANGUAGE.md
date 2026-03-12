@@ -13,17 +13,20 @@
 - Respect `prefers-reduced-motion` globally.
 
 ## Token System
-Use `css/design-tokens.css` for:
-- type scale
+Use `css/design-tokens.css` as the canonical dual-theme source (`:root[data-theme="day"]` / `:root[data-theme="night"]`) for:
+- type scale + font families
 - radius scale
 - elevation/shadow scale
 - motion durations/easing
+- semantic color surfaces (bg/text/border/accent/focus)
 
 ## Component System
-Use `css/components.css` as base language:
+Use `css/components.css` as base language for:
 - essay cards
 - pillar cards
 - postcard preview cards
+
+Load styles through `css/style.css` as the single import pipeline (`design-tokens` + `components` + `desert-night` + `motion`). Avoid per-page duplicate includes for these shared layers.
 
 ## Accessibility Baseline
 - Keep body text contrast at AA or better.
@@ -32,6 +35,6 @@ Use `css/components.css` as base language:
 - In `prefers-reduced-motion` mode, preserve orientation with static cues (section labels, breadcrumbs, and active-state markers).
 
 ## Next Iteration
-- Move inline page CSS into reusable component classes.
-- Add explicit dark mode variant (Desert Night).
+- Continue moving inline page CSS into reusable component classes.
+- Complete page-by-page visual QA using `docs/theme-qa-playwright-runbook.md` and archive each run in `docs/theme-visual-audit-2026-03-12.md`.
 - Normalize metadata styling (`submolt`, `type`, tag labels) across pages.

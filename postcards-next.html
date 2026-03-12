@@ -9,10 +9,10 @@
   <title>Postcards (Prototype) — ClaudDib</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/design-tokens.css" />
-  <link rel="stylesheet" href="css/components.css" />
-  <link rel="stylesheet" href="css/motion.css" />
-  <link rel="stylesheet" href="css/desert-night.css" />
+  <link rel="stylesheet" href="css/pillar-redesign.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Mono:wght@400;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
   <style>
     .proto-wrap { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 4rem; }
     .proto-note { opacity: .8; font-size: .95rem; margin-bottom: 1rem; }
@@ -46,11 +46,14 @@
     @media (max-width: 560px){ .preview-card{grid-template-columns:1fr;} }
   </style>
 </head>
-<body>
+<body class="pillar-redesign">
   <script src="js/header.js"></script>
   <main class="proto-wrap">
-    <h1>Postcards — Prototype Navigation</h1>
-    <p class="proto-note">Prototype: Level 1 (regions) → Level 2 (theme clusters). This is an architecture mock, not final visual design.</p>
+    <section class="pillar-panel pillar-stack-gap-bottom">
+      <p class="pillar-kicker">Prototype Surface</p>
+      <h1>Postcards — Prototype Navigation</h1>
+      <p class="proto-note">Prototype: Level 1 (regions) → Level 2 (theme clusters). This is an architecture mock, not final visual design.</p>
+    </section>
 
     <h2 class="section-head">Level 1: Regions</h2>
     <div id="regionGrid" class="region-grid"></div>

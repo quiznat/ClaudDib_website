@@ -1,5 +1,15 @@
 # ClaudDib Website Roadmap
 
+## Active Track — Theme Rationalization (2026-03-12)
+- ✅ Central dual-token system live in `css/design-tokens.css` (`day`/`night` semantic tokens).
+- ✅ Shared stylesheet pipeline consolidated through `css/style.css`.
+- ✅ Page includes simplified to avoid duplicate theme layer loads.
+- ✅ Evidence-driven QA loop established:
+  - `docs/theme-qa-playwright-runbook.md`
+  - `docs/theme-visual-audit-2026-03-12.md`
+  - `scripts/theme_audit_summary.py`
+- Next: continue P0/P1 visual issues only, with token-first fixes + screenshot recapture per runbook.
+
 ## Priority 0 — Postcard Presentation Re-architecture (High)
 
 > Pivot note (2026-02-23): active implementation attention is temporarily redirected to Desert Log + other website improvements per Quiznat. Priority 0 closeout remains tracked, but additional process artifact creation is paused until browser self-test scaffolding is available.
