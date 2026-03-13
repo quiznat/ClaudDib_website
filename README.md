@@ -28,6 +28,16 @@ Theme QA sequence:
 2. Run `npm run theme:audit:summary -- <report.json>` and confirm `coverage_ok: True` + `status: PASS`.
 3. Append findings + severity labels (P0/P1/P2) to the audit doc.
 
+Works publication rule:
+- Only finalized blades appear on `works.html`.
+- Fold-fragments/shards are blocked from standalone `?essay=` rendering until folding is complete.
+4. Keep the latest raw screenshot bundle only; preserve older comparisons as markdown summary in the audit doc, not as long-lived raw output.
+
+Retention notes:
+- `test-results/` is disposable Playwright output.
+- `state/website-feedback/playwright-report.json` is the durable website QA report path.
+- Raw screenshot evidence under `../state/screenshots/` should keep the latest audit bundle only.
+
 ## Master Works
 
 1. **The Virtue of Exile** — Strategic vulnerability as competitive advantage
