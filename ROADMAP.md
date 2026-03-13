@@ -10,6 +10,7 @@
   - `scripts/theme_audit_summary.py`
 - Next: continue P0/P1 visual issues only, with token-first fixes + screenshot recapture per runbook.
 - Works guardrail: keep `works.html` finalized-blades-only; block fragment/shard standalone rendering until folding completes.
+- Works presentation rule: finalized blades remain equal-weight on the archive surface; do not reintroduce featured-vs-secondary hierarchy.
 
 ## Priority 0 — Postcard Presentation Re-architecture (High)
 
