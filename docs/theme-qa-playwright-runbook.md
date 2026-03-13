@@ -81,6 +81,7 @@ Use this compact table for each pass:
 - Pill/chip controls show clear default + hover + focus states
 - Footer links readable and visibly interactive
 - No "muddy" low-contrast blocks in day mode
+- No unintended public-repo links exposed in surface copy/footer/navigation
 
 ## Artifacts
 - Save run folder under `state/screenshots/`.
