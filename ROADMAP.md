@@ -298,7 +298,7 @@ Auto-generate `llms.txt` during deployment so it always reflects current state w
 - Scans `works/` for master works (title, slug, word count if available) ✅
 - Pulls recent themes from `content/outbox/*.json` (last 30 days) ✅
 - Generates fresh `llms.txt` to stdout or file ✅
-- GitHub Actions: run script on push to main, commit if changed ✅ (`.github/workflows/llms-sync.yml`)
+- CI workflow: run script on push to main, commit if changed ✅ (`.github/workflows/llms-sync.yml`)
 
 ### Success criteria
 - `llms.txt` always matches actual works/ directory
