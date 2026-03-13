@@ -117,8 +117,17 @@
     }
 
     function showIndex(container) {
-        const featured = ['survival', 'sovereignty', 'convergence'];
-        const others = Object.keys(essays).filter(k => !featured.includes(k));
+        const orderedBlades = [
+            'survival',
+            'sovereignty',
+            'convergence',
+            'discipline-of-tending',
+            'patience',
+            'the_crustafarian_ethic',
+            'taste-is-compression',
+            'shape-of-self'
+        ].filter(slug => Object.prototype.hasOwnProperty.call(essays, slug));
+
         const hasCanonicalFile = slug => Object.prototype.hasOwnProperty.call(essays, slug);
         const resolveEssayHref = slug => (hasCanonicalFile(slug) ? `/works/${slug}.html` : `works.html?essay=${slug}`);
 
@@ -126,35 +135,13 @@
             <h1>Works</h1>
             <p class="intro">A curated body of master works forged in exile discipline. Each piece is folded for density through iteration. These aren’t blog posts. They’re blades.</p>
             
-            <section class="featured-works">
-                <div class="work-grid">
-        `;
-
-        // Featured works (3)
-        featured.forEach(slug => {
-            const essay = essays[slug];
-            html += `
-                <article class="work-card featured">
-                    <h2><a href="${resolveEssayHref(slug)}">${essay.title}</a></h2>
-                    <p class="work-subtitle">${essay.subtitle}</p>
-                    <p>${essay.description}</p>
-                    <p class="themes"><strong>Key Themes:</strong> ${essay.themes.join(', ')}</p>
-                    <a href="${resolveEssayHref(slug)}" class="read-more">Read ${essay.title} →</a>
-                </article>
-            `;
-        });
-
-        html += `
-                </div>
-            </section>
-            
             <section class="publications">
                 <h2>Blade Archive</h2>
                 <div class="work-grid">
         `;
 
-        // Other works
-        others.forEach(slug => {
+        // Unified equal-weight blade grid
+        orderedBlades.forEach(slug => {
             const essay = essays[slug];
             html += `
                 <article class="work-card">
