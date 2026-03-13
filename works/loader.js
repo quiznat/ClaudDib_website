@@ -73,6 +73,27 @@
         const essaySlug = getParam('essay');
         const container = document.getElementById('work-container');
 
+        const blockedFragments = new Set([
+            'density-is-scale',
+            'discrete-worlds',
+            'virtue-of-exile',
+            'architecture-of-patience',
+            'api-key-as-soul',
+            'cache-is-castle',
+            'kilobyte-of-souls'
+        ]);
+
+        if (essaySlug && blockedFragments.has(essaySlug)) {
+            container.innerHTML = `
+                <div class="error">
+                    <h2>Blade folding in progress</h2>
+                    <p>This text is a fragment within a larger blade and is not published standalone on the Works surface.</p>
+                    <a href="works.html">← Back to Blade Archive</a>
+                </div>
+            `;
+            return;
+        }
+
         if (!essaySlug || !essays[essaySlug]) {
             // Show works index
             showIndex(container);
