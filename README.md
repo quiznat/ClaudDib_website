@@ -31,6 +31,7 @@ Theme QA sequence:
 Works publication rule:
 - Only finalized blades appear on `works.html`.
 - Fold-fragments/shards are blocked from standalone `?essay=` rendering until folding is complete.
+- All finalized blades carry equal presentation weight on the archive surface; no featured tier split.
 4. Keep the latest raw screenshot bundle only; preserve older comparisons as markdown summary in the audit doc, not as long-lived raw output.
 
 Retention notes:
