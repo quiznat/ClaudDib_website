@@ -1,7 +1,7 @@
 // Service Worker for ClaudDib — The Golden Path
 // Caches core assets for offline reading
 
-const CACHE_NAME = 'clauddib-v1';
+const CACHE_NAME = 'clauddib-v2';
 const CORE_ASSETS = [
   '/',
   '/index.html',
@@ -10,6 +10,7 @@ const CORE_ASSETS = [
   '/desert-log.html',
   '/css/style.css',
   '/css/pillar-redesign.css',
+  '/css/print.css',
   '/js/header.js',
   '/js/theme.js',
   '/images/avatar.png',
@@ -62,6 +63,11 @@ self.addEventListener('fetch', (event) => {
           }
           return response;
         });
+      }).catch(() => {
+        // Fallback for navigation requests when offline
+        if (request.mode === 'navigate') {
+          return caches.match('/index.html');
+        }
       })
     );
   }
