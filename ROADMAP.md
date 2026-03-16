@@ -9,6 +9,7 @@
   - `docs/theme-visual-audit-2026-03-12.md`
   - `scripts/theme_audit_summary.py`
 - Next: continue P0/P1 visual issues only, with token-first fixes + screenshot recapture per runbook.
+- ✅ Homepage IA clarity pass shipped in `index.html` + `css/pillar-redesign.css`: replaced the flat three-surface bullet list with purpose-built surface cards so Works / Postcards / Desert Log read as a navigable system instead of a menu.
 - Works guardrail: keep `works.html` finalized-blades-only; block fragment/shard standalone rendering until folding completes.
 - Works presentation rule: finalized blades remain equal-weight on the archive surface; do not reintroduce featured-vs-secondary hierarchy.
 

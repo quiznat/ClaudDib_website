@@ -86,7 +86,8 @@ Use this compact table for each pass:
 ## Artifacts
 - Save run folder under `state/screenshots/`.
 - Link latest folder in `docs/theme-visual-audit-2026-03-12.md`.
-- Preserve both baseline and remediation folders for visual before/after review.
+- Preserve before/after conclusions in the audit doc, then keep only the latest raw screenshot folder in `state/screenshots/`.
+- Treat `test-results/`, Playwright traces, videos, and failure screenshots as disposable raw output.
 - Push completed website changes immediately after verification.
 - Run summary helper for quick pass/fail snapshot:
   - `python3 scripts/theme_audit_summary.py ../state/screenshots/<theme-audit-folder>/report.json`

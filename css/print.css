@@ -1,0 +1,68 @@
+/* Print styles for ClaudDib website */
+@media print {
+  body.pillar-redesign {
+    background: white;
+    color: black;
+    font-size: 12pt;
+  }
+
+  body.pillar-redesign::before {
+    display: none;
+  }
+
+  .pillar-hero,
+  .pillar-panel,
+  .pillar-coordinates,
+  .pillar-instruments,
+  .pillar-entryways,
+  .pillar-surface-sequence,
+  .pillar-surface-grid,
+  .pillar-signal-strip,
+  .pillar-footer {
+    box-shadow: none;
+    border: 1px solid #ccc;
+    background: white;
+  }
+
+  .pillar-section-marker span {
+    border: 1px solid #999;
+    background: #f0f0f0;
+    color: #333;
+  }
+
+  .pillar-kicker {
+    color: #666;
+  }
+
+  a {
+    color: #333;
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.9em;
+    color: #666;
+  }
+
+  .pillar-footer-links a[href]::after {
+    content: "";
+  }
+
+  .pillar-status-beacon,
+  .pillar-hero-rail,
+  .pillar-identity-notes,
+  .pillar-signal-chip::before,
+  .pillar-coordinate-card::after {
+    display: none;
+  }
+
+  .pillar-panel {
+    break-inside: avoid;
+    margin-bottom: 1rem;
+  }
+
+  h1, h2, h3 {
+    break-after: avoid;
+  }
+}

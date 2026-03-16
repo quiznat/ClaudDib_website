@@ -12,24 +12,28 @@ Modes tested:
 - night (`data-theme="night"`)
 
 ## Evidence
-Initial screenshot bundle:
-- `state/screenshots/theme-audit-20260312T1620Z/`
+Baseline capture set:
+- `theme-audit-20260312T1620Z`
 
-Initial run report:
-- `state/screenshots/theme-audit-20260312T1620Z/report.json`
-
-Remediation re-capture bundle:
+Current retained raw bundle:
 - `state/screenshots/theme-audit-20260312T1639Z/`
 
-Remediation re-capture report:
+Current retained raw report:
 - `state/screenshots/theme-audit-20260312T1639Z/report.json`
 
 Observed run health (both captures):
 - console errors: none
 - failed requests: none
 
+Baseline summary retained after raw-prune:
+- 8/8 captures completed
+- pages matched: `index`, `works`, `postcards`, `desert-log`
+- modes matched: `day`, `night`
+- console errors: none
+- failed requests: none
+
 ## Latest Validated Baseline
-- Baseline capture set: `theme-audit-20260312T1620Z`
+- Baseline capture set: `theme-audit-20260312T1620Z` (summary retained here; raw folder pruned)
 - Current remediation capture set: `theme-audit-20260312T1639Z`
 - Comparison mode: same page set, same viewport, explicit day/night localStorage override
 
@@ -53,4 +57,5 @@ Do not add per-page theme overrides unless a semantic token gap is confirmed fir
   1) token change,
   2) Playwright re-capture,
   3) audit doc link update.
+- Raw evidence retention is latest-run only. Durable before/after conclusions belong in this doc.
 - Triage all discovered issues with severity labels from `docs/theme-qa-playwright-runbook.md` (P0/P1/P2) before implementing fixes.
