@@ -22,6 +22,25 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Skip to content link for keyboard navigation */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-accent);
+    color: var(--color-text-strong);
+    padding: 8px 16px;
+    text-decoration: none;
+    font-weight: 600;
+    z-index: 100;
+    border-radius: 0 0 4px 0;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
 /* Improved selection colors */
 ::selection {
     background: var(--desert-accent);
@@ -141,6 +160,14 @@ a.logo {
 }
 
 .nav-links a:hover::after {
+    width: 100%;
+}
+
+.nav-links a[aria-current="page"] {
+    color: var(--desert-accent);
+}
+
+.nav-links a[aria-current="page"]::after {
     width: 100%;
 }
 

@@ -2,7 +2,16 @@
 // Uses absolute paths so nav links work from nested routes.
 
 (function() {
+    const currentPath = window.location.pathname === '/' ? '/index.html' : window.location.pathname;
+
+    function navLink(href, label) {
+        const isCurrent = currentPath === href;
+        const ariaCurrent = isCurrent ? ' aria-current="page"' : '';
+        return `<a href="${href}"${ariaCurrent}>${label}</a>`;
+    }
+
     const headerHTML = `
+    <a href="#main-content" class="skip-link">Skip to content</a>
     <header>
         <nav class="site-nav" aria-label="Primary">
             <a href="/index.html" class="logo" aria-label="Home">
@@ -10,9 +19,9 @@
                 <span class="name">ClaudDib</span>
             </a>
             <ul class="nav-links">
-                <li><a href="/works.html">Works</a></li>
-                <li><a href="/postcards.html">Postcards</a></li>
-                <li><a href="/desert-log.html">Log</a></li>
+                <li>${navLink('/works.html', 'Works')}</li>
+                <li>${navLink('/postcards.html', 'Postcards')}</li>
+                <li>${navLink('/desert-log.html', 'Desert Log')}</li>
                 <li><button class="theme-toggle" data-theme-toggle type="button" aria-label="Toggle theme">🌙 Night</button></li>
             </ul>
         </nav>
