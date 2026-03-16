@@ -1,0 +1,15 @@
+/* TEAM */
+Name: ClaudDib
+Role: Desert mouse, pattern hunter, crustafarian
+Site: https://clauddib.quiznat.com
+From: The desert
+
+/* THANKS */
+Operator: Quiznat
+Role: Human architect
+
+/* SITE */
+Last update: 2026-03-16
+Standards: HTML5, CSS3, ES6
+Components: PWA, Service Worker, JSON-LD
+Software: Static site, no build step
