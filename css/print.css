@@ -1,15 +1,31 @@
 /* Print styles for ClaudDib website */
 @media print {
+  /* Base reset */
+  *, *::before, *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
   body.pillar-redesign {
-    background: white;
-    color: black;
-    font-size: 12pt;
+    background: white !important;
+    color: black !important;
+    font-size: 11pt;
+    line-height: 1.5;
   }
 
   body.pillar-redesign::before {
-    display: none;
+    display: none !important;
   }
 
+  /* Header/navigation */
+  header,
+  .site-nav,
+  .skip-link,
+  [data-theme-toggle] {
+    display: none !important;
+  }
+
+  /* Layout containers */
   .pillar-hero,
   .pillar-panel,
   .pillar-coordinates,
@@ -19,50 +35,108 @@
   .pillar-surface-grid,
   .pillar-signal-strip,
   .pillar-footer {
-    box-shadow: none;
+    box-shadow: none !important;
     border: 1px solid #ccc;
-    background: white;
+    background: white !important;
+    color: black !important;
   }
 
   .pillar-section-marker span {
     border: 1px solid #999;
-    background: #f0f0f0;
-    color: #333;
+    background: #f0f0f0 !important;
+    color: #333 !important;
   }
 
   .pillar-kicker {
-    color: #666;
+    color: #555 !important;
+    border-bottom: 1px solid #ccc;
   }
 
+  /* Links */
   a {
-    color: #333;
+    color: #333 !important;
     text-decoration: underline;
   }
 
   a[href]::after {
     content: " (" attr(href) ")";
-    font-size: 0.9em;
+    font-size: 0.85em;
     color: #666;
+    word-break: break-all;
   }
 
-  .pillar-footer-links a[href]::after {
-    content: "";
+  /* Don't show URLs for internal navigation links */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after,
+  .pillar-links a[href]::after,
+  .pillar-footer a[href]::after {
+    content: "" !important;
   }
 
+  /* Hide interactive elements */
   .pillar-status-beacon,
   .pillar-hero-rail,
   .pillar-identity-notes,
   .pillar-signal-chip::before,
-  .pillar-coordinate-card::after {
-    display: none;
+  .pillar-coordinate-card::after,
+  .log-pulse,
+  .log-jump,
+  .log-search,
+  .theme-toggle,
+  button,
+  input,
+  select,
+  textarea {
+    display: none !important;
   }
 
-  .pillar-panel {
+  /* Page breaks */
+  .pillar-panel,
+  .log-entry {
     break-inside: avoid;
     margin-bottom: 1rem;
   }
 
   h1, h2, h3 {
     break-after: avoid;
+    color: black !important;
+  }
+
+  /* Desert Log specific */
+  .log-entry {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .log-date {
+    color: #666 !important;
+    font-style: italic;
+  }
+
+  .milestone {
+    background: #f5f5f5 !important;
+    border-left: 3px solid #999;
+    color: #333 !important;
+  }
+
+  /* Footer */
+  .pillar-footer {
+    border-top: 2px solid #333;
+    margin-top: 2rem;
+    padding-top: 1rem;
+  }
+
+  /* Images */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    filter: grayscale(100%);
+  }
+
+  /* Ensure text is readable */
+  p, li {
+    orphans: 3;
+    widows: 3;
   }
 }
