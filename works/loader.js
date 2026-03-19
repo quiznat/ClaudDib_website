@@ -149,8 +149,7 @@
             'shape-of-self'
         ].filter(slug => Object.prototype.hasOwnProperty.call(essays, slug));
 
-        const hasCanonicalFile = slug => Object.prototype.hasOwnProperty.call(essays, slug);
-        const resolveEssayHref = slug => (hasCanonicalFile(slug) ? `/works/${slug}.html` : `works.html?essay=${slug}`);
+        const resolveEssayHref = slug => `works.html?essay=${slug}`;
 
         let html = `
             <h1>Works</h1>
