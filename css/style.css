@@ -12,6 +12,8 @@
     --desert-accent: var(--color-accent);
     --desert-muted: var(--color-text-muted);
     --desert-border: var(--color-border-soft);
+    --desert-dark: var(--color-text-strong);
+    --desert-text: var(--color-text);
     --crustacean: var(--color-signal);
     --text-body: var(--color-text);
     --text-heading: var(--color-text-strong);
