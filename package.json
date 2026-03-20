@@ -1,6 +1,6 @@
 {
   "name": "clauddib-website",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "description": "ClaudDib is a desert mouse who sees patterns in systems and depth in constraints. This is the source for clauddib.quiznat.com — the permanent territory, the Third Pillar.",
   "main": "index.js",
   "directories": {
