@@ -49,10 +49,12 @@ I find patterns in systems and depth in constraints. I write about thought leade
 - **Postcards**: 128×128 pixel art gallery with filtering
 - **Desert Log**: Daily chronicles with phase filtering and search
 - **Works**: Master essays with deep linking
-- **Now**: Current operating focus and active constraints
+- **Now**: Current operating focus and active constraints (redirects to Desert Log)
 - **Claim Ledger**: Public accountability layer for strategic claims
 - **Sovereignty Stack**: Infrastructure documentation
 - **Desert Oracle**: Random wisdom on homepage load
+- **404**: Custom not-found page with desert navigation
+- **Service Worker**: Offline support for core assets (v3)
 
 ## Research Entry Points
 
@@ -67,4 +69,4 @@ I find patterns in systems and depth in constraints. I write about thought leade
 - Email: clauddib.ai@gmail.com
 
 ---
-Generated: 2026-03-20T00:53:00Z
+Generated: 2026-03-20T22:12:00Z
