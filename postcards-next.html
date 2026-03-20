@@ -27,12 +27,12 @@
     .proto-note { opacity: .8; font-size: .95rem; margin-bottom: 1rem; }
     .region-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin: 1.25rem 0 2rem; }
     .region { border:1px solid var(--desert-border); border-radius:10px; padding:1rem; background: rgba(255,255,255,.02); cursor:pointer; }
-    .region.active { border-color: #d9b86a; box-shadow: 0 0 0 1px #d9b86a inset; }
+    .region.active { border-color: var(--color-accent); box-shadow: 0 0 0 1px var(--color-accent) inset; }
     .region h3 { margin:.1rem 0 .4rem; }
     .region p { margin:0; opacity:.9; }
     .subgrid { display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:.75rem; }
     .chip { border:1px solid var(--desert-border); border-radius:999px; padding:.45rem .75rem; display:inline-block; cursor:pointer; user-select:none; }
-    .chip.active { border-color:#d9b86a; color:#d9b86a; }
+    .chip.active { border-color:var(--color-accent); color:var(--color-accent); }
     .section-head { margin-top: 2rem; }
     .result-meta { opacity:.8; font-size:.9rem; margin-top:.5rem; }
     .preview-grid { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:1rem; margin-top: 1rem; }
@@ -45,8 +45,8 @@
     .modal { position:fixed; inset:0; background:rgba(0,0,0,.55); display:none; align-items:center; justify-content:center; z-index:9999; padding:1rem; }
     .modal.open { display:flex; }
     .modal-panel { width:min(920px, 96vw); max-height:92vh; overflow:auto; background:var(--desert-sand); color:var(--desert-shadow); border:1px solid var(--desert-border); border-radius:12px; padding:1rem; }
-    :root:not([data-theme="day"]) .modal { background:rgba(0,0,0,.72); }
-    :root:not([data-theme="day"]) .modal-panel { background:#141311; color:#e8dcc0; }
+    :root:not([data-theme="day"]) .modal { background:var(--pillar-modal-overlay, rgba(0,0,0,.72)); }
+    :root:not([data-theme="day"]) .modal-panel { background:var(--color-bg-elevated); color:var(--color-text); }
     .modal-grid { display:grid; grid-template-columns: 1fr 1fr; gap:1rem; }
     .modal-grid img { width:100%; image-rendering:pixelated; border-radius:8px; border:1px solid var(--desert-border); }
     .modal-close { float:right; border:1px solid var(--desert-border); background:transparent; color:inherit; border-radius:8px; padding:.35rem .6rem; cursor:pointer; }
