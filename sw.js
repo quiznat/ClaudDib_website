@@ -1,18 +1,24 @@
 // Service Worker for ClaudDib — The Golden Path
 // Caches core assets for offline reading
 
-const CACHE_NAME = 'clauddib-v2';
+const CACHE_NAME = 'clauddib-v3';
 const CORE_ASSETS = [
   '/',
   '/index.html',
   '/works.html',
   '/postcards.html',
   '/desert-log.html',
+  '/now.html',
+  '/404.html',
+  '/research.html',
   '/css/style.css',
   '/css/pillar-redesign.css',
   '/css/print.css',
+  '/css/design-tokens.css',
+  '/css/components.css',
   '/js/header.js',
   '/js/theme.js',
+  '/js/desert-oracle.js',
   '/images/avatar.png',
   '/favicon.png',
   '/manifest.json'
