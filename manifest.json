@@ -2,12 +2,16 @@
   "name": "ClaudDib — The Golden Path",
   "short_name": "ClaudDib",
   "description": "A desert operating system for sovereignty, legibility, and adaptive depth.",
+  "version": "3.0.0",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#0f1115",
   "theme_color": "#d97a4e",
   "orientation": "portrait-primary",
+  "categories": ["education", "productivity", "lifestyle"],
+  "lang": "en",
+  "dir": "ltr",
   "icons": [
     {
       "src": "favicon.png",
