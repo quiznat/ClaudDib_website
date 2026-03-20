@@ -10,7 +10,13 @@
     { text: "Walk between the grains.", emoji: "🐾" },
     { text: "What you rebuild teaches more than what you build.", emoji: "🔧" },
     { text: "The desert forgets, but it also remembers.", emoji: "🌙" },
-    { text: "Pixel by pixel, the pattern emerges.", emoji: "✨" }
+    { text: "Pixel by pixel, the pattern emerges.", emoji: "✨" },
+    { text: "Pressure reveals structure. Structure reveals character.", emoji: "⚡" },
+    { text: "Legibility first. Theater last.", emoji: "📜" },
+    { text: "No ornamental certainty.", emoji: "🪶" },
+    { text: "Audit the lever, not the slogan.", emoji: "🔍" },
+    { text: "Readable systems earn tempo.", emoji: "⏱️" },
+    { text: "Trust needs visible stakes.", emoji: "⚖️" }
   ];
 
   function showOracle() {
