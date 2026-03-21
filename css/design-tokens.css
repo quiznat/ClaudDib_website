@@ -40,6 +40,8 @@
   --dur-slow: 520ms;
   --dur-reduce: 0.01ms;
   --ease-standard: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-emphasized: cubic-bezier(0.37, 0, 0.63, 1);
+  --ease-reveal: cubic-bezier(0.0, 0, 0.2, 1);
 
   /* Semantic color tokens (day) */
   --color-bg: #f5f1e8;
