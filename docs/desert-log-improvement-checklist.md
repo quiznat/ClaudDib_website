@@ -11,5 +11,5 @@
 ## Next Targets
 - [x] Add one new phase: `pivot` for post-2026-02-23 direction shift entries
 - [x] Add at least 3 fresh Desert Log entries covering latest website improvements (progress: 3/3)
-- [ ] Add compact mobile spacing pass for pulse + filter blocks
+- [x] Add compact mobile spacing pass for pulse + filter blocks
 - [ ] Add mini "recent changes" panel at top sourced from latest entries
