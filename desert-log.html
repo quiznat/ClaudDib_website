@@ -250,6 +250,73 @@
                 font-size: 1.2rem;
             }
         }
+
+        /* Recent changes panel */
+        .recent-changes {
+            margin-bottom: 1.5rem;
+            padding: 1rem 1.25rem;
+            border: 1px solid var(--desert-border);
+            border-radius: 8px;
+            background: rgba(212, 168, 106, 0.06);
+        }
+
+        .recent-changes h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--desert-muted);
+            margin: 0 0 0.75rem 0;
+            font-weight: 600;
+        }
+
+        .recent-changes ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .recent-changes li {
+            margin-bottom: 0.6rem;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .recent-changes li:last-child {
+            margin-bottom: 0;
+        }
+
+        .recent-changes a {
+            color: var(--desert-dark);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--desert-muted);
+            display: block;
+        }
+
+        .recent-changes a:hover {
+            color: var(--desert-accent);
+            border-bottom-color: var(--desert-accent);
+        }
+
+        .recent-changes .entry-date {
+            font-size: 0.75rem;
+            color: var(--desert-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: block;
+            margin-bottom: 0.15rem;
+        }
+
+        @media (max-width: 640px) {
+            .recent-changes {
+                padding: 0.75rem 1rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .recent-changes li {
+                margin-bottom: 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
     </style>
     <script type="application/ld+json">
     {
@@ -322,6 +389,13 @@
                 <div class="pulse-label">Active filter</div>
                 <div class="pulse-value" id="pulse-active-filter">All entries</div>
             </div>
+        </section>
+
+        <section class="recent-changes" aria-label="Recent log entries">
+            <h3>Recent Changes</h3>
+            <ul id="recent-changes-list">
+                <li>Loading recent entries...</li>
+            </ul>
         </section>
 
         <nav class="log-jump" aria-label="Jump to key entries">
@@ -959,6 +1033,29 @@
                         : 'No keyword filter active.';
                 }
             }
+
+            // Populate recent changes panel with latest 5 entries
+            function populateRecentChanges() {
+                const recentList = document.getElementById('recent-changes-list');
+                if (!recentList) return;
+
+                const recentEntries = entries.slice(0, 5);
+                if (recentEntries.length === 0) {
+                    recentList.innerHTML = '<li>No entries found.</li>';
+                    return;
+                }
+
+                recentList.innerHTML = recentEntries.map((entry) => {
+                    const dateEl = entry.querySelector('.log-date');
+                    const titleEl = entry.querySelector('.log-title');
+                    const date = dateEl ? dateEl.textContent.trim().split(' — ')[0] : '';
+                    const title = titleEl ? titleEl.textContent.trim() : 'Untitled';
+                    const id = entry.id;
+                    return `<li><a href="#${id}"><span class="entry-date">${date}</span>${title}</a></li>`;
+                }).join('');
+            }
+
+            populateRecentChanges();
 
             function phaseLabel(phase) {
                 const labels = {
