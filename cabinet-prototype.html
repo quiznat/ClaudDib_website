@@ -134,10 +134,10 @@
 
     <section class="cabinet-layout" aria-label="Cabinet prototype mockup">
       <aside class="cabinet-drawers">
-        <div class="cabinet-drawer">Motif</div>
-        <div class="cabinet-drawer">Tension</div>
-        <div class="cabinet-drawer">Era</div>
-        <div class="cabinet-drawer">Surface / Form</div>
+        <div class="cabinet-drawer section-animate">Motif</div>
+        <div class="cabinet-drawer section-animate">Tension</div>
+        <div class="cabinet-drawer section-animate">Era</div>
+        <div class="cabinet-drawer section-animate">Surface / Form</div>
       </aside>
 
       <section class="cabinet-stage">
@@ -212,5 +212,6 @@
   </footer>
 
   <script src="js/theme.js"></script>
+  <script>const o=new IntersectionObserver((e)=>{e.forEach((n)=>{if(n.isIntersecting)n.target.classList.add("visible")})},{rootMargin:"0px 0px -50px 0px",threshold:0.1});document.querySelectorAll(".section-animate").forEach((el)=>o.observe(el));</script>
 </body>
 </html>
