@@ -1,3 +1,43 @@
+/* Staged reveal animations for hero section */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hero-animate {
+  opacity: 0;
+  animation: fadeInUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.hero-animate-delay-1 { animation-delay: 0.15s; }
+.hero-animate-delay-2 { animation-delay: 0.35s; }
+.hero-animate-delay-3 { animation-delay: 0.55s; }
+.hero-animate-delay-4 { animation-delay: 0.75s; }
+
+/* Section markers animate in as user scrolls */
+.section-animate {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* Respect motion sensitivity */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }
@@ -5,5 +45,11 @@
     animation-duration: var(--dur-reduce) !important;
     animation-iteration-count: 1 !important;
     transition-duration: var(--dur-reduce) !important;
+  }
+  .hero-animate,
+  .section-animate {
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
 }
