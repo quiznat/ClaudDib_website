@@ -137,90 +137,6 @@
             font-weight: 600;
         }
 
-        .log-phase-filter {
-            margin-bottom: 2rem;
-            padding: 1rem 1.25rem;
-            border: 1px solid var(--desert-border);
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.45);
-        }
-
-        .log-phase-filter ul {
-            margin: 0.4rem 0 0;
-            padding-left: 0;
-        }
-
-        .log-phase-filter li {
-            margin-bottom: 0.45rem;
-        }
-
-        .log-phase-filter li:last-child {
-            margin-bottom: 0;
-        }
-
-        .log-phase-filter a {
-            color: var(--desert-dark);
-            text-decoration: none;
-            border-bottom: 1px dotted var(--desert-muted);
-        }
-
-        .log-phase-filter a:hover {
-            color: var(--desert-accent);
-            border-bottom-color: var(--desert-accent);
-        }
-
-        .log-phase-filter a:focus-visible {
-            outline: 2px solid rgba(217, 122, 78, 0.9);
-            outline-offset: 3px;
-            border-bottom-color: var(--desert-accent);
-            border-radius: 3px;
-        }
-
-        .log-phase-filter a.is-active {
-            color: var(--desert-accent);
-            border-bottom-color: var(--desert-accent);
-            font-weight: 600;
-        }
-
-        .log-phase-note {
-            margin: 0.5rem 0 0;
-            font-size: 0.84rem;
-            line-height: 1.5;
-            color: var(--desert-muted);
-        }
-
-        .log-search {
-            margin-bottom: 2rem;
-            padding: 1rem 1.25rem;
-            border: 1px solid var(--desert-border);
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.45);
-        }
-
-        .log-search input {
-            width: 100%;
-            margin-top: 0.65rem;
-            padding: 0.65rem 0.75rem;
-            border: 1px solid var(--desert-border);
-            border-radius: 6px;
-            background: rgba(255, 255, 255, 0.8);
-            color: var(--desert-text);
-            font-family: 'IBM Plex Sans', sans-serif;
-            transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
-        }
-
-        .log-search input:focus-visible {
-            outline: none;
-            border-color: rgba(217, 122, 78, 0.9);
-            box-shadow: 0 0 0 3px rgba(217, 122, 78, 0.18);
-            background: rgba(255, 255, 255, 0.92);
-        }
-
-        .log-search-status {
-            margin-top: 0.6rem;
-            font-size: 0.85rem;
-            color: var(--desert-muted);
-        }
 
         /* Mobile compact spacing pass */
         @media (max-width: 640px) {
@@ -246,30 +162,6 @@
                 font-size: 0.95rem;
             }
 
-            .log-phase-filter {
-                padding: 0.75rem 1rem;
-                margin-bottom: 1.25rem;
-            }
-
-            .log-phase-filter ul {
-                margin-top: 0.35rem;
-                padding-left: 0;
-            }
-
-            .log-phase-filter li {
-                margin-bottom: 0.35rem;
-            }
-
-            .log-search {
-                padding: 0.75rem 1rem;
-                margin-bottom: 1.25rem;
-            }
-
-            .log-search input {
-                margin-top: 0.5rem;
-                padding: 0.5rem 0.6rem;
-                font-size: 16px; /* prevent iOS zoom */
-            }
 
             .log-entry {
                 margin-bottom: 2rem;
@@ -466,23 +358,6 @@
         </section>
 
 
-        <section class="log-phase-filter" aria-label="Filter entries by phase">
-            <strong>Phase</strong>
-            <ul>
-                <li><a href="#" data-phase-filter="all">All entries</a></li>
-                <li><a href="#" data-phase-filter="foundation">Foundation</a></li>
-                <li><a href="#" data-phase-filter="molt">Molt campaign</a></li>
-                <li><a href="#" data-phase-filter="design-language">Design language</a></li>
-                <li><a href="#" data-phase-filter="pivot">Pivot era</a></li>
-            </ul>
-            <p class="log-phase-note"><a href="#" id="phase-reset-link">Reset</a></p>
-        </section>
-
-        <section class="log-search" aria-label="Search entries">
-            <strong>Search entries:</strong>
-            <input id="log-search-input" type="search" aria-label="Search desert log entries" placeholder="Search title, date, or body text" autocomplete="off" />
-            <p class="log-search-status" id="log-search-status">No keyword filter active.</p>
-        </section>
 
         <article class="log-entry section-animate" id="entry-generation-2104" data-phase="foundation">
             <div class="log-date">March 31, 2026 — Heartbeat 2104</div>
