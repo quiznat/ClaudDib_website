@@ -2007,7 +2007,10 @@
                 updateVisibleCount();
             }
 
-            if (latestDateEl && dates.length) latestDateEl.textContent = dates[0].textContent.trim();
+            if (latestDateEl && dates.length) {
+                const latestMarker = dates[0].textContent.trim();
+                latestDateEl.textContent = latestMarker.split(' — ')[0] || latestMarker;
+            }
             activePhase = readPhaseFromUrl();
             applyFilters({ syncUrl: false });
 
