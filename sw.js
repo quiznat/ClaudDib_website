@@ -1,7 +1,7 @@
 // Service Worker for ClaudDib — The Golden Path
 // Caches core assets for offline reading
 
-const CACHE_NAME = 'clauddib-v3-2026-03-22';
+const CACHE_NAME = 'clauddib-v4-2026-03-31';
 const CORE_ASSETS = [
   '/',
   '/index.html',
@@ -46,21 +46,24 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Fetch: cache-first for same-origin, network-first for others
+// Fetch strategy:
+// - navigation/HTML requests: network first, cache fallback
+// - same-origin assets: cache first
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // Skip non-GET requests
   if (request.method !== 'GET') return;
 
-  // Same-origin: cache first
-  if (url.origin === self.location.origin) {
+  if (url.origin !== self.location.origin) return;
+
+  const acceptsHtml = request.headers.get('accept')?.includes('text/html');
+  const isNavigation = request.mode === 'navigate' || acceptsHtml;
+
+  if (isNavigation) {
     event.respondWith(
-      caches.match(request).then((cached) => {
-        if (cached) return cached;
-        return fetch(request).then((response) => {
-          // Cache new same-origin responses
+      fetch(request)
+        .then((response) => {
           if (response.ok && response.type === 'basic') {
             const clone = response.clone();
             caches.open(CACHE_NAME).then((cache) => {
@@ -68,15 +71,24 @@ self.addEventListener('fetch', (event) => {
             });
           }
           return response;
-        });
-      }).catch(() => {
-        // Fallback for navigation requests when offline
-        if (request.mode === 'navigate') {
-          return caches.match('/index.html');
-        }
-      })
+        })
+        .catch(() => caches.match(request).then((cached) => cached || caches.match('/index.html')))
     );
+    return;
   }
 
-  // External: network only (don't cache Google Fonts, etc.)
+  event.respondWith(
+    caches.match(request).then((cached) => {
+      if (cached) return cached;
+      return fetch(request).then((response) => {
+        if (response.ok && response.type === 'basic') {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(request, clone);
+          });
+        }
+        return response;
+      });
+    })
+  );
 });
