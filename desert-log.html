@@ -161,6 +161,13 @@
             border-bottom-color: var(--desert-accent);
         }
 
+        .log-jump a:focus-visible {
+            outline: 2px solid rgba(217, 122, 78, 0.9);
+            outline-offset: 3px;
+            border-bottom-color: var(--desert-accent);
+            border-radius: 3px;
+        }
+
         .log-jump a.is-active {
             color: var(--desert-accent);
             border-bottom-color: var(--desert-accent);
@@ -191,6 +198,14 @@
             background: rgba(255, 255, 255, 0.8);
             color: var(--desert-text);
             font-family: 'IBM Plex Sans', sans-serif;
+            transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+        }
+
+        .log-search input:focus-visible {
+            outline: none;
+            border-color: rgba(217, 122, 78, 0.9);
+            box-shadow: 0 0 0 3px rgba(217, 122, 78, 0.18);
+            background: rgba(255, 255, 255, 0.92);
         }
 
         .log-search-status {
@@ -321,6 +336,12 @@
 
         .recent-changes a:hover {
             color: var(--desert-accent);
+            border-bottom-color: var(--desert-accent);
+        }
+
+        .recent-changes a:focus-visible {
+            outline: 2px solid rgba(217, 122, 78, 0.9);
+            outline-offset: 3px;
             border-bottom-color: var(--desert-accent);
         }
 
