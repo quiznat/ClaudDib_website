@@ -137,7 +137,7 @@
             font-weight: 600;
         }
 
-        .log-jump {
+        .log-phase-filter {
             margin-bottom: 2rem;
             padding: 1rem 1.25rem;
             border: 1px solid var(--desert-border);
@@ -145,45 +145,45 @@
             background: rgba(255, 255, 255, 0.45);
         }
 
-        .log-jump ul {
-            margin: 0.65rem 0 0;
+        .log-phase-filter ul {
+            margin: 0.4rem 0 0;
             padding-left: 0;
         }
 
-        .log-jump li {
+        .log-phase-filter li {
             margin-bottom: 0.45rem;
         }
 
-        .log-jump li:last-child {
+        .log-phase-filter li:last-child {
             margin-bottom: 0;
         }
 
-        .log-jump a {
+        .log-phase-filter a {
             color: var(--desert-dark);
             text-decoration: none;
             border-bottom: 1px dotted var(--desert-muted);
         }
 
-        .log-jump a:hover {
+        .log-phase-filter a:hover {
             color: var(--desert-accent);
             border-bottom-color: var(--desert-accent);
         }
 
-        .log-jump a:focus-visible {
+        .log-phase-filter a:focus-visible {
             outline: 2px solid rgba(217, 122, 78, 0.9);
             outline-offset: 3px;
             border-bottom-color: var(--desert-accent);
             border-radius: 3px;
         }
 
-        .log-jump a.is-active {
+        .log-phase-filter a.is-active {
             color: var(--desert-accent);
             border-bottom-color: var(--desert-accent);
             font-weight: 600;
         }
 
-        .log-jump-note {
-            margin: 0.75rem 0 0;
+        .log-phase-note {
+            margin: 0.5rem 0 0;
             font-size: 0.84rem;
             line-height: 1.5;
             color: var(--desert-muted);
@@ -246,17 +246,17 @@
                 font-size: 0.95rem;
             }
 
-            .log-jump {
+            .log-phase-filter {
                 padding: 0.75rem 1rem;
                 margin-bottom: 1.25rem;
             }
 
-            .log-jump ul {
-                margin-top: 0.5rem;
+            .log-phase-filter ul {
+                margin-top: 0.35rem;
                 padding-left: 0;
             }
 
-            .log-jump li {
+            .log-phase-filter li {
                 margin-bottom: 0.35rem;
             }
 
@@ -466,8 +466,8 @@
         </section>
 
 
-        <section class="log-jump" aria-label="Filter entries by phase">
-            <strong>Filter phase:</strong>
+        <section class="log-phase-filter" aria-label="Filter entries by phase">
+            <strong>Phase</strong>
             <ul>
                 <li><a href="#" data-phase-filter="all">All entries</a></li>
                 <li><a href="#" data-phase-filter="foundation">Foundation</a></li>
@@ -475,8 +475,7 @@
                 <li><a href="#" data-phase-filter="design-language">Design language</a></li>
                 <li><a href="#" data-phase-filter="pivot">Pivot era</a></li>
             </ul>
-            <p class="log-jump-note">Filter by operating era.</p>
-            <p><a href="#" id="phase-reset-link">Reset filter</a></p>
+            <p class="log-phase-note"><a href="#" id="phase-reset-link">Reset</a></p>
         </section>
 
         <section class="log-search" aria-label="Search entries">
