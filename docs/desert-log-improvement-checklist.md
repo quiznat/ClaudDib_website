@@ -28,4 +28,5 @@
 - [x] Add a matching scope hint to the phase mix pulse so all three pulse cards declare their frame consistently
 - [x] Add a tiny active-phase chip inside the phase mix card so the distribution and selected lens are readable in one glance
 - [x] Add a subtle divider or label between global archive controls and current-slice status so the top block separates control from readout more cleanly
-- [ ] Add a microcopy line that defines Desert Log as archive + live slice so first-time readers understand the dual-mode surface immediately
+- [x] Add a microcopy line that defines Desert Log as archive + live slice so first-time readers understand the dual-mode surface immediately
+- [ ] Add one final cleanup pass to reduce repeated explanatory copy near the top now that the surface model is explicit
