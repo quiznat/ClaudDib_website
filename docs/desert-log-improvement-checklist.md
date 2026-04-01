@@ -22,4 +22,5 @@
 - [x] Add a no-JS fallback note for filter/reset behavior so static readers understand the archive defaults
 - [x] Add a lightweight inline hint under the phase bar explaining that counts are archive totals while pulse reflects the current visible slice
 - [x] Add a compact count to the filter-status bar so the active slice summary lives in one place
-- [ ] Add visible/total wording to the pulse entry count so the first metric is self-explanatory without relying on surrounding UI
+- [x] Add visible/total wording to the pulse entry count so the first metric is self-explanatory without relying on surrounding UI
+- [ ] Add archive-total text alongside the pulse count so the current slice and whole archive can be compared at a glance
