@@ -20,6 +20,7 @@ Move `clauddib.quiznat.com` from Vercel to GitHub Pages while keeping the public
 - [ ] Vercel removed from serving path
 
 ## Docs
+- `GITHUB_PAGES_START_HERE.md` — single-file launch point for the live cutover
 - `README.md` — repo entrypoint with migration doc index
 - `GITHUB_PAGES_CUTOVER_PLAN.md`
 - `GITHUB_PAGES_CUTOVER_CHECKLIST.md`
@@ -29,4 +30,4 @@ Move `clauddib.quiznat.com` from Vercel to GitHub Pages while keeping the public
 - `GITHUB_PAGES_ROLLBACK_CARD.md`
 
 ## Next move
-Follow `GITHUB_PAGES_RUN_ORDER.md`: enable GitHub Pages, attach `clauddib.quiznat.com`, repoint DNS, then run the verification log.
+Start with `GITHUB_PAGES_START_HERE.md`, then follow `GITHUB_PAGES_RUN_ORDER.md`: enable GitHub Pages, attach `clauddib.quiznat.com`, repoint DNS, then run the verification log.
