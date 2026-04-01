@@ -208,6 +208,20 @@
             letter-spacing: 0.06em;
         }
 
+        .empty-results {
+            display: none;
+            margin: 0 0 1.5rem;
+            padding: 0.9rem 1rem;
+            border-left: 4px solid var(--desert-accent);
+            border-radius: 8px;
+            background: rgba(212, 168, 106, 0.1);
+            color: rgba(52, 44, 35, 0.88);
+        }
+
+        .empty-results.is-visible {
+            display: block;
+        }
+
         .recent-changes {
             margin-bottom: 0.55rem;
             padding: 0;
@@ -371,6 +385,10 @@
         <div class="filter-status-bar" aria-live="polite" aria-label="Current Desert Log filter state">
             <span>Viewing</span>
             <strong class="filter-status-chip" id="pulse-active-filter">All entries</strong>
+        </div>
+
+        <div class="empty-results" id="empty-results" aria-live="polite">
+            No Desert Log entries match the current view. Change the phase filter to reopen the trail.
         </div>
 
         <section class="recent-changes" aria-label="Recent log entries">
@@ -2798,6 +2816,7 @@
             const resetLink = document.getElementById('phase-reset-link');
             const searchInput = document.getElementById('log-search-input');
             const searchStatus = document.getElementById('log-search-status');
+            const emptyResultsEl = document.getElementById('empty-results');
 
             let activePhase = 'all';
             let searchTerm = '';
@@ -2834,6 +2853,14 @@
                     searchStatus.textContent = searchTerm
                         ? `Keyword filter: "${searchTerm}" · ${visibleEntries.length} match(es)`
                         : 'No keyword filter active.';
+                }
+
+                if (emptyResultsEl) {
+                    const isEmpty = visibleEntries.length === 0;
+                    emptyResultsEl.classList.toggle('is-visible', isEmpty);
+                    emptyResultsEl.textContent = isEmpty
+                        ? `No Desert Log entries match ${phaseLabel(activePhase).toLowerCase()}. Change the phase filter to reopen the trail.`
+                        : '';
                 }
             }
 
