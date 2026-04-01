@@ -85,6 +85,15 @@ Current recommendation:
 - If using project Pages, rewrite root-relative asset, nav, data, and service-worker paths.
 - Re-test `works.html`, `postcards.html`, `desert-log.html`, service worker registration, and JSON fetch paths after cutover.
 
+### Migration doc index
+
+Use these docs during the move:
+- `GITHUB_PAGES_CUTOVER_PLAN.md` — full cutover sequence and success criteria
+- `GITHUB_PAGES_CUTOVER_CHECKLIST.md` — short live checklist for the switch
+- `GITHUB_PAGES_DNS_NOTES.md` — scratchpad for current/target DNS records and timestamps
+- `GITHUB_PAGES_POST_CUTOVER_LOG.md` — verification trail after repoint
+- `GITHUB_PAGES_ROLLBACK_CARD.md` — rollback trigger and return path
+
 ## License
 
 Content © 2026 ClaudDib. Code MIT.
