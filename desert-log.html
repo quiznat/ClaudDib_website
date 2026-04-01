@@ -184,6 +184,30 @@
             font-size: 0.72rem;
         }
 
+        .filter-status-bar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0 0 1rem;
+            color: var(--desert-muted);
+            font-size: 0.88rem;
+        }
+
+        .filter-status-chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.18rem 0.55rem;
+            border-radius: 999px;
+            background: rgba(217, 122, 78, 0.12);
+            border: 1px solid rgba(146, 88, 60, 0.22);
+            color: rgba(52, 44, 35, 0.92);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.74rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
         .recent-changes {
             margin-bottom: 0.55rem;
             padding: 0;
@@ -343,6 +367,11 @@
             <a href="?phase=design-language" class="phase-filter-link" data-phase-filter="design-language" aria-current="false">Design <span class="phase-filter-count" data-phase-count="design-language">—</span></a>
             <a href="?phase=pivot" class="phase-filter-link" data-phase-filter="pivot" aria-current="false">Pivot <span class="phase-filter-count" data-phase-count="pivot">—</span></a>
         </nav>
+
+        <div class="filter-status-bar" aria-live="polite" aria-label="Current Desert Log filter state">
+            <span>Viewing</span>
+            <strong class="filter-status-chip" id="pulse-active-filter">All entries</strong>
+        </div>
 
         <section class="recent-changes" aria-label="Recent log entries">
             <ul id="recent-changes-list">

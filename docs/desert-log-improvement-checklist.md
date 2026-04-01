@@ -16,4 +16,5 @@
 - [x] Add phase chips to each recent-changes row so the top panel previews entry type before click-through
 - [x] Add keyboard-focus highlight on the matching full entry when recent-changes links are activated
 - [x] Add per-phase count chips beside filter controls so archive distribution is visible before filtering
-- [ ] Add a compact active-filter/status bar so the current phase is legible without reading the URL or pulse copy
+- [x] Add a compact active-filter/status bar so the current phase is legible without reading the URL or pulse copy
+- [ ] Add zero-result guidance so filtered/search states fail gracefully instead of collapsing into silence
