@@ -52,10 +52,21 @@
             margin-bottom: 3rem;
             padding-bottom: 2rem;
             border-bottom: 1px solid var(--desert-border);
+            scroll-margin-top: 7rem;
+            transition: background-color 180ms ease, box-shadow 180ms ease;
         }
         
         .log-entry:last-child {
             border-bottom: none;
+        }
+
+        .log-entry:target {
+            background: rgba(212, 168, 106, 0.12);
+            box-shadow: 0 0 0 3px rgba(217, 122, 78, 0.18);
+            border-radius: 10px;
+            padding: 1.15rem 1rem 2rem;
+            margin-left: -1rem;
+            margin-right: -1rem;
         }
         
         .log-date {
@@ -119,6 +130,12 @@
             .log-entry {
                 margin-bottom: 2rem;
                 padding-bottom: 1.5rem;
+            }
+
+            .log-entry:target {
+                padding: 1rem 0.85rem 1.5rem;
+                margin-left: -0.25rem;
+                margin-right: -0.25rem;
             }
 
             .log-title {

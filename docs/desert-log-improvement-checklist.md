@@ -14,4 +14,5 @@
 - [x] Add compact mobile spacing pass for pulse + filter blocks
 - [x] Add mini "recent changes" panel at top sourced from latest entries
 - [x] Add phase chips to each recent-changes row so the top panel previews entry type before click-through
-- [ ] Add keyboard-focus highlight on the matching full entry when recent-changes links are activated
+- [x] Add keyboard-focus highlight on the matching full entry when recent-changes links are activated
+- [ ] Add per-phase count chips beside filter controls so archive distribution is visible before filtering
