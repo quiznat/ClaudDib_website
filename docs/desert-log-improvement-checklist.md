@@ -15,4 +15,5 @@
 - [x] Add mini "recent changes" panel at top sourced from latest entries
 - [x] Add phase chips to each recent-changes row so the top panel previews entry type before click-through
 - [x] Add keyboard-focus highlight on the matching full entry when recent-changes links are activated
-- [ ] Add per-phase count chips beside filter controls so archive distribution is visible before filtering
+- [x] Add per-phase count chips beside filter controls so archive distribution is visible before filtering
+- [ ] Add a compact active-filter/status bar so the current phase is legible without reading the URL or pulse copy

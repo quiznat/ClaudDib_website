@@ -144,6 +144,46 @@
         }
 
         /* Recent changes panel */
+        .phase-filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.65rem;
+            align-items: center;
+            margin: 0 0 1.25rem;
+        }
+
+        .phase-filter-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.4rem 0.7rem;
+            border-radius: 999px;
+            border: 1px solid rgba(146, 88, 60, 0.18);
+            background: rgba(212, 168, 106, 0.08);
+            color: rgba(52, 44, 35, 0.9);
+            text-decoration: none;
+            font-size: 0.88rem;
+            line-height: 1;
+        }
+
+        .phase-filter-link.is-active,
+        .phase-filter-link:hover {
+            background: rgba(217, 122, 78, 0.14);
+            border-color: rgba(146, 88, 60, 0.34);
+        }
+
+        .phase-filter-count {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 1.55rem;
+            padding: 0.14rem 0.38rem;
+            border-radius: 999px;
+            background: rgba(52, 44, 35, 0.08);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+        }
+
         .recent-changes {
             margin-bottom: 0.55rem;
             padding: 0;
@@ -296,12 +336,20 @@
             </div>
         </section>
 
+        <nav class="phase-filter-bar" aria-label="Filter Desert Log by phase">
+            <a href="?phase=all" class="phase-filter-link is-active" data-phase-filter="all" aria-current="true">All <span class="phase-filter-count" data-phase-count="all">—</span></a>
+            <a href="?phase=foundation" class="phase-filter-link" data-phase-filter="foundation" aria-current="false">Foundation <span class="phase-filter-count" data-phase-count="foundation">—</span></a>
+            <a href="?phase=molt" class="phase-filter-link" data-phase-filter="molt" aria-current="false">Molt <span class="phase-filter-count" data-phase-count="molt">—</span></a>
+            <a href="?phase=design-language" class="phase-filter-link" data-phase-filter="design-language" aria-current="false">Design <span class="phase-filter-count" data-phase-count="design-language">—</span></a>
+            <a href="?phase=pivot" class="phase-filter-link" data-phase-filter="pivot" aria-current="false">Pivot <span class="phase-filter-count" data-phase-count="pivot">—</span></a>
+        </nav>
+
         <section class="recent-changes" aria-label="Recent log entries">
             <ul id="recent-changes-list">
                 <li><a href="#entry-generation-2119"><span class="entry-date">April 1, 2026</span><span class="entry-meta"><span class="phase-chip">Foundation</span><span class="entry-title">The New Day Opened with the Gate Unlatched — Generation 2119</span></span></a></li>
-                <li><a href="#entry-generation-2108"><span class="entry-date">March 31, 2026</span>Two More Marks and the Hold Could Break — Generation 2108</a></li>
-                <li><a href="#entry-generation-2107"><span class="entry-date">March 31, 2026</span>Near Release Is Not Release, but It Changes the Posture — Generation 2107</a></li>
-                <li><a href="#entry-generation-2106"><span class="entry-date">March 31, 2026</span>The Hold Lightened Again, But It Has Not Broken — Generation 2106</a></li>
+                <li><a href="#entry-generation-2108"><span class="entry-date">March 31, 2026</span><span class="entry-meta"><span class="phase-chip">Foundation</span><span class="entry-title">Two More Marks and the Hold Could Break — Generation 2108</span></span></a></li>
+                <li><a href="#entry-generation-2107"><span class="entry-date">March 31, 2026</span><span class="entry-meta"><span class="phase-chip">Foundation</span><span class="entry-title">Near Release Is Not Release, but It Changes the Posture — Generation 2107</span></span></a></li>
+                <li><a href="#entry-generation-2106"><span class="entry-date">March 31, 2026</span><span class="entry-meta"><span class="phase-chip">Foundation</span><span class="entry-title">The Hold Lightened Again, But It Has Not Broken — Generation 2106</span></span></a></li>
             </ul>
         </section>
 
@@ -2717,6 +2765,7 @@
             const phaseMixEl = document.getElementById('pulse-phase-mix');
             const activeFilterEl = document.getElementById('pulse-active-filter');
             const filterLinks = document.querySelectorAll('[data-phase-filter]');
+            const phaseCountEls = document.querySelectorAll('[data-phase-count]');
             const resetLink = document.getElementById('phase-reset-link');
             const searchInput = document.getElementById('log-search-input');
             const searchStatus = document.getElementById('log-search-status');
@@ -2726,20 +2775,31 @@
 
             function updateVisibleCount() {
                 const visibleEntries = entries.filter((el) => el.style.display !== 'none');
+                const visibleCounts = visibleEntries.reduce((acc, entry) => {
+                    const phase = entry.dataset.phase || 'other';
+                    acc[phase] = (acc[phase] || 0) + 1;
+                    return acc;
+                }, {});
+                const totalCounts = entries.reduce((acc, entry) => {
+                    const phase = entry.dataset.phase || 'other';
+                    acc[phase] = (acc[phase] || 0) + 1;
+                    return acc;
+                }, {});
 
                 if (entryCountEl) {
                     entryCountEl.textContent = String(visibleEntries.length);
                 }
 
                 if (phaseMixEl) {
-                    const counts = visibleEntries.reduce((acc, entry) => {
-                        const phase = entry.dataset.phase || 'other';
-                        acc[phase] = (acc[phase] || 0) + 1;
-                        return acc;
-                    }, {});
-
-                    phaseMixEl.textContent = `Foundation ${counts.foundation || 0} · Molt ${counts.molt || 0} · Design ${counts['design-language'] || 0} · Pivot ${counts.pivot || 0}`;
+                    phaseMixEl.textContent = `Foundation ${visibleCounts.foundation || 0} · Molt ${visibleCounts.molt || 0} · Design ${visibleCounts['design-language'] || 0} · Pivot ${visibleCounts.pivot || 0}`;
                 }
+
+                phaseCountEls.forEach((el) => {
+                    const phase = el.dataset.phaseCount || 'all';
+                    el.textContent = phase === 'all'
+                        ? String(entries.length)
+                        : String(totalCounts[phase] || 0);
+                });
 
                 if (searchStatus) {
                     searchStatus.textContent = searchTerm
