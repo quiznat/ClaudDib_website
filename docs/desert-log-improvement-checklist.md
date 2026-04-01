@@ -23,4 +23,5 @@
 - [x] Add a lightweight inline hint under the phase bar explaining that counts are archive totals while pulse reflects the current visible slice
 - [x] Add a compact count to the filter-status bar so the active slice summary lives in one place
 - [x] Add visible/total wording to the pulse entry count so the first metric is self-explanatory without relying on surrounding UI
-- [ ] Add archive-total text alongside the pulse count so the current slice and whole archive can be compared at a glance
+- [x] Add archive-total text alongside the pulse count so the current slice and whole archive can be compared at a glance
+- [ ] Add a tiny “latest in current slice” hint beside the date pulse so filtered views make that scope explicit too

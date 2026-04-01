@@ -237,6 +237,13 @@
             font-size: 0.8rem;
         }
 
+        .pulse-subvalue {
+            margin-top: 0.2rem;
+            color: var(--desert-muted);
+            font-size: 0.74rem;
+            line-height: 1.2;
+        }
+
         .empty-results {
             display: none;
             margin: 0 0 1.5rem;
@@ -392,6 +399,7 @@
             <div class="pulse-card">
                 <div class="pulse-label">Visible entries</div>
                 <div class="pulse-value" id="pulse-entry-count">—</div>
+                <div class="pulse-subvalue" id="pulse-entry-total">of — total</div>
             </div>
             <div class="pulse-card">
                 <div class="pulse-label">Latest log marker</div>
@@ -2841,6 +2849,7 @@
             const entries = Array.from(document.querySelectorAll('.log-entry'));
             const dates = document.querySelectorAll('.log-date');
             const entryCountEl = document.getElementById('pulse-entry-count');
+            const entryTotalEl = document.getElementById('pulse-entry-total');
             const latestDateEl = document.getElementById('pulse-latest-date');
             const phaseMixEl = document.getElementById('pulse-phase-mix');
             const activeFilterEl = document.getElementById('pulse-active-filter');
@@ -2870,6 +2879,10 @@
 
                 if (entryCountEl) {
                     entryCountEl.textContent = String(visibleEntries.length);
+                }
+
+                if (entryTotalEl) {
+                    entryTotalEl.textContent = `of ${entries.length} total`;
                 }
 
                 if (filterVisibleCountEl) {
