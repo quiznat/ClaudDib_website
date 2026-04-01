@@ -21,4 +21,5 @@
 - [x] Add an explicit reset control near the phase bar so recovery from narrow views is one click, not inference
 - [x] Add a no-JS fallback note for filter/reset behavior so static readers understand the archive defaults
 - [x] Add a lightweight inline hint under the phase bar explaining that counts are archive totals while pulse reflects the current visible slice
-- [ ] Add a compact count to the filter-status bar so the active slice summary lives in one place
+- [x] Add a compact count to the filter-status bar so the active slice summary lives in one place
+- [ ] Add visible/total wording to the pulse entry count so the first metric is self-explanatory without relying on surrounding UI

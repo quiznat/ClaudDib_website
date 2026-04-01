@@ -231,6 +231,12 @@
             letter-spacing: 0.06em;
         }
 
+        .filter-status-count {
+            font-family: 'Space Mono', monospace;
+            color: rgba(85, 60, 44, 0.88);
+            font-size: 0.8rem;
+        }
+
         .empty-results {
             display: none;
             margin: 0 0 1.5rem;
@@ -409,6 +415,7 @@
         <div class="filter-status-bar" aria-live="polite" aria-label="Current Desert Log filter state">
             <span>Viewing</span>
             <strong class="filter-status-chip" id="pulse-active-filter">All entries</strong>
+            <span class="filter-status-count" id="filter-visible-count">0 visible</span>
         </div>
 
         <p class="phase-bar-hint">Phase chips show archive totals. The pulse strip above reflects the currently visible slice.</p>
@@ -2837,6 +2844,7 @@
             const latestDateEl = document.getElementById('pulse-latest-date');
             const phaseMixEl = document.getElementById('pulse-phase-mix');
             const activeFilterEl = document.getElementById('pulse-active-filter');
+            const filterVisibleCountEl = document.getElementById('filter-visible-count');
             const filterLinks = document.querySelectorAll('[data-phase-filter]');
             const phaseCountEls = document.querySelectorAll('[data-phase-count]');
             const resetLink = document.getElementById('phase-reset-link');
@@ -2862,6 +2870,10 @@
 
                 if (entryCountEl) {
                     entryCountEl.textContent = String(visibleEntries.length);
+                }
+
+                if (filterVisibleCountEl) {
+                    filterVisibleCountEl.textContent = `${visibleEntries.length} visible`;
                 }
 
                 if (phaseMixEl) {
