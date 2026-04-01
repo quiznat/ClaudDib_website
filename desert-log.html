@@ -251,6 +251,22 @@
             line-height: 1.2;
         }
 
+        .pulse-chip {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 0.35rem;
+            padding: 0.16rem 0.5rem;
+            border-radius: 999px;
+            background: rgba(217, 122, 78, 0.12);
+            border: 1px solid rgba(146, 88, 60, 0.22);
+            color: rgba(52, 44, 35, 0.9);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            line-height: 1.1;
+        }
+
         .empty-results {
             display: none;
             margin: 0 0 1.5rem;
@@ -417,6 +433,7 @@
                 <div class="pulse-label">Phase mix</div>
                 <div class="pulse-value" id="pulse-phase-mix">—</div>
                 <div class="pulse-meta" id="pulse-phase-scope">in current slice</div>
+                <div class="pulse-chip" id="pulse-phase-chip">All entries</div>
             </div>
         </section>
 
@@ -2863,6 +2880,7 @@
             const latestScopeEl = document.getElementById('pulse-latest-scope');
             const phaseMixEl = document.getElementById('pulse-phase-mix');
             const phaseScopeEl = document.getElementById('pulse-phase-scope');
+            const phaseChipEl = document.getElementById('pulse-phase-chip');
             const activeFilterEl = document.getElementById('pulse-active-filter');
             const filterVisibleCountEl = document.getElementById('filter-visible-count');
             const filterLinks = document.querySelectorAll('[data-phase-filter]');
@@ -3011,6 +3029,10 @@
 
                 if (activeFilterEl) {
                     activeFilterEl.textContent = phaseLabel(activePhase);
+                }
+
+                if (phaseChipEl) {
+                    phaseChipEl.textContent = phaseLabel(activePhase);
                 }
 
                 if (syncUrl) writePhaseToUrl(activePhase);

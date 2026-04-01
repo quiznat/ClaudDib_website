@@ -26,4 +26,5 @@
 - [x] Add archive-total text alongside the pulse count so the current slice and whole archive can be compared at a glance
 - [x] Add a tiny “latest in current slice” hint beside the date pulse so filtered views make that scope explicit too
 - [x] Add a matching scope hint to the phase mix pulse so all three pulse cards declare their frame consistently
-- [ ] Add a tiny active-phase chip inside the phase mix card so the distribution and selected lens are readable in one glance
+- [x] Add a tiny active-phase chip inside the phase mix card so the distribution and selected lens are readable in one glance
+- [ ] Add a subtle divider or label between global archive controls and current-slice status so the top block separates control from readout more cleanly
