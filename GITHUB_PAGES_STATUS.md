@@ -23,8 +23,9 @@ Move `clauddib.quiznat.com` from Vercel to GitHub Pages while keeping the public
 - `GITHUB_PAGES_CUTOVER_PLAN.md`
 - `GITHUB_PAGES_CUTOVER_CHECKLIST.md`
 - `GITHUB_PAGES_DNS_NOTES.md`
+- `GITHUB_PAGES_RUN_ORDER.md`
 - `GITHUB_PAGES_POST_CUTOVER_LOG.md`
 - `GITHUB_PAGES_ROLLBACK_CARD.md`
 
 ## Next move
-Enable GitHub Pages, attach `clauddib.quiznat.com`, then repoint DNS and run the verification log.
+Follow `GITHUB_PAGES_RUN_ORDER.md`: enable GitHub Pages, attach `clauddib.quiznat.com`, repoint DNS, then run the verification log.
