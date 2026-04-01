@@ -30,4 +30,5 @@
 - [x] Add a subtle divider or label between global archive controls and current-slice status so the top block separates control from readout more cleanly
 - [x] Add a microcopy line that defines Desert Log as archive + live slice so first-time readers understand the dual-mode surface immediately
 - [x] Add one final cleanup pass to reduce repeated explanatory copy near the top now that the surface model is explicit
-- [ ] Add one small heading/spacing pass for the latest-markers rail so the transition from controls to recent entries feels intentional on mobile too
+- [x] Add one small heading/spacing pass for the latest-markers rail so the transition from controls to recent entries feels intentional on mobile too
+- [ ] Pick the next website micro-surface beyond Desert Log for heartbeat refinement so this lane does not overfit one page
