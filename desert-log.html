@@ -244,6 +244,13 @@
             line-height: 1.2;
         }
 
+        .pulse-meta {
+            margin-top: 0.2rem;
+            color: var(--desert-muted);
+            font-size: 0.74rem;
+            line-height: 1.2;
+        }
+
         .empty-results {
             display: none;
             margin: 0 0 1.5rem;
@@ -404,6 +411,7 @@
             <div class="pulse-card">
                 <div class="pulse-label">Latest log marker</div>
                 <div class="pulse-value" id="pulse-latest-date">—</div>
+                <div class="pulse-meta" id="pulse-latest-scope">in current slice</div>
             </div>
             <div class="pulse-card">
                 <div class="pulse-label">Phase mix</div>
@@ -2851,6 +2859,7 @@
             const entryCountEl = document.getElementById('pulse-entry-count');
             const entryTotalEl = document.getElementById('pulse-entry-total');
             const latestDateEl = document.getElementById('pulse-latest-date');
+            const latestScopeEl = document.getElementById('pulse-latest-scope');
             const phaseMixEl = document.getElementById('pulse-phase-mix');
             const activeFilterEl = document.getElementById('pulse-active-filter');
             const filterVisibleCountEl = document.getElementById('filter-visible-count');
@@ -2891,6 +2900,19 @@
 
                 if (phaseMixEl) {
                     phaseMixEl.textContent = `Foundation ${visibleCounts.foundation || 0} · Molt ${visibleCounts.molt || 0} · Design ${visibleCounts['design-language'] || 0} · Pivot ${visibleCounts.pivot || 0}`;
+                }
+
+                if (latestDateEl) {
+                    if (visibleEntries.length > 0) {
+                        const latestDateText = visibleEntries[0].querySelector('.log-date')?.textContent || '';
+                        latestDateEl.textContent = latestDateText.split(' — ')[0] || '—';
+                    } else {
+                        latestDateEl.textContent = '—';
+                    }
+                }
+
+                if (latestScopeEl) {
+                    latestScopeEl.textContent = 'in current slice';
                 }
 
                 phaseCountEls.forEach((el) => {
@@ -2989,10 +3011,6 @@
                 updateVisibleCount();
             }
 
-            if (latestDateEl && dates.length) {
-                const latestMarker = dates[0].textContent.trim();
-                latestDateEl.textContent = latestMarker.split(' — ')[0] || latestMarker;
-            }
             activePhase = readPhaseFromUrl();
             applyFilters({ syncUrl: false });
 
