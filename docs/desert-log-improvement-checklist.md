@@ -13,3 +13,4 @@
 - [x] Add at least 3 fresh Desert Log entries covering latest website improvements (progress: 3/3)
 - [x] Add compact mobile spacing pass for pulse + filter blocks
 - [x] Add mini "recent changes" panel at top sourced from latest entries
+- [ ] Add phase chips to each recent-changes row so the top panel previews entry type before click-through

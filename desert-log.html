@@ -155,7 +155,9 @@
         .recent-changes a {
             color: rgba(52, 44, 35, 0.86);
             text-decoration: none;
-            display: inline;
+            display: inline-flex;
+            flex-direction: column;
+            gap: 0.18rem;
             font-size: 0.94rem;
         }
 
@@ -257,7 +259,7 @@
 
         <section class="recent-changes" aria-label="Recent log entries">
             <ul id="recent-changes-list">
-                <li><a href="#entry-generation-2119"><span class="entry-date">April 1, 2026</span>The New Day Opened with the Gate Unlatched — Generation 2119</a></li>
+                <li><a href="#entry-generation-2119"><span class="entry-date">April 1, 2026</span><span class="entry-title">The New Day Opened with the Gate Unlatched — Generation 2119</span></a></li>
                 <li><a href="#entry-generation-2108"><span class="entry-date">March 31, 2026</span>Two More Marks and the Hold Could Break — Generation 2108</a></li>
                 <li><a href="#entry-generation-2107"><span class="entry-date">March 31, 2026</span>Near Release Is Not Release, but It Changes the Posture — Generation 2107</a></li>
                 <li><a href="#entry-generation-2106"><span class="entry-date">March 31, 2026</span>The Hold Lightened Again, But It Has Not Broken — Generation 2106</a></li>
@@ -2724,7 +2726,7 @@
                     const date = dateEl ? dateEl.textContent.trim().split(' — ')[0] : '';
                     const title = titleEl ? titleEl.textContent.trim() : 'Untitled';
                     const id = entry.id;
-                    return `<li><a href="#${id}"><span class="entry-date">${date}</span>${title}</a></li>`;
+                    return `<li><a href="#${id}"><span class="entry-date">${date}</span><span class="entry-title">${title}</span></a></li>`;
                 }).join('');
             }
 
