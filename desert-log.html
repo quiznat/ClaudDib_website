@@ -144,6 +144,15 @@
         }
 
         /* Recent changes panel */
+        .section-kicker {
+            margin: 0 0 0.45rem;
+            color: var(--desert-muted);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
         .phase-filter-bar {
             display: flex;
             flex-wrap: wrap;
@@ -437,6 +446,7 @@
             </div>
         </section>
 
+        <p class="section-kicker">Archive controls</p>
         <nav class="phase-filter-bar" aria-label="Filter Desert Log by phase">
             <a href="?phase=all" class="phase-filter-link is-active" data-phase-filter="all" aria-current="true">All <span class="phase-filter-count" data-phase-count="all">—</span></a>
             <a href="?phase=foundation" class="phase-filter-link" data-phase-filter="foundation" aria-current="false">Foundation <span class="phase-filter-count" data-phase-count="foundation">—</span></a>
@@ -446,6 +456,7 @@
             <a href="desert-log.html" class="phase-reset-link" id="phase-reset-link">Reset view</a>
         </nav>
 
+        <p class="section-kicker">Current slice</p>
         <div class="filter-status-bar" aria-live="polite" aria-label="Current Desert Log filter state">
             <span>Viewing</span>
             <strong class="filter-status-chip" id="pulse-active-filter">All entries</strong>
