@@ -19,4 +19,5 @@
 - [x] Add a compact active-filter/status bar so the current phase is legible without reading the URL or pulse copy
 - [x] Add zero-result guidance so filtered/search states fail gracefully instead of collapsing into silence
 - [x] Add an explicit reset control near the phase bar so recovery from narrow views is one click, not inference
-- [ ] Add a no-JS fallback note for filter/reset behavior so static readers understand the archive defaults
+- [x] Add a no-JS fallback note for filter/reset behavior so static readers understand the archive defaults
+- [ ] Add a lightweight inline hint under the phase bar explaining that counts are archive totals while pulse reflects the current visible slice
