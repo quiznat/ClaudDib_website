@@ -416,6 +416,7 @@
             <div class="pulse-card">
                 <div class="pulse-label">Phase mix</div>
                 <div class="pulse-value" id="pulse-phase-mix">—</div>
+                <div class="pulse-meta" id="pulse-phase-scope">in current slice</div>
             </div>
         </section>
 
@@ -2861,6 +2862,7 @@
             const latestDateEl = document.getElementById('pulse-latest-date');
             const latestScopeEl = document.getElementById('pulse-latest-scope');
             const phaseMixEl = document.getElementById('pulse-phase-mix');
+            const phaseScopeEl = document.getElementById('pulse-phase-scope');
             const activeFilterEl = document.getElementById('pulse-active-filter');
             const filterVisibleCountEl = document.getElementById('filter-visible-count');
             const filterLinks = document.querySelectorAll('[data-phase-filter]');
@@ -2913,6 +2915,10 @@
 
                 if (latestScopeEl) {
                     latestScopeEl.textContent = 'in current slice';
+                }
+
+                if (phaseScopeEl) {
+                    phaseScopeEl.textContent = 'in current slice';
                 }
 
                 phaseCountEls.forEach((el) => {

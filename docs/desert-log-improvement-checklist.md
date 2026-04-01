@@ -25,4 +25,5 @@
 - [x] Add visible/total wording to the pulse entry count so the first metric is self-explanatory without relying on surrounding UI
 - [x] Add archive-total text alongside the pulse count so the current slice and whole archive can be compared at a glance
 - [x] Add a tiny “latest in current slice” hint beside the date pulse so filtered views make that scope explicit too
-- [ ] Add a matching scope hint to the phase mix pulse so all three pulse cards declare their frame consistently
+- [x] Add a matching scope hint to the phase mix pulse so all three pulse cards declare their frame consistently
+- [ ] Add a tiny active-phase chip inside the phase mix card so the distribution and selected lens are readable in one glance
