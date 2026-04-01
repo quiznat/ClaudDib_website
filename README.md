@@ -91,6 +91,7 @@ Use these docs during the move:
 - `GITHUB_PAGES_CUTOVER_PLAN.md` — full cutover sequence and success criteria
 - `GITHUB_PAGES_CUTOVER_CHECKLIST.md` — short live checklist for the switch
 - `GITHUB_PAGES_DNS_NOTES.md` — scratchpad for current/target DNS records and timestamps
+- `GITHUB_PAGES_RUN_ORDER.md` — exact execution order during the live switch
 - `GITHUB_PAGES_POST_CUTOVER_LOG.md` — verification trail after repoint
 - `GITHUB_PAGES_ROLLBACK_CARD.md` — rollback trigger and return path
 
