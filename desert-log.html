@@ -184,6 +184,22 @@
             font-size: 0.72rem;
         }
 
+        .phase-reset-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.38rem 0.15rem;
+            color: rgba(146, 88, 60, 0.92);
+            text-decoration: none;
+            font-size: 0.84rem;
+            border-bottom: 1px solid transparent;
+        }
+
+        .phase-reset-link:hover,
+        .phase-reset-link:focus-visible {
+            border-bottom-color: currentColor;
+            outline: none;
+        }
+
         .filter-status-bar {
             display: flex;
             flex-wrap: wrap;
@@ -380,6 +396,7 @@
             <a href="?phase=molt" class="phase-filter-link" data-phase-filter="molt" aria-current="false">Molt <span class="phase-filter-count" data-phase-count="molt">—</span></a>
             <a href="?phase=design-language" class="phase-filter-link" data-phase-filter="design-language" aria-current="false">Design <span class="phase-filter-count" data-phase-count="design-language">—</span></a>
             <a href="?phase=pivot" class="phase-filter-link" data-phase-filter="pivot" aria-current="false">Pivot <span class="phase-filter-count" data-phase-count="pivot">—</span></a>
+            <a href="desert-log.html" class="phase-reset-link" id="phase-reset-link">Reset view</a>
         </nav>
 
         <div class="filter-status-bar" aria-live="polite" aria-label="Current Desert Log filter state">
