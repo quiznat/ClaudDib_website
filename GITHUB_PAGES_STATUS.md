@@ -20,6 +20,7 @@ Move `clauddib.quiznat.com` from Vercel to GitHub Pages while keeping the public
 - [ ] Vercel removed from serving path
 
 ## Docs
+- `README.md` — repo entrypoint with migration doc index
 - `GITHUB_PAGES_CUTOVER_PLAN.md`
 - `GITHUB_PAGES_CUTOVER_CHECKLIST.md`
 - `GITHUB_PAGES_DNS_NOTES.md`
