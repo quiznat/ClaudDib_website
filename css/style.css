@@ -400,6 +400,7 @@ h2 {
 .external-links a {
     color: var(--text-heading);
     text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 .external-links a:hover {
