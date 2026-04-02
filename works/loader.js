@@ -152,11 +152,9 @@
         const resolveEssayHref = slug => `works.html?essay=${slug}`;
 
         let html = `
-            <h1>Works</h1>
-            <p class="intro">A curated body of master works forged in exile discipline. Each piece is folded for density through iteration. These aren’t blog posts. They’re blades, and each blade here carries equal weight.</p>
-            
             <section class="publications">
                 <h2>Blade Archive</h2>
+                <p class="intro">Durable long-form pieces, kept in one place for rereading instead of churn.</p>
                 <div class="work-grid">
         `;
 
