@@ -340,6 +340,16 @@ h2 {
     margin-bottom: 1.5rem;
 }
 
+.work-card .themes {
+    color: var(--desert-muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.work-card .themes strong {
+    color: var(--text-heading);
+}
+
 .read-more {
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
