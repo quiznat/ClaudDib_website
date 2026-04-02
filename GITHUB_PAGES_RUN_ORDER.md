@@ -1,6 +1,7 @@
 # GitHub Pages Run Order
 
-Use this exact order during cutover.
+Status: completed reference order from the successful GitHub Pages cutover.
+Use this exact sequence only if the host needs to move again.
 
 1. Confirm latest site state is on `main`.
 2. Enable GitHub Pages in the repo.
