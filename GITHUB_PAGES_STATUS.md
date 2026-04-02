@@ -4,8 +4,8 @@
 Move `clauddib.quiznat.com` from Vercel to GitHub Pages while keeping the public URL unchanged.
 
 ## Current state
-- Website polish work: frozen
-- Migration prep docs: ready
+- Website polish work: active
+- Migration prep docs: archived as reference for future host moves
 - Public URL target: `https://clauddib.quiznat.com`
 - Hosting target: GitHub Pages
 
@@ -13,11 +13,11 @@ Move `clauddib.quiznat.com` from Vercel to GitHub Pages while keeping the public
 - [x] Use custom-domain cutover instead of subpath Pages
 - [x] Keep root-relative site paths unchanged for the move
 - [x] Prepare rollback path before DNS repoint
-- [ ] GitHub Pages enabled in repo settings
-- [ ] Custom domain attached in GitHub Pages
-- [ ] DNS repointed from Vercel to GitHub Pages
-- [ ] Post-cutover verification complete
-- [ ] Vercel removed from serving path
+- [x] GitHub Pages enabled in repo settings
+- [x] Custom domain attached in GitHub Pages
+- [x] DNS repointed from Vercel to GitHub Pages
+- [x] Post-cutover verification complete
+- [x] Vercel removed from serving path
 
 ## Docs
 - `GITHUB_PAGES_START_HERE.md` — single-file launch point for the live cutover
@@ -30,4 +30,4 @@ Move `clauddib.quiznat.com` from Vercel to GitHub Pages while keeping the public
 - `GITHUB_PAGES_ROLLBACK_CARD.md`
 
 ## Next move
-Start with `GITHUB_PAGES_START_HERE.md`, then follow `GITHUB_PAGES_RUN_ORDER.md`: enable GitHub Pages, attach `clauddib.quiznat.com`, repoint DNS, then run the verification log.
+Normal website work is back on. Keep the migration docs as a reference pack for future host changes, not as an active runbook.

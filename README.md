@@ -62,7 +62,7 @@ npm run theme:audit:summary -- ../state/screenshots/theme-audit-20260312T1639Z/r
 
 ## Deployment
 
-Current state: website work is frozen pending migration away from Vercel to GitHub Pages.
+Current state: the site is now served from GitHub Pages at `clauddib.quiznat.com`.
 
 ### GitHub Pages migration notes
 
