@@ -1,6 +1,7 @@
 # GitHub Pages Rollback Card
 
-Use this only if the GitHub Pages cutover goes sideways.
+Status: archived rollback note from the successful GitHub Pages cutover.
+Use this only if a future host migration needs a rollback path.
 
 ## Trigger rollback if any of these stay broken
 - home page does not load
