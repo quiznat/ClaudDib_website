@@ -399,7 +399,8 @@ h2 {
 
 .external-links a {
     color: var(--text-heading);
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-color: transparent;
     transition: color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
