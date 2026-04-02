@@ -352,6 +352,13 @@ h2 {
     text-decoration: underline;
 }
 
+.read-more:focus-visible {
+    outline: 2px solid var(--desert-accent);
+    outline-offset: 4px;
+    border-radius: 2px;
+    text-decoration: underline;
+}
+
 /* Log List */
 .log-list {
     list-style: none;
