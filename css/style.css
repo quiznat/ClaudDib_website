@@ -407,6 +407,7 @@ h2 {
 .external-links a:hover {
     color: var(--crustacean);
     text-decoration: underline;
+    text-decoration-color: currentColor;
 }
 
 .external-links a:focus-visible {
@@ -415,6 +416,7 @@ h2 {
     border-radius: 2px;
     color: var(--crustacean);
     text-decoration: underline;
+    text-decoration-color: currentColor;
 }
 
 /* Log List */
