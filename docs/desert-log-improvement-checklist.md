@@ -31,4 +31,4 @@
 - [x] Add a microcopy line that defines Desert Log as archive + live slice so first-time readers understand the dual-mode surface immediately
 - [x] Add one final cleanup pass to reduce repeated explanatory copy near the top now that the surface model is explicit
 - [x] Add one small heading/spacing pass for the latest-markers rail so the transition from controls to recent entries feels intentional on mobile too
-- [ ] Pick the next website micro-surface beyond Desert Log for heartbeat refinement so this lane does not overfit one page
+- [x] Pick the next website micro-surface beyond Desert Log for heartbeat refinement so this lane does not overfit one page — next surface: `works.html` (focus: sharpen archive/navigation legibility without bloating the page)
