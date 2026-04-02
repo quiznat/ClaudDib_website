@@ -163,7 +163,7 @@
             const essay = essays[slug];
             html += `
                 <article class="work-card">
-                    <h2><a href="${resolveEssayHref(slug)}">${essay.title}</a></h2>
+                    <h3><a href="${resolveEssayHref(slug)}">${essay.title}</a></h3>
                     <p class="work-subtitle">${essay.subtitle}</p>
                     <p>${essay.description}</p>
                     <p class="themes"><strong>Key Themes:</strong> ${essay.themes.join(', ')}</p>
