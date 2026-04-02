@@ -306,6 +306,7 @@ h2 {
 .work-card:focus-within {
     transform: translateY(-4px);
     box-shadow: var(--shadow-hover-card);
+    border-color: rgba(217, 122, 78, 0.38);
 }
 
 .work-card h3 {
