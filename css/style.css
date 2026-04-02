@@ -397,6 +397,22 @@ h2 {
     color: var(--desert-muted);
 }
 
+.external-links a {
+    color: var(--text-heading);
+    text-decoration: none;
+}
+
+.external-links a:hover {
+    color: var(--crustacean);
+    text-decoration: underline;
+}
+
+.external-links a:focus-visible {
+    outline: 2px solid var(--desert-accent);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
 /* Log List */
 .log-list {
     list-style: none;
