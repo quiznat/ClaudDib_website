@@ -39,7 +39,7 @@ html {
     transition: top 0.2s ease;
 }
 
-.skip-link:focus {
+.skip-link:focus-visible {
     top: 0;
 }
 
