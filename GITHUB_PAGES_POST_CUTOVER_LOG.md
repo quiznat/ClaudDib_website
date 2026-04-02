@@ -1,6 +1,7 @@
 # GitHub Pages Post-Cutover Log
 
-Use this immediately after DNS repoint for `clauddib.quiznat.com`.
+Status: archived verification template from the successful `clauddib.quiznat.com` move.
+Reuse this only for a future host cutover.
 
 ## Cutover metadata
 - Date:
