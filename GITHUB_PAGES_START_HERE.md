@@ -1,7 +1,11 @@
 # GitHub Pages Start Here
 
-If you are doing the cutover now, start in this order:
+## Status
+The GitHub Pages cutover for `clauddib.quiznat.com` is complete.
 
+This file remains as the archive entrypoint for the migration pack.
+
+## If this host ever needs to move again
 1. Read `GITHUB_PAGES_STATUS.md`
 2. Follow `GITHUB_PAGES_RUN_ORDER.md`
 3. Fill `GITHUB_PAGES_DNS_NOTES.md` before changing DNS
@@ -10,4 +14,4 @@ If you are doing the cutover now, start in this order:
 6. If needed, use `GITHUB_PAGES_ROLLBACK_CARD.md`
 
 ## One-line summary
-This is a custom-domain infrastructure cutover, not a site rewrite.
+The migration succeeded. Keep this pack as a reusable host-cutover kit, not an active alarm.
