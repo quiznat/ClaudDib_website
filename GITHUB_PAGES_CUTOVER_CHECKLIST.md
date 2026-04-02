@@ -1,6 +1,7 @@
 # GitHub Pages Live Cutover Checklist
 
-Use this during the actual switch for `clauddib.quiznat.com`.
+Status: completed reference pack for the successful `clauddib.quiznat.com` move.
+Use this only if the site ever needs another host cutover.
 
 ## Before touching DNS
 - [ ] GitHub Pages is enabled for the repo
