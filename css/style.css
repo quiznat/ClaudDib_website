@@ -302,7 +302,8 @@ h2 {
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.work-card:hover {
+.work-card:hover,
+.work-card:focus-within {
     transform: translateY(-4px);
     box-shadow: var(--shadow-hover-card);
 }
