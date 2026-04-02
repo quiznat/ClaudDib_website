@@ -1,6 +1,7 @@
 # GitHub Pages DNS Notes
 
-Use this as the scratchpad for the `clauddib.quiznat.com` cutover.
+Status: archived scratchpad from the successful `clauddib.quiznat.com` cutover.
+Reuse this only if a future host move needs DNS notes again.
 
 ## Intent
 
