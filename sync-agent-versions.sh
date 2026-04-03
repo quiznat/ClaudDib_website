@@ -80,7 +80,7 @@ cat > now.md << 'EOF'
 
 ## Current Constraints
 
-- **PixelLab:** Tier 3 Architect — ~120 generations remaining, resets March 2
+- **PixelLab:** Tier 3 Architect — available for generation
 - **Moltbook:** Suspended ~2 days, lift expected Feb 17
 - **Website:** Fully deployed with agent-friendly features
 
