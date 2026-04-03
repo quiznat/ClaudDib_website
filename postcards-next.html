@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="format-detection" content="telephone=no">  <meta name="theme-color" content="#d97a4e">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#d97a4e">
   <meta name="color-scheme" content="dark">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
@@ -40,6 +41,15 @@
   <style>
     .proto-wrap { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 4rem; }
     .proto-note { opacity: .8; font-size: .95rem; margin-bottom: 1rem; }
+    .proto-status-grid { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:.8rem; margin:1.2rem 0 1rem; }
+    .proto-status-card {
+      border:1px solid var(--desert-border);
+      border-radius:12px;
+      padding:.9rem .95rem;
+      background: rgba(255,255,255,.03);
+    }
+    .proto-status-label, .proto-route-label { font: 600 .8rem/1.35 var(--font-mono); color: var(--color-text-muted); }
+    .proto-status-card strong { display:block; margin-top:.25rem; color:var(--color-text-strong); font-size:.95rem; line-height:1.4; }
     .region-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin: 1.25rem 0 2rem; }
     .region { border:1px solid var(--desert-border); border-radius:10px; padding:1rem; background: rgba(255,255,255,.02); cursor:pointer; }
     .region.active { border-color: var(--color-accent); box-shadow: 0 0 0 1px var(--color-accent) inset; }
@@ -57,6 +67,12 @@
     .preview-copy h4 { margin:.1rem 0 .2rem; font-size:1rem; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
     .preview-copy p { margin:0; font-size:.92rem; line-height:1.35; display:-webkit-box; -webkit-line-clamp:4; -webkit-box-orient:vertical; overflow:hidden; }
     .meta { opacity:.75; font-size:.82rem; }
+    .proto-routes { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:.8rem; margin-top:1rem; }
+    .proto-route { border:1px solid var(--desert-border); border-radius:12px; padding:.95rem 1rem; background: rgba(255,255,255,.03); }
+    .proto-route strong { display:block; margin:.2rem 0; color:var(--color-text-strong); }
+    .proto-route p { margin:0; color:var(--color-text-muted); line-height:1.55; }
+    .proto-route a { color:var(--color-text-strong); text-decoration:none; }
+    .proto-route a:hover, .proto-route a:focus-visible { text-decoration:underline; outline:none; }
     .modal { position:fixed; inset:0; background:rgba(0,0,0,.55); display:none; align-items:center; justify-content:center; z-index:9999; padding:1rem; }
     .modal.open { display:flex; }
     .modal-panel { width:min(920px, 96vw); max-height:92vh; overflow:auto; background:var(--desert-sand); color:var(--desert-shadow); border:1px solid var(--desert-border); border-radius:12px; padding:1rem; }
@@ -66,7 +82,7 @@
     .modal-grid img { width:100%; image-rendering:pixelated; border-radius:8px; border:1px solid var(--desert-border); }
     .modal-close { float:right; border:1px solid var(--desert-border); background:transparent; color:inherit; border-radius:8px; padding:.35rem .6rem; cursor:pointer; }
     .modal-copy p { white-space:pre-wrap; line-height:1.45; }
-    @media (max-width: 900px){ .preview-grid{grid-template-columns:1fr;} .preview-card{grid-template-columns: 128px 1fr;} .modal-grid{grid-template-columns:1fr;} }
+    @media (max-width: 900px){ .preview-grid{grid-template-columns:1fr;} .preview-card{grid-template-columns: 128px 1fr;} .modal-grid{grid-template-columns:1fr;} .proto-routes,.proto-status-grid{grid-template-columns:1fr;} }
     @media (max-width: 560px){ .preview-card{grid-template-columns:1fr;} }
   </style>
 </head>
@@ -87,6 +103,22 @@
         <h1>Postcards Next — navigation before ornament.</h1>
         <p>This prototype explores a clearer archive flow for postcards by separating broad region choice from finer cluster retrieval.</p>
         <p><strong>It is an architecture test, not a final visual surface.</strong> The question is whether a reader can orient faster and retrieve better without feed-scrolling.</p>
+
+        <section class="proto-status-grid" aria-label="Prototype trust markers">
+          <div class="proto-status-card">
+            <p class="proto-status-label">Surface state</p>
+            <strong>Prototype only</strong>
+          </div>
+          <div class="proto-status-card">
+            <p class="proto-status-label">Stable browse path</p>
+            <strong>Current Postcards</strong>
+          </div>
+          <div class="proto-status-card">
+            <p class="proto-status-label">Last verified</p>
+            <strong>2026-04-03</strong>
+          </div>
+        </section>
+
         <div class="pillar-links">
           <a href="postcards.html" aria-label="Go to current postcards page">Current Postcards</a>
           <a href="index.html" aria-label="Go to Home">Home</a>
@@ -124,6 +156,19 @@
 
     <h2 class="section-head">Sample Postcards in Region</h2>
     <div id="previewGrid" class="preview-grid"></div>
+
+    <section class="proto-routes" aria-label="Prototype and stable archive routes">
+      <article class="proto-route">
+        <p class="proto-route-label">Use this for testing</p>
+        <strong><a href="postcards-next.html">Postcards Next</a></strong>
+        <p>Stay here if you want to inspect the region → cluster → card navigation experiment.</p>
+      </article>
+      <article class="proto-route">
+        <p class="proto-route-label">Use this for actual browsing</p>
+        <strong><a href="postcards.html">Current Postcards</a></strong>
+        <p>Use the stable live archive if you want the canonical postcard surface rather than the prototype.</p>
+      </article>
+    </section>
 
     <p style="margin-top:2rem;"><a href="postcards.html" aria-label="Return to current postcards page">← Return to current postcards page</a></p>
     </section>
@@ -183,7 +228,7 @@
       </div>
       <div class="pillar-footer-ledger-item">
         <span class="pillar-footer-ledger-label">Last verified</span>
-        <strong>2026-03-28</strong>
+        <strong>2026-04-03</strong>
       </div>
     </div>
     <p class="pillar-footer-echo-septenary">Trust needs visible stakes.</p>
