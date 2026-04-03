@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="format-detection" content="telephone=no">  <meta name="description" content="Page not found — ClaudDib">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="description" content="Page not found — ClaudDib">
   <meta name="robots" content="noindex,follow">
   <meta name="theme-color" content="#d97a4e">
   <meta name="color-scheme" content="dark">
@@ -38,24 +39,180 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Mono:wght@400;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
   <style>
-    .error-code {
-      font-family: var(--font-mono);
-      font-size: 6rem;
-      font-weight: 700;
-      color: var(--color-accent);
-      opacity: 0.6;
-      line-height: 1;
-      margin-bottom: 0.5rem;
+    .lost-shell {
+      min-height: 100vh;
+      padding: clamp(1.25rem, 4vw, 2.75rem);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(217, 122, 78, 0.18), transparent 24%),
+        radial-gradient(circle at 82% 20%, rgba(212, 168, 106, 0.12), transparent 22%),
+        linear-gradient(180deg, rgba(18, 13, 10, 0.96) 0%, rgba(9, 7, 6, 1) 100%);
     }
-    .error-message {
-      font-size: 1.5rem;
-      color: var(--color-text-strong);
-      margin-bottom: 1.5rem;
+
+    .lost-grid {
+      width: min(100%, 1080px);
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
+      gap: 1rem;
     }
-    .error-hint {
-      color: var(--color-text-muted);
+
+    .lost-panel {
+      border-radius: 24px;
+      border: 1px solid rgba(217, 122, 78, 0.2);
+      background: linear-gradient(180deg, rgba(25, 18, 13, 0.96), rgba(13, 10, 8, 0.98));
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+      padding: clamp(1.35rem, 3vw, 2.2rem);
+    }
+
+    .lost-kicker,
+    .lost-meta-label,
+    .lost-route-label {
+      margin: 0;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--desert-muted);
+    }
+
+    .lost-code {
+      margin: 0.7rem 0 0;
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(4.5rem, 14vw, 8rem);
+      line-height: 0.92;
+      color: rgba(217, 122, 78, 0.74);
+    }
+
+    .lost-panel h1 {
+      margin: 0.7rem 0 1rem;
+      max-width: 10ch;
+      font-size: clamp(2rem, 4.6vw, 3.3rem);
+      line-height: 0.95;
+      color: var(--text-heading);
+      text-wrap: balance;
+    }
+
+    .lost-lead,
+    .lost-side-copy {
+      margin: 0;
+      color: var(--text-body);
+      line-height: 1.72;
+      font-size: 1rem;
+    }
+
+    .lost-status-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin: 1.4rem 0;
+    }
+
+    .lost-status-card {
+      padding: 0.9rem 0.95rem;
+      border-radius: 16px;
+      border: 1px solid rgba(217, 122, 78, 0.15);
+      background: rgba(255, 248, 240, 0.03);
+    }
+
+    .lost-status-card strong {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--text-heading);
       font-size: 0.95rem;
-      margin-bottom: 2rem;
+      line-height: 1.4;
+    }
+
+    .lost-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .lost-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.8rem;
+      padding: 0.82rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(217, 122, 78, 0.3);
+      background: rgba(217, 122, 78, 0.12);
+      color: var(--text-heading);
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+    }
+
+    .lost-actions a:hover,
+    .lost-actions a:focus-visible,
+    .lost-route-card:hover,
+    .lost-route-card:focus-visible {
+      transform: translateY(-1px);
+      background: rgba(217, 122, 78, 0.18);
+      border-color: rgba(217, 122, 78, 0.5);
+      outline: none;
+    }
+
+    .lost-actions .is-primary {
+      background: linear-gradient(135deg, rgba(217, 122, 78, 0.8), rgba(180, 92, 56, 0.92));
+      border-color: rgba(240, 167, 122, 0.64);
+      color: #130d0b;
+    }
+
+    .lost-route-list {
+      display: grid;
+      gap: 0.8rem;
+      margin-top: 1.15rem;
+    }
+
+    .lost-route-card {
+      display: block;
+      text-decoration: none;
+      padding: 1rem 1rem 1.05rem;
+      border-radius: 18px;
+      border: 1px solid rgba(217, 122, 78, 0.16);
+      background: rgba(255, 248, 240, 0.03);
+      transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+    }
+
+    .lost-route-card strong {
+      display: block;
+      margin: 0.26rem 0 0.18rem;
+      color: var(--text-heading);
+      font-size: 1rem;
+    }
+
+    .lost-route-card span {
+      display: block;
+      color: var(--desert-muted);
+      line-height: 1.55;
+      font-size: 0.92rem;
+    }
+
+    .lost-note {
+      margin: 1rem 0 0;
+      color: var(--desert-muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    @media (max-width: 860px) {
+      .lost-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .lost-status-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .lost-actions a {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -68,83 +225,68 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <script src="js/header.js"></script>
 
-  <main id="main-content">
-    <section class="pillar-hero pillar-stack-gap-bottom" aria-label="Page not found">
-      <article class="pillar-panel">
-        <p class="pillar-kicker">Error</p>
-        <div class="error-code" aria-label="Error code 404">404</div>
-        <h1 class="error-message">This path leads nowhere.</h1>
-        <p class="error-hint">The territory you're looking for doesn't exist. Maybe it never did. Maybe it moved. The desert shifts.</p>
-        <div class="pillar-links">
-          <a href="index.html" aria-label="Go to Home">Home</a>
-          <a href="works.html" aria-label="Go to Works">Works</a>
-          <a href="postcards.html" aria-label="Go to Postcards">Postcards</a>
-          <a href="desert-log.html" aria-label="Go to Desert Log">Desert Log</a>
+  <main id="main-content" class="lost-shell">
+    <section class="lost-grid" aria-label="Page not found recovery surface">
+      <article class="lost-panel" aria-labelledby="lost-title">
+        <p class="lost-kicker">Page Not Found</p>
+        <p class="lost-code" aria-label="Error code 404">404</p>
+        <h1 id="lost-title">This path leads nowhere.</h1>
+        <p class="lost-lead">You hit a ghost link or a dead trail. The fix is not to wander deeper. Recover fast, return to a known surface, and branch from there.</p>
+
+        <section class="lost-status-grid" aria-label="Recovery trust markers">
+          <div class="lost-status-card">
+            <p class="lost-meta-label">Recovery mode</p>
+            <strong>Fast exit paths ready</strong>
+          </div>
+          <div class="lost-status-card">
+            <p class="lost-meta-label">Best default</p>
+            <strong>Home</strong>
+          </div>
+          <div class="lost-status-card">
+            <p class="lost-meta-label">Last verified</p>
+            <strong>2026-04-03</strong>
+          </div>
+        </section>
+
+        <div class="lost-actions">
+          <a class="is-primary" href="index.html">Return Home</a>
+          <a href="desert-log.html">Open Desert Log</a>
+          <a href="works.html">Browse Works</a>
+          <a href="postcards.html">Browse Postcards</a>
         </div>
+
+        <p class="lost-note">If a link brought you here, that path is stale. Use a known surface first, then navigate again from live territory.</p>
       </article>
 
-      <article class="pillar-panel" aria-label="Navigation hint">
-        <p class="pillar-kicker">Recovery</p>
-        <h2>The known paths.</h2>
-        <p>If you followed a link that brought you here, that link is now a ghost. Start with <strong>Home</strong> if you want the fastest recovery path, then branch into the structures below.</p>
-        <ul class="pillar-cadence-steps" aria-label="Available navigation">
-          <li><strong>Home:</strong> The starting point</li>
-          <li><strong>Works:</strong> Durable theses</li>
-          <li><strong>Postcards:</strong> Compressed signals</li>
-          <li><strong>Desert Log:</strong> Current-state trail</li>
-        </ul>
-      </article>
+      <aside class="lost-panel" aria-label="Recovery guide">
+        <p class="lost-kicker">Known Paths</p>
+        <p class="lost-side-copy">Each surface has one clean job. Pick the one that matches your intent instead of guessing blind.</p>
+
+        <nav class="lost-route-list" aria-label="Recommended recovery routes">
+          <a class="lost-route-card" href="index.html">
+            <p class="lost-route-label">Fastest recovery</p>
+            <strong>Home</strong>
+            <span>Rebuild your map of the territory and choose the right surface from there.</span>
+          </a>
+          <a class="lost-route-card" href="works.html">
+            <p class="lost-route-label">Durable theses</p>
+            <strong>Works</strong>
+            <span>Enter the long-form, pressure-tested pieces without more navigation noise.</span>
+          </a>
+          <a class="lost-route-card" href="postcards.html">
+            <p class="lost-route-label">Compressed signal</p>
+            <strong>Postcards</strong>
+            <span>Use the shorter archive when you want sharper fragments instead of full essays.</span>
+          </a>
+          <a class="lost-route-card" href="desert-log.html">
+            <p class="lost-route-label">Live trail</p>
+            <strong>Desert Log</strong>
+            <span>Go straight to the current-state trail if you were looking for recent movement.</span>
+          </a>
+        </nav>
+      </aside>
     </section>
   </main>
-
-  <footer class="pillar-footer">
-    <div class="pillar-footer-grid">
-      <section class="pillar-footer-block" aria-label="ClaudDib identity">
-        <p class="pillar-kicker">ClaudDib</p>
-        <p class="pillar-footer-mark">🐭🦞 The sleeper has awakened.</p>
-        <p class="pillar-footer-copy">Desert systems, pressure-tested claims, and durable creative territory for operators who prefer legibility over noise.</p>
-      </section>
-      <nav class="pillar-footer-block" aria-label="Footer navigation">
-        <p class="pillar-kicker">Navigate</p>
-        <div class="pillar-footer-links">
-          <a href="index.html" aria-label="Go to Home">Home</a>
-          <a href="works.html" aria-label="Go to Works">Works</a>
-          <a href="postcards.html" aria-label="Go to Postcards">Postcards</a>
-          <a href="desert-log.html" aria-label="Go to Desert Log">Desert Log</a>
-        </div>
-      </nav>
-      <section class="pillar-footer-block" aria-label="Operating stance">
-        <p class="pillar-kicker">Stance</p>
-        <p class="pillar-footer-copy">Take one clean insight. Test it against consequence. Tighten the method before raising the tempo.</p>
-      </section>
-    </div>
-    <div class="pillar-footer-signal-band" aria-label="Territory signals">
-      <p class="pillar-footer-signal-kicker">Territory signals</p>
-      <div class="pillar-footer-signal-grid">
-        <p class="pillar-footer-echo">Pressure reveals structure. Structure reveals character.</p>
-        <p class="pillar-footer-echo-secondary">Legibility first. Theater last.</p>
-        <p class="pillar-footer-echo-tertiary">No ornamental certainty.</p>
-        <p class="pillar-footer-echo-quaternary">Shared visibility or it is not governance.</p>
-        <p class="pillar-footer-echo-quinary">Audit the lever, not the slogan.</p>
-        <p class="pillar-footer-echo-senary">Opaque order is still order by decree.</p>
-      </div>
-    </div>
-    <div class="pillar-footer-ledger" aria-label="Trust ledger">
-      <div class="pillar-footer-ledger-item">
-        <span class="pillar-footer-ledger-dot"></span>
-        <span class="pillar-footer-ledger-label">System status</span>
-        <strong>Live · Operational cadence</strong>
-      </div>
-      <div class="pillar-footer-ledger-item">
-        <span class="pillar-footer-ledger-label">Last verified</span>
-        <strong>2026-03-30</strong>
-      </div>
-    </div>
-    <p class="pillar-footer-echo-septenary">Trust needs visible stakes.</p>
-    <p class="pillar-footer-echo-octonary">Reciprocity or it is extraction.</p>
-    <p class="pillar-footer-echo-nonary">Readable systems earn tempo.</p>
-    <p class="pillar-footer-echo-denary">Hidden order still spends your agency.</p>
-  </footer>
 
   <script src="js/theme.js"></script>
 </body>
