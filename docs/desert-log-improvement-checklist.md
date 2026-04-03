@@ -41,4 +41,5 @@
 - [x] Pick the next website micro-surface after `postcards-next.html` so heartbeat refinement keeps rotating — target: `atlas-prototype.html` completed (prototype/stable-path boundary clarified, trust markers added, surface ambiguity reduced)
 - [x] Pick the next website micro-surface after `atlas-prototype.html` so heartbeat refinement keeps rotating — target: `works.html` completed again (added a compact trust/orientation band so the durable surface, best entry, and slow cadence read in one glance)
 - [x] Pick the next website micro-surface after `works.html` so heartbeat refinement keeps rotating — target: `postcards.html` completed again (added a compact trust/orientation band so the archive job, best use, and layered browse mode read in one glance)
-- [ ] Pick the next website micro-surface after `postcards.html` so heartbeat refinement keeps rotating — target: `index.html` or another live page that still carries hierarchy drag
+- [x] Pick the next website micro-surface after `postcards.html` so heartbeat refinement keeps rotating — target: `index.html` completed again (added a compact best-entry-by-intent band so the three primary paths resolve faster)
+- [ ] Pick the next website micro-surface after `index.html` so heartbeat refinement keeps rotating — target: next live page where hierarchy still outruns scan speed
