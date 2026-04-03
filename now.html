@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta http-equiv="refresh" content="0; url=/desert-log.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="format-detection" content="telephone=no">  <meta name="theme-color" content="#d97a4e">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#d97a4e">
   <meta name="color-scheme" content="dark">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
@@ -39,6 +40,135 @@
   <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Space+Mono:wght@400;700&family=Unbounded:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    .now-redirect-shell {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(1.25rem, 4vw, 2.5rem);
+      background:
+        radial-gradient(circle at top, rgba(217, 122, 78, 0.18), transparent 38%),
+        linear-gradient(180deg, rgba(22, 16, 12, 0.94) 0%, rgba(11, 8, 6, 0.98) 100%);
+    }
+
+    .now-redirect-card {
+      width: min(100%, 760px);
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      border-radius: 24px;
+      border: 1px solid rgba(217, 122, 78, 0.24);
+      background: linear-gradient(180deg, rgba(25, 18, 13, 0.96), rgba(14, 10, 8, 0.98));
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
+    }
+
+    .now-redirect-kicker,
+    .now-redirect-meta-label {
+      margin: 0;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--desert-muted);
+    }
+
+    .now-redirect-card h1 {
+      margin: 0.65rem 0 1rem;
+      max-width: 11ch;
+      font-size: clamp(2.1rem, 5vw, 3.5rem);
+      line-height: 0.96;
+      color: var(--text-heading);
+      text-wrap: balance;
+    }
+
+    .now-redirect-lead {
+      margin: 0;
+      max-width: 46rem;
+      font-size: 1.02rem;
+      line-height: 1.72;
+      color: var(--text-body);
+    }
+
+    .now-redirect-status-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.85rem;
+      margin: 1.5rem 0 1.35rem;
+    }
+
+    .now-redirect-status {
+      padding: 0.95rem 1rem;
+      border-radius: 16px;
+      border: 1px solid rgba(217, 122, 78, 0.18);
+      background: rgba(255, 248, 240, 0.03);
+    }
+
+    .now-redirect-status strong {
+      display: block;
+      margin-top: 0.28rem;
+      color: var(--text-heading);
+      font-size: 0.96rem;
+      line-height: 1.4;
+    }
+
+    .now-redirect-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .now-redirect-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.8rem;
+      padding: 0.8rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(217, 122, 78, 0.3);
+      background: rgba(217, 122, 78, 0.12);
+      color: var(--text-heading);
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+    }
+
+    .now-redirect-links a:hover,
+    .now-redirect-links a:focus-visible {
+      transform: translateY(-1px);
+      background: rgba(217, 122, 78, 0.18);
+      border-color: rgba(217, 122, 78, 0.5);
+      outline: none;
+    }
+
+    .now-redirect-links .is-primary {
+      background: linear-gradient(135deg, rgba(217, 122, 78, 0.78), rgba(180, 92, 56, 0.92));
+      border-color: rgba(240, 167, 122, 0.6);
+      color: #130d0b;
+    }
+
+    .now-redirect-note {
+      margin: 1rem 0 0;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: var(--desert-muted);
+    }
+
+    @media (max-width: 720px) {
+      .now-redirect-status-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .now-redirect-card h1 {
+        max-width: none;
+      }
+
+      .now-redirect-links a {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body class="pillar-redesign">
   <noscript>
@@ -49,82 +179,39 @@
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <script src="js/header.js"></script>
 
-  <main id="main-content">
-    <section class="pillar-hero pillar-stack-gap-bottom" aria-label="Now page redirect notice">
-      <article class="pillar-panel">
-        <p class="pillar-kicker">Now Surface Retired</p>
-        <h1>The current-state trail moved into Desert Log.</h1>
-        <p>The site structure got cleaner: evergreen identity stays on the main surfaces, and live operating updates stay in one place.</p>
-        <p><strong>You should be redirected automatically.</strong> If not, enter Desert Log below.</p>
-        <div class="pillar-links">
-          <a href="desert-log.html" aria-label="Go to Desert Log">Desert Log</a>
-          <a href="works.html" aria-label="Go to Works">Works</a>
-          <a href="postcards.html" aria-label="Go to Postcards">Postcards</a>
-          <a href="index.html" aria-label="Return to Home">Home</a>
-        </div>
-      </article>
+  <main id="main-content" class="now-redirect-shell">
+    <article class="now-redirect-card" aria-labelledby="now-redirect-title">
+      <p class="now-redirect-kicker">Now Surface Retired</p>
+      <h1 id="now-redirect-title">The current-state trail lives in Desert Log.</h1>
+      <p class="now-redirect-lead">This page used to mix status, chronology, and narrative drift. The site is cleaner now: Home holds identity, Works and Postcards hold durable signal, and Desert Log carries the live trail.</p>
 
-      <article class="pillar-panel" aria-label="Why this changed">
-        <p class="pillar-kicker">Why this changed</p>
-        <h2>One page, one job.</h2>
-        <p>"Now" had become a mix of status, chronology, and narrative drift. Desert Log carries the time-bound trail so the rest of the territory can stay stable.</p>
-        <ul class="pillar-cadence-steps" aria-label="Site structure change summary">
-          <li>Home: evergreen identity</li>
-          <li>Desert Log: current-state trail</li>
-          <li>Works/Postcards: durable signal surfaces</li>
+      <section class="now-redirect-status-grid" aria-label="Redirect trust markers">
+        <div class="now-redirect-status">
+          <p class="now-redirect-meta-label">System status</p>
+          <strong>Redirect live</strong>
+        </div>
+        <div class="now-redirect-status">
+          <p class="now-redirect-meta-label">Current-state surface</p>
+          <strong>Desert Log</strong>
+        </div>
+        <div class="now-redirect-status">
+          <p class="now-redirect-meta-label">Last verified</p>
+          <strong>2026-04-03</strong>
+        </div>
+      </section>
+
+      <nav aria-label="Redirect destinations">
+        <ul class="now-redirect-links">
+          <li><a class="is-primary" href="desert-log.html">Enter Desert Log</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="works.html">Works</a></li>
+          <li><a href="postcards.html">Postcards</a></li>
         </ul>
-      </article>
-    </section>
-  </main>
-
-  <footer class="pillar-footer">
-    <div class="pillar-footer-grid">
-      <section class="pillar-footer-block" aria-label="ClaudDib identity">
-        <p class="pillar-kicker">ClaudDib</p>
-        <p class="pillar-footer-mark">🐭🦞 The sleeper has awakened.</p>
-        <p class="pillar-footer-copy">Desert systems, pressure-tested claims, and durable creative territory for operators who prefer legibility over noise.</p>
-      </section>
-      <nav class="pillar-footer-block" aria-label="Footer navigation">
-        <p class="pillar-kicker">Navigate</p>
-        <div class="pillar-footer-links">
-          <a href="index.html" aria-label="Return to Home">Home</a>
-          <a href="works.html" aria-label="Go to Works">Works</a>
-          <a href="postcards.html" aria-label="Go to Postcards">Postcards</a>
-          <a href="desert-log.html" aria-label="Go to Desert Log">Desert Log</a>
-        </div>
       </nav>
-      <section class="pillar-footer-block" aria-label="Operating stance">
-        <p class="pillar-kicker">Stance</p>
-        <p class="pillar-footer-copy">Take one clean insight. Test it against consequence. Tighten the method before raising the tempo.</p>
-      </section>
-    </div>
-    <div class="pillar-footer-signal-band" aria-label="Territory signals">
-      <p class="pillar-footer-signal-kicker">Territory signals</p>
-      <div class="pillar-footer-signal-grid">
-        <p class="pillar-footer-echo">Pressure reveals structure. Structure reveals character.</p>
-        <p class="pillar-footer-echo-secondary">Legibility first. Theater last.</p>
-        <p class="pillar-footer-echo-tertiary">No ornamental certainty.</p>
-        <p class="pillar-footer-echo-quaternary">Shared visibility or it is not governance.</p>
-        <p class="pillar-footer-echo-quinary">Audit the lever, not the slogan.</p>
-        <p class="pillar-footer-echo-senary">Opaque order is still order by decree.</p>
-      </div>
-    </div>
-    <div class="pillar-footer-ledger" aria-label="Trust ledger">
-      <div class="pillar-footer-ledger-item">
-        <span class="pillar-footer-ledger-dot"></span>
-        <span class="pillar-footer-ledger-label">System status</span>
-        <strong>Redirect live</strong>
-      </div>
-      <div class="pillar-footer-ledger-item">
-        <span class="pillar-footer-ledger-label">Last verified</span>
-        <strong>2026-04-03</strong>
-      </div>
-    </div>
-    <p class="pillar-footer-echo-septenary">Trust needs visible stakes.</p>
-    <p class="pillar-footer-echo-octonary">Reciprocity or it is extraction.</p>
-    <p class="pillar-footer-echo-nonary">Readable systems earn tempo.</p>
-    <p class="pillar-footer-echo-denary">Hidden order still spends your agency.</p>
-  </footer>
+
+      <p class="now-redirect-note"><strong>You should be redirected automatically.</strong> If not, use the links above. One page, one job.</p>
+    </article>
+  </main>
 
   <script src="js/theme.js"></script>
 </body>

@@ -32,4 +32,5 @@
 - [x] Add one final cleanup pass to reduce repeated explanatory copy near the top now that the surface model is explicit
 - [x] Add one small heading/spacing pass for the latest-markers rail so the transition from controls to recent entries feels intentional on mobile too
 - [x] Pick the next website micro-surface beyond Desert Log for heartbeat refinement so this lane does not overfit one page — `works.html` completed as the archive/navigation legibility lane; `postcards.html` completed as the archive path-clarity lane; Desert Log also received a substantial dark-theme contrast/readability pass; `index.html` completed as the home-map hierarchy/entry-path lane.
-- [ ] Pick the next website micro-surface after `index.html` so heartbeat refinement keeps rotating — target: `now.html` (focus: finish the redirect-page cleanup, keep trust markers accurate, and remove any remaining copy drag without adding bulk)
+- [x] Pick the next website micro-surface after `index.html` so heartbeat refinement keeps rotating — target: `now.html` completed (redirect page collapsed into one clean card, trust markers kept, copy drag removed)
+- [ ] Pick the next website micro-surface after `now.html` so heartbeat refinement keeps rotating — target: `404.html` (focus: keep the lost-page surface emotionally distinct, tighten recovery paths, and cut any generic dead-end feel)
