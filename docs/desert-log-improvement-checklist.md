@@ -43,4 +43,5 @@
 - [x] Pick the next website micro-surface after `works.html` so heartbeat refinement keeps rotating — target: `postcards.html` completed again (added a compact trust/orientation band so the archive job, best use, and layered browse mode read in one glance)
 - [x] Pick the next website micro-surface after `postcards.html` so heartbeat refinement keeps rotating — target: `index.html` completed again (added a compact best-entry-by-intent band so the three primary paths resolve faster)
 - [x] Pick the next website micro-surface after `index.html` so heartbeat refinement keeps rotating — target: `index.html` completed again (reduced repeated entry-path copy by making the later start-here block explain decision shape instead of echoing the hero)
-- [ ] Pick the next website micro-surface after this `index.html` pass so heartbeat refinement keeps rotating — target: next live page where hierarchy, repetition, or scan drag still outruns clarity
+- [x] Pick the next website micro-surface after this `index.html` pass so heartbeat refinement keeps rotating — target: `desert-log.html` completed with a small head cleanup (removed malformed meta-line residue on a live surface)
+- [ ] Pick the next website micro-surface after `desert-log.html` so heartbeat refinement keeps rotating — target: next live page where hierarchy, repetition, or scan drag still outruns clarity
