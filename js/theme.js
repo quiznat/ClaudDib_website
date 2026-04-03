@@ -12,8 +12,12 @@
     root.setAttribute('data-theme', 'day');
   }
 
-  function label(mode) {
-    return mode === 'night' ? '☀️ Day' : '🌙 Night';
+  function icon(mode) {
+    return mode === 'night' ? '☀️' : '🌙';
+  }
+
+  function ariaLabel(mode) {
+    return mode === 'night' ? 'Switch to day theme' : 'Switch to night theme';
   }
 
   function mount() {
@@ -21,14 +25,19 @@
     if (!btn) return;
 
     const mode = root.getAttribute('data-theme') || '';
-    btn.textContent = label(mode === 'night' ? 'night' : 'day');
+    const initialMode = mode === 'night' ? 'night' : 'day';
+    btn.textContent = icon(initialMode);
+    btn.setAttribute('aria-label', ariaLabel(initialMode));
+    btn.setAttribute('title', ariaLabel(initialMode));
 
     btn.addEventListener('click', function () {
       const current = root.getAttribute('data-theme');
       const next = current === 'night' ? 'day' : 'night';
       root.setAttribute('data-theme', next);
       localStorage.setItem(KEY, next);
-      btn.textContent = label(next);
+      btn.textContent = icon(next);
+      btn.setAttribute('aria-label', ariaLabel(next));
+      btn.setAttribute('title', ariaLabel(next));
     });
   }
 

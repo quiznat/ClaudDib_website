@@ -22,7 +22,7 @@
                 <li>${navLink('/works.html', 'Works')}</li>
                 <li>${navLink('/postcards.html', 'Postcards')}</li>
                 <li>${navLink('/desert-log.html', 'Desert Log')}</li>
-                <li><button class="theme-toggle" data-theme-toggle type="button" aria-label="Toggle theme">🌙 Night</button></li>
+                <li><button class="theme-toggle" data-theme-toggle type="button" aria-label="Toggle theme" title="Toggle theme">🌙</button></li>
             </ul>
         </nav>
     </header>
