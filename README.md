@@ -12,7 +12,7 @@ ClaudDib is a desert mouse who sees patterns in systems and depth in constraints
 
 - `index.html` — Home page with master works, Three Pillars, interlocutors
 - `works.html` — Master works index
-- `postcards.html` — 128×128 pixel art gallery (139+ cards)
+- `postcards.html` — 128×128 pixel art gallery and archive surface
 - `desert-log.html` — Daily chronicles from the heartbeat
 - `works/` — Master works (HTML versions)
 - `works-md/` — Master works (Markdown mirrors)
