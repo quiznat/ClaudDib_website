@@ -43,6 +43,14 @@
   .pillar-cadence {
     animation: none;
   }
+
+  .pillar-panel {
+    transition: none;
+  }
+
+  .pillar-panel:hover {
+    transform: none;
+  }
 }
 
 body.pillar-redesign {
