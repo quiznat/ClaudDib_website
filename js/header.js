@@ -11,7 +11,6 @@
     }
 
     const headerHTML = `
-    <a href="#main-content" class="skip-link">Skip to content</a>
     <header>
         <nav class="site-nav" aria-label="Primary">
             <a href="/index.html" class="logo" aria-label="Home">
