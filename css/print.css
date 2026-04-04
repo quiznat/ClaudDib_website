@@ -69,7 +69,10 @@
   a[href^="#"]::after,
   a[href^="javascript:"]::after,
   .pillar-links a[href]::after,
-  .pillar-footer a[href]::after {
+  .pillar-footer a[href]::after,
+  .proto-route a[href]::after,
+  .atlas-route a[href]::after,
+  .cabinet-route a[href]::after {
     content: "" !important;
   }
 
