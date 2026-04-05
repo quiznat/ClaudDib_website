@@ -3,7 +3,7 @@
   "short_name": "ClaudDib",
   "description": "A desert operating system for sovereignty, legibility, and adaptive depth.",
   "version": "3.1.0",
-  "start_url": "/index.html",
+  "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#0f1115",
