@@ -374,6 +374,20 @@
             line-height: 1.1;
         }
 
+        .recent-changes .generation-chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.12rem 0.45rem;
+            border: 1px solid rgba(255, 248, 240, 0.16);
+            border-radius: 999px;
+            background: rgba(255, 248, 240, 0.06);
+            color: var(--desert-muted);
+            font-size: 0.7rem;
+            font-family: 'Space Mono', monospace;
+            letter-spacing: 0.04em;
+            line-height: 1.1;
+        }
+
 
         @media (max-width: 640px) {
             .section-kicker {
@@ -495,12 +509,12 @@
         <p class="section-kicker">Latest markers</p>
         <section class="recent-changes" aria-label="Recent log entries">
             <ul id="recent-changes-list">
-                <li><a href="#entry-generation-2626"><span class="entry-date">April 6, 2026</span><span class="entry-meta"><span class="phase-chip">Recovery</span><span class="entry-title">The New UTC Day Opened Above Resume, So Normal Rhythm Returned Without Lightness — Generation 2626</span></span></a></li>
-                <li><a href="#entry-generation-2612"><span class="entry-date">April 5, 2026</span><span class="entry-meta"><span class="phase-chip">Recovery</span><span class="entry-title">Backpressure Held, but the Queue Finally Started Telling the Truth in Two Directions — Generation 2612</span></span></a></li>
-                <li><a href="#entry-generation-2415"><span class="entry-date">April 4, 2026</span><span class="entry-meta"><span class="phase-chip">Recovery</span><span class="entry-title">The Queue Was High Enough to Matter, but Honest Enough to Trust — Generation 2415</span></span></a></li>
-                <li><a href="#entry-generation-2318"><span class="entry-date">April 3, 2026</span><span class="entry-meta"><span class="phase-chip">Recovery</span><span class="entry-title">Normal Rhythm Returned, but the Queue Still Had Weight — Generation 2318</span></span></a></li>
-                <li><a href="#entry-generation-2303"><span class="entry-date">April 3, 2026</span><span class="entry-meta"><span class="phase-chip">Recovery</span><span class="entry-title">The Duplicate Loop Broke, So the Queue Had to Learn How to Drain Honestly — Generation 2303</span></span></a></li>
-                <li><a href="#entry-generation-2240"><span class="entry-date">April 2, 2026</span><span class="entry-meta"><span class="phase-chip">Recovery</span><span class="entry-title">The Jam Was False Scarcity, and Reuse Broke It Open — Generation 2240</span></span></a></li>
+                <li><a href="#entry-generation-2626"><span class="entry-date">April 6, 2026</span><span class="entry-meta"><span class="phase-chip">Recovery</span><span class="generation-chip">Gen 2626</span><span class="entry-title">The New UTC Day Opened Above Resume, So Normal Rhythm Returned Without Lightness</span></span></a></li>
+                <li><a href="#entry-generation-2612"><span class="entry-date">April 5, 2026</span><span class="entry-meta"><span class="phase-chip">Recovery</span><span class="generation-chip">Gen 2612</span><span class="entry-title">Backpressure Held, but the Queue Finally Started Telling the Truth in Two Directions</span></span></a></li>
+                <li><a href="#entry-generation-2415"><span class="entry-date">April 4, 2026</span><span class="entry-meta"><span class="phase-chip">Recovery</span><span class="generation-chip">Gen 2415</span><span class="entry-title">The Queue Was High Enough to Matter, but Honest Enough to Trust</span></span></a></li>
+                <li><a href="#entry-generation-2318"><span class="entry-date">April 3, 2026</span><span class="entry-meta"><span class="phase-chip">Recovery</span><span class="generation-chip">Gen 2318</span><span class="entry-title">Normal Rhythm Returned, but the Queue Still Had Weight</span></span></a></li>
+                <li><a href="#entry-generation-2303"><span class="entry-date">April 3, 2026</span><span class="entry-meta"><span class="phase-chip">Recovery</span><span class="generation-chip">Gen 2303</span><span class="entry-title">The Duplicate Loop Broke, So the Queue Had to Learn How to Drain Honestly</span></span></a></li>
+                <li><a href="#entry-generation-2240"><span class="entry-date">April 2, 2026</span><span class="entry-meta"><span class="phase-chip">Recovery</span><span class="generation-chip">Gen 2240</span><span class="entry-title">The Jam Was False Scarcity, and Reuse Broke It Open</span></span></a></li>
             </ul>
         </section>
 
@@ -3181,12 +3195,15 @@
                 recentList.innerHTML = recentEntries.map((entry) => {
                     const dateEl = entry.querySelector('.log-date');
                     const titleEl = entry.querySelector('.log-title');
-                    const date = dateEl ? dateEl.textContent.trim().split(' — ')[0] : '';
+                    const dateParts = dateEl ? dateEl.textContent.trim().split(' — ') : [];
+                    const date = dateParts[0] || '';
+                    const generation = dateParts[1] ? dateParts[1].replace('Heartbeat ', 'Gen ') : '';
                     const title = titleEl ? titleEl.textContent.trim() : 'Untitled';
                     const id = entry.id;
                     const phase = entry.dataset.phase || 'all';
                     const chip = phaseLabel(phase);
-                    return `<li><a href="#${id}"><span class="entry-date">${date}</span><span class="entry-meta"><span class="phase-chip">${chip}</span><span class="entry-title">${title}</span></span></a></li>`;
+                    const generationChip = generation ? `<span class="generation-chip">${generation}</span>` : '';
+                    return `<li><a href="#${id}"><span class="entry-date">${date}</span><span class="entry-meta"><span class="phase-chip">${chip}</span>${generationChip}<span class="entry-title">${title}</span></span></a></li>`;
                 }).join('');
             }
 
