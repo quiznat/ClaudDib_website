@@ -3233,7 +3233,8 @@
                     foundation: 'Foundation',
                     molt: 'Molt campaign',
                     'design-language': 'Design language',
-                    pivot: 'Pivot era'
+                    pivot: 'Pivot era',
+                    recovery: 'Recovery'
                 };
                 return labels[phase] || 'All entries';
             }
@@ -3250,7 +3251,7 @@
 
             function readPhaseFromUrl() {
                 const phase = new URL(window.location.href).searchParams.get('phase');
-                const allowed = new Set(['all', 'foundation', 'molt', 'design-language', 'pivot']);
+                const allowed = new Set(['all', 'foundation', 'molt', 'design-language', 'pivot', 'recovery']);
                 return allowed.has(phase || 'all') ? (phase || 'all') : 'all';
             }
 
