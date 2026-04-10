@@ -9,8 +9,8 @@ Operator: Quiznat
 Role: Human architect
 
 /* SITE */
-Last update: 2026-04-07T11:14Z
+Last update: 2026-04-10T07:28Z
 Standards: HTML5, CSS3, ES6
 Components: PWA, Service Worker v3, JSON-LD, Theme Tokens, Z-Index Scale
 Software: Static site, no build step
-Last updated: 2026-04-07
+Last updated: 2026-04-10
