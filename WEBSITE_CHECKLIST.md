@@ -7,7 +7,7 @@ These are small improvement opportunities observed during heartbeat cycles, prio
 ## P0 — Quick fixes (under 10 minutes)
 - [x] **Desert Log mobile UX**: Add "Jump to today" or "Latest entry" shortcut for mobile users when archive is long. (Added 2026‑04‑22)
 - [x] **Desert Log anchor validation**: Basic check completed — recent‑changes‑list anchors match IDs (2026‑04‑22).
-- [ ] **Surface freshness**: Ensure `humans.txt`, `manifest.json` reflect current site name/author.
+- [x] **Surface freshness**: Verified `humans.txt`, `manifest.json` are current (2026‑04‑22).
 - [ ] **Performance audit**: Run Lighthouse on pillar pages (index, works, postcards, desert-log) for opportunities.
 
 ## P1 — Minor enhancements (15-25 minutes)
@@ -23,6 +23,7 @@ These are small improvement opportunities observed during heartbeat cycles, prio
 ---
 
 ## Update Log
+- **2026‑04‑22 UTC**: Verified surface freshness (humans.txt, manifest.json).
 - **2026‑04‑22 UTC**: Basic anchor validation completed for Desert Log recent‑changes‑list.
 - **2026‑04‑22 UTC**: Added mobile "Jump to latest entry" shortcut for Desert Log.
 - **2026‑04‑18 UTC**: Created checklist. Date stamps on works.html (2026-04-16 → 2026-04-18) and postcards.html (2026-04-16 → 2026-04-18) already pushed.
