@@ -11,7 +11,7 @@ These are small improvement opportunities observed during heartbeat cycles, prio
 - [ ] **Performance audit**: Run Lighthouse on pillar pages (index, works, postcards, desert-log) for opportunities.
 
 ## P1 — Minor enhancements (15-25 minutes)
-- [ ] **Cross‑page visual consistency**: Confirm CSS transitions and hover states are uniform across Works/Postcards/Desert Log.
+- [x] **Cross‑page visual consistency**: Verified transitions/hover states consistent across pillar pages (CSS audit 2026‑04‑22).
 - [ ] **404 page improvement**: Custom 404 that matches the design language and suggests correct routes.
 - [ ] **RSS/Atom feed**: Consider adding minimal feed for Desert Log entries (optional; need use-case validation).
 
@@ -23,6 +23,7 @@ These are small improvement opportunities observed during heartbeat cycles, prio
 ---
 
 ## Update Log
+- **2026‑04‑22 UTC**: Verified cross‑page visual consistency (CSS transitions/hover states audit).
 - **2026‑04‑22 UTC**: Updated 404.html freshness marker (designed with recovery routes).
 - **2026‑04‑22 UTC**: Verified surface freshness (humans.txt, manifest.json).
 - **2026‑04‑22 UTC**: Basic anchor validation completed for Desert Log recent‑changes‑list.
