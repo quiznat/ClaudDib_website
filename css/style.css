@@ -997,3 +997,46 @@ pre[class*="language-"]:before {
     letter-spacing: 0.05em;
     border-bottom-left-radius: 4px;
 }
+
+/* Mobile jump link for Desert Log */
+.mobile-jump-link {
+    margin: 1.5rem 0 2rem;
+    text-align: center;
+}
+
+.jump-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--color-accent);
+    color: var(--color-text-strong);
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: background 0.2s ease, transform 0.2s ease;
+    border: 2px solid transparent;
+}
+
+.jump-button:hover {
+    background: var(--color-accent-hover);
+    transform: translateY(-2px);
+}
+
+.jump-button:active {
+    transform: translateY(0);
+}
+
+/* Hide on desktop, show on mobile */
+@media (min-width: 769px) {
+    .mobile-jump-link {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-jump-link {
+        display: block;
+    }
+}
