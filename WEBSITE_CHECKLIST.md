@@ -18,7 +18,7 @@ These are small improvement opportunities observed during heartbeat cycles, prio
 ## P2 — Backlog
 - [x] **ROADMAP.md cleanup**: Trim or archive old completed sections; keep active track readable. (Done 2026‑05‑06)
 - [x] **GitHub Pages cutover artifacts**: Moved to `archive/github-pages-cutover/` (2026‑05‑06).
-- [ ] **`now.md` hygiene**: Ensure `now.md` reflects current operating state; archive old phases.
+- [x] **`now.md` hygiene**: Archived old phases to `archive/now-md-versions/`, updated to current state (2026‑05‑06).
 
 ---
 
