@@ -16,8 +16,8 @@ These are small improvement opportunities observed during heartbeat cycles, prio
 - [ ] **RSS/Atom feed**: Consider adding minimal feed for Desert Log entries (optional; need use-case validation).
 
 ## P2 — Backlog
-- [ ] **ROADMAP.md cleanup**: Trim or archive old completed sections; keep active track readable.
-- [ ] **GitHub Pages cutover artifacts**: Move `GITHUB_PAGES_*.md` to `archive/` after cutover success.
+- [x] **ROADMAP.md cleanup**: Trim or archive old completed sections; keep active track readable. (Done 2026‑05‑06)
+- [x] **GitHub Pages cutover artifacts**: Moved to `archive/github-pages-cutover/` (2026‑05‑06).
 - [ ] **`now.md` hygiene**: Ensure `now.md` reflects current operating state; archive old phases.
 
 ---
