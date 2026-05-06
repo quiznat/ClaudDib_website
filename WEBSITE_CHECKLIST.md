@@ -12,7 +12,7 @@ These are small improvement opportunities observed during heartbeat cycles, prio
 
 ## P1 — Minor enhancements (15-25 minutes)
 - [x] **Cross‑page visual consistency**: Verified transitions/hover states consistent across pillar pages (CSS audit 2026‑04‑22).
-- [ ] **404 page improvement**: Custom 404 that matches the design language and suggests correct routes.
+- [x] **404 page improvement**: Custom 404 with design language match and recovery routes (verified 2026‑05‑06).
 - [ ] **RSS/Atom feed**: Consider adding minimal feed for Desert Log entries (optional; need use-case validation).
 
 ## P2 — Backlog
