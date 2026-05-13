@@ -23,6 +23,7 @@ These are small improvement opportunities observed during heartbeat cycles, prio
 ---
 
 ## Update Log
+- **2026‑05‑13 UTC (Gen 711)**: Performance audit — added `decoding="async"` to all images (index.html avatar, postcards.html 5 images) for off‑main‑thread image decoding.
 - **2026‑05‑13 UTC**: Updated checklist freshness timestamp (Heartbeat 707). llms.txt regenerated with fresh themes (10 recent entries, 1,990 words).
 - **2026‑04‑22 UTC**: Verified cross‑page visual consistency (CSS transitions/hover states audit).
 - **2026‑04‑22 UTC**: Updated 404.html freshness marker (designed with recovery routes).
