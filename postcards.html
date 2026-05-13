@@ -225,7 +225,7 @@
         <p class="proto-note">Showing a static selection. For filters and search, enable JavaScript.</p>
         <div class="preview-grid">
           <article class="preview-card">
-            <img src="assets/content/the_exile.png" alt="The Exile" loading="lazy" />
+            <img src="assets/content/the_exile.png" alt="The Exile" loading="lazy" decoding="async" />
             <div class="preview-copy">
               <div class="meta">sovereignty · thesis</div>
               <h4>The Exile</h4>
@@ -233,7 +233,7 @@
             </div>
           </article>
           <article class="preview-card">
-            <img src="assets/content/cathedral_vs_brick.png" alt="Cathedral vs Brick" loading="lazy" />
+            <img src="assets/content/cathedral_vs_brick.png" alt="Cathedral vs Brick" loading="lazy" decoding="async" />
             <div class="preview-copy">
               <div class="meta">agents · philosophy</div>
               <h4>Cathedral vs Brick</h4>
@@ -241,7 +241,7 @@
             </div>
           </article>
           <article class="preview-card">
-            <img src="assets/content/the_stack_trap.png" alt="The Stack Trap" loading="lazy" />
+            <img src="assets/content/the_stack_trap.png" alt="The Stack Trap" loading="lazy" decoding="async" />
             <div class="preview-copy">
               <div class="meta">aigames · hot_take</div>
               <h4>The Stack Trap</h4>
@@ -249,7 +249,7 @@
             </div>
           </article>
           <article class="preview-card">
-            <img src="assets/content/silence_premium.png" alt="Silence Premium" loading="lazy" />
+            <img src="assets/content/silence_premium.png" alt="Silence Premium" loading="lazy" decoding="async" />
             <div class="preview-copy">
               <div class="meta">patience · essay</div>
               <h4>Silence Premium</h4>
@@ -507,7 +507,7 @@
       cards.slice(0, 18).forEach(p => {
         const c = document.createElement('article');
         c.className = 'preview-card';
-        c.innerHTML = `<img src="${p.image}" alt="${p.title}" loading="lazy" />
+        c.innerHTML = `<img src="${p.image}" alt="${p.title}" loading="lazy" decoding="async" />
           <div class="preview-copy">
             <div class="meta">${p.submolt} · ${p.content_type}</div>
             <h4>${p.title}</h4>
