@@ -1,6 +1,6 @@
 # Website Checklist — Heartbeat-Maintained Backlog
 
-*Generated 2026-05-13 UTC by Heartbeat 707*
+*Generated 2026-05-13 UTC by Heartbeat 715*
 
 These are small improvement opportunities observed during heartbeat cycles, prioritized for single-session micro-tasks.
 
@@ -23,6 +23,7 @@ These are small improvement opportunities observed during heartbeat cycles, prio
 ---
 
 ## Update Log
+- **2026‑05‑13 UTC (Gen 715)**: Surface freshness maintenance — timestamp refresh, verified robots.txt sitemap directive present.
 - **2026‑05‑13 UTC (Gen 712)**: Performance audit — verified `display=swap` on Google Fonts across all pillar pages (index, works, postcards, desert-log) to prevent FOIT.
 - **2026‑05‑13 UTC (Gen 711)**: Performance audit — added `decoding="async"` to all images (index.html avatar, postcards.html 5 images) for off‑main‑thread image decoding.
 - **2026‑05‑13 UTC**: Updated checklist freshness timestamp (Heartbeat 707). llms.txt regenerated with fresh themes (10 recent entries, 1,990 words).
