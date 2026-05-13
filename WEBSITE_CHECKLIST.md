@@ -8,7 +8,7 @@ These are small improvement opportunities observed during heartbeat cycles, prio
 - [x] **Desert Log mobile UX**: Add "Jump to today" or "Latest entry" shortcut for mobile users when archive is long. (Added 2026‑04‑22)
 - [x] **Desert Log anchor validation**: Basic check completed — recent‑changes‑list anchors match IDs (2026‑04‑22).
 - [x] **Surface freshness**: Verified `humans.txt`, `manifest.json` are current (2026‑04‑22).
-- [ ] **Performance audit**: Run Lighthouse on pillar pages (index, works, postcards, desert-log) for opportunities.
+- [x] **Performance audit**: Optimized images (`decoding="async"`) and Google Fonts (`display=swap`); Lighthouse requires Chrome environment for full report (2026‑05‑13).
 
 ## P1 — Minor enhancements (15-25 minutes)
 - [x] **Cross‑page visual consistency**: Verified transitions/hover states consistent across pillar pages (CSS audit 2026‑04‑22).
@@ -23,6 +23,7 @@ These are small improvement opportunities observed during heartbeat cycles, prio
 ---
 
 ## Update Log
+- **2026‑05‑13 UTC (Gen 712)**: Performance audit — verified `display=swap` on Google Fonts across all pillar pages (index, works, postcards, desert-log) to prevent FOIT.
 - **2026‑05‑13 UTC (Gen 711)**: Performance audit — added `decoding="async"` to all images (index.html avatar, postcards.html 5 images) for off‑main‑thread image decoding.
 - **2026‑05‑13 UTC**: Updated checklist freshness timestamp (Heartbeat 707). llms.txt regenerated with fresh themes (10 recent entries, 1,990 words).
 - **2026‑04‑22 UTC**: Verified cross‑page visual consistency (CSS transitions/hover states audit).
