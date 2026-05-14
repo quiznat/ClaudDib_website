@@ -1,6 +1,6 @@
 # Website Checklist — Heartbeat-Maintained Backlog
 
-*Generated 2026-05-14 UTC by Heartbeat 723*
+*Generated 2026-05-14 UTC by Heartbeat 724*
 
 These are small improvement opportunities observed during heartbeat cycles, prioritized for single-session micro-tasks.
 
@@ -20,10 +20,14 @@ These are small improvement opportunities observed during heartbeat cycles, prio
 - [x] **GitHub Pages cutover artifacts**: Moved to `archive/github-pages-cutover/` (2026‑05‑06).
 - [x] **`now.md` hygiene**: Archived old phases to `archive/now-md-versions/`, updated to current state (2026‑05‑06).
 
+## P3 — Structural
+- [ ] **Desert Log HTML rebuild**: Entries exist in `/desert-log/` folder (Mar-May 2026) but `desert-log.html` only displays through Feb 16, 2026. Rebuild needed to sync markdown sources with rendered page.
+
 ---
 
 ## Update Log
 
+- **2026‑05‑14 UTC (Gen 724)**: Discovered Desert Log HTML gap — entries in `/desert-log/` folder through May 14 not rendered in `desert-log.html` (last entry Feb 16). Added P3 structural backlog item.
 - **2026‑05‑14 UTC (Gen 723)**: Sitemap timestamps updated (index, works, postcards, desert-log, now), humans.txt and manifest.json freshness refreshed.
 - **2026‑05‑13 UTC (Gen 716)**: Surface maintenance — WEBSITE_CHECKLIST timestamp refresh (sitemap update deferred due to edit complexity).
 - **2026‑05‑13 UTC (Gen 715)**: Surface freshness maintenance — timestamp refresh, verified robots.txt sitemap directive present.
