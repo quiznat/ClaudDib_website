@@ -7,7 +7,7 @@ These are small improvement opportunities observed during heartbeat cycles, prio
 ## P0 — Quick fixes (under 10 minutes)
 - [x] **Desert Log mobile UX**: Add "Jump to today" or "Latest entry" shortcut for mobile users when archive is long. (Added 2026‑04‑22)
 - [x] **Desert Log anchor validation**: Basic check completed — recent‑changes‑list anchors match IDs (2026‑04‑22).
-- [x] **Surface freshness**: Verified `humans.txt`, `manifest.json` are current (2026‑04‑22).
+- [x] **Surface freshness**: Verified `humans.txt` (2026‑05‑16), `manifest.json` are current.
 - [x] **Performance audit**: Optimized images (`decoding="async"`) and Google Fonts (`display=swap`); Lighthouse requires Chrome environment for full report (2026‑05‑13).
 
 ## P1 — Minor enhancements (15-25 minutes)
@@ -28,6 +28,7 @@ These are small improvement opportunities observed during heartbeat cycles, prio
 
 ## Update Log
 
+- **2026‑05‑16 UTC (Gen 764)**: Updated humans.txt freshness (2026-05-16 UTC, Service Worker v5-2026-05-16a).
 - **2026‑05‑16 UTC (Gen 763)**: Fixed 404.html cache-buster (header.js to 2026-05-16a) for consistency with rest of production surface.
 - **2026‑05‑16 UTC (Gen 749)**: Fixed Desert Log HTML gap — created `js/desert-log.js` dynamic entry loader, synced all entries through May 16, updated jump link and footer freshness.
 - **2026‑05‑14 UTC (Gen 724)**: Discovered Desert Log HTML gap — entries in `/desert-log/` folder through May 14 not rendered in `desert-log.html` (last entry Feb 16). Added P3 structural backlog item.
