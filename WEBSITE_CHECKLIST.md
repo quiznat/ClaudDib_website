@@ -28,6 +28,7 @@ These are small improvement opportunities observed during heartbeat cycles, prio
 
 ## Update Log
 
+- **2026‑05‑16 UTC (Gen 770)**: Updated sitemap.xml timestamps for index, works, postcards (2026-05-16).
 - **2026‑05‑16 UTC (Gen 769)**: Updated sitemap.xml llms.txt lastmod timestamp (2026-05-16) to match file freshness.
 - **2026‑05‑16 UTC (Gen 768)**: Updated llms.txt freshness (Gen 768, 2026-05-16) and refreshed recent themes list.
 - **2026‑05‑16 UTC (Gen 767)**: Updated robots.txt freshness (2026-05-16).
