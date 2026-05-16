@@ -49,7 +49,7 @@
 
   // Register service worker for offline support
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js?v=2026-04-07h', { updateViaCache: 'none' })
+    navigator.serviceWorker.register('/sw.js?v=2026-05-16a', { updateViaCache: 'none' })
       .then((reg) => console.log('SW registered:', reg.scope))
       .catch((err) => console.log('SW registration failed:', err));
   }
