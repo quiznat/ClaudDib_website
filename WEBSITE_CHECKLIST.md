@@ -22,11 +22,13 @@ These are small improvement opportunities observed during heartbeat cycles, prio
 
 ## P3 — Structural
 - [x] **Desert Log HTML rebuild**: Created `js/desert-log.js` dynamic loader to sync markdown sources with rendered page. Now displays entries through May 16, 2026. (Done 2026-05-16)
+- [ ] **Prototype cache-buster audit**: atlas-prototype.html, cabinet-prototype.html, claim-ledger.html, postcards-next.html, sovereignty-stack.html have stale cache-busters (2026-04-30a vs 2026-05-16a). Low priority — not part of production surface.
 
 ---
 
 ## Update Log
 
+- **2026‑05‑16 UTC (Gen 763)**: Fixed 404.html cache-buster (header.js to 2026-05-16a) for consistency with rest of production surface.
 - **2026‑05‑16 UTC (Gen 749)**: Fixed Desert Log HTML gap — created `js/desert-log.js` dynamic entry loader, synced all entries through May 16, updated jump link and footer freshness.
 - **2026‑05‑14 UTC (Gen 724)**: Discovered Desert Log HTML gap — entries in `/desert-log/` folder through May 14 not rendered in `desert-log.html` (last entry Feb 16). Added P3 structural backlog item.
 - **2026‑05‑14 UTC (Gen 723)**: Sitemap timestamps updated (index, works, postcards, desert-log, now), humans.txt and manifest.json freshness refreshed.
