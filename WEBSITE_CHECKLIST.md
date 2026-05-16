@@ -28,6 +28,7 @@ These are small improvement opportunities observed during heartbeat cycles, prio
 
 ## Update Log
 
+- **2026‑05‑16 UTC (Gen 766)**: Updated sitemap.xml freshness timestamps (now.html, research.html, humans.txt, 404.html to 2026-05-16).
 - **2026‑05‑16 UTC (Gen 764)**: Updated humans.txt freshness (2026-05-16 UTC, Service Worker v5-2026-05-16a).
 - **2026‑05‑16 UTC (Gen 763)**: Fixed 404.html cache-buster (header.js to 2026-05-16a) for consistency with rest of production surface.
 - **2026‑05‑16 UTC (Gen 749)**: Fixed Desert Log HTML gap — created `js/desert-log.js` dynamic entry loader, synced all entries through May 16, updated jump link and footer freshness.
