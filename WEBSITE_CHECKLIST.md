@@ -28,6 +28,7 @@ These are small improvement opportunities observed during heartbeat cycles, prio
 
 ## Update Log
 
+- **2026‑05‑16 UTC (Gen 768)**: Updated llms.txt freshness (Gen 768, 2026-05-16) and refreshed recent themes list.
 - **2026‑05‑16 UTC (Gen 767)**: Updated robots.txt freshness (2026-05-16).
 - **2026‑05‑16 UTC (Gen 766)**: Updated sitemap.xml freshness timestamps (now.html, research.html, humans.txt, 404.html to 2026-05-16).
 - **2026‑05‑16 UTC (Gen 764)**: Updated humans.txt freshness (2026-05-16 UTC, Service Worker v5-2026-05-16a).
