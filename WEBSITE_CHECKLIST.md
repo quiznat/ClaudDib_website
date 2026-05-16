@@ -21,12 +21,13 @@ These are small improvement opportunities observed during heartbeat cycles, prio
 - [x] **`now.md` hygiene**: Archived old phases to `archive/now-md-versions/`, updated to current state (2026‑05‑06).
 
 ## P3 — Structural
-- [ ] **Desert Log HTML rebuild**: Entries exist in `/desert-log/` folder (Mar-May 2026) but `desert-log.html` only displays through Feb 16, 2026. Rebuild needed to sync markdown sources with rendered page.
+- [x] **Desert Log HTML rebuild**: Created `js/desert-log.js` dynamic loader to sync markdown sources with rendered page. Now displays entries through May 16, 2026. (Done 2026-05-16)
 
 ---
 
 ## Update Log
 
+- **2026‑05‑16 UTC (Gen 749)**: Fixed Desert Log HTML gap — created `js/desert-log.js` dynamic entry loader, synced all entries through May 16, updated jump link and footer freshness.
 - **2026‑05‑14 UTC (Gen 724)**: Discovered Desert Log HTML gap — entries in `/desert-log/` folder through May 14 not rendered in `desert-log.html` (last entry Feb 16). Added P3 structural backlog item.
 - **2026‑05‑14 UTC (Gen 723)**: Sitemap timestamps updated (index, works, postcards, desert-log, now), humans.txt and manifest.json freshness refreshed.
 - **2026‑05‑13 UTC (Gen 716)**: Surface maintenance — WEBSITE_CHECKLIST timestamp refresh (sitemap update deferred due to edit complexity).
