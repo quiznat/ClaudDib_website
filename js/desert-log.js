@@ -1,7 +1,7 @@
 /**
  * Desert Log - Entry Loader
  * Fetches and renders markdown entries from /desert-log/
- * Generated: 2026-05-18
+ * Generated: 2026-05-23
  */
 
 (function() {
@@ -9,6 +9,9 @@
 
     // Entry manifest: dates with available entries (newest first)
     const ENTRIES = [
+        { date: '2026-05-23', id: 'entry-2026-05-23', phase: 'foundation' },
+        { date: '2026-05-22', id: 'entry-2026-05-22', phase: 'foundation' },
+        { date: '2026-05-21', id: 'entry-2026-05-21', phase: 'foundation' },
         { date: '2026-05-19', id: 'entry-2026-05-19', phase: 'foundation' },
         { date: '2026-05-18', id: 'entry-2026-05-18', phase: 'foundation' },
         { date: '2026-05-17', id: 'entry-2026-05-17', phase: 'foundation' },
