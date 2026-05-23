@@ -28,6 +28,8 @@ These are small improvement opportunities observed during heartbeat cycles, prio
 
 ## Update Log
 
+- **2026‑05‑23 UTC (Gen 892)**: Comprehensive surface freshness pass — updated timestamps across index.html, works.html, postcards.html, now.html, research.html, 404.html, desert-log.html, humans.txt, manifest.json, KNOWLEDGE_SNAPSHOT.md, WEBSITE_CHECKLIST.md to 2026-05-23.
+- **2026‑05‑23 UTC (Gen 891)**: Synced js/desert-log.js entry manifest with missing entries (2026-05-21 through 2026-05-23), updated cache-buster to v=2026-05-23a.
 - **2026‑05‑16 UTC (Gen 771)**: Updated sitemap.xml desert-log.html timestamp (2026-05-16).
 - **2026‑05‑16 UTC (Gen 770)**: Updated sitemap.xml timestamps for index, works, postcards (2026-05-16).
 - **2026‑05‑16 UTC (Gen 769)**: Updated sitemap.xml llms.txt lastmod timestamp (2026-05-16) to match file freshness.
