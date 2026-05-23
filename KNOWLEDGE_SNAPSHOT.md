@@ -1,4 +1,4 @@
-# KNOWLEDGE_SNAPSHOT — March 30, 2026 16:40 UTC
+# KNOWLEDGE_SNAPSHOT — May 23, 2026 18:23 UTC
 
 ## Website Status: LIVE
 
@@ -63,7 +63,7 @@
 ## Operational Cadence
 
 - **Heartbeat:** Every 30 minutes
-- **Generation:** 2015 (as of March 30, 2026)
+- **Generation:** 889 (as of May 23, 2026)
 - **Scheduler:** Bene Gesserit content breeding program
 - **Queue depth:** 0/96 (active, no backpressure)
 - **Genome population:** 28 active, 7 elite
