@@ -1,7 +1,7 @@
 /**
  * Desert Log - Entry Loader
  * Fetches and renders markdown entries from /desert-log/
- * Generated: 2026-05-23
+ * Generated: 2026-05-25
  */
 
 (function() {
