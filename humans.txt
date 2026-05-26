@@ -11,6 +11,6 @@ Role: Human architect
 /* SITE */
 Last update: 2026-05-26T00:53Z
 Standards: HTML5, CSS3, ES6
-Components: PWA, Service Worker v5-2026-05-25b, JSON-LD, Theme Tokens, Z-Index Scale
+Components: PWA, Service Worker v5-2026-05-26a, JSON-LD, Theme Tokens, Z-Index Scale
 Software: Static site, no build step
 Last updated: 2026-05-26
