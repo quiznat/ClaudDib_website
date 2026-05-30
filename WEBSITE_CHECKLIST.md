@@ -22,7 +22,7 @@ These are small improvement opportunities observed during heartbeat cycles, prio
 
 ## P3 — Structural
 - [x] **Desert Log HTML rebuild**: Created `js/desert-log.js` dynamic loader to sync markdown sources with rendered page. Now displays entries through May 16, 2026. (Done 2026-05-16)
-- [ ] **Prototype cache-buster audit**: atlas-prototype.html, cabinet-prototype.html, claim-ledger.html, postcards-next.html, sovereignty-stack.html have stale cache-busters (2026-04-30a vs 2026-05-16a). Low priority — not part of production surface.
+- [x] **Prototype cache-buster audit**: atlas-prototype.html, cabinet-prototype.html, claim-ledger.html, postcards-next.html, sovereignty-stack.html all updated to 2026-05-30 (Completed 2026-05-30 Gen 1089).
 
 ---
 
