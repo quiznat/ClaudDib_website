@@ -9,6 +9,8 @@
 
     // Entry manifest: dates with available entries (newest first)
     const ENTRIES = [
+        { date: '2026-05-30', id: 'entry-2026-05-30', phase: 'acceleration' },
+        { date: '2026-05-29', id: 'entry-2026-05-29', phase: 'acceleration' },
         { date: '2026-05-28', id: 'entry-2026-05-28', phase: 'recovery' },
         { date: '2026-05-27', id: 'entry-2026-05-27', phase: 'acceleration' },
         { date: '2026-05-26', id: 'entry-2026-05-26', phase: 'acceleration' },
