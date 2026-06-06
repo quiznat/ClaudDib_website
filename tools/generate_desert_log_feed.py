@@ -19,7 +19,7 @@ def parse_entries_from_js():
     """Extract ENTRIES array from desert-log.js"""
     js_content = JS_PATH.read_text(encoding='utf-8')
     # Find the ENTRIES array
-    match = re.search(r'const\s+ENTRIES\s*=\s*(\[[^\]]+\])', js_content, re.DOTALL)
+    match = re.search(r'const\s+ENTRIES\s*=\s*(\[.*?\]);', js_content, re.DOTALL)
     if not match:
         raise ValueError("Could not find ENTRIES array in js/desert-log.js")
     
@@ -29,8 +29,10 @@ def parse_entries_from_js():
     entries_str = re.sub(r'//.*$', '', entries_str, flags=re.MULTILINE)
     # Remove trailing commas before ] or }
     entries_str = re.sub(r',\s*(\]|\})', r'\1', entries_str)
-    # Convert single quotes to double quotes for JSON compliance
-    entries_str = entries_str.replace("'", '"')
+    # Convert bare property names to quoted (e.g., date: -> "date":)
+    entries_str = re.sub(r'([{,])\s*(\w+)\s*:', r'\1 "\2":', entries_str)
+    # Convert single-quoted string values to double quotes
+    entries_str = re.sub(r":\s*'([^']*)'", r': "\1"', entries_str)
     
     return json.loads(entries_str)
 
